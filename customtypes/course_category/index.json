@@ -1,0 +1,24 @@
+{
+  "format": "custom",
+  "id": "course_category",
+  "label": "Course Category",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "name",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

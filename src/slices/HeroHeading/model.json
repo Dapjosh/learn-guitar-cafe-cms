@@ -1,0 +1,65 @@
+{
+  "id": "hero_heading",
+  "type": "SharedSlice",
+  "name": "HeroHeading",
+  "description": "HeroHeading",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "font_size": {
+          "type": "Select",
+          "config": {
+            "label": "Font Size",
+            "placeholder": "Adjust font size",
+            "options": [
+              "Small",
+              "Medium",
+              "Large",
+              "Extra Large"
+            ]
+          }
+        },
+        "background_opacity": {
+          "type": "Number",
+          "config": {
+            "label": "Background Opacity",
+            "placeholder": "Enter a value between 0 and 100"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

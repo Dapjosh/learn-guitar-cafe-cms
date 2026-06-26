@@ -1,0 +1,130 @@
+{
+  "type": "SharedSlice",
+  "id": "course_grid",
+  "name": "CourseGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard grid of multiple featured courses with consistent fields for each item.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "section_title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2",
+            "label": "Section Title"
+          }
+        },
+        "section_description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph",
+            "label": "Section Description"
+          }
+        },
+        "all_courses_link": {
+          "type": "Link",
+          "config": {
+            "label": "All Courses Link",
+            "allowText": true,
+            "repeat": false,
+            "select": null
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "button_text",
+            "placeholder": ""
+          }
+        },
+        "courses": {
+          "type": "Group",
+          "config": {
+            "label": "Courses",
+            "fields": {
+              "course_category": {
+                "type": "Link",
+                "config": {
+                  "label": "Course Category",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "course_category",
+                      "fields": [
+                        "name"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "course_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Course Image"
+                }
+              },
+              "instructor": {
+                "type": "Text",
+                "config": {
+                  "label": "Instructor"
+                }
+              },
+              "course_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Course Title"
+                }
+              },
+              "duration": {
+                "type": "Text",
+                "config": {
+                  "label": "Duration"
+                }
+              },
+              "students_count": {
+                "type": "Number",
+                "config": {
+                  "label": "Students Count"
+                }
+              },
+              "original_price": {
+                "type": "Text",
+                "config": {
+                  "label": "Original Price"
+                }
+              },
+              "current_price": {
+                "type": "Text",
+                "config": {
+                  "label": "Current Price"
+                }
+              },
+              "cta_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Course CTA Link",
+                  "allowText": true,
+                  "repeat": false,
+                  "select": null
+                }
+              }
+            }
+          }
+        },
+        "show_shadow": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Card Shadow"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

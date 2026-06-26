@@ -1,0 +1,90 @@
+{
+  "format": "custom",
+  "id": "course",
+  "label": "Course",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "course_image": {
+        "type": "Image",
+        "config": {
+          "label": "Course Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "summary": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Summary",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "course_category": {
+        "type": "Link",
+        "config": {
+          "label": "Course Category",
+          "select": "document",
+          "repeat": false,
+          "customtypes": [
+            {
+              "id": "course_category",
+              "fields": ["name"]
+            }
+          ]
+        }
+      },
+      "author": {
+        "type": "Text",
+        "config": {
+          "label": "author",
+          "placeholder": ""
+        }
+      },
+      "duration": {
+        "type": "Text",
+        "config": {
+          "label": "duration",
+          "placeholder": ""
+        }
+      },
+      "student_count": {
+        "type": "Number",
+        "config": {
+          "label": "student_count",
+          "placeholder": ""
+        }
+      },
+      "original_price": {
+        "type": "Number",
+        "config": {
+          "label": "original_price",
+          "placeholder": ""
+        }
+      },
+      "current_price": {
+        "type": "Number",
+        "config": {
+          "label": "current_price",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

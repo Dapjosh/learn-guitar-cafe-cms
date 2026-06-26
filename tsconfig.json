@@ -1,0 +1,141 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@/prismic-types": [
+        "./src/prismicio-types.d.ts"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@lgc_cms/actions": [
+        "libs/shared/actions/src/index.ts"
+      ],
+      "@lgc_cms/actions/server": [
+        "libs/shared/actions/src/server.ts"
+      ],
+      "@lgc_cms/features": [
+        "libs/shared/features/src/index.ts"
+      ],
+      "@lgc_cms/features/server": [
+        "libs/shared/features/src/server.ts"
+      ],
+      "@lgc_cms/features/ui": [
+        "libs/shared/features/src/ui.ts"
+      ],
+      "@lgc_cms/hooks": [
+        "libs/shared/hooks/src/index.ts"
+      ],
+      "@lgc_cms/hooks/server": [
+        "libs/shared/hooks/src/server.ts"
+      ],
+      "@lgc_cms/integration": [
+        "libs/shared/integration/src/index.ts"
+      ],
+      "@lgc_cms/integration/server": [
+        "libs/shared/integration/src/server.ts"
+      ],
+      "@lgc_cms/layout": [
+        "libs/shared/layout/src/index.ts"
+      ],
+      "@lgc_cms/layout/server": [
+        "libs/shared/layout/src/server.ts"
+      ],
+      "@lgc_cms/lesson": [
+        "libs/shared/lesson/src/index.ts"
+      ],
+      "@lgc_cms/lesson/server": [
+        "libs/shared/lesson/src/server.ts"
+      ],
+      "@lgc_cms/pin": [
+        "libs/shared/pin/src/index.ts"
+      ],
+      "@lgc_cms/pin/server": [
+        "libs/shared/pin/src/server.ts"
+      ],
+      "@lgc_cms/providers": [
+        "libs/shared/providers/src/index.ts"
+      ],
+      "@lgc_cms/providers/server": [
+        "libs/shared/providers/src/server.ts"
+      ],
+      "@lgc_cms/shadcn-ui": [
+        "libs/shared/shadcn-ui/src/index.ts"
+      ],
+      "@lgc_cms/shadcn-ui/server": [
+        "libs/shared/shadcn-ui/src/server.ts"
+      ],
+      "@lgc_cms/shared": [
+        "libs/shared/shared/src/index.ts"
+      ],
+      "@lgc_cms/shared/server": [
+        "libs/shared/shared/src/server.ts"
+      ],
+      "@lgc_cms/store": [
+        "libs/shared/store/src/index.ts"
+      ],
+      "@lgc_cms/store/server": [
+        "libs/shared/store/src/server.ts"
+      ],
+      "@lgc_cms/types": [
+        "libs/shared/types/src/index.ts"
+      ],
+      "@lgc_cms/types/server": [
+        "libs/shared/types/src/server.ts"
+      ],
+      "@lgc_cms/ui": [
+        "libs/shared/ui/src/index.ts"
+      ],
+      "@lgc_cms/ui/server": [
+        "libs/shared/ui/src/server.ts"
+      ],
+      "@lgc_cms/util": [
+        "libs/shared/util/src/index.ts"
+      ],
+      "@lgc_cms/util/server": [
+        "libs/shared/util/src/server.ts"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

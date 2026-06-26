@@ -1,0 +1,161 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"section_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Taken"
+						}
+					}
+				]
+			},
+			"section_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Officia ipsum velit laborum irure deserunt et id aliqua aliqua nostrud nisi non in."
+						}
+					}
+				]
+			},
+			"all_courses_link": {
+				"key": "17f07edc-13a0-4807-94b4-861e65c13b35",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "curve"
+				}
+			},
+			"courses": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"course_image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
+										"width": 3456,
+										"height": 3456
+									},
+									"url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
+									"width": 3456,
+									"height": 3456,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "inside",
+									"credits": null,
+									"__TYPE__": "ImageContent"
+								}
+							],
+							[
+								"instructor",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "pleasant",
+									"type": "Text"
+								}
+							],
+							[
+								"course_title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Proident veniam dolor mollit laborum incididunt ea. Anim duis id ex quis et aliqua adipisicing amet aute sunt ex aliquip."
+											}
+										}
+									]
+								}
+							],
+							[
+								"duration",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "private",
+									"type": "Text"
+								}
+							],
+							[
+								"students_count",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "89",
+									"type": "Number"
+								}
+							],
+							[
+								"original_price",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "remove",
+									"type": "Text"
+								}
+							],
+							[
+								"current_price",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "clothing",
+									"type": "Text"
+								}
+							],
+							[
+								"cta_link",
+								{
+									"key": "a2645905-eece-4b38-902c-b55ca9bd9cb5",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "is"
+									}
+								}
+							],
+							[
+								"course_category",
+								{
+									"key": "0404e2fa-1dae-4129-af0d-ab7167a595ac",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"show_shadow": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "supply",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
