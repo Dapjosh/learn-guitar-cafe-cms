@@ -1,8 +1,8 @@
 
 # clerk configuration (can include secrets)
 /.clerk/
-/node_modules/
-/.next/
-/package-lock.json
+node_modules
+.next
+package-lock.json
 .env.local
 
