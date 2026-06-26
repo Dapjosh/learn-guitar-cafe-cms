@@ -30,4 +30,4 @@ export { BlogList } from './lib/blog/blog-list';
 export { SocialList } from './lib/social-list/social-list';
 export * from './lib/modals/confirm-modal';
 export { Editor } from './lib/editor/editor';
-export { UserSignedInDropdown } from './lib/auth/user-signed-in-dropdown';
+// export { UserSignedInDropdown } from './lib/auth/user-signed-in-dropdown';
