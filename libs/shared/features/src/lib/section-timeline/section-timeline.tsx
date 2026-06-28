@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { scrollUpVariants } from '@lgc_cms/util';
 import SectionTimelineItem from './section-timeline-item';
 import { KeyTextField, RichTextField } from '@prismicio/client';
-import { TimelineSliceDefaultPrimaryItemsItem } from '../../../../../../apps/kids-guitar-dojo/prismicio-types';
+import { TimelineSliceDefaultPrimaryItemsItem } from 'prismicio-types';
 
 const AnimatedSectionTitle = motion.create(SectionTitle);
 

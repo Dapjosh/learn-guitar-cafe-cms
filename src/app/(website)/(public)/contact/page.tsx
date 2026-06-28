@@ -1,4 +1,4 @@
-import { ContactForm, HeroSimple, SocialList } from '@lgc_cms/features';
+import { HeroSimple, SocialList } from '@lgc_cms/features';
 import { createClient } from '@/prismicio';
 import { notFound } from 'next/navigation';
 import { PrismicImage, SliceZone } from '@prismicio/react';
@@ -118,7 +118,7 @@ export default async function Page() {
           <div>
             <div className="mb-5 text-3xl font-bold md:text-4xl">{page.data.form_heading}</div>
             <div className="mb-5 text-gray-500">{page.data.form_body}</div>
-            <ContactForm items={settings.data.contact_form_enquiries} />
+            {/* <ContactForm items={settings.data.contact_form_enquiries} /> */}
           </div>
         </div>
       </Bounded>

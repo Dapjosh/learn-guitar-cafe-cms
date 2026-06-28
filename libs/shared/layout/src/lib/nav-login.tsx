@@ -1,5 +1,5 @@
 'use client';
-import { SignedIn, SignedOut, useUser } from '@clerk/nextjs';
+import { SignedIn, SignedOut, useUser, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import cn from 'classnames';
 import {
@@ -18,7 +18,7 @@ import { PrismicNextLink } from '@prismicio/next';
 
 import { usePathname } from 'next/navigation';
 import { asText } from '@prismicio/client';
-import { UserSignedInDropdown } from '@lgc_cms/features';
+// import { UserSignedInDropdown } from '@lgc_cms/features';
 import { type NavigationDocumentData } from '../../../../../prismicio-types';
 
 export function NavLogin({
@@ -52,7 +52,7 @@ export function NavLogin({
               </Link>
             </SignedOut>
             <SignedIn>
-              <UserSignedInDropdown />
+              <UserButton />
             </SignedIn>
           </li>
           <li>

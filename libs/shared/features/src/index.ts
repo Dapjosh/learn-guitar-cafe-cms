@@ -1,9 +1,8 @@
-export * from './lib/courses-timeline-list/courses-timeline-list';
+
 export { CookieConsent } from './lib/cookie-consent/cookie-consent';
 export { SectionContentBlockList } from './lib/section-content-block-list/section-content-block-list';
 export * from './lib/section-blog/section-blog';
 export { SharePage } from './lib/share-page/share-page';
-export { ContactForm } from './lib/contact-form/contact-form';
 export { SectionFaqs } from './lib/section-faqs/section-faqs';
 
 export { CtaTwoColumnText } from './lib/cta/cta-two-column-text';

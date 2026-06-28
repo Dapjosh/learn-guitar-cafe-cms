@@ -40,5 +40,7 @@ export const createClient = (config: ClientConfig = {}) => {
     ...config,
   } as prismic.ClientConfig);
 
+  prismicNext.enableAutoPreviews({ client });
+
   return client;
 };

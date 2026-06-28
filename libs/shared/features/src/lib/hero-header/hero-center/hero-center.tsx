@@ -35,24 +35,18 @@ export function HeroCenter({
     <div
       className={cn(
         'hero-area mb-15 relative isolate px-5 pt-[100px] md:mb-[200px] md:pt-[140px]',
-        color === 'A' ? 'bg-primary' : 'bg-neutral'
-      )}
-    >
+        color === 'A' ? 'bg-primary' : 'bg-neutral',
+      )}>
       <h1 className="sr-only">Home Page</h1>
-      {decor === 'B' && (
+      {decor === 'A' && (
         <div className={'w-full overflow-hidden'}>
           <motion.div
             className="pointer-events-none absolute left-1/2 z-50 h-full max-h-[447px] w-full max-w-[1100px] -translate-x-1/2 overflow-hidden"
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.1 }}
-            variants={scrollUpFadeVariants}
-          >
-            <div
-              className={
-                'absolute left-1/2 top-1/2 mx-auto w-full min-w-[700px] -translate-x-1/2 md:top-[30%]'
-              }
-            >
+            variants={scrollUpFadeVariants}>
+            <div className={'absolute left-1/2 top-1/2 mx-auto w-full min-w-[700px] -translate-x-1/2 md:top-[30%]'}>
               <Image
                 src={Notes}
                 alt="notes decor"
@@ -70,13 +64,7 @@ export function HeroCenter({
           titleSize={'large'}
           titleClass={cn(color === 'A' && 'text-white')}
         />
-        {motto && (
-          <MottoText
-            {...motto}
-            size="md"
-            className={cn('mt-[25px]', color === 'A' && 'text-white')}
-          />
-        )}
+        {motto && <MottoText {...motto} size="md" className={cn('mt-[25px]', color === 'A' && 'text-white')} />}
 
         {buttons && (
           <div className={'mb-16 mt-10 flex justify-center gap-2.5'}>

@@ -1,13 +1,13 @@
 'use client';
 import Link from 'next/link';
 import { SettingsIcon } from 'lucide-react';
-import { SignedIn, SignedOut } from '@clerk/nextjs';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 import cn from 'classnames';
 import { buttonVariants } from '@lgc_cms/shadcn-ui/server';
 import Image, { type StaticImageData } from 'next/image';
 import React from 'react';
-import { UserSignedInDropdown } from '@lgc_cms/features';
+// import { UserSignedInDropdown } from '@lgc_cms/features';
 
 interface HeaderProps {
   isAdmin?: boolean;
@@ -54,7 +54,7 @@ export function NavbarSimple({
                     Log in
                   </Link>
                 </SignedOut>
-                <UserSignedInDropdown />
+                <UserButton />
               </li>
               <li>
                 <SignedOut>

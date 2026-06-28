@@ -80,7 +80,7 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
       extractedKeywords.push(...importantWords.slice(0, 10)); // Limit to 10 words
     }
 
-    return [...new Set(extractedKeywords)]; // Remove duplicates
+    return Array.from(new Set(extractedKeywords)); // Remove duplicates
   }
 
   // Get category name
@@ -95,7 +95,7 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
 
   // Finalize keyword list
   let finalKeywords = [...tags, ...postKeywords, ...dynamicKeywords, ...parentKeywords].filter(Boolean); // Remove empty values
-  finalKeywords = [...new Set(finalKeywords)]; // Remove duplicates
+  finalKeywords = Array.from(new Set(finalKeywords)); // Remove duplicates
 
   finalKeywords = finalKeywords.slice(0, 15); // Limit to 15 keywords
 
