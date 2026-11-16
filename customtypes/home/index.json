@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "hero_with_video": {
+              "type": "SharedSlice"
+            },
+            "bunny_video": {
+              "type": "SharedSlice"
+            },
             "course_grid": {
               "type": "SharedSlice"
             },

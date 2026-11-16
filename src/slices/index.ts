@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 export const components = {
   blog_list: dynamic(() => import("./BlogList")),
+  bunny_video: dynamic(() => import("./BunnyVideo")),
   call_to_action: dynamic(() => import("./CallToAction")),
   content_image_slice: dynamic(() => import("./ContentImageSlice")),
   course_grid: dynamic(() => import("./CourseGrid")),
@@ -11,6 +12,7 @@ export const components = {
   features: dynamic(() => import("./Features")),
   hero: dynamic(() => import("./Hero")),
   hero_heading: dynamic(() => import("./HeroHeading")),
+  hero_with_video: dynamic(() => import("./BannerWithVideo")),
   image_gallery: dynamic(() => import("./ImageGallery")),
   image_grid: dynamic(() => import("./ImageGrid")),
   lesson_rick_text: dynamic(() => import("./LessonRickText")),

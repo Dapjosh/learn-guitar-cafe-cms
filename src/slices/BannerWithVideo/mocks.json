@@ -1,0 +1,132 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "Online guitar lessons with Paul Greig",
+				"type": "Text"
+			},
+			"background_image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "/images/banner-video-bg.jpg",
+					"width": 1920,
+					"height": 1080
+				},
+				"url": "/images/banner-video-bg.jpg",
+				"width": 1920,
+				"height": 1080,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "Vintage guitar background illustration"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#f4eee5",
+				"type": "Color"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "SLIDE GUITAR & OPEN TUNINGS",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 20,
+									"end": 27
+								}
+							]
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Step-by-step masterclasses to help you play the music you love, with tone and feel that sound like the record."
+						}
+					}
+				]
+			},
+			"primary_cta": {
+				"__TYPE__": "LinkContent",
+				"key": "fbc39549-e5df-4c85-aecc-53ce7a75854a",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://learnguitarcafe.com",
+					"text": "Explore the lessons"
+				}
+			},
+			"video_thumbnail": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "/images/banner-video-thumb.jpg",
+					"width": 718,
+					"height": 404
+				},
+				"url": "/images/banner-video-thumb.jpg",
+				"width": 718,
+				"height": 404,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "Paul Greig playing slide guitar"
+			},
+			"video_url": {
+				"__TYPE__": "LinkContent",
+				"key": "0f0714e2-249c-48c3-8332-b3391e4f5578",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+				}
+			},
+			"video_meta": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"featured",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": true
+								}
+							],
+							[
+								"video_description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Introduction to slide & roots guitar",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

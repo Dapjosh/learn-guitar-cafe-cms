@@ -797,6 +797,7 @@ export type FaqDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FaqDocumentData>, "faq", Lang>;
 
 type HomeDocumentDataSlicesSlice =
+  | BunnyVideoSlice
   | CourseGridSlice
   | BlogListSlice
   | TestimonialsSlice
@@ -1843,6 +1844,72 @@ type BlogListSliceVariation = BlogListSliceDefault;
 export type BlogListSlice = prismic.SharedSlice<
   "blog_list",
   BlogListSliceVariation
+>;
+
+/**
+ * Primary content in *BunnyVideo → Default → Primary*
+ */
+export interface BunnyVideoSliceDefaultPrimary {
+  /**
+   * Video Url field in *BunnyVideo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bunny_video.default.primary.video_url
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  video_url: prismic.KeyTextField;
+
+  /**
+   * Title field in *BunnyVideo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bunny_video.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Autoplay field in *BunnyVideo → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: bunny_video.default.primary.autoplay
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  autoplay: prismic.BooleanField;
+}
+
+/**
+ * Default variation for BunnyVideo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BunnyVideoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BunnyVideoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BunnyVideo*
+ */
+type BunnyVideoSliceVariation = BunnyVideoSliceDefault;
+
+/**
+ * BunnyVideo Shared Slice
+ *
+ * - **API ID**: `bunny_video`
+ * - **Description**: BunnyVideo
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BunnyVideoSlice = prismic.SharedSlice<
+  "bunny_video",
+  BunnyVideoSliceVariation
 >;
 
 /**
@@ -3636,9 +3703,79 @@ export type HeroHeadingSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *HeroHeading → Home Banner → Primary*
+ */
+export interface HeroHeadingSliceHomeBannerPrimary {
+  /**
+   * Title field in *HeroHeading → Home Banner → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_heading.homeBanner.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *HeroHeading → Home Banner → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_heading.homeBanner.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Background Image field in *HeroHeading → Home Banner → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_heading.homeBanner.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Font Size field in *HeroHeading → Home Banner → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Adjust font size
+   * - **API ID Path**: hero_heading.homeBanner.primary.font_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  font_size: prismic.SelectField<"Small" | "Medium" | "Large" | "Extra Large">;
+
+  /**
+   * Background Opacity field in *HeroHeading → Home Banner → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: Enter a value between 0 and 100
+   * - **API ID Path**: hero_heading.homeBanner.primary.background_opacity
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  background_opacity: prismic.NumberField;
+}
+
+/**
+ * Home Banner variation for HeroHeading Slice
+ *
+ * - **API ID**: `homeBanner`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroHeadingSliceHomeBanner = prismic.SharedSliceVariation<
+  "homeBanner",
+  Simplify<HeroHeadingSliceHomeBannerPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *HeroHeading*
  */
-type HeroHeadingSliceVariation = HeroHeadingSliceDefault;
+type HeroHeadingSliceVariation =
+  | HeroHeadingSliceDefault
+  | HeroHeadingSliceHomeBanner;
 
 /**
  * HeroHeading Shared Slice
@@ -3650,6 +3787,170 @@ type HeroHeadingSliceVariation = HeroHeadingSliceDefault;
 export type HeroHeadingSlice = prismic.SharedSlice<
   "hero_heading",
   HeroHeadingSliceVariation
+>;
+
+/**
+ * Item in *BannerWithVideo → Default → Primary → Video Meta*
+ */
+export interface HeroWithVideoSliceDefaultPrimaryVideoMetaItem {
+  /**
+   * Featured field in *BannerWithVideo → Default → Primary → Video Meta*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.video_meta[].featured
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  featured: prismic.BooleanField;
+
+  /**
+   * Video Description field in *BannerWithVideo → Default → Primary → Video Meta*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.video_meta[].video_description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  video_description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *BannerWithVideo → Default → Primary*
+ */
+export interface HeroWithVideoSliceDefaultPrimary {
+  /**
+   * Badge Text field in *BannerWithVideo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.badge_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  badge_text: prismic.KeyTextField;
+
+  /**
+   * Background Image field in *BannerWithVideo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Background Color field in *BannerWithVideo → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  background_color: prismic.ColorField;
+
+  /**
+   * Title field in *BannerWithVideo → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *BannerWithVideo → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Primary Call to Action field in *BannerWithVideo → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.primary_cta
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  primary_cta: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Video Thumbnail field in *BannerWithVideo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.video_thumbnail
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  video_thumbnail: prismic.ImageField<never>;
+
+  /**
+   * Video URL field in *BannerWithVideo → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.video_url
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  video_url: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Video Meta field in *BannerWithVideo → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_with_video.default.primary.video_meta[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  video_meta: prismic.GroupField<
+    Simplify<HeroWithVideoSliceDefaultPrimaryVideoMetaItem>
+  >;
+}
+
+/**
+ * Default variation for BannerWithVideo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Standard hero layout with headline, subheading, button and featured video with meta.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroWithVideoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroWithVideoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BannerWithVideo*
+ */
+type HeroWithVideoSliceVariation = HeroWithVideoSliceDefault;
+
+/**
+ * BannerWithVideo Shared Slice
+ *
+ * - **API ID**: `hero_with_video`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroWithVideoSlice = prismic.SharedSlice<
+  "hero_with_video",
+  HeroWithVideoSliceVariation
 >;
 
 /**
@@ -4932,6 +5233,10 @@ declare module "@prismicio/client" {
       BlogListSliceDefaultPrimary,
       BlogListSliceVariation,
       BlogListSliceDefault,
+      BunnyVideoSlice,
+      BunnyVideoSliceDefaultPrimary,
+      BunnyVideoSliceVariation,
+      BunnyVideoSliceDefault,
       CallToActionSlice,
       CallToActionSliceDefaultPrimaryButtonsItem,
       CallToActionSliceDefaultPrimary,
@@ -4988,8 +5293,15 @@ declare module "@prismicio/client" {
       HeroSliceSimple,
       HeroHeadingSlice,
       HeroHeadingSliceDefaultPrimary,
+      HeroHeadingSliceHomeBannerPrimary,
       HeroHeadingSliceVariation,
       HeroHeadingSliceDefault,
+      HeroHeadingSliceHomeBanner,
+      HeroWithVideoSlice,
+      HeroWithVideoSliceDefaultPrimaryVideoMetaItem,
+      HeroWithVideoSliceDefaultPrimary,
+      HeroWithVideoSliceVariation,
+      HeroWithVideoSliceDefault,
       ImageGallerySlice,
       ImageGallerySliceDefaultPrimaryImagesItem,
       ImageGallerySliceDefaultPrimary,

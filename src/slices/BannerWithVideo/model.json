@@ -1,0 +1,97 @@
+{
+  "type": "SharedSlice",
+  "id": "hero_with_video",
+  "name": "BannerWithVideo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard hero layout with headline, subheading, button and featured video with meta.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text"
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "#f4eee5"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1,strong,em",
+            "label": "Title"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "primary_cta": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Call to Action",
+            "allowText": true,
+            "repeat": false,
+            "select": null
+          }
+        },
+        "video_thumbnail": {
+          "type": "Image",
+          "config": {
+            "label": "Video Thumbnail"
+          }
+        },
+        "video_url": {
+          "type": "Link",
+          "config": {
+            "label": "Video URL",
+            "allowText": false,
+            "repeat": false,
+            "select": null
+          }
+        },
+        "video_meta": {
+          "type": "Group",
+          "config": {
+            "label": "Video Meta",
+            "fields": {
+              "featured": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Featured"
+                }
+              },
+              "video_description": {
+                "type": "Text",
+                "config": {
+                  "label": "Video Description"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
