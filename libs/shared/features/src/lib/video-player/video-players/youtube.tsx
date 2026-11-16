@@ -1,9 +1,7 @@
 /* eslint-disable-next-line */
 'use client';
 import cn from 'classnames';
-import { ComponentRef, useRef, useState } from 'react';
-import ReactPlayer from 'react-player';
-import { type Config } from 'react-player/types';
+import { useState } from 'react';
 
 import VideoControl from './video-control';
 import VideoFrame from './video-frame';
@@ -23,7 +21,31 @@ export interface YoutubeProps {
   frame?: boolean;
 }
 
-type ReactPlayerRef = ComponentRef<typeof ReactPlayer>;
+function getYouTubeEmbedUrl(
+  idOrUrl: string,
+  controls: boolean = true,
+  loop: boolean = false
+): string {
+  let videoId = idOrUrl;
+  const match = idOrUrl.match(
+    /(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/
+  );
+  if (match) {
+    videoId = match[1];
+  }
+  const params = new URLSearchParams({
+    autoplay: '1',
+    color: 'white',
+    controls: controls ? '1' : '0',
+    playsinline: '1',
+    rel: '0',
+  });
+  if (loop) {
+    params.set('loop', '1');
+    params.set('playlist', videoId);
+  }
+  return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
+}
 
 export function Youtube({
   id,
@@ -39,7 +61,6 @@ export function Youtube({
   height = 1200,
 }: YoutubeProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
-  const ref = useRef<ReactPlayerRef | null>(null);
 
   if (!width) {
     width = 944;
@@ -48,12 +69,6 @@ export function Youtube({
   if (!height) {
     height = 531;
   }
-
-  const opts: Config = {
-    youtube: {
-      color: 'white',
-    },
-  };
 
   const handlePlay = () => {
     if (autoplay) {
@@ -75,28 +90,17 @@ export function Youtube({
     setShowPlayer(true);
   };
 
-  //debugger;
-
   return (
     <VideoPlayerWrapper handlePlay={handlePlay} handlePause={handlePause} handleReplay={handleReplay}>
       <div className={cn('aspect-w-16 aspect-h-9 relative z-20 overflow-hidden')}>
         <VideoFrame active={frame}>
           {showPlayer && (
-            <ReactPlayer
-              width="100%"
-              height="100%"
-              playing={showPlayer}
-              muted={autoplay}
-              ref={ref}
-              light={poster}
-              id={id}
-              src={src}
-              loop={loop}
-              config={opts}
-              playsInline={true}
-              onPlay={handlePlay}
-              controls={controls}
-              className={'absolute z-10 min-h-full w-auto min-w-full max-w-none'}
+            <iframe
+              src={getYouTubeEmbedUrl(src || id, controls, loop)}
+              title={title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="absolute z-10 inset-0 h-full w-full border-0"
             />
           )}
           {!autoplay && (

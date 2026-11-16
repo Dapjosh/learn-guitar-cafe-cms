@@ -1,15 +1,11 @@
 /* eslint-disable-next-line */
 'use client';
 import cn from 'classnames';
-import { ComponentRef, useRef, useState } from 'react';
-import ReactPlayer from 'react-player';
+import { useState } from 'react';
 
-import { type Config } from 'react-player/types';
 import VideoControl from './video-control';
 import VideoFrame from './video-frame';
 import VideoPlayerWrapper from '../video-player-wrapper';
-
-type ReactPlayerRef = ComponentRef<typeof ReactPlayer>;
 
 export interface VimeoProps {
   id: string;
@@ -24,6 +20,24 @@ export interface VimeoProps {
   loop?: boolean;
   frame?: boolean;
   standard?: boolean;
+}
+
+function getVimeoEmbedUrl(idOrUrl: string, loop: boolean = false): string {
+  let videoId = idOrUrl;
+  const match = idOrUrl.match(
+    /(?:vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^\/]*)\/videos\/|album\/(?:\d+)\/video\/|video\/|))(\d+)/
+  );
+  if (match) {
+    videoId = match[1];
+  }
+  const params = new URLSearchParams({
+    autoplay: '1',
+    loop: loop ? '1' : '0',
+    dnt: '1',
+    byline: '0',
+    title: '0',
+  });
+  return `https://player.vimeo.com/video/${videoId}?${params.toString()}`;
 }
 
 export function Vimeo({
@@ -41,15 +55,6 @@ export function Vimeo({
   standard = true,
 }: VimeoProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
-  const ref = useRef<ReactPlayerRef | null>(null);
-
-  const opts: Config = {
-    vimeo: {
-      vimeo_logo: false,
-      byline: false,
-      dnt: true,
-    },
-  };
 
   const handlePlay = () => {
     if (autoplay) {
@@ -72,29 +77,26 @@ export function Vimeo({
   };
 
   return (
-    <VideoPlayerWrapper handlePlay={handlePlay} handlePause={handlePause} handleReplay={handleReplay}>
+    <VideoPlayerWrapper
+      handlePlay={handlePlay}
+      handlePause={handlePause}
+      handleReplay={handleReplay}
+    >
       <div
         className={cn(
           'bg-neutral aspect-w-16 aspect-h-9 relative z-20 h-full w-full overflow-hidden',
-          showPlayer ? 'display opacity-100' : 'hidden opacity-0',
-        )}>
+          showPlayer ? 'display opacity-100' : 'hidden opacity-0'
+        )}
+      >
         <VideoFrame active={frame}>
           {showPlayer && (
-            <ReactPlayer
-              width="100%"
-              height="100%"
-              playing={showPlayer}
-              muted={autoplay}
-              ref={ref}
-              light={poster}
-              id={id}
-              src={src}
-              loop={loop}
-              config={opts}
-              playsInline={true}
-              controls={controls}
-              className={'h-full w-full object-cover object-center'}
-              onPlay={handlePlay}></ReactPlayer>
+            <iframe
+              src={getVimeoEmbedUrl(src || id, loop)}
+              title={title}
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              className="absolute z-10 inset-0 h-full w-full border-0 object-cover object-center"
+            />
           )}
 
           {!autoplay && (
@@ -102,7 +104,9 @@ export function Vimeo({
               handlePlay={play}
               title={title}
               loading={loading}
-              poster={poster && `${poster}?fm=webp&w=${width}&h=${height}&fit=fill`}
+              poster={
+                poster && `${poster}?fm=webp&w=${width}&h=${height}&fit=fill`
+              }
               width={width}
               height={height}
             />
