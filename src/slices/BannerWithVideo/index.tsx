@@ -1,15 +1,11 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import { Content, isFilled } from '@prismicio/client';
 import { SliceComponentProps, PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
-import { Play } from 'lucide-react';
-
-// Dynamically import ReactPlayer to avoid SSR hydration issues
-const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
+import { VideoPlayer } from '@lgc_cms/features';
 
 /**
  * Props for `BannerWithVideo`.
@@ -21,18 +17,32 @@ export type BannerWithVideoProps =
  * Component for "BannerWithVideo" Slices.
  */
 const BannerWithVideo: FC<BannerWithVideoProps> = ({ slice }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
   // Background styling from CMS
   const hasBgImage = isFilled.image(slice.primary.background_image);
   const bgColor = slice.primary.background_color || '#f4eee5';
 
-  // Video URL resolution
-  const videoUrl =
-    (slice.primary.video_url as { url?: string })?.url ||
+  // Video URL resolution & provider detection for VideoPlayer component
+  const rawVideo = (slice.primary.video_url || {}) as any;
+  const embedUrl =
+    rawVideo.embed_url ||
+    rawVideo.url ||
     (typeof slice.primary.video_url === 'string'
       ? slice.primary.video_url
-      : '');
+      : '') ||
+    'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+
+  const providerName: 'YouTube' | 'Vimeo' =
+    rawVideo.provider_name === 'Vimeo' || embedUrl.includes('vimeo')
+      ? 'Vimeo'
+      : 'YouTube';
+
+  const thumbnailImage = isFilled.image(slice.primary.video_thumbnail)
+    ? slice.primary.video_thumbnail
+    : ({
+        url: '/images/banner-video-thumb.jpg',
+        alt: 'Video preview',
+        dimensions: { width: 718, height: 404 },
+      } as any);
 
   // Video Meta (Featured badge & video description)
   const metaItem = slice.primary.video_meta?.[0];
@@ -180,107 +190,54 @@ const BannerWithVideo: FC<BannerWithVideoProps> = ({ slice }) => {
           </div>
         )}
 
-        {/* Video Player Card */}
-        <div className="relative w-full max-w-4xl aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl shadow-black/25 border border-black/10 bg-black flex items-center justify-center group">
-          {isPlaying && videoUrl ? (
-            // Active video playback
-            (() => {
-              if (videoUrl.includes('mediadelivery.net')) {
-                return (
-                  <iframe
-                    src={
-                      videoUrl.includes('?')
-                        ? `${videoUrl}&autoplay=true`
-                        : `${videoUrl}?autoplay=true`
-                    }
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full border-0 z-20"
-                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                    allowFullScreen={true}
-                  />
-                );
-              }
+        {/* Video Player Card using codebase VideoPlayer component */}
+        <div className="relative w-full max-w-4xl rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl shadow-black/25 border border-black/10 bg-black group">
+          <VideoPlayer
+            id={rawVideo.id || 'banner-video'}
+            title={rawVideo.title || 'Featured Lesson Video'}
+            provider_name={providerName}
+            embed_url={embedUrl}
+            image={thumbnailImage}
+            html={rawVideo.html || ''}
+            loading="lazy"
+            width={944}
+            height={531}
+            {...rawVideo}
+          />
 
-              return (
-                <ReactPlayer
-                  url={videoUrl}
-                  className="absolute inset-0 z-20"
-                  width="100%"
-                  height="100%"
-                  playing={true}
-                  controls={true}
-                />
-              );
-            })()
-          ) : (
-            // Thumbnail poster and play button
-            <>
-              {isFilled.image(slice.primary.video_thumbnail) ? (
-                <PrismicNextImage
-                  field={slice.primary.video_thumbnail}
-                  fill
-                  className="object-cover object-center"
-                  alt=""
-                  priority
-                />
-              ) : (
-                <Image
-                  src="/images/banner-video-thumb.jpg"
-                  fill
-                  className="object-cover object-center"
-                  alt="Video preview"
-                  priority
-                />
+          {/* Bottom-left Featured Video Meta */}
+          {(isFeatured || videoDescription) && (
+            <div className="absolute bottom-3 left-3 sm:bottom-5 sm:left-5 z-30 flex items-center gap-2.5 rounded-full bg-black/60 backdrop-blur-md px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm text-white/90 border border-white/10 shadow-lg pointer-events-none">
+              {isFeatured && (
+                <span className="flex items-center gap-1.5 font-semibold text-white">
+                  <svg
+                    className="w-3.5 h-3.5 text-[#d85d18] shrink-0"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <circle
+                      cx="8"
+                      cy="8"
+                      r="7"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                    <circle cx="8" cy="8" r="3" fill="currentColor" />
+                  </svg>
+                  Featured
+                </span>
               )}
-
-              {/* Subtle vintage vignette overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
-
-              {/* Center Play Button */}
-              <button
-                type="button"
-                onClick={() => setIsPlaying(true)}
-                aria-label="Play video"
-                className="group/btn relative z-10 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/40 text-white shadow-xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50"
-              >
-                <Play className="h-6 w-6 sm:h-7 sm:w-7 fill-white/80 text-white translate-x-0.5 transition-transform group-hover/btn:scale-110" />
-              </button>
-
-              {/* Bottom-left Featured Video Meta */}
-              {(isFeatured || videoDescription) && (
-                <div className="absolute bottom-3 left-3 sm:bottom-5 sm:left-5 z-20 flex items-center gap-2.5 rounded-full bg-black/60 backdrop-blur-md px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm text-white/90 border border-white/10 shadow-lg pointer-events-none">
-                  {isFeatured && (
-                    <span className="flex items-center gap-1.5 font-semibold text-white">
-                      <svg
-                        className="w-3.5 h-3.5 text-[#d85d18] shrink-0"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <circle
-                          cx="8"
-                          cy="8"
-                          r="7"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        />
-                        <circle cx="8" cy="8" r="3" fill="currentColor" />
-                      </svg>
-                      Featured
-                    </span>
-                  )}
-                  {isFeatured && videoDescription && (
-                    <span className="text-white/40">|</span>
-                  )}
-                  {videoDescription && (
-                    <span className="text-white/85 font-normal">
-                      {videoDescription}
-                    </span>
-                  )}
-                </div>
+              {isFeatured && videoDescription && (
+                <span className="text-white/40">|</span>
               )}
-            </>
+              {videoDescription && (
+                <span className="text-white/85 font-normal">
+                  {videoDescription}
+                </span>
+              )}
+            </div>
           )}
         </div>
       </div>
