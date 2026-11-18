@@ -1,4 +1,5 @@
 @use "../styles/navbar" as navbar;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -131,5 +132,18 @@
   &:hover {
     color: hsl(var(--secondary-foreground)) !important;
     background: hsl(var(--secondary)) !important;
+  }
+}
+
+.slice-custom-btn {
+  background-color: var(--btn-bg, transparent);
+  color: var(--btn-text, #1c1917);
+  border-color: var(--btn-border, #1c1917);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--btn-hover-bg, #000000) !important;
+    color: var(--btn-hover-text, #ffffff) !important;
+    border-color: var(--btn-hover-border, #000000) !important;
   }
 }

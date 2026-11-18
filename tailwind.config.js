@@ -12,7 +12,7 @@ module.exports = {
   },
   content: [
     join(__dirname, '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'),
-    join('libs', '**/src/**/*!(*.stories|*.spec).{ts,tsx,html}'),
+    join(__dirname, 'libs/**/src/**/*!(*.stories|*.spec).{ts,tsx,html}'),
   ],
   theme: {
     extend: {
@@ -112,6 +112,8 @@ module.exports = {
       }),
       fontFamily: {
         sans: ['var(--font-raleway)'],
+        inter: ['Inter', 'var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        anton: ['var(--font-anton)', 'Anton', 'sans-serif'],
         'lesson-body': ['var(--font-nunito)'],
         'lesson-heading': ['var(--font-mochiy-pop-one)'],
       },

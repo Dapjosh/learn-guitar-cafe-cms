@@ -1,5 +1,11 @@
 import './global.scss';
-import { Raleway, Mochiy_Pop_One, Nunito } from 'next/font/google';
+import {
+  Raleway,
+  Mochiy_Pop_One,
+  Nunito,
+  Inter,
+  Anton,
+} from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { createClient, repositoryName } from '@/prismicio';
 import { Metadata, ResolvingMetadata } from 'next';
@@ -23,6 +29,19 @@ const mochiyPopOne = Mochiy_Pop_One({
   weight: '400',
   display: 'swap',
   variable: '--font-mochiy-pop-one',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const anton = Anton({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-anton',
 });
 
 function isURL(string: string | null | undefined): boolean {
@@ -166,9 +185,21 @@ export default async function RootLayout(props: {
   return (
     <html
       lang="en"
-      className={`${raleway.variable} font-sans ${mochiyPopOne.variable} ${nunito.variable} `}
+      className={`${raleway.variable} font-sans ${mochiyPopOne.variable} ${nunito.variable} ${inter.variable} ${anton.variable}`}
       suppressHydrationWarning={true}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className={'bg-background min-h-screen font-sans antialiased'}>
         <ClientProviders>{props.children}</ClientProviders>
         {/* Cookie consent */}

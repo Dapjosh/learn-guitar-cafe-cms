@@ -174,6 +174,276 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "splitWithImage",
+      "name": "Split With Image",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Two-column editorial card with badge, headline, description, button and rounded vintage photo.",
+      "imageUrl": "",
+      "primary": {
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text",
+            "placeholder": "Our approach"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2,heading1,strong,em",
+            "label": "Title"
+          }
+        },
+        "title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Title Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "Medium",
+              "Small",
+              "Extra Large"
+            ]
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Inter",
+            "options": [
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_weight": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font Weight",
+            "placeholder": "",
+            "default_value": "Black",
+            "options": [
+              "Black",
+              "Bold",
+              "Semi Bold",
+              "Medium",
+              "Normal",
+              "Light",
+              "Thin"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#000000"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "description_size": {
+          "type": "Select",
+          "config": {
+            "label": "Description Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "description_font": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font",
+            "placeholder": "",
+            "default_value": "Raleway",
+            "options": [
+              "Raleway",
+              "Inter",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "description_weight": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font Weight",
+            "placeholder": "",
+            "default_value": "Normal",
+            "options": [
+              "Normal",
+              "Medium",
+              "Light",
+              "Thin",
+              "Semi Bold",
+              "Bold"
+            ]
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": "#2b2b2b"
+          }
+        },
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Button Label",
+            "placeholder": "Explore the courses"
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "/courses",
+            "select": null
+          }
+        },
+        "button_style": {
+          "type": "Select",
+          "config": {
+            "label": "Button Style",
+            "placeholder": "",
+            "default_value": "Outline",
+            "options": [
+              "Outline",
+              "Filled"
+            ]
+          }
+        },
+        "button_font": {
+          "type": "Select",
+          "config": {
+            "label": "Button Font",
+            "placeholder": "",
+            "default_value": "Inter",
+            "options": [
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "button_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Button Border Radius",
+            "placeholder": "",
+            "default_value": "Rounded (Medium)",
+            "options": [
+              "Rounded (Medium)",
+              "Slightly Rounded (Small)",
+              "Large Rounded",
+              "Pill (Full)",
+              "Sharp (Square)"
+            ]
+          }
+        },
+        "button_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Text & Border Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "button_hover_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Background Color",
+            "placeholder": "#000000"
+          }
+        },
+        "button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Main Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_position": {
+          "type": "Select",
+          "config": {
+            "label": "Image Position",
+            "placeholder": "",
+            "default_value": "Right",
+            "options": [
+              "Right",
+              "Left"
+            ]
+          }
+        },
+        "outer_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Outer Box Background Color",
+            "placeholder": "#f4eee5"
+          }
+        },
+        "container_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Container Background Color",
+            "placeholder": "#f4eee5"
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image / Texture",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "background_image_opacity": {
+          "type": "Number",
+          "config": {
+            "label": "Background Image Opacity (0 - 100)",
+            "placeholder": "100"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

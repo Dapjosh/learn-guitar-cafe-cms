@@ -34,6 +34,11 @@
 				"value": "#f4eee5",
 				"type": "Color"
 			},
+			"background_image_opacity": {
+				"__TYPE__": "FieldContent",
+				"value": 100,
+				"type": "Number"
+			},
 			"title": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -52,6 +57,26 @@
 					}
 				]
 			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Large",
+				"type": "Select"
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter",
+				"type": "Select"
+			},
+			"title_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Black",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#000000",
+				"type": "Color"
+			},
 			"description": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -62,6 +87,26 @@
 						}
 					}
 				]
+			},
+			"description_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Raleway",
+				"type": "Select"
+			},
+			"description_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Normal",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#000000",
+				"type": "Color"
 			},
 			"primary_cta": {
 				"__TYPE__": "LinkContent",

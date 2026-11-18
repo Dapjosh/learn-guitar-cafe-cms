@@ -3,7 +3,6 @@ import { BackToTop, MainNavbar } from '@lgc_cms/layout';
 import logo from '@assets/lgc.png';
 import { createClient } from '@/prismicio';
 import { Footer } from '@lgc_cms/layout/server';
-import { NavLogin } from '@lgc_cms/layout';
 
 export default async function Layout({
   children,
@@ -11,13 +10,13 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   const client = createClient();
-  const navigation = await client.getSingle('navigation');
-  const settings = await client.getSingle('settings');
+  const navigation = await client.getSingle('navigation').catch(() => null);
+  const settings = await client.getSingle('settings').catch(() => null);
 
   return (
     <>
       {/* Menu header */}
-      <MainNavbar navigation={navigation.data} logo={logo}></MainNavbar>
+      <MainNavbar navigation={navigation?.data} logo={logo} />
 
       {children}
 
@@ -26,11 +25,11 @@ export default async function Layout({
       {/* BackToTop */}
       <Suspense>
         <Footer
-          navigation={navigation.data}
+          navigation={navigation?.data || { links: [] }}
           logo={logo}
-          secondaryNavigation={settings.data.secondary_navigation}
-          social={settings.data.social_media}
-          copyright={settings.data.copyright_line}
+          secondaryNavigation={settings?.data?.secondary_navigation}
+          social={settings?.data?.social_media}
+          copyright={settings?.data?.copyright_line}
         />
 
         <BackToTop />

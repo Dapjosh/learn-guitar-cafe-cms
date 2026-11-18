@@ -17,6 +17,13 @@
             "label": "Badge Text"
           }
         },
+        "outer_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Outer Box Background Color",
+            "placeholder": "#f4eee5"
+          }
+        },
         "background_image": {
           "type": "Image",
           "config": {
@@ -28,8 +35,15 @@
         "background_color": {
           "type": "Color",
           "config": {
-            "label": "Background Color",
+            "label": "Container Background Color",
             "placeholder": "#f4eee5"
+          }
+        },
+        "background_image_opacity": {
+          "type": "Number",
+          "config": {
+            "label": "Background Image Opacity (0 - 100)",
+            "placeholder": "Enter a value between 0 and 100 (e.g. 50)"
           }
         },
         "title": {
@@ -39,11 +53,115 @@
             "label": "Title"
           }
         },
+        "title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Title Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "Medium",
+              "Small",
+              "Extra Large"
+            ]
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Inter",
+            "options": [
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_weight": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font Weight",
+            "placeholder": "",
+            "default_value": "Black",
+            "options": [
+              "Black",
+              "Bold",
+              "Semi Bold",
+              "Medium",
+              "Normal",
+              "Light",
+              "Thin"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#000000"
+          }
+        },
         "description": {
           "type": "StructuredText",
           "config": {
             "multi": "paragraph,strong,em,hyperlink",
             "label": "Description"
+          }
+        },
+        "description_size": {
+          "type": "Select",
+          "config": {
+            "label": "Description Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "description_font": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font",
+            "placeholder": "",
+            "default_value": "Raleway",
+            "options": [
+              "Raleway",
+              "Inter",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "description_weight": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font Weight",
+            "placeholder": "",
+            "default_value": "Normal",
+            "options": [
+              "Normal",
+              "Medium",
+              "Light",
+              "Thin",
+              "Semi Bold",
+              "Bold"
+            ]
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": "#000000"
           }
         },
         "primary_cta": {

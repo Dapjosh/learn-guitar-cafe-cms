@@ -1,5 +1,5 @@
 .navbar-area {
-  @apply fixed z-[40] w-full transform-gpu;
+  @apply sticky top-0 z-[40] w-full transform-gpu;
 
   .dropdown-toggle {
     @apply relative;
@@ -59,19 +59,13 @@
   }
 
   a.active {
-    @apply text-[#0a64bc];
+    @apply text-[#d85d18];
   }
 
   &.isSticky {
-    @apply fixed;
-    @apply top-0;
-    @apply left-0;
-    @apply z-[40];
-    @apply right-0;
-    @apply bg-white;
-    @apply backdrop-blur-sm;
-    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
-    animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+    @apply fixed top-0 left-0 right-0 z-[40] bg-[#f4eee5]/95 backdrop-blur-md border-b border-black/10;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.06);
+    animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
   }
 }
 

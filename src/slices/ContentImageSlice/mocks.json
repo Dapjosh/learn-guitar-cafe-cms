@@ -245,5 +245,172 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "splitWithImage",
+		"primary": {
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "Our approach",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "AN AUTHENTIC APPROACH TO SLIDE & ROOTS GUITAR",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Large",
+				"type": "Select"
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter",
+				"type": "Select"
+			},
+			"title_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Black",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#000000",
+				"type": "Color"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Learn Guitar Cafe is for players seeking depth rather than just mindless scale drills. We emphasize timeless nuances like intonation, touch, open tunings, and phrasing, helping you find your unique voice and discover authentic vintage tones that inspire your music.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"description_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Raleway",
+				"type": "Select"
+			},
+			"description_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Normal",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#2b2b2b",
+				"type": "Color"
+			},
+			"button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "Explore the courses",
+				"type": "Text"
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "/courses"
+				}
+			},
+			"button_style": {
+				"__TYPE__": "FieldContent",
+				"value": "Outline",
+				"type": "Select"
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Rounded (Medium)",
+				"type": "Select"
+			},
+			"button_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "transparent",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1c1917",
+				"type": "Color"
+			},
+			"button_hover_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#000000",
+				"type": "Color"
+			},
+			"button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#ffffff",
+				"type": "Color"
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
+					"width": 1200,
+					"height": 900
+				},
+				"url": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
+				"width": 1200,
+				"height": 900,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "Musician playing slide guitar",
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"image_position": {
+				"__TYPE__": "FieldContent",
+				"value": "Right",
+				"type": "Select"
+			},
+			"outer_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#f4eee5",
+				"type": "Color"
+			},
+			"container_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#f4eee5",
+				"type": "Color"
+			},
+			"background_image_opacity": {
+				"__TYPE__": "FieldContent",
+				"value": 100,
+				"type": "Number"
+			}
+		},
+		"items": []
 	}
 ]

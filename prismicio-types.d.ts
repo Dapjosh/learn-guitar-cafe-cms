@@ -1052,6 +1052,86 @@ interface NavigationDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   links: prismic.GroupField<Simplify<NavigationDocumentDataLinksItem>>;
+
+  /**
+   * Login Button Label field in *Navigation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Login
+   * - **API ID Path**: navigation.login_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  login_label?: prismic.KeyTextField;
+
+  /**
+   * Login Button Link field in *Navigation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.login_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  login_link?: prismic.LinkField;
+
+  /**
+   * CTA Button Label field in *Navigation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Free starter pack
+   * - **API ID Path**: navigation.cta_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  cta_label?: prismic.KeyTextField;
+
+  /**
+   * CTA Button Link field in *Navigation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.cta_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta_link?: prismic.LinkField;
+
+  /**
+   * Navbar Height (px) field in *Navigation*
+   */
+  navbar_height?: prismic.NumberField;
+
+  /**
+   * Navbar Background Color field in *Navigation*
+   */
+  navbar_bg_color?: prismic.ColorField;
+
+  /**
+   * Site Name Font field in *Navigation*
+   */
+  site_name_font?: prismic.SelectField<"Inter" | "Raleway" | "Nunito" | "Mochiy Pop One">;
+
+  /**
+   * Menu Links Font field in *Navigation*
+   */
+  menu_font?: prismic.SelectField<"Inter" | "Raleway" | "Nunito" | "Mochiy Pop One">;
+
+  /**
+   * Buttons Font field in *Navigation*
+   */
+  button_font?: prismic.SelectField<"Inter" | "Raleway" | "Nunito" | "Mochiy Pop One">;
+
+  /**
+   * Buttons Border Radius field in *Navigation*
+   */
+  button_radius?: prismic.SelectField<
+    | "Rounded (Medium)"
+    | "Slightly Rounded (Small)"
+    | "Large Rounded"
+    | "Pill (Full)"
+    | "Sharp (Square)"
+  >;
+  button_background_color?: prismic.ColorField;
+  button_text_color?: prismic.ColorField;
+  button_hover_background_color?: prismic.ColorField;
+  button_hover_text_color?: prismic.ColorField;
 }
 
 /**
@@ -2561,11 +2641,59 @@ export type ContentImageSliceSliceSectionContentImage =
   >;
 
 /**
+ * Primary content in *ContentImageSlice → Split With Image → Primary*
+ */
+export interface ContentImageSliceSliceSplitWithImagePrimary {
+  badge_text?: prismic.KeyTextField;
+  title: prismic.RichTextField;
+  title_size?: prismic.SelectField<"Large" | "Medium" | "Small" | "Extra Large">;
+  title_font?: prismic.SelectField<"Inter" | "Raleway" | "Nunito" | "Mochiy Pop One">;
+  title_weight?: prismic.SelectField<"Black" | "Bold" | "Semi Bold" | "Medium" | "Normal" | "Light" | "Thin">;
+  title_color?: prismic.ColorField;
+  description: prismic.RichTextField;
+  description_size?: prismic.SelectField<"Medium" | "Small" | "Large">;
+  description_font?: prismic.SelectField<"Raleway" | "Inter" | "Nunito" | "Mochiy Pop One">;
+  description_weight?: prismic.SelectField<"Normal" | "Medium" | "Light" | "Thin" | "Semi Bold" | "Bold">;
+  description_color?: prismic.ColorField;
+  button_label?: prismic.KeyTextField;
+  button_link?: prismic.LinkField;
+  button_style?: prismic.SelectField<"Outline" | "Filled">;
+  button_font?: prismic.SelectField<"Inter" | "Raleway" | "Nunito" | "Mochiy Pop One">;
+  button_radius?: prismic.SelectField<
+    | "Rounded (Medium)"
+    | "Slightly Rounded (Small)"
+    | "Large Rounded"
+    | "Pill (Full)"
+    | "Sharp (Square)"
+  >;
+  button_background_color?: prismic.ColorField;
+  button_text_color?: prismic.ColorField;
+  button_hover_background_color?: prismic.ColorField;
+  button_hover_text_color?: prismic.ColorField;
+  image: prismic.ImageField<never>;
+  image_position?: prismic.SelectField<"Right" | "Left">;
+  outer_background_color?: prismic.ColorField;
+  container_background_color?: prismic.ColorField;
+  background_image?: prismic.ImageField<never>;
+  background_image_opacity?: prismic.NumberField;
+}
+
+/**
+ * Split With Image variation for ContentImageSlice Slice
+ */
+export type ContentImageSliceSliceSplitWithImage = prismic.SharedSliceVariation<
+  "splitWithImage",
+  Simplify<ContentImageSliceSliceSplitWithImagePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ContentImageSlice*
  */
 type ContentImageSliceSliceVariation =
   | ContentImageSliceSliceDefault
-  | ContentImageSliceSliceSectionContentImage;
+  | ContentImageSliceSliceSectionContentImage
+  | ContentImageSliceSliceSplitWithImage;
 
 /**
  * ContentImageSlice Shared Slice
@@ -3829,6 +3957,11 @@ export interface HeroWithVideoSliceDefaultPrimary {
   badge_text: prismic.KeyTextField;
 
   /**
+   * Outer Box Background Color field in *BannerWithVideo → Default → Primary*
+   */
+  outer_background_color?: prismic.ColorField;
+
+  /**
    * Background Image field in *BannerWithVideo → Default → Primary*
    *
    * - **Field Type**: Image
@@ -3849,6 +3982,16 @@ export interface HeroWithVideoSliceDefaultPrimary {
   background_color: prismic.ColorField;
 
   /**
+   * Background Image Opacity field in *BannerWithVideo → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: Enter a value between 0 and 100 (e.g. 50)
+   * - **API ID Path**: hero_with_video.default.primary.background_image_opacity
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  background_image_opacity: prismic.NumberField;
+
+  /**
    * Title field in *BannerWithVideo → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -3859,6 +4002,28 @@ export interface HeroWithVideoSliceDefaultPrimary {
   title: prismic.RichTextField;
 
   /**
+   * Title Size field in *BannerWithVideo → Default → Primary*
+   */
+  title_size?: prismic.SelectField<"Small" | "Medium" | "Large" | "Extra Large">;
+
+  /**
+   * Title Font field in *BannerWithVideo → Default → Primary*
+   */
+  title_font?: prismic.SelectField<"Inter" | "Raleway" | "Nunito" | "Mochiy Pop One">;
+
+  /**
+   * Title Font Weight field in *BannerWithVideo → Default → Primary*
+   */
+  title_weight?: prismic.SelectField<
+    "Black" | "Bold" | "Semi Bold" | "Medium" | "Normal" | "Light" | "Thin"
+  >;
+
+  /**
+   * Title Color field in *BannerWithVideo → Default → Primary*
+   */
+  title_color?: prismic.ColorField;
+
+  /**
    * Description field in *BannerWithVideo → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -3867,6 +4032,28 @@ export interface HeroWithVideoSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
+
+  /**
+   * Description Size field in *BannerWithVideo → Default → Primary*
+   */
+  description_size?: prismic.SelectField<"Small" | "Medium" | "Large">;
+
+  /**
+   * Description Font field in *BannerWithVideo → Default → Primary*
+   */
+  description_font?: prismic.SelectField<"Raleway" | "Inter" | "Nunito">;
+
+  /**
+   * Description Font Weight field in *BannerWithVideo → Default → Primary*
+   */
+  description_weight?: prismic.SelectField<
+    "Normal" | "Medium" | "Light" | "Thin" | "Semi Bold" | "Bold"
+  >;
+
+  /**
+   * Description Color field in *BannerWithVideo → Default → Primary*
+   */
+  description_color?: prismic.ColorField;
 
   /**
    * Primary Call to Action field in *BannerWithVideo → Default → Primary*
