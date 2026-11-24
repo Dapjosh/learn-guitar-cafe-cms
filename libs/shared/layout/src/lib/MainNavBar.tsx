@@ -6,7 +6,8 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { NavigationDocumentData } from '../../../../../prismicio-types';
 import cn from 'classnames';
-import { asText } from '@prismicio/client';
+import { asText, isFilled } from '@prismicio/client';
+import { PrismicNextImage } from '@prismicio/next';
 import { resolveFontFamily } from '@lgc_cms/util';
 
 interface HeaderProps {
@@ -73,6 +74,37 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
   const ctaUrl =
     ((navigation as any)?.cta_link as { url?: string })?.url || '/sign-up';
 
+  // Logo Display Options: 'Logo + Text' | 'Logo Only' | 'Text Only'
+  const logoDisplay = (navigation as any)?.logo_display || 'Logo + Text';
+  const showLogo = logoDisplay !== 'Text Only';
+  const showText = logoDisplay !== 'Logo Only';
+
+  // Logo sizing: custom size/height & width from CMS, with proportional scaling fallback
+  const rawLogoSize = (navigation as any)?.logo_size;
+  const rawLogoWidth = (navigation as any)?.logo_width;
+  const customLogoSize =
+    typeof rawLogoSize === 'number' && rawLogoSize > 0 ? rawLogoSize : null;
+  const customLogoWidth =
+    typeof rawLogoWidth === 'number' && rawLogoWidth > 0 ? rawLogoWidth : null;
+
+  const logoDimensions = isFilled.image((navigation as any)?.logo_image)
+    ? ((navigation as any).logo_image as any).dimensions
+    : null;
+
+  let logoHeight = customLogoSize || 40;
+  let logoWidth = customLogoWidth || customLogoSize || 40;
+
+  if (logoDimensions?.width && logoDimensions?.height) {
+    const aspectRatio = logoDimensions.width / logoDimensions.height;
+    if (!customLogoWidth) {
+      logoWidth = Math.round(logoHeight * aspectRatio);
+    }
+  }
+
+  const siteTitle = (navigation as any)?.site_title || 'PAUL GREIG';
+  const siteName = (navigation as any)?.site_name || 'LEARN GUITAR CAFE';
+  const siteNameColor = (navigation as any)?.site_name_color || '#000000';
+
   // Configurable navbar height and background from CMS
   const rawNavbarHeight = (navigation as any)?.navbar_height;
   const navbarHeight =
@@ -81,15 +113,16 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
       : '90px';
   const navbarBg = (navigation as any)?.navbar_bg_color || '#f4eee5';
 
-  // Configurable fonts from CMS
+  // Configurable fonts from CMS (Defaults: Fraunces for site name, Inter Tight for menu and buttons)
   const siteNameFont = resolveFontFamily(
     (navigation as any)?.site_name_font,
-    'Inter'
+    'Fraunces'
   );
-  const menuFont = resolveFontFamily((navigation as any)?.menu_font, 'Raleway');
+  const menuFont = resolveFontFamily((navigation as any)?.menu_font, 'Inter Tight');
+  const menuActiveColor = (navigation as any)?.menu_active_color || '#d85d18';
   const buttonFont = resolveFontFamily(
     (navigation as any)?.button_font,
-    'Inter'
+    'Inter Tight'
   );
 
   // Configurable button border radius (from CMS or fallback to rounded-md)
@@ -114,6 +147,43 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
     }
   }
 
+  // Button colors & hover configuration from CMS
+  const loginBg = (navigation as any)?.login_button_bg_color || 'transparent';
+  const loginText = (navigation as any)?.login_button_text_color || '#1c1917';
+  const loginHoverBg =
+    (navigation as any)?.login_button_hover_bg_color || 'rgba(0, 0, 0, 0.05)';
+  const loginHoverText =
+    (navigation as any)?.login_button_hover_text_color || loginText;
+
+  const ctaBg = (navigation as any)?.cta_button_bg_color || '#1c1917';
+  const ctaText = (navigation as any)?.cta_button_text_color || '#ffffff';
+  const ctaHoverBg =
+    (navigation as any)?.cta_button_hover_bg_color || '#000000';
+  const ctaHoverText =
+    (navigation as any)?.cta_button_hover_text_color || '#ffffff';
+
+  const loginStyleProps: React.CSSProperties = {
+    fontFamily: buttonFont.fontFamily,
+    fontWeight: 500,
+    backgroundColor: loginBg,
+    color: loginText,
+    borderColor: 'rgba(0, 0, 0, 0.25)',
+    '--btn-hover-bg': loginHoverBg,
+    '--btn-hover-text': loginHoverText,
+    '--btn-hover-border': 'rgba(0, 0, 0, 0.5)',
+  } as React.CSSProperties;
+
+  const ctaStyleProps: React.CSSProperties = {
+    fontFamily: buttonFont.fontFamily,
+    fontWeight: 500,
+    backgroundColor: ctaBg,
+    color: ctaText,
+    borderColor: ctaBg,
+    '--btn-hover-bg': ctaHoverBg,
+    '--btn-hover-text': ctaHoverText,
+    '--btn-hover-border': ctaHoverBg,
+  } as React.CSSProperties;
+
   return (
     <div
       id="navbar"
@@ -130,34 +200,56 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
             href="/"
             onClick={closeMenu}
             className="flex items-center gap-2.5 shrink-0 group focus:outline-none"
-            aria-label="Paul Greig Learn Guitar Cafe"
+            aria-label={`${siteTitle} ${siteName}`}
           >
-            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 flex items-center justify-center">
-              <Image
-                src={logo}
-                fill
-                sizes="40px"
-                className="object-contain"
-                alt=""
-                priority
-              />
-            </div>
-            <div className="flex flex-col text-left justify-center">
-              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] text-[#1c1917] uppercase leading-tight font-sans">
-                PAUL GREIG
-              </span>
-              <span
-                className={cn(
-                  'text-sm sm:text-base font-black tracking-[-0.02em] text-black uppercase leading-none',
-                  siteNameFont.className
-                )}
+            {showLogo && (
+              <div
+                className="relative shrink-0 flex items-center justify-center overflow-hidden"
                 style={{
-                  fontFamily: siteNameFont.fontFamily,
+                  width: `${logoWidth}px`,
+                  height: `${logoHeight}px`,
                 }}
               >
-                LEARN GUITAR CAFE
-              </span>
-            </div>
+                {isFilled.image((navigation as any)?.logo_image) ? (
+                  <PrismicNextImage
+                    field={(navigation as any).logo_image}
+                    fill
+                    sizes={`${logoWidth}px`}
+                    className="object-contain"
+                    alt={siteName || ''}
+                    priority
+                  />
+                ) : (
+                  <Image
+                    src={logo}
+                    fill
+                    sizes={`${logoWidth}px`}
+                    className="object-contain"
+                    alt=""
+                    priority
+                  />
+                )}
+              </div>
+            )}
+            {showText && (
+              <div className="flex flex-col text-left justify-center">
+                <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] text-[#1c1917] uppercase leading-tight font-sans">
+                  {siteTitle}
+                </span>
+                <span
+                  className={cn(
+                    'text-sm sm:text-base font-black tracking-[-0.02em] uppercase leading-none',
+                    siteNameFont.className
+                  )}
+                  style={{
+                    fontFamily: siteNameFont.fontFamily,
+                    color: siteNameColor,
+                  }}
+                >
+                  {siteName}
+                </span>
+              </div>
+            )}
           </Link>
 
           {/* Center Navigation Links (In between Left and Right) */}
@@ -199,30 +291,26 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
                 <Link
                   href={loginUrl}
                   className={cn(
+                    'slice-custom-btn border px-4 py-1.5 sm:px-5 sm:py-2 text-sm font-medium transition-all text-center inline-flex items-center justify-center',
                     buttonRadiusClass,
-                    'border border-black/25 hover:border-black/50 bg-transparent px-4 py-1.5 sm:px-5 sm:py-2 text-sm font-semibold text-[#1c1917] hover:bg-black/5 transition-all text-center',
                     buttonFont.className
                   )}
-                  style={{
-                    fontFamily: buttonFont.fontFamily,
-                  }}
+                  style={loginStyleProps}
                 >
                   {loginLabel}
                 </Link>
                 <Link
                   href={ctaUrl}
                   className={cn(
+                    'slice-custom-btn group border inline-flex items-center justify-center gap-2 px-4 py-1.5 sm:px-5 sm:py-2 text-sm font-medium shadow-sm hover:shadow transition-all text-center',
                     buttonRadiusClass,
-                    'inline-flex items-center justify-center gap-2 bg-[#1c1917] hover:bg-black active:bg-neutral-900 px-4 py-1.5 sm:px-5 sm:py-2 text-sm font-semibold text-white shadow-sm hover:shadow transition-all text-center',
                     buttonFont.className
                   )}
-                  style={{
-                    fontFamily: buttonFont.fontFamily,
-                  }}
+                  style={ctaStyleProps}
                 >
                   <span>{ctaLabel}</span>
                   <svg
-                    className="w-4 h-4 text-white shrink-0"
+                    className="w-4 h-4 text-white shrink-0 transition-transform duration-200 group-hover:translate-x-1"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -325,13 +413,11 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
                     href={loginUrl}
                     onClick={closeMenu}
                     className={cn(
+                      'slice-custom-btn border w-full text-center py-2.5 text-sm font-medium transition-all inline-flex items-center justify-center',
                       buttonRadiusClass,
-                      'w-full text-center border border-black/25 bg-transparent py-2.5 text-sm font-semibold text-[#1c1917] hover:bg-black/5 transition-all',
                       buttonFont.className
                     )}
-                    style={{
-                      fontFamily: buttonFont.fontFamily,
-                    }}
+                    style={loginStyleProps}
                   >
                     {loginLabel}
                   </Link>
@@ -339,13 +425,11 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
                     href={ctaUrl}
                     onClick={closeMenu}
                     className={cn(
+                      'slice-custom-btn group border w-full inline-flex items-center justify-center gap-2 py-2.5 text-sm font-medium shadow-sm transition-all',
                       buttonRadiusClass,
-                      'w-full inline-flex items-center justify-center gap-2 bg-[#1c1917] hover:bg-black py-2.5 text-sm font-semibold text-white shadow-sm transition-all',
                       buttonFont.className
                     )}
-                    style={{
-                      fontFamily: buttonFont.fontFamily,
-                    }}
+                    style={ctaStyleProps}
                   >
                     <span>{ctaLabel}</span>
                     <svg

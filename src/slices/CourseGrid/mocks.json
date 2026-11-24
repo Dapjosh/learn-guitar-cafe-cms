@@ -157,5 +157,304 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "curriculum",
+		"primary": {
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "Core curriculum",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "MASTER PRACTICAL ROOTS & SLIDE GUITAR",
+							"spans": []
+						}
+					}
+				]
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Bebas Neue",
+				"type": "Select"
+			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Large",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#ffffff",
+				"type": "Color"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Structured masterclasses designed to build real tone, feel and improvisational freedom.",
+							"spans": []
+						}
+					}
+				]
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a8a29e",
+				"type": "Color"
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "Discover the courses",
+				"type": "Text"
+			},
+			"button_link": {
+				"key": "0d0fcfc4-1992-42b1-85bb-880676b84244",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "/courses"
+				}
+			},
+			"button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#f5f5f4",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1c1917",
+				"type": "Color"
+			},
+			"button_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#ffffff",
+				"type": "Color"
+			},
+			"button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#000000",
+				"type": "Color"
+			},
+			"section_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#191614",
+				"type": "Color"
+			},
+			"card_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#211c19",
+				"type": "Color"
+			},
+			"border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "rgba(255, 255, 255, 0.1)",
+				"type": "Color"
+			},
+			"number_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#d85d18",
+				"type": "Color"
+			},
+			"badge_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "rgba(255, 255, 255, 0.1)",
+				"type": "Color"
+			},
+			"badge_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#ffffff",
+				"type": "Color"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"course_number",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "01",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Slide & open tunings",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_description",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Learn expressive slide techniques and common open tunings.",
+							"type": "Text"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"course_number",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "02",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Delta & electric blues",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_description",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Play deep blues with authentic rhythm and soloing patterns.",
+							"type": "Text"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"course_number",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "03",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Soul & R&B rhythms",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_description",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Develop a solid groove, rhythm and R&B chord fills.",
+							"type": "Text"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"course_number",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "04",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Tone & analog gear",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_description",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Learn how to dial in the right amp and pedal tones.",
+							"type": "Text"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"course_number",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "05",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Song repertoire & licks",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_description",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Build a library of classic roots songs and licks.",
+							"type": "Text"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"course_number",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "06",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Interactive TABs & backing tracks",
+							"type": "Text"
+						}
+					],
+					[
+						"custom_description",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Practice with precise interactive TABs and audio tracks.",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
 	}
 ]

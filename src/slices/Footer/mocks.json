@@ -1,0 +1,320 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#cd1fd2",
+				"type": "Color"
+			},
+			"show_top_stripes": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"stripes": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "#7ebd06",
+									"type": "Color"
+								}
+							],
+							[
+								"height",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "66",
+									"type": "Number"
+								}
+							],
+							[
+								"space_after",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "77",
+									"type": "Number"
+								}
+							]
+						]
+					}
+				]
+			},
+			"stripe_gap": {
+				"__TYPE__": "FieldContent",
+				"value": "23",
+				"type": "Number"
+			},
+			"stripe_gap_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#475118",
+				"type": "Color"
+			},
+			"logo": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
+					"width": 2545,
+					"height": 2545
+				},
+				"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
+				"width": 2545,
+				"height": 2545,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "grown",
+				"thumbnails": {}
+			},
+			"logo_width": {
+				"__TYPE__": "FieldContent",
+				"value": "16",
+				"type": "Number"
+			},
+			"tagline": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laborum commodo amet sit excepteur duis reprehenderit aliqua nisi dolore tempor sint laboris enim. Officia elit in do officia qui sint."
+						}
+					}
+				]
+			},
+			"tagline_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#457298",
+				"type": "Color"
+			},
+			"body_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Fraunces",
+				"type": "Select"
+			},
+			"column_1_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "scene",
+				"type": "Text"
+			},
+			"column_2_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "bowl",
+				"type": "Text"
+			},
+			"column_3_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "breathing",
+				"type": "Text"
+			},
+			"links": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"column",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Column 2",
+									"type": "Select"
+								}
+							],
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "prepare",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "518222fd-90b5-4014-95e9-6c418cdc53cb",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"column_heading_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#34e111",
+				"type": "Color"
+			},
+			"link_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Fraunces",
+				"type": "Select"
+			},
+			"link_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e5d90d",
+				"type": "Color"
+			},
+			"link_hover_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#32fb00",
+				"type": "Color"
+			},
+			"show_newsletter": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"newsletter_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "applied",
+				"type": "Text"
+			},
+			"newsletter_heading_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter",
+				"type": "Select"
+			},
+			"newsletter_heading_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Small",
+				"type": "Select"
+			},
+			"newsletter_heading_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#b0e7aa",
+				"type": "Color"
+			},
+			"newsletter_text": {
+				"__TYPE__": "FieldContent",
+				"value": "value",
+				"type": "Text"
+			},
+			"newsletter_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e6252a",
+				"type": "Color"
+			},
+			"newsletter_placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "opposite",
+				"type": "Text"
+			},
+			"newsletter_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "eight",
+				"type": "Text"
+			},
+			"newsletter_success_message": {
+				"__TYPE__": "FieldContent",
+				"value": "too",
+				"type": "Text"
+			},
+			"mailerlite_group_id": {
+				"__TYPE__": "FieldContent",
+				"value": "roar",
+				"type": "Text"
+			},
+			"input_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#cf2340",
+				"type": "Color"
+			},
+			"input_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#134170",
+				"type": "Color"
+			},
+			"input_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#d14a79",
+				"type": "Color"
+			},
+			"newsletter_button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e3c9bd",
+				"type": "Color"
+			},
+			"newsletter_button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#30b59b",
+				"type": "Color"
+			},
+			"newsletter_button_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#845254",
+				"type": "Color"
+			},
+			"newsletter_button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#84e3fc",
+				"type": "Color"
+			},
+			"copyright_text": {
+				"__TYPE__": "FieldContent",
+				"value": "large",
+				"type": "Text"
+			},
+			"legal_links": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "customs",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "bc5e26a1-582e-404d-b0db-823c072452a6",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"bottom_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#398a5f",
+				"type": "Color"
+			},
+			"divider_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#48a8bf",
+				"type": "Color"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

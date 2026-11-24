@@ -216,8 +216,11 @@
           "config": {
             "label": "Title Font",
             "placeholder": "",
-            "default_value": "Inter",
+            "default_value": "Fraunces",
             "options": [
+              "Fraunces",
+              "Bebas Neue",
+              "Inter Tight",
               "Inter",
               "Raleway",
               "Nunito",
@@ -231,13 +234,13 @@
           "config": {
             "label": "Title Font Weight",
             "placeholder": "",
-            "default_value": "Black",
+            "default_value": "Normal",
             "options": [
-              "Black",
-              "Bold",
-              "Semi Bold",
-              "Medium",
               "Normal",
+              "Medium",
+              "Semi Bold",
+              "Bold",
+              "Black",
               "Light",
               "Thin"
             ]
@@ -275,8 +278,11 @@
           "config": {
             "label": "Description Font",
             "placeholder": "",
-            "default_value": "Raleway",
+            "default_value": "Inter Tight",
             "options": [
+              "Inter Tight",
+              "Fraunces",
+              "Bebas Neue",
               "Raleway",
               "Inter",
               "Nunito",
@@ -340,8 +346,11 @@
           "config": {
             "label": "Button Font",
             "placeholder": "",
-            "default_value": "Inter",
+            "default_value": "Inter Tight",
             "options": [
+              "Inter Tight",
+              "Fraunces",
+              "Bebas Neue",
               "Inter",
               "Raleway",
               "Nunito",
@@ -440,6 +449,900 @@
           "config": {
             "label": "Background Image Opacity (0 - 100)",
             "placeholder": "100"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "promoBanner",
+      "name": "Promo Banner",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Centered promo with background illustration, retro stripes and scrolling marquee",
+      "imageUrl": "",
+      "primary": {
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background Color",
+            "placeholder": "#2f2b27"
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Illustration / Texture",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "background_image_opacity": {
+          "type": "Number",
+          "config": {
+            "label": "Background Image Opacity (0 - 100)",
+            "placeholder": "35"
+          }
+        },
+        "show_top_stripes": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Decorative Top Stripes",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "stripes": {
+          "type": "Group",
+          "config": {
+            "label": "Top Stripes (leave empty for default retro stripes)",
+            "repeat": true,
+            "fields": {
+              "color": {
+                "type": "Color",
+                "config": {
+                  "label": "Stripe Color",
+                  "placeholder": "#e8b04b"
+                }
+              },
+              "height": {
+                "type": "Number",
+                "config": {
+                  "label": "Stripe Height (px)",
+                  "placeholder": "4"
+                }
+              },
+              "space_after": {
+                "type": "Number",
+                "config": {
+                  "label": "Space Below This Stripe (px, optional - overrides the default spacing)",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "stripe_gap": {
+          "type": "Number",
+          "config": {
+            "label": "Space Between Stripes (px)",
+            "placeholder": "3"
+          }
+        },
+        "stripe_gap_color": {
+          "type": "Color",
+          "config": {
+            "label": "Space Between Stripes Color (empty = section background)",
+            "placeholder": ""
+          }
+        },
+        "badge_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Badge Icon (Upload Icon Image)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text",
+            "placeholder": "Special bundle"
+          }
+        },
+        "badge_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Background Color",
+            "placeholder": "#f3efe6"
+          }
+        },
+        "badge_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "badge_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Icon Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2,heading1,strong,em",
+            "label": "Title"
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Bebas Neue",
+            "options": [
+              "Bebas Neue",
+              "Inter Tight",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Title Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "Extra Large",
+              "Medium",
+              "Small"
+            ]
+          }
+        },
+        "title_weight": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font Weight",
+            "placeholder": "",
+            "default_value": "Normal",
+            "options": [
+              "Normal",
+              "Medium",
+              "Semi Bold",
+              "Bold",
+              "Black",
+              "Light",
+              "Thin"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#f3efe6"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "description_font": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "description_size": {
+          "type": "Select",
+          "config": {
+            "label": "Description Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": "#e7e5e4"
+          }
+        },
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Button Label",
+            "placeholder": "Explore the lessons"
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "/courses",
+            "select": null
+          }
+        },
+        "button_font": {
+          "type": "Select",
+          "config": {
+            "label": "Button Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "button_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Button Border Radius",
+            "placeholder": "",
+            "default_value": "Rounded (Medium)",
+            "options": [
+              "Rounded (Medium)",
+              "Slightly Rounded (Small)",
+              "Large Rounded",
+              "Pill",
+              "Sharp"
+            ]
+          }
+        },
+        "button_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Background Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "button_hover_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Background Color",
+            "placeholder": "#b94c10"
+          }
+        },
+        "button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "button_show_arrow": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Arrow Icon on Button",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "show_marquee": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Scrolling Marquee",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "marquee_items": {
+          "type": "Group",
+          "config": {
+            "label": "Marquee Items",
+            "repeat": true,
+            "fields": {
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Text",
+                  "placeholder": "Slide guitar"
+                }
+              }
+            }
+          }
+        },
+        "marquee_separator": {
+          "type": "Text",
+          "config": {
+            "label": "Marquee Separator (optional, e.g. • or ✦)",
+            "placeholder": ""
+          }
+        },
+        "marquee_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Marquee Background Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "marquee_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Marquee Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "marquee_font": {
+          "type": "Select",
+          "config": {
+            "label": "Marquee Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "marquee_size": {
+          "type": "Select",
+          "config": {
+            "label": "Marquee Text Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "marquee_speed": {
+          "type": "Select",
+          "config": {
+            "label": "Marquee Speed",
+            "placeholder": "",
+            "default_value": "Normal",
+            "options": [
+              "Normal",
+              "Slow",
+              "Fast"
+            ]
+          }
+        },
+        "marquee_direction": {
+          "type": "Select",
+          "config": {
+            "label": "Marquee Direction",
+            "placeholder": "",
+            "default_value": "Left",
+            "options": [
+              "Left",
+              "Right"
+            ]
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "imageChecklist",
+      "name": "Image With Checklist",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Framed image with sticker next to badge, title, checklist and button",
+      "imageUrl": "",
+      "primary": {
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background Color",
+            "placeholder": "#f3efe6"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Main Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_position": {
+          "type": "Select",
+          "config": {
+            "label": "Image Position",
+            "placeholder": "",
+            "default_value": "Left",
+            "options": [
+              "Left",
+              "Right"
+            ]
+          }
+        },
+        "image_aspect_ratio": {
+          "type": "Select",
+          "config": {
+            "label": "Image Aspect Ratio",
+            "placeholder": "",
+            "default_value": "Near Square",
+            "options": [
+              "Near Square",
+              "Landscape",
+              "Square",
+              "Portrait"
+            ]
+          }
+        },
+        "image_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Image Corner Radius",
+            "placeholder": "",
+            "default_value": "Large Rounded",
+            "options": [
+              "Large Rounded",
+              "Rounded (Medium)",
+              "Slightly Rounded (Small)",
+              "Extra Large Rounded",
+              "Sharp"
+            ]
+          }
+        },
+        "image_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Image Border Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "show_sticker": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Sticker on Image",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "sticker_text": {
+          "type": "Text",
+          "config": {
+            "label": "Sticker Text",
+            "placeholder": "Free"
+          }
+        },
+        "sticker_shape": {
+          "type": "Select",
+          "config": {
+            "label": "Sticker Shape",
+            "placeholder": "",
+            "default_value": "Starburst",
+            "options": [
+              "Starburst",
+              "Circle"
+            ]
+          }
+        },
+        "sticker_position": {
+          "type": "Select",
+          "config": {
+            "label": "Sticker Position",
+            "placeholder": "",
+            "default_value": "Top Left",
+            "options": [
+              "Top Left",
+              "Top Right"
+            ]
+          }
+        },
+        "sticker_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Sticker Background Color",
+            "placeholder": "#e8b04b"
+          }
+        },
+        "sticker_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Sticker Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "sticker_font": {
+          "type": "Select",
+          "config": {
+            "label": "Sticker Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "badge_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Badge Icon (Upload Icon Image)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text",
+            "placeholder": "Free starter pack"
+          }
+        },
+        "badge_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Background Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "badge_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Text Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Icon Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2,heading1,strong,em",
+            "label": "Title"
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Bebas Neue",
+            "options": [
+              "Bebas Neue",
+              "Inter Tight",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Title Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "Extra Large",
+              "Medium",
+              "Small"
+            ]
+          }
+        },
+        "title_weight": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font Weight",
+            "placeholder": "",
+            "default_value": "Normal",
+            "options": [
+              "Normal",
+              "Medium",
+              "Semi Bold",
+              "Bold",
+              "Black",
+              "Light",
+              "Thin"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "description_font": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "description_size": {
+          "type": "Select",
+          "config": {
+            "label": "Description Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": "#57534e"
+          }
+        },
+        "checklist": {
+          "type": "Group",
+          "config": {
+            "label": "Checklist Items",
+            "repeat": true,
+            "fields": {
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Text",
+                  "placeholder": "Instant access to starter masterclasses"
+                }
+              }
+            }
+          }
+        },
+        "list_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Checklist Icon (optional, replaces default tick)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "list_icon_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Checklist Icon Background Color",
+            "placeholder": "#f8d5c0"
+          }
+        },
+        "list_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Checklist Icon Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "list_font": {
+          "type": "Select",
+          "config": {
+            "label": "Checklist Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "list_size": {
+          "type": "Select",
+          "config": {
+            "label": "Checklist Text Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "list_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Checklist Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Button Label",
+            "placeholder": "Learn more"
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "/courses",
+            "select": null
+          }
+        },
+        "button_style": {
+          "type": "Select",
+          "config": {
+            "label": "Button Style",
+            "placeholder": "",
+            "default_value": "Outline",
+            "options": [
+              "Outline",
+              "Filled"
+            ]
+          }
+        },
+        "button_font": {
+          "type": "Select",
+          "config": {
+            "label": "Button Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "button_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Button Border Radius",
+            "placeholder": "",
+            "default_value": "Rounded (Medium)",
+            "options": [
+              "Rounded (Medium)",
+              "Slightly Rounded (Small)",
+              "Large Rounded",
+              "Pill",
+              "Sharp"
+            ]
+          }
+        },
+        "button_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Text Color (also outline border)",
+            "placeholder": "#1c1917"
+          }
+        },
+        "button_hover_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Background Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "button_show_arrow": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Arrow Icon on Button",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
           }
         }
       },

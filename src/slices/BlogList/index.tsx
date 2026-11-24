@@ -5,6 +5,7 @@ import { SliceComponentProps } from '@prismicio/react';
 import { Bounded } from '@components/Bounded';
 import { SectionBlog } from '@lgc_cms/features';
 import { createClient } from '@/prismicio';
+import { FeaturedArticles } from './FeaturedArticles';
 
 /**
  * Props for `BlogList`.
@@ -15,6 +16,10 @@ export type BlogListProps = SliceComponentProps<Content.BlogListSlice>;
  * Component for "BlogList" Slices.
  */
 const BlogList = async ({ slice }: BlogListProps) => {
+  if (slice.variation === 'featuredGrid') {
+    return <FeaturedArticles slice={slice} />;
+  }
+
   const getBlogPosts = async () => {
     const client = createClient();
     const pages = await client.getAllByType('blog_post', {

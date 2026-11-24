@@ -5,6 +5,9 @@ import {
   Nunito,
   Inter,
   Anton,
+  Bebas_Neue,
+  Fraunces,
+  Inter_Tight,
 } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { createClient, repositoryName } from '@/prismicio';
@@ -42,6 +45,25 @@ const anton = Anton({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-anton',
+});
+
+const bebasNeue = Bebas_Neue({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-bebas-neue',
+});
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fraunces',
+});
+
+const interTight = Inter_Tight({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter-tight',
 });
 
 function isURL(string: string | null | undefined): boolean {
@@ -185,7 +207,7 @@ export default async function RootLayout(props: {
   return (
     <html
       lang="en"
-      className={`${raleway.variable} font-sans ${mochiyPopOne.variable} ${nunito.variable} ${inter.variable} ${anton.variable}`}
+      className={`${interTight.variable} font-sans ${fraunces.variable} ${bebasNeue.variable} ${raleway.variable} ${mochiyPopOne.variable} ${nunito.variable} ${inter.variable} ${anton.variable}`}
       suppressHydrationWarning={true}
     >
       <head>
@@ -196,7 +218,7 @@ export default async function RootLayout(props: {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>

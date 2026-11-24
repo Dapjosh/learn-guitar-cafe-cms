@@ -1,37 +1,55 @@
 'use client';
+import React from 'react';
 import cn from 'classnames';
 import { useScrollTop } from '@lgc_cms/hooks';
 import { ArrowUp } from 'iconsax-react';
 
-export const BackToTop = () => {
+export type BackToTopProps = {
+  /** Button background (default: brand orange) */
+  bgColor?: string | null;
+  /** Arrow colour (default: white) */
+  iconColor?: string | null;
+  /** Background on hover / keyboard focus (default: darker orange) */
+  hoverBgColor?: string | null;
+  /** Arrow colour on hover / keyboard focus (default: white) */
+  hoverIconColor?: string | null;
+};
+
+export const BackToTop = ({
+  bgColor,
+  iconColor,
+  hoverBgColor,
+  hoverIconColor,
+}: BackToTopProps) => {
   const { stick, onClickHandler } = useScrollTop();
+
+  const style = {
+    '--btt-bg': bgColor || '#d85d18',
+    '--btt-icon': iconColor || '#ffffff',
+    '--btt-hover-bg': hoverBgColor || '#b94c10',
+    '--btt-hover-icon': hoverIconColor || '#ffffff',
+  } as React.CSSProperties;
 
   return (
     <button
       aria-label="Scroll to top"
       type="button"
-      className={cn(
-        stick ? '-translate-y-0 opacity-100' : 'translate-y-[100px] opacity-0',
-        'right-7.5 bottom-15 shadow-3xl w-15 h-15 text-h3 bg-primary group fixed z-50 inline-flex items-center justify-center overflow-hidden rounded-full p-0 text-center text-white shadow-black/30 transition duration-500',
-      )}
+      tabIndex={stick ? 0 : -1}
+      aria-hidden={!stick}
+      // Styles live in global.scss (.lgc-back-to-top); colours via CSS variables
+      className={cn('lgc-back-to-top group', !stick && 'is-hidden')}
+      style={style}
       onClick={onClickHandler}
     >
-      <i
-        className={cn(
-          'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white transition duration-300',
-          'group-hover:-translate-y-20',
-        )}
+      <span aria-hidden="true" className="lgc-back-to-top__arrow">
+        <ArrowUp size="24" color="currentColor" />
+      </span>
+      <span
+        aria-hidden="true"
+        className="lgc-back-to-top__arrow lgc-back-to-top__arrow--next"
       >
-        <ArrowUp size="32" color="#FFFFFF" />
-      </i>
-      <i
-        className={cn(
-          'absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-20 text-white transition duration-300',
-          'group-hover:-translate-y-1/2',
-        )}
-      >
-        <ArrowUp size="32" color="#FFFFFF" />
-      </i>
+        <ArrowUp size="24" color="currentColor" />
+      </span>
     </button>
   );
 };

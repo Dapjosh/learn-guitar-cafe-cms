@@ -5,8 +5,8 @@
 		"primary": {
 			"subheading": {
 				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Parents"
+				"value": "organized",
+				"type": "Text"
 			},
 			"heading": {
 				"__TYPE__": "StructuredTextContent",
@@ -14,16 +14,8 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Get Involved and Have Fun",
-							"spans": [
-								{
-									"type": "strong",
-									"start": 4,
-									"end": 12
-								}
-							]
-						},
-						"direction": "ltr"
+							"text": "Veniam anim ad incididunt commodo excepteur mollit ut amet cillum non aliqua do elit mollit magna. Ut esse dolore nisi pariatur minim. Ullamco reprehenderit aliquip id enim velit nulla mollit minim eu ipsum."
+						}
 					}
 				]
 			},
@@ -33,29 +25,21 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Laboris enim ea reprehenderit et ut irure laborum.",
-							"spans": [
-								{
-									"type": "strong",
-									"start": 16,
-									"end": 29
-								}
-							]
-						},
-						"direction": "ltr"
+							"text": "Ullamco deserunt officia cupidatat adipisicing ipsum commodo exercitation eu sint commodo. Aliquip dolor excepteur pariatur cillum."
+						}
 					}
 				]
 			},
 			"image": {
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
-					"width": 6000,
-					"height": 4000
+					"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+					"width": 5243,
+					"height": 3495
 				},
-				"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
-				"width": 6000,
-				"height": 4000,
+				"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+				"width": 5243,
+				"height": 3495,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -64,21 +48,21 @@
 					},
 					"background": "transparent"
 				},
+				"alt": "spin",
 				"credits": null,
-				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"optional_image": {
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
-					"width": 3199,
-					"height": 3199
+					"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+					"width": 4000,
+					"height": 6000
 				},
-				"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
-				"width": 3199,
-				"height": 3199,
+				"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+				"width": 4000,
+				"height": 6000,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -87,27 +71,32 @@
 					},
 					"background": "transparent"
 				},
+				"alt": "include",
 				"credits": null,
-				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"alignment": {
 				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Right"
+				"value": "Right",
+				"type": "Select"
 			},
 			"type": {
 				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Section"
+				"value": "Article",
+				"type": "Select"
 			},
 			"has_decoration": {
 				"__TYPE__": "BooleanContent",
-				"value": true
+				"value": false
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	},
 	{
 		"__TYPE__": "SharedSliceContent",
@@ -115,8 +104,8 @@
 		"primary": {
 			"subtitle": {
 				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Benefits for parents"
+				"value": "sell",
+				"type": "Text"
 			},
 			"title": {
 				"__TYPE__": "StructuredTextContent",
@@ -124,10 +113,8 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Why Parents Love Kids Guitar Dojo",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Eu officia sint est velit amet. Ut duis non irure Lorem in. Dolore minim sint consequat officia nisi mollit ut."
+						}
 					}
 				]
 			},
@@ -145,10 +132,8 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "No More Travelling To and From Classes",
-												"spans": []
-											},
-											"direction": "ltr"
+												"text": "Proident sit consequat mollit fugiat consectetur nostrud voluptate aute amet aute reprehenderit adipisicing sit quis. Sit et proident proident deserunt."
+											}
 										}
 									]
 								}
@@ -157,7 +142,7 @@
 								"subtitle",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "sight",
+									"value": "fellow",
 									"type": "Text"
 								}
 							],
@@ -169,7 +154,7 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Ut labore anim excepteur dolor Lorem quis do. Nulla do reprehenderit laboris Lorem dolor elit laborum. Enim pariatur officia reprehenderit."
+												"text": "Do incididunt dolor occaecat nostrud eu pariatur ullamco irure. Excepteur officia exercitation ut nisi incididunt ad cupidatat sint est anim enim velit magna."
 											}
 										}
 									]
@@ -177,6 +162,32 @@
 							],
 							[
 								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+										"width": 3935,
+										"height": 5894
+									},
+									"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+									"width": 3935,
+									"height": 5894,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "task",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"optional_image",
 								{
 									"origin": {
 										"id": "main",
@@ -195,34 +206,8 @@
 										},
 										"background": "transparent"
 									},
+									"alt": "shoe",
 									"credits": null,
-									"alt": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
-							],
-							[
-								"optional_image",
-								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
-										"width": 4076,
-										"height": 2712
-									},
-									"url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
-									"width": 4076,
-									"height": 2712,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"credits": null,
-									"alt": null,
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
@@ -252,7 +237,7 @@
 		"primary": {
 			"badge_text": {
 				"__TYPE__": "FieldContent",
-				"value": "Our approach",
+				"value": "shop",
 				"type": "Text"
 			},
 			"title": {
@@ -261,16 +246,14 @@
 					{
 						"type": "heading2",
 						"content": {
-							"text": "AN AUTHENTIC APPROACH TO SLIDE & ROOTS GUITAR",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Constantly"
+						}
 					}
 				]
 			},
 			"title_size": {
 				"__TYPE__": "FieldContent",
-				"value": "Large",
+				"value": "Extra Large",
 				"type": "Select"
 			},
 			"title_font": {
@@ -280,12 +263,12 @@
 			},
 			"title_weight": {
 				"__TYPE__": "FieldContent",
-				"value": "Black",
+				"value": "Thin",
 				"type": "Select"
 			},
 			"title_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#000000",
+				"value": "#4edc1b",
 				"type": "Color"
 			},
 			"description": {
@@ -294,21 +277,19 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Learn Guitar Cafe is for players seeking depth rather than just mindless scale drills. We emphasize timeless nuances like intonation, touch, open tunings, and phrasing, helping you find your unique voice and discover authentic vintage tones that inspire your music.",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Anim sint deserunt sunt ad exercitation et excepteur officia sit ullamco id ut nostrud labore."
+						}
 					}
 				]
 			},
 			"description_size": {
 				"__TYPE__": "FieldContent",
-				"value": "Medium",
+				"value": "Large",
 				"type": "Select"
 			},
 			"description_font": {
 				"__TYPE__": "FieldContent",
-				"value": "Raleway",
+				"value": "Inter",
 				"type": "Select"
 			},
 			"description_weight": {
@@ -318,19 +299,20 @@
 			},
 			"description_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#2b2b2b",
+				"value": "#190d4e",
 				"type": "Color"
 			},
 			"button_label": {
 				"__TYPE__": "FieldContent",
-				"value": "Explore the courses",
+				"value": "tube",
 				"type": "Text"
 			},
 			"button_link": {
+				"key": "241a0095-3f29-4b49-b1e1-508e4c1fc070",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "/courses"
+					"url": "http://google.com"
 				}
 			},
 			"button_style": {
@@ -340,44 +322,44 @@
 			},
 			"button_font": {
 				"__TYPE__": "FieldContent",
-				"value": "Inter",
+				"value": "Inter Tight",
 				"type": "Select"
 			},
 			"button_radius": {
 				"__TYPE__": "FieldContent",
-				"value": "Rounded (Medium)",
+				"value": "Slightly Rounded (Small)",
 				"type": "Select"
 			},
 			"button_background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "transparent",
+				"value": "#a4dffd",
 				"type": "Color"
 			},
 			"button_text_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#1c1917",
+				"value": "#e6cb26",
 				"type": "Color"
 			},
 			"button_hover_background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#000000",
+				"value": "#336e85",
 				"type": "Color"
 			},
 			"button_hover_text_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#ffffff",
+				"value": "#312d54",
 				"type": "Color"
 			},
 			"image": {
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
-					"width": 1200,
-					"height": 900
+					"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+					"width": 4172,
+					"height": 4000
 				},
-				"url": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
-				"width": 1200,
-				"height": 900,
+				"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+				"width": 4172,
+				"height": 4000,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -386,7 +368,8 @@
 					},
 					"background": "transparent"
 				},
-				"alt": "Musician playing slide guitar",
+				"alt": "leather",
+				"credits": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
@@ -397,20 +380,649 @@
 			},
 			"outer_background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#f4eee5",
+				"value": "#e7f6f0",
 				"type": "Color"
 			},
 			"container_background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#f4eee5",
+				"value": "#1228b9",
 				"type": "Color"
+			},
+			"background_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+					"width": 3935,
+					"height": 5894
+				},
+				"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+				"width": 3935,
+				"height": 5894,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "pie",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
 			},
 			"background_image_opacity": {
 				"__TYPE__": "FieldContent",
-				"value": 100,
+				"value": "49",
 				"type": "Number"
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "promoBanner",
+		"primary": {
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#9bd1ae",
+				"type": "Color"
+			},
+			"background_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+					"width": 5616,
+					"height": 3744
+				},
+				"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+				"width": 5616,
+				"height": 3744,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "forward",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"background_image_opacity": {
+				"__TYPE__": "FieldContent",
+				"value": "47",
+				"type": "Number"
+			},
+			"show_top_stripes": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"stripes": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "#ef945b",
+									"type": "Color"
+								}
+							],
+							[
+								"height",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "13",
+									"type": "Number"
+								}
+							]
+						]
+					}
+				]
+			},
+			"badge_icon": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+					"width": 4380,
+					"height": 2895
+				},
+				"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+				"width": 4380,
+				"height": 2895,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "letter",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "those",
+				"type": "Text"
+			},
+			"badge_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#166cc4",
+				"type": "Color"
+			},
+			"badge_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#bab260",
+				"type": "Color"
+			},
+			"badge_icon_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#0e3a2f",
+				"type": "Color"
+			},
+			"badge_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#646e83",
+				"type": "Color"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Accept"
+						}
+					}
+				]
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Bebas Neue",
+				"type": "Select"
+			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Extra Large",
+				"type": "Select"
+			},
+			"title_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Normal",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#eb87c5",
+				"type": "Color"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliquip aute aute ullamco nulla tempor duis elit enim sunt. Velit quis irure labore laborum."
+						}
+					}
+				]
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"description_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#cf9250",
+				"type": "Color"
+			},
+			"button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "pink",
+				"type": "Text"
+			},
+			"button_link": {
+				"key": "88dd079c-ac5e-4fac-b729-9051a313bd0e",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Raleway",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Rounded (Medium)",
+				"type": "Select"
+			},
+			"button_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#f5aaf8",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#4a0491",
+				"type": "Color"
+			},
+			"button_hover_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#7036d2",
+				"type": "Color"
+			},
+			"button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#d96215",
+				"type": "Color"
+			},
+			"button_show_arrow": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"show_marquee": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"marquee_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "aware",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"marquee_separator": {
+				"__TYPE__": "FieldContent",
+				"value": "please",
+				"type": "Text"
+			},
+			"marquee_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#049066",
+				"type": "Color"
+			},
+			"marquee_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#349a1e",
+				"type": "Color"
+			},
+			"marquee_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Bebas Neue",
+				"type": "Select"
+			},
+			"marquee_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"marquee_speed": {
+				"__TYPE__": "FieldContent",
+				"value": "Slow",
+				"type": "Select"
+			},
+			"marquee_direction": {
+				"__TYPE__": "FieldContent",
+				"value": "Left",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "imageChecklist",
+		"primary": {
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#c09d57",
+				"type": "Color"
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+					"width": 3882,
+					"height": 2584
+				},
+				"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+				"width": 3882,
+				"height": 2584,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "former",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"image_position": {
+				"__TYPE__": "FieldContent",
+				"value": "Right",
+				"type": "Select"
+			},
+			"image_aspect_ratio": {
+				"__TYPE__": "FieldContent",
+				"value": "Near Square",
+				"type": "Select"
+			},
+			"image_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Sharp",
+				"type": "Select"
+			},
+			"image_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#fe82ca",
+				"type": "Color"
+			},
+			"show_sticker": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"sticker_text": {
+				"__TYPE__": "FieldContent",
+				"value": "jar",
+				"type": "Text"
+			},
+			"sticker_shape": {
+				"__TYPE__": "FieldContent",
+				"value": "Starburst",
+				"type": "Select"
+			},
+			"sticker_position": {
+				"__TYPE__": "FieldContent",
+				"value": "Top Right",
+				"type": "Select"
+			},
+			"sticker_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#2eff6d",
+				"type": "Color"
+			},
+			"sticker_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#d96f9e",
+				"type": "Color"
+			},
+			"sticker_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"badge_icon": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+					"width": 2747,
+					"height": 4120
+				},
+				"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+				"width": 2747,
+				"height": 4120,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "definition",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "pictured",
+				"type": "Text"
+			},
+			"badge_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#bbbf5d",
+				"type": "Color"
+			},
+			"badge_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a1bed1",
+				"type": "Color"
+			},
+			"badge_icon_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#370ede",
+				"type": "Color"
+			},
+			"badge_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#77dadf",
+				"type": "Color"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Before"
+						}
+					}
+				]
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Bebas Neue",
+				"type": "Select"
+			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Extra Large",
+				"type": "Select"
+			},
+			"title_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Normal",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#7a87dc",
+				"type": "Color"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eiusmod mollit mollit velit non enim laborum ea. Sunt sint excepteur ea nostrud incididunt et velit anim duis dolor ipsum esse proident do incididunt. Nulla deserunt labore culpa."
+						}
+					}
+				]
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"description_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#76dedd",
+				"type": "Color"
+			},
+			"checklist": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "layers",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"list_icon": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+					"width": 4160,
+					"height": 3120
+				},
+				"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+				"width": 4160,
+				"height": 3120,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "different",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"list_icon_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#8be1a3",
+				"type": "Color"
+			},
+			"list_icon_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#bee1eb",
+				"type": "Color"
+			},
+			"list_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"list_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Small",
+				"type": "Select"
+			},
+			"list_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e3510c",
+				"type": "Color"
+			},
+			"button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "fly",
+				"type": "Text"
+			},
+			"button_link": {
+				"key": "18b1e63f-9f6f-41af-a534-b62657ab8d45",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"button_style": {
+				"__TYPE__": "FieldContent",
+				"value": "Filled",
+				"type": "Select"
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Nunito",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Rounded (Medium)",
+				"type": "Select"
+			},
+			"button_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#4d3e30",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#eaf57d",
+				"type": "Color"
+			},
+			"button_hover_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#2c6a94",
+				"type": "Color"
+			},
+			"button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#2948d8",
+				"type": "Color"
+			},
+			"button_show_arrow": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

@@ -81,8 +81,11 @@
         "config": {
           "label": "Site Name Font",
           "placeholder": "",
-          "default_value": "Inter",
+          "default_value": "Fraunces",
           "options": [
+            "Fraunces",
+            "Bebas Neue",
+            "Inter Tight",
             "Inter",
             "Raleway",
             "Nunito",
@@ -96,8 +99,11 @@
         "config": {
           "label": "Menu Links Font",
           "placeholder": "",
-          "default_value": "Raleway",
+          "default_value": "Inter Tight",
           "options": [
+            "Inter Tight",
+            "Fraunces",
+            "Bebas Neue",
             "Raleway",
             "Inter",
             "Nunito",
@@ -111,8 +117,11 @@
         "config": {
           "label": "Buttons Font",
           "placeholder": "",
-          "default_value": "Inter",
+          "default_value": "Inter Tight",
           "options": [
+            "Inter Tight",
+            "Fraunces",
+            "Bebas Neue",
             "Inter",
             "Raleway",
             "Nunito",
@@ -134,6 +143,132 @@
             "Pill (Full)",
             "Sharp (Square)"
           ]
+        }
+      },
+      "logo_display": {
+        "type": "Select",
+        "config": {
+          "label": "Logo Display",
+          "placeholder": "",
+          "default_value": "Logo + Text",
+          "options": [
+            "Logo + Text",
+            "Logo Only",
+            "Text Only"
+          ]
+        }
+      },
+      "logo_image": {
+        "type": "Image",
+        "config": {
+          "label": "Logo Image (Upload Logo)",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo_size": {
+        "type": "Number",
+        "config": {
+          "label": "Logo Size / Height (px)",
+          "placeholder": "40"
+        }
+      },
+      "logo_width": {
+        "type": "Number",
+        "config": {
+          "label": "Logo Width (px, Optional override)",
+          "placeholder": "auto"
+        }
+      },
+      "site_title": {
+        "type": "Text",
+        "config": {
+          "label": "Site Pre-Title",
+          "placeholder": "PAUL GREIG"
+        }
+      },
+      "site_name": {
+        "type": "Text",
+        "config": {
+          "label": "Site Name",
+          "placeholder": "LEARN GUITAR CAFE"
+        }
+      },
+      "site_name_color": {
+        "type": "Color",
+        "config": {
+          "label": "Site Name Color",
+          "placeholder": "#000000"
+        }
+      },
+      "login_button_bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "Login Button Background Color",
+          "placeholder": "transparent"
+        }
+      },
+      "login_button_text_color": {
+        "type": "Color",
+        "config": {
+          "label": "Login Button Text Color",
+          "placeholder": "#1c1917"
+        }
+      },
+      "login_button_hover_bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "Login Button Hover Background Color",
+          "placeholder": "rgba(0,0,0,0.05)"
+        }
+      },
+      "login_button_hover_text_color": {
+        "type": "Color",
+        "config": {
+          "label": "Login Button Hover Text Color",
+          "placeholder": "#1c1917"
+        }
+      },
+      "cta_button_bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "CTA Button Background Color",
+          "placeholder": "#1c1917"
+        }
+      },
+      "cta_button_text_color": {
+        "type": "Color",
+        "config": {
+          "label": "CTA Button Text Color",
+          "placeholder": "#ffffff"
+        }
+      },
+      "cta_button_hover_bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "CTA Button Hover Background Color",
+          "placeholder": "#000000"
+        }
+      },
+      "cta_button_hover_text_color": {
+        "type": "Color",
+        "config": {
+          "label": "CTA Button Hover Text Color",
+          "placeholder": "#ffffff"
+        }
+      },
+      "menu_active_color": {
+        "type": "Color",
+        "config": {
+          "label": "Menu Active / Highlight Color",
+          "placeholder": "#d85d18"
+        }
+      },
+      "menu_hover_color": {
+        "type": "Color",
+        "config": {
+          "label": "Menu Hover Color",
+          "placeholder": "#d85d18"
         }
       }
     }

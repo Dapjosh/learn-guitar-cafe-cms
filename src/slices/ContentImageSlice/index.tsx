@@ -9,6 +9,8 @@ import {
   resolveFontFamily,
 } from '@lgc_cms/util';
 import cn from 'classnames';
+import { PromoBanner } from './PromoBanner';
+import { ImageChecklist } from './ImageChecklist';
 
 import type { JSX } from 'react';
 
@@ -22,6 +24,17 @@ export type ContentImageSliceProps =
  * Component for "ContentImageSlice" Slices.
  */
 const ContentImageSlice = ({ slice }: ContentImageSliceProps): JSX.Element => {
+  // Cast to string so new variations work before prismicio-types.d.ts is regenerated
+  const variation = slice.variation as string;
+
+  if (variation === 'promoBanner') {
+    return <PromoBanner slice={slice} />;
+  }
+
+  if (variation === 'imageChecklist') {
+    return <ImageChecklist slice={slice} />;
+  }
+
   if (slice.variation === 'splitWithImage') {
     const primary = slice.primary as any;
 
@@ -36,15 +49,15 @@ const ContentImageSlice = ({ slice }: ContentImageSliceProps): JSX.Element => {
         : Math.max(rawOpacity, 0)
       : 1;
 
-    // Typography resolution from CMS
+    // Typography resolution from CMS (Defaults: Fraunces Regular for headings, Inter Tight Regular for body)
     const headingTypo = resolveHeadingTypography({
       size: primary.title_size,
       font: primary.title_font,
       weight: primary.title_weight,
       color: primary.title_color,
-      fallbackFont: 'Inter',
+      fallbackFont: 'Fraunces',
       fallbackSize: 'Large',
-      fallbackWeight: 'Black',
+      fallbackWeight: 'Normal',
       fallbackColor: '#000000',
     });
 
@@ -53,15 +66,15 @@ const ContentImageSlice = ({ slice }: ContentImageSliceProps): JSX.Element => {
       font: primary.description_font,
       weight: primary.description_weight,
       color: primary.description_color,
-      fallbackFont: 'Raleway',
+      fallbackFont: 'Inter Tight',
       fallbackSize: 'Medium',
       fallbackWeight: 'Normal',
       fallbackColor: '#2b2b2b',
     });
 
-    // Button configuration
+    // Button configuration (Default: Inter Tight Medium)
     const buttonLabel = primary.button_label || 'Explore the courses';
-    const buttonFont = resolveFontFamily(primary.button_font, 'Inter');
+    const buttonFont = resolveFontFamily(primary.button_font, 'Inter Tight');
     const buttonStyle = primary.button_style || 'Outline';
 
     let buttonRadiusClass = 'rounded-md';
@@ -98,9 +111,11 @@ const ContentImageSlice = ({ slice }: ContentImageSliceProps): JSX.Element => {
 
     const buttonStyleProps: React.CSSProperties = {
       fontFamily: buttonFont.fontFamily,
+      fontWeight: 500,
       backgroundColor: 'var(--btn-bg, ' + btnBg + ')',
       color: 'var(--btn-text, ' + btnTextColor + ')',
-      borderColor: 'var(--btn-border, ' + (isFilledButton ? btnBg : btnTextColor) + ')',
+      borderColor:
+        'var(--btn-border, ' + (isFilledButton ? btnBg : btnTextColor) + ')',
       '--btn-bg': btnBg,
       '--btn-text': btnTextColor,
       '--btn-border': isFilledButton ? btnBg : btnTextColor,
@@ -110,7 +125,7 @@ const ContentImageSlice = ({ slice }: ContentImageSliceProps): JSX.Element => {
     } as React.CSSProperties;
 
     const buttonClass = cn(
-      'slice-custom-btn group border px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold inline-flex items-center gap-2.5 transition-all duration-200 shadow-sm',
+      'slice-custom-btn group border px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-medium inline-flex items-center gap-2.5 transition-all duration-200 shadow-sm',
       buttonRadiusClass,
       buttonFont.className
     );
@@ -190,7 +205,7 @@ const ContentImageSlice = ({ slice }: ContentImageSliceProps): JSX.Element => {
         style={{ backgroundColor: outerBgColor }}
       >
         <div
-          className="relative max-w-[1380px] mx-auto rounded-lg sm:rounded-md lg:rounded-[10px] overflow-hidden p-6 sm:p-10 md:p-12 lg:p-16 transition-colors duration-200"
+          className="relative max-w-[1380px] mx-auto overflow-hidden p-6 sm:p-10 md:p-12 lg:p-16 transition-colors duration-200"
           style={{ backgroundColor: containerBgColor }}
         >
           {/* Optional background texture/image with opacity */}

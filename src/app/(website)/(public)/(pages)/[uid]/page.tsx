@@ -49,6 +49,7 @@ export default async function Page(props: { params: Promise<Params> }) {
       'course.category',
       'course.author',
       'course.title',
+      'course.summary',
       'course.duration',
       'course.student_count',
       'course.current_price',

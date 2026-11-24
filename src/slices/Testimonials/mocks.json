@@ -13,7 +13,7 @@
 								"name",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "anything",
+									"value": "led",
 									"type": "Text"
 								}
 							],
@@ -21,7 +21,7 @@
 								"designation",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "say",
+									"value": "energy",
 									"type": "Text"
 								}
 							],
@@ -33,7 +33,7 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Culpa irure et duis nulla qui excepteur adipisicing. Fugiat pariatur Lorem duis duis sint adipisicing laboris anim dolore. Nulla excepteur nulla fugiat ullamco voluptate fugiat Lorem labore."
+												"text": "Occaecat elit sit eu ea incididunt excepteur. Nostrud officia exercitation commodo eiusmod."
 											}
 										}
 									]
@@ -42,26 +42,25 @@
 							[
 								"image",
 								{
+									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
-										"url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
-										"width": 3648,
-										"height": 4560
+										"url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+										"width": 3500,
+										"height": 2338
 									},
-									"url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?rect=0%2C456%2C3648%2C3648&w=90&h=90",
-									"width": 90,
-									"height": 90,
+									"url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+									"width": 3500,
+									"height": 2338,
 									"edit": {
 										"zoom": 1,
 										"crop": {
 											"x": 0,
-											"y": 456
+											"y": 0
 										},
 										"background": "transparent"
 									},
-									"credits": null,
-									"alt": null,
-									"__TYPE__": "ImageContent",
+									"alt": "maybe",
 									"thumbnails": {}
 								}
 							],
@@ -69,79 +68,8 @@
 								"rating",
 								{
 									"__TYPE__": "FieldContent",
-									"type": "Number",
-									"value": "5"
-								}
-							]
-						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"name",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "Olaf"
-								}
-							],
-							[
-								"designation",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "Germany"
-								}
-							],
-							[
-								"review",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Very cool",
-												"spans": []
-											},
-											"direction": "ltr"
-										}
-									]
-								}
-							],
-							[
-								"image",
-								{
-									"url": "https://images.unsplash.com/photo-1568383306313-1b27a2e28071?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw2fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MjI0MjI1NTF8MA&ixlib=rb-4.0.3&q=85&rect=1000%2C0%2C4000%2C4000&w=90&h=90",
-									"alt": "sliced fruit",
-									"origin": {
-										"id": "p2n1zvbA5_4",
-										"url": "https://images.unsplash.com/photo-1568383306313-1b27a2e28071?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw2fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MjI0MjI1NTF8MA&ixlib=rb-4.0.3&q=85",
-										"width": 6000,
-										"height": 4000
-									},
-									"width": 90,
-									"height": 90,
-									"edit": {
-										"background": "transparent",
-										"zoom": 1,
-										"crop": {
-											"x": 1000,
-											"y": 0
-										}
-									},
-									"credits": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
-							],
-							[
-								"rating",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Number",
-									"value": "5"
+									"value": "49",
+									"type": "Number"
 								}
 							]
 						]
@@ -149,6 +77,333 @@
 				]
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "carousel",
+		"primary": {
+			"badge_icon": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+					"width": 3024,
+					"height": 3778
+				},
+				"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+				"width": 3024,
+				"height": 3778,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "window",
+				"thumbnails": {}
+			},
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "play",
+				"type": "Text"
+			},
+			"badge_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#194574",
+				"type": "Color"
+			},
+			"badge_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#740118",
+				"type": "Color"
+			},
+			"badge_icon_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#d022b7",
+				"type": "Color"
+			},
+			"badge_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#0f87ee",
+				"type": "Color"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Sport"
+						}
+					}
+				]
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Bebas Neue",
+				"type": "Select"
+			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Extra Large",
+				"type": "Select"
+			},
+			"title_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Black",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e11b23",
+				"type": "Color"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim eu magna velit nostrud adipisicing ut nostrud do cillum reprehenderit non sunt aute. Magna dolore laborum dolore eu excepteur nulla sint. Mollit adipisicing occaecat do nulla dolor minim aute officia ex in magna deserunt id."
+						}
+					}
+				]
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"description_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#230a7e",
+				"type": "Color"
+			},
+			"testimonials": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"quote",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Do consectetur voluptate enim. Sint nulla ut fugiat aliquip proident et anim."
+											}
+										}
+									]
+								}
+							],
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "note",
+									"type": "Text"
+								}
+							],
+							[
+								"location",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "taste",
+									"type": "Text"
+								}
+							],
+							[
+								"avatar",
+								{
+									"__TYPE__": "ImageContent",
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+										"width": 3935,
+										"height": 5894
+									},
+									"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+									"width": 3935,
+									"height": 5894,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "fourth",
+									"thumbnails": {}
+								}
+							],
+							[
+								"rating",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "34",
+									"type": "Number"
+								}
+							]
+						]
+					}
+				]
+			},
+			"cards_per_view": {
+				"__TYPE__": "FieldContent",
+				"value": "3",
+				"type": "Select"
+			},
+			"loop": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"show_arrows": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"show_dots": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"autoplay": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"autoplay_interval": {
+				"__TYPE__": "FieldContent",
+				"value": "82",
+				"type": "Number"
+			},
+			"highlight_active_card": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"show_rating": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"add_quote_marks": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"quote_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Fraunces",
+				"type": "Select"
+			},
+			"quote_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Large",
+				"type": "Select"
+			},
+			"quote_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#336a98",
+				"type": "Color"
+			},
+			"name_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"name_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a5388e",
+				"type": "Color"
+			},
+			"location_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#c747d7",
+				"type": "Color"
+			},
+			"section_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a8e05e",
+				"type": "Color"
+			},
+			"card_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#b65128",
+				"type": "Color"
+			},
+			"card_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#b00e3d",
+				"type": "Color"
+			},
+			"active_card_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#851ae4",
+				"type": "Color"
+			},
+			"active_card_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#3a40d6",
+				"type": "Color"
+			},
+			"star_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#5abcc0",
+				"type": "Color"
+			},
+			"star_empty_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1404c0",
+				"type": "Color"
+			},
+			"arrow_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#fa1256",
+				"type": "Color"
+			},
+			"arrow_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#3d6dda",
+				"type": "Color"
+			},
+			"arrow_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e5550e",
+				"type": "Color"
+			},
+			"arrow_hover_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#9beea1",
+				"type": "Color"
+			},
+			"dot_active_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#dd34fa",
+				"type": "Color"
+			},
+			"dot_inactive_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#4bc2c1",
+				"type": "Color"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

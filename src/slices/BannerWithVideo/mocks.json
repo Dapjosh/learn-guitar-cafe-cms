@@ -5,20 +5,25 @@
 		"primary": {
 			"badge_text": {
 				"__TYPE__": "FieldContent",
-				"value": "Online guitar lessons with Paul Greig",
+				"value": "eleven",
 				"type": "Text"
+			},
+			"outer_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e77988",
+				"type": "Color"
 			},
 			"background_image": {
 				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
-					"url": "/images/banner-video-bg.jpg",
-					"width": 1920,
-					"height": 1080
+					"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+					"width": 4010,
+					"height": 4010
 				},
-				"url": "/images/banner-video-bg.jpg",
-				"width": 1920,
-				"height": 1080,
+				"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+				"width": 4010,
+				"height": 4010,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -27,16 +32,37 @@
 					},
 					"background": "transparent"
 				},
-				"alt": "Vintage guitar background illustration"
+				"alt": "see",
+				"thumbnails": {}
 			},
 			"background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#f4eee5",
+				"value": "#d55b82",
 				"type": "Color"
+			},
+			"box_spacing": {
+				"__TYPE__": "FieldContent",
+				"value": "Default (Medium)",
+				"type": "Select"
+			},
+			"box_spacing_custom": {
+				"__TYPE__": "FieldContent",
+				"value": "52",
+				"type": "Number"
+			},
+			"box_spacing_y": {
+				"__TYPE__": "FieldContent",
+				"value": "5",
+				"type": "Number"
+			},
+			"box_spacing_x": {
+				"__TYPE__": "FieldContent",
+				"value": "25",
+				"type": "Number"
 			},
 			"background_image_opacity": {
 				"__TYPE__": "FieldContent",
-				"value": 100,
+				"value": "15",
 				"type": "Number"
 			},
 			"title": {
@@ -45,14 +71,7 @@
 					{
 						"type": "heading1",
 						"content": {
-							"text": "SLIDE GUITAR & OPEN TUNINGS",
-							"spans": [
-								{
-									"type": "strong",
-									"start": 20,
-									"end": 27
-								}
-							]
+							"text": "Create"
 						}
 					}
 				]
@@ -64,17 +83,17 @@
 			},
 			"title_font": {
 				"__TYPE__": "FieldContent",
-				"value": "Inter",
+				"value": "Fraunces",
 				"type": "Select"
 			},
 			"title_weight": {
 				"__TYPE__": "FieldContent",
-				"value": "Black",
+				"value": "Normal",
 				"type": "Select"
 			},
 			"title_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#000000",
+				"value": "#f692da",
 				"type": "Color"
 			},
 			"description": {
@@ -83,14 +102,14 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Step-by-step masterclasses to help you play the music you love, with tone and feel that sound like the record."
+							"text": "Aliqua fugiat consequat est elit et dolor irure magna sit nisi incididunt. Pariatur et velit ad non sint anim ipsum laborum labore sint labore minim laborum id."
 						}
 					}
 				]
 			},
 			"description_size": {
 				"__TYPE__": "FieldContent",
-				"value": "Medium",
+				"value": "Large",
 				"type": "Select"
 			},
 			"description_font": {
@@ -100,34 +119,34 @@
 			},
 			"description_weight": {
 				"__TYPE__": "FieldContent",
-				"value": "Normal",
+				"value": "Light",
 				"type": "Select"
 			},
 			"description_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#000000",
+				"value": "#14abb1",
 				"type": "Color"
 			},
 			"primary_cta": {
 				"__TYPE__": "LinkContent",
-				"key": "fbc39549-e5df-4c85-aecc-53ce7a75854a",
+				"key": "c7f16cae-567b-4725-81c8-c999aaa11040",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://learnguitarcafe.com",
-					"text": "Explore the lessons"
+					"url": "https://prismic.io",
+					"text": "second"
 				}
 			},
 			"video_thumbnail": {
 				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
-					"url": "/images/banner-video-thumb.jpg",
-					"width": 718,
-					"height": 404
+					"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+					"width": 3024,
+					"height": 3778
 				},
-				"url": "/images/banner-video-thumb.jpg",
-				"width": 718,
-				"height": 404,
+				"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+				"width": 3024,
+				"height": 3778,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -136,14 +155,14 @@
 					},
 					"background": "transparent"
 				},
-				"alt": "Paul Greig playing slide guitar"
+				"alt": "gradually"
 			},
 			"video_url": {
 				"__TYPE__": "LinkContent",
-				"key": "0f0714e2-249c-48c3-8332-b3391e4f5578",
+				"key": "7f6095f8-8b58-4f66-ab88-f0cd84ca8a04",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+					"url": "http://google.com"
 				}
 			},
 			"video_meta": {
@@ -156,14 +175,14 @@
 								"featured",
 								{
 									"__TYPE__": "BooleanContent",
-									"value": true
+									"value": false
 								}
 							],
 							[
 								"video_description",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "Introduction to slide & roots guitar",
+									"value": "buried",
 									"type": "Text"
 								}
 							]
@@ -172,6 +191,367 @@
 				]
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "splitWithVideo",
+		"primary": {
+			"outer_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#3d9fc6",
+				"type": "Color"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#4bfa7e",
+				"type": "Color"
+			},
+			"container_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a1debd",
+				"type": "Color"
+			},
+			"background_image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+					"width": 2747,
+					"height": 4120
+				},
+				"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+				"width": 2747,
+				"height": 4120,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "dress",
+				"thumbnails": {}
+			},
+			"background_image_opacity": {
+				"__TYPE__": "FieldContent",
+				"value": "5",
+				"type": "Number"
+			},
+			"badge_icon": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+					"width": 3456,
+					"height": 3456
+				},
+				"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+				"width": 3456,
+				"height": 3456,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "setting",
+				"thumbnails": {}
+			},
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "evening",
+				"type": "Text"
+			},
+			"badge_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#0e2716",
+				"type": "Color"
+			},
+			"badge_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#3bfb45",
+				"type": "Color"
+			},
+			"badge_icon_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#39406f",
+				"type": "Color"
+			},
+			"badge_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e82186",
+				"type": "Color"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Youth"
+						}
+					}
+				]
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Bebas Neue",
+				"type": "Select"
+			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Extra Large",
+				"type": "Select"
+			},
+			"title_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Normal",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#68b77a",
+				"type": "Color"
+			},
+			"title_highlight_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e3ec31",
+				"type": "Color"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sunt Lorem quis officia veniam cillum do anim nostrud voluptate ex nisi. Magna ullamco consequat duis incididunt enim fugiat laborum sit."
+						}
+					}
+				]
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Nunito",
+				"type": "Select"
+			},
+			"description_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Small",
+				"type": "Select"
+			},
+			"description_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Normal",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#94df06",
+				"type": "Color"
+			},
+			"primary_cta": {
+				"__TYPE__": "LinkContent",
+				"key": "01696e3b-c0f8-4d4e-bfb9-8c679f6295bd",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "author"
+				}
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Anton",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Rounded (Medium)",
+				"type": "Select"
+			},
+			"button_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#35b02c",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1043ae",
+				"type": "Color"
+			},
+			"button_hover_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a26554",
+				"type": "Color"
+			},
+			"button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#36e19e",
+				"type": "Color"
+			},
+			"button_show_arrow": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"video_url": {
+				"__TYPE__": "LinkContent",
+				"key": "ee629218-8c33-499e-8517-ffa85c731e9f",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"video_thumbnail": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+					"width": 3199,
+					"height": 3199
+				},
+				"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+				"width": 3199,
+				"height": 3199,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "aboard",
+				"thumbnails": {}
+			},
+			"video_position": {
+				"__TYPE__": "FieldContent",
+				"value": "Right",
+				"type": "Select"
+			},
+			"video_aspect_ratio": {
+				"__TYPE__": "FieldContent",
+				"value": "Portrait",
+				"type": "Select"
+			},
+			"video_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Slightly Rounded (Small)",
+				"type": "Select"
+			},
+			"video_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#8bf830",
+				"type": "Color"
+			},
+			"show_play_button": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"play_button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#18315b",
+				"type": "Color"
+			},
+			"play_button_icon_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a41cf2",
+				"type": "Color"
+			},
+			"show_video_caption": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"video_featured_label": {
+				"__TYPE__": "FieldContent",
+				"value": "anybody",
+				"type": "Text"
+			},
+			"video_caption": {
+				"__TYPE__": "FieldContent",
+				"value": "poor",
+				"type": "Text"
+			},
+			"video_caption_accent_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#65abfa",
+				"type": "Color"
+			},
+			"show_marquee": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"marquee_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "immediately",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"marquee_separator": {
+				"__TYPE__": "FieldContent",
+				"value": "instead",
+				"type": "Text"
+			},
+			"marquee_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#8a7dd4",
+				"type": "Color"
+			},
+			"marquee_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#7d8715",
+				"type": "Color"
+			},
+			"marquee_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Fraunces",
+				"type": "Select"
+			},
+			"marquee_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"marquee_speed": {
+				"__TYPE__": "FieldContent",
+				"value": "Normal",
+				"type": "Select"
+			},
+			"marquee_direction": {
+				"__TYPE__": "FieldContent",
+				"value": "Right",
+				"type": "Select"
+			},
+			"marquee_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Slightly Rounded (Small)",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

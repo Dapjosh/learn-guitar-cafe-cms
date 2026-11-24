@@ -39,6 +39,43 @@
             "placeholder": "#f4eee5"
           }
         },
+        "box_spacing": {
+          "type": "Select",
+          "config": {
+            "label": "Size Between Outer & Inner Box",
+            "placeholder": "",
+            "default_value": "Default (Medium)",
+            "options": [
+              "Default (Medium)",
+              "None (0px / Flush)",
+              "Small (12px)",
+              "Medium (24px)",
+              "Large (48px)",
+              "Extra Large (64px)"
+            ]
+          }
+        },
+        "box_spacing_custom": {
+          "type": "Number",
+          "config": {
+            "label": "Custom Size Between Boxes (px)",
+            "placeholder": "e.g. 30 (Leave empty to use preset above)"
+          }
+        },
+        "box_spacing_y": {
+          "type": "Number",
+          "config": {
+            "label": "Top & Bottom Gap (px, Optional override)",
+            "placeholder": "e.g. 40"
+          }
+        },
+        "box_spacing_x": {
+          "type": "Number",
+          "config": {
+            "label": "Left & Right Gap (px, Optional override)",
+            "placeholder": "e.g. 24"
+          }
+        },
         "background_image_opacity": {
           "type": "Number",
           "config": {
@@ -72,8 +109,11 @@
           "config": {
             "label": "Title Font",
             "placeholder": "",
-            "default_value": "Inter",
+            "default_value": "Fraunces",
             "options": [
+              "Fraunces",
+              "Bebas Neue",
+              "Inter Tight",
               "Inter",
               "Raleway",
               "Nunito",
@@ -87,13 +127,13 @@
           "config": {
             "label": "Title Font Weight",
             "placeholder": "",
-            "default_value": "Black",
+            "default_value": "Normal",
             "options": [
-              "Black",
-              "Bold",
-              "Semi Bold",
-              "Medium",
               "Normal",
+              "Medium",
+              "Semi Bold",
+              "Bold",
+              "Black",
               "Light",
               "Thin"
             ]
@@ -131,8 +171,11 @@
           "config": {
             "label": "Description Font",
             "placeholder": "",
-            "default_value": "Raleway",
+            "default_value": "Inter Tight",
             "options": [
+              "Inter Tight",
+              "Fraunces",
+              "Bebas Neue",
               "Raleway",
               "Inter",
               "Nunito",
@@ -206,6 +249,536 @@
                 }
               }
             }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "splitWithVideo",
+      "name": "Split With Video",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Content beside a video card in a textured box, with a scrolling marquee below",
+      "imageUrl": "",
+      "primary": {
+        "outer_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Outer Background Color",
+            "placeholder": "#f3efe6"
+          }
+        },
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Hero Box Background Color",
+            "placeholder": "#ede5d8"
+          }
+        },
+        "container_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Hero Box Border Color",
+            "placeholder": "rgba(28, 25, 23, 0.06)"
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Hero Box Background Illustration / Texture",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "background_image_opacity": {
+          "type": "Number",
+          "config": {
+            "label": "Background Image Opacity (0 - 100)",
+            "placeholder": "100"
+          }
+        },
+        "badge_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Badge Icon (Upload Icon Image)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text",
+            "placeholder": "Online guitar lessons with Paul Greig"
+          }
+        },
+        "badge_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Background Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "badge_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Text Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Icon Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1,heading2,strong,em",
+            "label": "Title (make words Bold or Italic to highlight them)"
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Bebas Neue",
+            "options": [
+              "Bebas Neue",
+              "Inter Tight",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Title Size",
+            "placeholder": "",
+            "default_value": "Extra Large",
+            "options": [
+              "Extra Large",
+              "Large",
+              "Medium",
+              "Small"
+            ]
+          }
+        },
+        "title_weight": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font Weight",
+            "placeholder": "",
+            "default_value": "Normal",
+            "options": [
+              "Normal",
+              "Medium",
+              "Semi Bold",
+              "Bold",
+              "Black",
+              "Light",
+              "Thin"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "title_highlight_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Highlight Color (Bold / Italic words)",
+            "placeholder": "#d85d18"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "description_font": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "description_size": {
+          "type": "Select",
+          "config": {
+            "label": "Description Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "description_weight": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font Weight",
+            "placeholder": "",
+            "default_value": "Normal",
+            "options": [
+              "Normal",
+              "Medium",
+              "Light",
+              "Semi Bold",
+              "Bold"
+            ]
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "primary_cta": {
+          "type": "Link",
+          "config": {
+            "label": "Button (link + button text)",
+            "allowText": true,
+            "select": null
+          }
+        },
+        "button_font": {
+          "type": "Select",
+          "config": {
+            "label": "Button Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "button_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Button Border Radius",
+            "placeholder": "",
+            "default_value": "Rounded (Medium)",
+            "options": [
+              "Rounded (Medium)",
+              "Slightly Rounded (Small)",
+              "Large Rounded",
+              "Pill",
+              "Sharp"
+            ]
+          }
+        },
+        "button_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Background Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "button_hover_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Background Color",
+            "placeholder": "#b94c10"
+          }
+        },
+        "button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "button_show_arrow": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Arrow Icon on Button",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "video_url": {
+          "type": "Link",
+          "config": {
+            "label": "Video (YouTube / Vimeo URL, or an uploaded video file)",
+            "select": null,
+            "allowTargetBlank": false
+          }
+        },
+        "video_thumbnail": {
+          "type": "Image",
+          "config": {
+            "label": "Video Thumbnail",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video_position": {
+          "type": "Select",
+          "config": {
+            "label": "Video Position",
+            "placeholder": "",
+            "default_value": "Right",
+            "options": [
+              "Right",
+              "Left"
+            ]
+          }
+        },
+        "video_aspect_ratio": {
+          "type": "Select",
+          "config": {
+            "label": "Video Card Shape",
+            "placeholder": "",
+            "default_value": "Near Square",
+            "options": [
+              "Near Square",
+              "Landscape",
+              "Square",
+              "Portrait"
+            ]
+          }
+        },
+        "video_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Video Card Corner Radius",
+            "placeholder": "",
+            "default_value": "Slightly Rounded (Small)",
+            "options": [
+              "Slightly Rounded (Small)",
+              "Rounded (Medium)",
+              "Large Rounded",
+              "Sharp"
+            ]
+          }
+        },
+        "video_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Video Card Border Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "show_play_button": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Play Button",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "play_button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Play Button Background",
+            "placeholder": "rgba(255, 255, 255, 0.22)"
+          }
+        },
+        "play_button_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Play Button Icon Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "show_video_caption": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Video Caption",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "video_featured_label": {
+          "type": "Text",
+          "config": {
+            "label": "Caption Label",
+            "placeholder": "Featured"
+          }
+        },
+        "video_caption": {
+          "type": "Text",
+          "config": {
+            "label": "Caption Text",
+            "placeholder": "Introduction to slide & roots guitar"
+          }
+        },
+        "video_caption_accent_color": {
+          "type": "Color",
+          "config": {
+            "label": "Caption Icon Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "show_marquee": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Scrolling Marquee",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "marquee_items": {
+          "type": "Group",
+          "config": {
+            "label": "Marquee Items",
+            "repeat": true,
+            "fields": {
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Text",
+                  "placeholder": "Slide guitar"
+                }
+              }
+            }
+          }
+        },
+        "marquee_separator": {
+          "type": "Text",
+          "config": {
+            "label": "Marquee Separator (optional, e.g. • or ✦)",
+            "placeholder": ""
+          }
+        },
+        "marquee_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Marquee Background Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "marquee_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Marquee Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "marquee_font": {
+          "type": "Select",
+          "config": {
+            "label": "Marquee Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "marquee_size": {
+          "type": "Select",
+          "config": {
+            "label": "Marquee Text Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "marquee_speed": {
+          "type": "Select",
+          "config": {
+            "label": "Marquee Speed",
+            "placeholder": "",
+            "default_value": "Normal",
+            "options": [
+              "Normal",
+              "Slow",
+              "Fast"
+            ]
+          }
+        },
+        "marquee_direction": {
+          "type": "Select",
+          "config": {
+            "label": "Marquee Direction",
+            "placeholder": "",
+            "default_value": "Left",
+            "options": [
+              "Left",
+              "Right"
+            ]
+          }
+        },
+        "marquee_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Marquee Corner Radius",
+            "placeholder": "",
+            "default_value": "Slightly Rounded (Small)",
+            "options": [
+              "Slightly Rounded (Small)",
+              "Rounded (Medium)",
+              "Large Rounded",
+              "Sharp"
+            ]
           }
         }
       },

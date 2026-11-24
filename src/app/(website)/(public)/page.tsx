@@ -58,6 +58,7 @@ export default async function Index() {
         'course.course_image',
         'course.author',
         'course.title',
+        'course.summary',
         'course.duration',
         'course.student_count',
         'course.original_price',

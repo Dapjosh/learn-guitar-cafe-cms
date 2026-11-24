@@ -1,0 +1,875 @@
+{
+  "id": "header",
+  "type": "SharedSlice",
+  "name": "Header",
+  "description": "Customizable Header Navigation bar with logo options, menu links, and action buttons.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Logo + Text",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Header with uploaded logo image AND site text",
+      "imageUrl": "",
+      "primary": {
+        "logo_display": {
+          "type": "Select",
+          "config": {
+            "label": "Logo Display",
+            "placeholder": "",
+            "default_value": "Logo + Text",
+            "options": [
+              "Logo + Text",
+              "Logo Only",
+              "Text Only"
+            ]
+          }
+        },
+        "logo_image": {
+          "type": "Image",
+          "config": {
+            "label": "Logo Image (Optional)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "logo_size": {
+          "type": "Number",
+          "config": {
+            "label": "Logo Size / Height (px)",
+            "placeholder": "40"
+          }
+        },
+        "logo_width": {
+          "type": "Number",
+          "config": {
+            "label": "Logo Width (px, Optional override)",
+            "placeholder": "auto"
+          }
+        },
+        "site_title": {
+          "type": "Text",
+          "config": {
+            "label": "Site Pre-Title",
+            "placeholder": "PAUL GREIG"
+          }
+        },
+        "site_name": {
+          "type": "Text",
+          "config": {
+            "label": "Site Name",
+            "placeholder": "LEARN GUITAR CAFE"
+          }
+        },
+        "site_name_font": {
+          "type": "Select",
+          "config": {
+            "label": "Site Name Font",
+            "placeholder": "",
+            "default_value": "Fraunces",
+            "options": [
+              "Fraunces",
+              "Bebas Neue",
+              "Inter Tight",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "site_name_color": {
+          "type": "Color",
+          "config": {
+            "label": "Site Name Color",
+            "placeholder": "#000000"
+          }
+        },
+        "header_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Header Background Color",
+            "placeholder": "#f4eee5"
+          }
+        },
+        "header_height": {
+          "type": "Number",
+          "config": {
+            "label": "Header Height (px)",
+            "placeholder": "90"
+          }
+        },
+        "header_sticky": {
+          "type": "Boolean",
+          "config": {
+            "label": "Sticky Header on Scroll",
+            "default_value": true
+          }
+        },
+        "menu_font": {
+          "type": "Select",
+          "config": {
+            "label": "Menu Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Fraunces",
+              "Bebas Neue",
+              "Raleway",
+              "Inter",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "menu_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Menu Text Color",
+            "placeholder": "#2b2b2b"
+          }
+        },
+        "menu_active_color": {
+          "type": "Color",
+          "config": {
+            "label": "Menu Active / Accent Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "menu_hover_color": {
+          "type": "Color",
+          "config": {
+            "label": "Menu Hover Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "menu_items": {
+          "type": "Group",
+          "config": {
+            "label": "Navigation Menu Links",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": "All courses"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link URL",
+                  "placeholder": "/courses",
+                  "select": null
+                }
+              }
+            }
+          }
+        },
+        "button_font": {
+          "type": "Select",
+          "config": {
+            "label": "Buttons Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Fraunces",
+              "Bebas Neue",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "button_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Buttons Border Radius",
+            "placeholder": "",
+            "default_value": "Rounded (Medium)",
+            "options": [
+              "Rounded (Medium)",
+              "Slightly Rounded (Small)",
+              "Large Rounded",
+              "Pill (Full)",
+              "Sharp (Square)"
+            ]
+          }
+        },
+        "login_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Login Button Label",
+            "placeholder": "Login"
+          }
+        },
+        "login_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Login Button Link",
+            "placeholder": "/sign-in",
+            "select": null
+          }
+        },
+        "login_button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "login_button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "login_button_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Border Color",
+            "placeholder": "rgba(0,0,0,0.25)"
+          }
+        },
+        "login_button_hover_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Hover Background Color",
+            "placeholder": "rgba(0,0,0,0.05)"
+          }
+        },
+        "login_button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Hover Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "cta_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Button Label",
+            "placeholder": "Free starter pack"
+          }
+        },
+        "cta_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Button Link",
+            "placeholder": "/sign-up",
+            "select": null
+          }
+        },
+        "cta_button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Background Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "cta_button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "cta_button_hover_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Hover Background Color",
+            "placeholder": "#000000"
+          }
+        },
+        "cta_button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Hover Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "cta_button_has_arrow": {
+          "type": "Boolean",
+          "config": {
+            "label": "CTA Button Show Arrow Icon",
+            "default_value": true
+          }
+        }
+      },
+      "items": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Item Label",
+            "placeholder": "Home"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Item Link",
+            "placeholder": "/",
+            "select": null
+          }
+        }
+      }
+    },
+    {
+      "id": "logoOnly",
+      "name": "Logo Only",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Header with uploaded logo image only (no site text)",
+      "imageUrl": "",
+      "primary": {
+        "logo_image": {
+          "type": "Image",
+          "config": {
+            "label": "Logo Image (Optional)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "logo_size": {
+          "type": "Number",
+          "config": {
+            "label": "Logo Size / Height (px)",
+            "placeholder": "40"
+          }
+        },
+        "logo_width": {
+          "type": "Number",
+          "config": {
+            "label": "Logo Width (px, Optional override)",
+            "placeholder": "auto"
+          }
+        },
+        "header_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Header Background Color",
+            "placeholder": "#f4eee5"
+          }
+        },
+        "header_height": {
+          "type": "Number",
+          "config": {
+            "label": "Header Height (px)",
+            "placeholder": "90"
+          }
+        },
+        "header_sticky": {
+          "type": "Boolean",
+          "config": {
+            "label": "Sticky Header on Scroll",
+            "default_value": true
+          }
+        },
+        "menu_font": {
+          "type": "Select",
+          "config": {
+            "label": "Menu Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Fraunces",
+              "Bebas Neue",
+              "Raleway",
+              "Inter",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "menu_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Menu Text Color",
+            "placeholder": "#2b2b2b"
+          }
+        },
+        "menu_active_color": {
+          "type": "Color",
+          "config": {
+            "label": "Menu Active / Accent Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "menu_hover_color": {
+          "type": "Color",
+          "config": {
+            "label": "Menu Hover Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "menu_items": {
+          "type": "Group",
+          "config": {
+            "label": "Navigation Menu Links",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": "All courses"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link URL",
+                  "placeholder": "/courses",
+                  "select": null
+                }
+              }
+            }
+          }
+        },
+        "button_font": {
+          "type": "Select",
+          "config": {
+            "label": "Buttons Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Fraunces",
+              "Bebas Neue",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "button_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Buttons Border Radius",
+            "placeholder": "",
+            "default_value": "Rounded (Medium)",
+            "options": [
+              "Rounded (Medium)",
+              "Slightly Rounded (Small)",
+              "Large Rounded",
+              "Pill (Full)",
+              "Sharp (Square)"
+            ]
+          }
+        },
+        "login_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Login Button Label",
+            "placeholder": "Login"
+          }
+        },
+        "login_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Login Button Link",
+            "placeholder": "/sign-in",
+            "select": null
+          }
+        },
+        "login_button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "login_button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "login_button_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Border Color",
+            "placeholder": "rgba(0,0,0,0.25)"
+          }
+        },
+        "login_button_hover_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Hover Background Color",
+            "placeholder": "rgba(0,0,0,0.05)"
+          }
+        },
+        "login_button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Hover Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "cta_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Button Label",
+            "placeholder": "Free starter pack"
+          }
+        },
+        "cta_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Button Link",
+            "placeholder": "/sign-up",
+            "select": null
+          }
+        },
+        "cta_button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Background Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "cta_button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "cta_button_hover_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Hover Background Color",
+            "placeholder": "#000000"
+          }
+        },
+        "cta_button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Hover Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "cta_button_has_arrow": {
+          "type": "Boolean",
+          "config": {
+            "label": "CTA Button Show Arrow Icon",
+            "default_value": true
+          }
+        }
+      },
+      "items": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Item Label",
+            "placeholder": "Home"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Item Link",
+            "placeholder": "/",
+            "select": null
+          }
+        }
+      }
+    },
+    {
+      "id": "textOnly",
+      "name": "Text Only",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Header with site text only (no logo image)",
+      "imageUrl": "",
+      "primary": {
+        "site_title": {
+          "type": "Text",
+          "config": {
+            "label": "Site Pre-Title",
+            "placeholder": "PAUL GREIG"
+          }
+        },
+        "site_name": {
+          "type": "Text",
+          "config": {
+            "label": "Site Name",
+            "placeholder": "LEARN GUITAR CAFE"
+          }
+        },
+        "site_name_font": {
+          "type": "Select",
+          "config": {
+            "label": "Site Name Font",
+            "placeholder": "",
+            "default_value": "Fraunces",
+            "options": [
+              "Fraunces",
+              "Bebas Neue",
+              "Inter Tight",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "site_name_color": {
+          "type": "Color",
+          "config": {
+            "label": "Site Name Color",
+            "placeholder": "#000000"
+          }
+        },
+        "header_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Header Background Color",
+            "placeholder": "#f4eee5"
+          }
+        },
+        "header_height": {
+          "type": "Number",
+          "config": {
+            "label": "Header Height (px)",
+            "placeholder": "90"
+          }
+        },
+        "header_sticky": {
+          "type": "Boolean",
+          "config": {
+            "label": "Sticky Header on Scroll",
+            "default_value": true
+          }
+        },
+        "menu_font": {
+          "type": "Select",
+          "config": {
+            "label": "Menu Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Fraunces",
+              "Bebas Neue",
+              "Raleway",
+              "Inter",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "menu_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Menu Text Color",
+            "placeholder": "#2b2b2b"
+          }
+        },
+        "menu_active_color": {
+          "type": "Color",
+          "config": {
+            "label": "Menu Active / Accent Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "menu_hover_color": {
+          "type": "Color",
+          "config": {
+            "label": "Menu Hover Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "menu_items": {
+          "type": "Group",
+          "config": {
+            "label": "Navigation Menu Links",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": "All courses"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link URL",
+                  "placeholder": "/courses",
+                  "select": null
+                }
+              }
+            }
+          }
+        },
+        "button_font": {
+          "type": "Select",
+          "config": {
+            "label": "Buttons Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Fraunces",
+              "Bebas Neue",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "button_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Buttons Border Radius",
+            "placeholder": "",
+            "default_value": "Rounded (Medium)",
+            "options": [
+              "Rounded (Medium)",
+              "Slightly Rounded (Small)",
+              "Large Rounded",
+              "Pill (Full)",
+              "Sharp (Square)"
+            ]
+          }
+        },
+        "login_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Login Button Label",
+            "placeholder": "Login"
+          }
+        },
+        "login_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Login Button Link",
+            "placeholder": "/sign-in",
+            "select": null
+          }
+        },
+        "login_button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "login_button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "login_button_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Border Color",
+            "placeholder": "rgba(0,0,0,0.25)"
+          }
+        },
+        "login_button_hover_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Hover Background Color",
+            "placeholder": "rgba(0,0,0,0.05)"
+          }
+        },
+        "login_button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Login Button Hover Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "cta_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Button Label",
+            "placeholder": "Free starter pack"
+          }
+        },
+        "cta_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Button Link",
+            "placeholder": "/sign-up",
+            "select": null
+          }
+        },
+        "cta_button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Background Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "cta_button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "cta_button_hover_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Hover Background Color",
+            "placeholder": "#000000"
+          }
+        },
+        "cta_button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "CTA Button Hover Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "cta_button_has_arrow": {
+          "type": "Boolean",
+          "config": {
+            "label": "CTA Button Show Arrow Icon",
+            "default_value": true
+          }
+        }
+      },
+      "items": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Item Label",
+            "placeholder": "Home"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Item Link",
+            "placeholder": "/",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}

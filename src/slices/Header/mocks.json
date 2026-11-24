@@ -1,0 +1,651 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"logo_display": {
+				"__TYPE__": "FieldContent",
+				"value": "Logo + Text",
+				"type": "Select"
+			},
+			"logo_image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+					"width": 6000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+				"width": 6000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "welcome",
+				"thumbnails": {}
+			},
+			"logo_size": {
+				"__TYPE__": "FieldContent",
+				"value": "31",
+				"type": "Number"
+			},
+			"logo_width": {
+				"__TYPE__": "FieldContent",
+				"value": "92",
+				"type": "Number"
+			},
+			"site_title": {
+				"__TYPE__": "FieldContent",
+				"value": "statement",
+				"type": "Text"
+			},
+			"site_name": {
+				"__TYPE__": "FieldContent",
+				"value": "system",
+				"type": "Text"
+			},
+			"site_name_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Mochiy Pop One",
+				"type": "Select"
+			},
+			"site_name_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#18e95a",
+				"type": "Color"
+			},
+			"header_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1b48dd",
+				"type": "Color"
+			},
+			"header_height": {
+				"__TYPE__": "FieldContent",
+				"value": "68",
+				"type": "Number"
+			},
+			"header_sticky": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"menu_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"menu_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#3529ca",
+				"type": "Color"
+			},
+			"menu_active_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#83afd5",
+				"type": "Color"
+			},
+			"menu_hover_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#5aa8d6",
+				"type": "Color"
+			},
+			"menu_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "planning",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "81b13181-a62b-462c-8867-561df65273bd",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Rounded (Medium)",
+				"type": "Select"
+			},
+			"login_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "store",
+				"type": "Text"
+			},
+			"login_button_link": {
+				"__TYPE__": "LinkContent",
+				"key": "cb6ed04f-34d5-4c9d-b8e0-890011f1c1f1",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"login_button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#bcaa95",
+				"type": "Color"
+			},
+			"login_button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#97c801",
+				"type": "Color"
+			},
+			"login_button_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1d756a",
+				"type": "Color"
+			},
+			"login_button_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#deb6b9",
+				"type": "Color"
+			},
+			"login_button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#9a17e3",
+				"type": "Color"
+			},
+			"cta_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "mainly",
+				"type": "Text"
+			},
+			"cta_button_link": {
+				"__TYPE__": "LinkContent",
+				"key": "f4b4559b-a816-4ddf-bd72-17c78033a243",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"cta_button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#37aaee",
+				"type": "Color"
+			},
+			"cta_button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#828abb",
+				"type": "Color"
+			},
+			"cta_button_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#8a3a9f",
+				"type": "Color"
+			},
+			"cta_button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#6ce8bc",
+				"type": "Color"
+			},
+			"cta_button_has_arrow": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "merely",
+							"type": "Text"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"key": "36b51cc3-42dd-449c-98bb-4e1d2bd96225",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://google.com"
+							}
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "logoOnly",
+		"primary": {
+			"logo_image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f",
+					"width": 6597,
+					"height": 4398
+				},
+				"url": "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f",
+				"width": 6597,
+				"height": 4398,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "crop",
+				"thumbnails": {}
+			},
+			"logo_size": {
+				"__TYPE__": "FieldContent",
+				"value": "98",
+				"type": "Number"
+			},
+			"logo_width": {
+				"__TYPE__": "FieldContent",
+				"value": "81",
+				"type": "Number"
+			},
+			"header_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#15cc67",
+				"type": "Color"
+			},
+			"header_height": {
+				"__TYPE__": "FieldContent",
+				"value": "67",
+				"type": "Number"
+			},
+			"header_sticky": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"menu_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter",
+				"type": "Select"
+			},
+			"menu_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#02ddd0",
+				"type": "Color"
+			},
+			"menu_active_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#6543e5",
+				"type": "Color"
+			},
+			"menu_hover_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#9f4312",
+				"type": "Color"
+			},
+			"menu_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "charge",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "782ff9ad-b5eb-4966-8b30-372645dffe1b",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Sharp (Square)",
+				"type": "Select"
+			},
+			"login_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "vessels",
+				"type": "Text"
+			},
+			"login_button_link": {
+				"__TYPE__": "LinkContent",
+				"key": "dcaa73d6-ebe5-4560-b132-90d19e6d2411",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"login_button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#86ca12",
+				"type": "Color"
+			},
+			"login_button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e25245",
+				"type": "Color"
+			},
+			"login_button_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#666842",
+				"type": "Color"
+			},
+			"login_button_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#969ccb",
+				"type": "Color"
+			},
+			"login_button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#3b073e",
+				"type": "Color"
+			},
+			"cta_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "younger",
+				"type": "Text"
+			},
+			"cta_button_link": {
+				"__TYPE__": "LinkContent",
+				"key": "127458d2-ee11-4df6-b116-9db6ec2e47ed",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"cta_button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#057d8d",
+				"type": "Color"
+			},
+			"cta_button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#99240c",
+				"type": "Color"
+			},
+			"cta_button_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#b3fb19",
+				"type": "Color"
+			},
+			"cta_button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#f47865",
+				"type": "Color"
+			},
+			"cta_button_has_arrow": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "fog",
+							"type": "Text"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"key": "37df1ba6-08ea-4601-a62a-1eb186511bf3",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://twitter.com"
+							}
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "textOnly",
+		"primary": {
+			"site_title": {
+				"__TYPE__": "FieldContent",
+				"value": "although",
+				"type": "Text"
+			},
+			"site_name": {
+				"__TYPE__": "FieldContent",
+				"value": "engineer",
+				"type": "Text"
+			},
+			"site_name_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Mochiy Pop One",
+				"type": "Select"
+			},
+			"site_name_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1ff66e",
+				"type": "Color"
+			},
+			"header_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#798233",
+				"type": "Color"
+			},
+			"header_height": {
+				"__TYPE__": "FieldContent",
+				"value": "82",
+				"type": "Number"
+			},
+			"header_sticky": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"menu_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"menu_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#949dc6",
+				"type": "Color"
+			},
+			"menu_active_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#26a568",
+				"type": "Color"
+			},
+			"menu_hover_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#0a5f8d",
+				"type": "Color"
+			},
+			"menu_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "split",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "c57a49d5-8e66-4b63-a946-8bee025a2af6",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Mochiy Pop One",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Sharp (Square)",
+				"type": "Select"
+			},
+			"login_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "giving",
+				"type": "Text"
+			},
+			"login_button_link": {
+				"__TYPE__": "LinkContent",
+				"key": "32cc2d44-aaf0-46a4-8705-6228ccc2a5a5",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"login_button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#8de5a1",
+				"type": "Color"
+			},
+			"login_button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#6b3482",
+				"type": "Color"
+			},
+			"login_button_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#b25254",
+				"type": "Color"
+			},
+			"login_button_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#717bcd",
+				"type": "Color"
+			},
+			"login_button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#c2bae5",
+				"type": "Color"
+			},
+			"cta_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "won",
+				"type": "Text"
+			},
+			"cta_button_link": {
+				"__TYPE__": "LinkContent",
+				"key": "d1eda26f-ce04-4177-8ac7-6e2945ae711c",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"cta_button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#249161",
+				"type": "Color"
+			},
+			"cta_button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#af3c8a",
+				"type": "Color"
+			},
+			"cta_button_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#61b044",
+				"type": "Color"
+			},
+			"cta_button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#8b0bd6",
+				"type": "Color"
+			},
+			"cta_button_has_arrow": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "environment",
+							"type": "Text"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"key": "d7cd1577-145c-4868-8106-0f54e4f90b4d",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://twitter.com"
+							}
+						}
+					]
+				]
+			}
+		]
+	}
+]

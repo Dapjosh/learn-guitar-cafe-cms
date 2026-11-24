@@ -2,7 +2,16 @@ import React from 'react';
 
 export type TitleSizeOption = 'Small' | 'Medium' | 'Large' | 'Extra Large' | string;
 export type DescriptionSizeOption = 'Small' | 'Medium' | 'Large' | string;
-export type FontFamilyOption = 'Inter' | 'Raleway' | 'Nunito' | 'Mochiy Pop One' | 'Anton' | string;
+export type FontFamilyOption =
+  | 'Fraunces'
+  | 'Bebas Neue'
+  | 'Inter Tight'
+  | 'Inter'
+  | 'Raleway'
+  | 'Nunito'
+  | 'Mochiy Pop One'
+  | 'Anton'
+  | string;
 export type FontWeightOption =
   | 'Thin'
   | 'Light'
@@ -46,9 +55,27 @@ export interface ResolvedTypography {
  */
 export function resolveFontFamily(
   font?: string | null,
-  fallback = 'Inter'
+  fallback = 'Inter Tight'
 ): { className: string; fontFamily: string } {
   const f = (font || fallback).toLowerCase();
+  if (f.includes('fraunces')) {
+    return {
+      className: 'font-fraunces',
+      fontFamily: 'var(--font-fraunces), "Fraunces", serif',
+    };
+  }
+  if (f.includes('bebas')) {
+    return {
+      className: 'font-bebas',
+      fontFamily: 'var(--font-bebas-neue), "Bebas Neue", sans-serif',
+    };
+  }
+  if (f.includes('tight')) {
+    return {
+      className: 'font-inter-tight',
+      fontFamily: 'var(--font-inter-tight), "Inter Tight", sans-serif',
+    };
+  }
   if (f.includes('raleway')) {
     return {
       className: 'font-sans',
@@ -73,9 +100,15 @@ export function resolveFontFamily(
       fontFamily: 'var(--font-anton), Anton, sans-serif',
     };
   }
+  if (f.includes('inter')) {
+    return {
+      className: 'font-inter',
+      fontFamily: '"Inter", var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif',
+    };
+  }
   return {
-    className: 'font-inter',
-    fontFamily: '"Inter", var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif',
+    className: 'font-inter-tight',
+    fontFamily: 'var(--font-inter-tight), "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif',
   };
 }
 
@@ -107,11 +140,12 @@ function resolveFontWeight(weight?: string | null, fallback = 'Normal') {
 
 /**
  * Resolves heading typography (size class, font class, weight, and style) from CMS configuration
+ * Defaults to Fraunces Regular (400)
  */
 export function resolveHeadingTypography(config: HeadingTypographyConfig = {}): ResolvedTypography {
   const size = config.size || config.fallbackSize || 'Large';
-  const font = config.font || config.fallbackFont || 'Inter';
-  const weight = config.weight || config.fallbackWeight || 'Black';
+  const font = config.font || config.fallbackFont || 'Fraunces';
+  const weight = config.weight || config.fallbackWeight || 'Normal';
   const color = config.color || config.fallbackColor || '#000000';
 
   // Size classes
@@ -128,10 +162,10 @@ export function resolveHeadingTypography(config: HeadingTypographyConfig = {}): 
   }
 
   // Font family resolution via shared resolveFontFamily helper
-  const fontInfo = resolveFontFamily(font, config.fallbackFont || 'Inter');
+  const fontInfo = resolveFontFamily(font, config.fallbackFont || 'Fraunces');
 
-  // Weight resolution
-  const weightInfo = resolveFontWeight(weight, 'Black');
+  // Weight resolution (defaults to Normal / 400 for headers)
+  const weightInfo = resolveFontWeight(weight, 'Normal');
 
   return {
     className: `${fontInfo.className} ${sizeClass} ${weightInfo.className}`,
@@ -145,10 +179,11 @@ export function resolveHeadingTypography(config: HeadingTypographyConfig = {}): 
 
 /**
  * Resolves body / description typography (size class, font class, weight, and style) from CMS configuration
+ * Defaults to Inter Tight Regular (400)
  */
 export function resolveBodyTypography(config: BodyTypographyConfig = {}): ResolvedTypography {
   const size = config.size || config.fallbackSize || 'Medium';
-  const font = config.font || config.fallbackFont || 'Raleway';
+  const font = config.font || config.fallbackFont || 'Inter Tight';
   const weight = config.weight || config.fallbackWeight || 'Normal';
   const color = config.color || config.fallbackColor || '#000000';
 
@@ -163,9 +198,9 @@ export function resolveBodyTypography(config: BodyTypographyConfig = {}): Resolv
   }
 
   // Font family resolution via shared resolveFontFamily helper
-  const fontInfo = resolveFontFamily(font, config.fallbackFont || 'Raleway');
+  const fontInfo = resolveFontFamily(font, config.fallbackFont || 'Inter Tight');
 
-  // Weight resolution (defaults to Normal / 400 for description)
+  // Weight resolution (defaults to Normal / 400 for body)
   const weightInfo = resolveFontWeight(weight, 'Normal');
 
   return {
@@ -174,6 +209,30 @@ export function resolveBodyTypography(config: BodyTypographyConfig = {}): Resolv
       fontFamily: fontInfo.fontFamily,
       fontWeight: weightInfo.fontWeight,
       color,
+    },
+  };
+}
+
+/**
+ * Resolves button typography from CMS configuration
+ * Defaults to Inter Tight Medium (500)
+ */
+export function resolveButtonTypography(config: {
+  font?: FontFamilyOption | null;
+  weight?: FontWeightOption | null;
+  fallbackFont?: FontFamilyOption;
+} = {}): ResolvedTypography {
+  const font = config.font || config.fallbackFont || 'Inter Tight';
+  const weight = config.weight || 'Medium';
+
+  const fontInfo = resolveFontFamily(font, 'Inter Tight');
+  const weightInfo = resolveFontWeight(weight, 'Medium');
+
+  return {
+    className: `${fontInfo.className} ${weightInfo.className}`,
+    style: {
+      fontFamily: fontInfo.fontFamily,
+      fontWeight: weightInfo.fontWeight,
     },
   };
 }

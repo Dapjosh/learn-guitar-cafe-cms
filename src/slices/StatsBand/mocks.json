@@ -1,0 +1,211 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "badge_text": {
+        "__TYPE__": "FieldContent",
+        "value": "Community",
+        "type": "Text"
+      },
+      "badge_bg_color": {
+        "__TYPE__": "FieldContent",
+        "value": "#ffffff",
+        "type": "Color"
+      },
+      "badge_color": {
+        "__TYPE__": "FieldContent",
+        "value": "#d85d18",
+        "type": "Color"
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "EXPERIENCE THE CAFE DIFFERENCE",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "title_font": {
+        "__TYPE__": "FieldContent",
+        "value": "Bebas Neue",
+        "type": "Select"
+      },
+      "title_size": {
+        "__TYPE__": "FieldContent",
+        "value": "Large",
+        "type": "Select"
+      },
+      "title_color": {
+        "__TYPE__": "FieldContent",
+        "value": "#1c1917",
+        "type": "Color"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Why passionate players choose the Cafe to develop authentic touch, tone and lifelong musical progress.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "description_font": {
+        "__TYPE__": "FieldContent",
+        "value": "Inter Tight",
+        "type": "Select"
+      },
+      "description_color": {
+        "__TYPE__": "FieldContent",
+        "value": "#78716c",
+        "type": "Color"
+      },
+      "header_alignment": {
+        "__TYPE__": "FieldContent",
+        "value": "Center",
+        "type": "Select"
+      },
+      "section_bg_color": {
+        "__TYPE__": "FieldContent",
+        "value": "#f3efe6",
+        "type": "Color"
+      },
+      "panel_bg_color": {
+        "__TYPE__": "FieldContent",
+        "value": "#1c1917",
+        "type": "Color"
+      },
+      "divider_color": {
+        "__TYPE__": "FieldContent",
+        "value": "#3a3330",
+        "type": "Color"
+      },
+      "value_font": {
+        "__TYPE__": "FieldContent",
+        "value": "Bebas Neue",
+        "type": "Select"
+      },
+      "value_size": {
+        "__TYPE__": "FieldContent",
+        "value": "Large",
+        "type": "Select"
+      },
+      "value_color": {
+        "__TYPE__": "FieldContent",
+        "value": "#e07b39",
+        "type": "Color"
+      },
+      "label_font": {
+        "__TYPE__": "FieldContent",
+        "value": "Inter Tight",
+        "type": "Select"
+      },
+      "label_color": {
+        "__TYPE__": "FieldContent",
+        "value": "#f5f5f4",
+        "type": "Color"
+      },
+      "animate_numbers": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "stats": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "value",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "2,500+",
+                  "type": "Text"
+                }
+              ],
+              [
+                "label",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Active players",
+                  "type": "Text"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "value",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "250+",
+                  "type": "Text"
+                }
+              ],
+              [
+                "label",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Comprehensive lessons",
+                  "type": "Text"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "value",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "25+",
+                  "type": "Text"
+                }
+              ],
+              [
+                "label",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Signature masterclasses",
+                  "type": "Text"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "value",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "20,000+",
+                  "type": "Text"
+                }
+              ],
+              [
+                "label",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Hours practiced",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": []
+  }
+]

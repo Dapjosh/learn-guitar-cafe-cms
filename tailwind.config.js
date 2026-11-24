@@ -111,7 +111,12 @@ module.exports = {
         },
       }),
       fontFamily: {
-        sans: ['var(--font-raleway)'],
+        sans: ['var(--font-inter-tight)', 'Inter Tight', 'var(--font-raleway)', 'sans-serif'],
+        'inter-tight': ['var(--font-inter-tight)', 'Inter Tight', 'sans-serif'],
+        bebas: ['var(--font-bebas-neue)', 'Bebas Neue', 'sans-serif'],
+        display: ['var(--font-bebas-neue)', 'Bebas Neue', 'sans-serif'],
+        fraunces: ['var(--font-fraunces)', 'Fraunces', 'serif'],
+        heading: ['var(--font-fraunces)', 'Fraunces', 'serif'],
         inter: ['Inter', 'var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         anton: ['var(--font-anton)', 'Anton', 'sans-serif'],
         'lesson-body': ['var(--font-nunito)'],

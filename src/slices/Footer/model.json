@@ -1,0 +1,443 @@
+{
+  "id": "footer",
+  "type": "SharedSlice",
+  "name": "Footer",
+  "description": "Site-wide footer: stripes, logo & tagline, link columns, newsletter sign-up and bottom bar",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Footer Background Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "show_top_stripes": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Decorative Top Stripes",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "stripes": {
+          "type": "Group",
+          "config": {
+            "label": "Top Stripes (leave empty for default retro stripes)",
+            "repeat": true,
+            "fields": {
+              "color": {
+                "type": "Color",
+                "config": {
+                  "label": "Stripe Color",
+                  "placeholder": "#e8b04b"
+                }
+              },
+              "height": {
+                "type": "Number",
+                "config": {
+                  "label": "Stripe Height (px)",
+                  "placeholder": "4"
+                }
+              },
+              "space_after": {
+                "type": "Number",
+                "config": {
+                  "label": "Space Below This Stripe (px, optional - overrides the default spacing)",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "stripe_gap": {
+          "type": "Number",
+          "config": {
+            "label": "Space Between Stripes (px)",
+            "placeholder": "3"
+          }
+        },
+        "stripe_gap_color": {
+          "type": "Color",
+          "config": {
+            "label": "Space Between Stripes Color (empty = footer background)",
+            "placeholder": ""
+          }
+        },
+        "logo": {
+          "type": "Image",
+          "config": {
+            "label": "Logo (empty = default Learn Guitar Cafe logo)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "logo_width": {
+          "type": "Number",
+          "config": {
+            "label": "Logo Width (px)",
+            "placeholder": "96"
+          }
+        },
+        "tagline": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Tagline"
+          }
+        },
+        "tagline_color": {
+          "type": "Color",
+          "config": {
+            "label": "Tagline Color",
+            "placeholder": "#a8a29e"
+          }
+        },
+        "body_font": {
+          "type": "Select",
+          "config": {
+            "label": "Footer Text Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "column_1_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Column 1 Heading",
+            "placeholder": "Explore"
+          }
+        },
+        "column_2_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Column 2 Heading",
+            "placeholder": "Follow"
+          }
+        },
+        "column_3_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Column 3 Heading (optional)",
+            "placeholder": ""
+          }
+        },
+        "links": {
+          "type": "Group",
+          "config": {
+            "label": "Footer Links",
+            "repeat": true,
+            "fields": {
+              "column": {
+                "type": "Select",
+                "config": {
+                  "label": "Column",
+                  "placeholder": "",
+                  "default_value": "Column 1",
+                  "options": [
+                    "Column 1",
+                    "Column 2",
+                    "Column 3"
+                  ]
+                }
+              },
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": "The Course"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "/courses",
+                  "select": null,
+                  "allowTargetBlank": true
+                }
+              }
+            }
+          }
+        },
+        "column_heading_color": {
+          "type": "Color",
+          "config": {
+            "label": "Column Heading Color",
+            "placeholder": "#e07b39"
+          }
+        },
+        "link_font": {
+          "type": "Select",
+          "config": {
+            "label": "Link Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "link_color": {
+          "type": "Color",
+          "config": {
+            "label": "Link Color",
+            "placeholder": "#fafaf9"
+          }
+        },
+        "link_hover_color": {
+          "type": "Color",
+          "config": {
+            "label": "Link Hover Color",
+            "placeholder": "#e07b39"
+          }
+        },
+        "show_newsletter": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Newsletter Sign-up",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "newsletter_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Newsletter Heading",
+            "placeholder": "Stay in the groove"
+          }
+        },
+        "newsletter_heading_font": {
+          "type": "Select",
+          "config": {
+            "label": "Newsletter Heading Font",
+            "placeholder": "",
+            "default_value": "Fraunces",
+            "options": [
+              "Fraunces",
+              "Inter Tight",
+              "Bebas Neue",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "newsletter_heading_size": {
+          "type": "Select",
+          "config": {
+            "label": "Newsletter Heading Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "newsletter_heading_color": {
+          "type": "Color",
+          "config": {
+            "label": "Newsletter Heading Color",
+            "placeholder": "#f5f0e8"
+          }
+        },
+        "newsletter_text": {
+          "type": "Text",
+          "config": {
+            "label": "Newsletter Text",
+            "placeholder": "Tone tips and new lessons, about once a month."
+          }
+        },
+        "newsletter_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Newsletter Text Color",
+            "placeholder": "#a8a29e"
+          }
+        },
+        "newsletter_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Email Field Placeholder",
+            "placeholder": "Email address"
+          }
+        },
+        "newsletter_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Subscribe Button Label",
+            "placeholder": "Subscribe"
+          }
+        },
+        "newsletter_success_message": {
+          "type": "Text",
+          "config": {
+            "label": "Success Message",
+            "placeholder": "Thanks! You’re on the list."
+          }
+        },
+        "mailerlite_group_id": {
+          "type": "Text",
+          "config": {
+            "label": "MailerLite Group ID (optional)",
+            "placeholder": ""
+          }
+        },
+        "input_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Email Field Background Color",
+            "placeholder": "#26221f"
+          }
+        },
+        "input_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Email Field Border Color",
+            "placeholder": "rgba(255, 255, 255, 0.14)"
+          }
+        },
+        "input_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Email Field Text Color",
+            "placeholder": "#f5f0e8"
+          }
+        },
+        "newsletter_button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Subscribe Button Background Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "newsletter_button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Subscribe Button Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "newsletter_button_hover_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Subscribe Button Hover Background",
+            "placeholder": "#b94c10"
+          }
+        },
+        "newsletter_button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Subscribe Button Hover Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "copyright_text": {
+          "type": "Text",
+          "config": {
+            "label": "Copyright Text ({year} = current year)",
+            "placeholder": "© {year} Learn Guitar Cafe. All rights reserved."
+          }
+        },
+        "legal_links": {
+          "type": "Group",
+          "config": {
+            "label": "Bottom Links (Terms, Privacy...)",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": "Terms"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "/legal/terms",
+                  "select": null,
+                  "allowTargetBlank": true
+                }
+              }
+            }
+          }
+        },
+        "bottom_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Bottom Bar Text Color",
+            "placeholder": "#8a8580"
+          }
+        },
+        "divider_color": {
+          "type": "Color",
+          "config": {
+            "label": "Divider Line Color",
+            "placeholder": "rgba(255, 255, 255, 0.12)"
+          }
+        },
+        "back_to_top_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Scroll-to-Top Button Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "back_to_top_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Scroll-to-Top Arrow Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "back_to_top_hover_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Scroll-to-Top Button Hover Color",
+            "placeholder": "#b94c10"
+          }
+        },
+        "back_to_top_hover_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Scroll-to-Top Arrow Hover Color",
+            "placeholder": "#ffffff"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

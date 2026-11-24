@@ -1,5 +1,5 @@
 @use "../styles/navbar" as navbar;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -47,6 +47,15 @@
     --border: 214.3 31.8% 91.4%;
 
     --tw-shadow-color: rgba(0, 0, 0, 0.2);
+  }
+
+  body {
+    font-family: var(--font-inter-tight), "Inter Tight", var(--font-raleway), sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-fraunces), "Fraunces", serif;
+    font-weight: 400;
   }
 
   main {
@@ -136,6 +145,8 @@
 }
 
 .slice-custom-btn {
+  font-family: var(--font-inter-tight), "Inter Tight", sans-serif;
+  font-weight: 500;
   background-color: var(--btn-bg, transparent);
   color: var(--btn-text, #1c1917);
   border-color: var(--btn-border, #1c1917);
@@ -145,5 +156,131 @@
     background-color: var(--btn-hover-bg, #000000) !important;
     color: var(--btn-hover-text, #ffffff) !important;
     border-color: var(--btn-hover-border, #000000) !important;
+  }
+}
+
+/* Infinite marquee: track holds the item list twice and slides by half its width.
+   Speed & direction are driven by CSS variables set from the CMS. */
+@keyframes slice-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.slice-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: slice-marquee var(--marquee-duration, 40s) linear infinite;
+  animation-direction: var(--marquee-direction, normal);
+}
+
+.slice-marquee:hover .slice-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slice-marquee-track {
+    animation: none;
+  }
+}
+
+/* Curly quote marks around a rich-text quote (first/last paragraph) */
+.slice-quote-marks > p:first-child::before {
+  content: '\201C';
+}
+.slice-quote-marks > p:last-child::after {
+  content: '\201D';
+}
+
+/* Scroll-to-top button (BackToTop). Plain CSS so it never depends on
+   Tailwind JIT picking up classes. Colours come from CSS variables set inline. */
+.lgc-back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 9999px;
+  background-color: var(--btt-bg, #d85d18);
+  color: var(--btt-icon, #ffffff);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 10px 30px -10px rgba(28, 25, 23, 0.45);
+  cursor: pointer;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--btt-hover-bg, #b94c10);
+    color: var(--btt-hover-icon, #ffffff);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--btt-bg, #d85d18);
+    outline-offset: 3px;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    transform: translateY(100px);
+    pointer-events: none;
+  }
+
+  .lgc-back-to-top__arrow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+  }
+
+  /* Second arrow waits below; on hover the first slides out and the second slides in */
+  .lgc-back-to-top__arrow--next {
+    transform: translate(-50%, 5rem);
+  }
+
+  &:hover .lgc-back-to-top__arrow:not(.lgc-back-to-top__arrow--next) {
+    transform: translate(-50%, -5rem);
+  }
+
+  &:hover .lgc-back-to-top__arrow--next {
+    transform: translate(-50%, -50%);
+  }
+
+  @media (min-width: 576px) {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    right: 2rem;
+    bottom: 2rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &,
+    .lgc-back-to-top__arrow {
+      transition: none;
+    }
   }
 }

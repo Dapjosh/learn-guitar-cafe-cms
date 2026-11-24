@@ -3,54 +3,314 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"limit": {
-				"__TYPE__": "FieldContent",
-				"value": "88",
-				"type": "Number"
-			},
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Cupidatat laboris qui enim. In tempor Lorem ut amet occaecat. Exercitation ipsum duis elit dolor pariatur."
-						}
-					}
-				]
-			},
-			"subtitle": {
-				"__TYPE__": "FieldContent",
-				"value": "somebody",
-				"type": "Text"
-			},
 			"title": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "The latest from the Dojo",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Reprehenderit ullamco esse do."
+						}
 					}
 				]
 			},
-			"link": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "/blog",
-					"target": null
-				}
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "he",
+				"type": "Text"
+			},
+			"limit": {
+				"__TYPE__": "FieldContent",
+				"value": "47",
+				"type": "Number"
 			},
 			"label": {
 				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "All News"
+				"value": "blind",
+				"type": "Text"
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"key": "85496df4-a80e-4805-8c7c-004962a1c72a",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "featuredGrid",
+		"primary": {
+			"badge_icon": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+					"width": 4016,
+					"height": 6016
+				},
+				"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+				"width": 4016,
+				"height": 6016,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "outside",
+				"thumbnails": {}
+			},
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "shinning",
+				"type": "Text"
+			},
+			"badge_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a3bb79",
+				"type": "Color"
+			},
+			"badge_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#2df68f",
+				"type": "Color"
+			},
+			"badge_icon_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#24efa0",
+				"type": "Color"
+			},
+			"badge_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#d1f42e",
+				"type": "Color"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Bridge"
+						}
+					}
+				]
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Bebas Neue",
+				"type": "Select"
+			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Large",
+				"type": "Select"
+			},
+			"title_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Normal",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#163409",
+				"type": "Color"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ex aute ex occaecat proident anim velit aliqua."
+						}
+					}
+				]
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"description_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Small",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#795793",
+				"type": "Color"
+			},
+			"show_button": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "tide",
+				"type": "Text"
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"key": "a0ca048b-6faf-42b6-ab97-bf526941633e",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Rounded (Medium)",
+				"type": "Select"
+			},
+			"button_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a90bf0",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#bf670b",
+				"type": "Color"
+			},
+			"button_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#d8e244",
+				"type": "Color"
+			},
+			"button_hover_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#56b999",
+				"type": "Color"
+			},
+			"button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e82b20",
+				"type": "Color"
+			},
+			"button_show_arrow": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"articles": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"article",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "83aa00cf-daf9-409f-8a61-e9dc722b6fdd",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"category_filter": {
+				"__TYPE__": "LinkContent",
+				"key": "94d3ebde-e4fc-4f93-bbe4-9efc8052eef8",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"number_of_articles": {
+				"__TYPE__": "FieldContent",
+				"value": "27",
+				"type": "Number"
+			},
+			"featured_position": {
+				"__TYPE__": "FieldContent",
+				"value": "Left",
+				"type": "Select"
+			},
+			"show_category": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"show_author": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"author_prefix": {
+				"__TYPE__": "FieldContent",
+				"value": "harbor",
+				"type": "Text"
+			},
+			"show_date": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"article_title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"article_title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a75cc1",
+				"type": "Color"
+			},
+			"category_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#15e0cc",
+				"type": "Color"
+			},
+			"meta_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#da262b",
+				"type": "Color"
+			},
+			"section_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#7fb0f5",
+				"type": "Color"
+			},
+			"card_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#fec310",
+				"type": "Color"
+			},
+			"card_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#eaeb9d",
+				"type": "Color"
+			},
+			"image_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#c27796",
+				"type": "Color"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

@@ -43,6 +43,15 @@
             },
             "content_image_slice": {
               "type": "SharedSlice"
+            },
+            "header": {
+              "type": "SharedSlice"
+            },
+            "course_curriculum": {
+              "type": "SharedSlice"
+            },
+            "stats_band": {
+              "type": "SharedSlice"
             }
           }
         }

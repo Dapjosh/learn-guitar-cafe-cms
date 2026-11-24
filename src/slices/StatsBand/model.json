@@ -1,0 +1,249 @@
+{
+  "id": "stats_band",
+  "type": "SharedSlice",
+  "name": "StatsBand",
+  "description": "Centered header (badge, title, description) above a dark band of headline statistics",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "badge_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Badge Icon (Upload Icon Image)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text",
+            "placeholder": "Community"
+          }
+        },
+        "badge_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Background Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "badge_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Text & Icon Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2,heading1,strong,em",
+            "label": "Heading Title"
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Heading Font",
+            "placeholder": "",
+            "default_value": "Bebas Neue",
+            "options": [
+              "Bebas Neue",
+              "Fraunces",
+              "Inter Tight",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Heading Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": ["Large", "Extra Large", "Medium", "Small"]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Heading Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph,strong,em,hyperlink",
+            "label": "Description / Subtitle"
+          }
+        },
+        "description_font": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Fraunces",
+              "Bebas Neue",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "header_alignment": {
+          "type": "Select",
+          "config": {
+            "label": "Header Alignment",
+            "placeholder": "",
+            "default_value": "Center",
+            "options": ["Center", "Left"]
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background Color",
+            "placeholder": "#f3efe6"
+          }
+        },
+        "panel_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Stats Panel Background Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "divider_color": {
+          "type": "Color",
+          "config": {
+            "label": "Stats Divider Color",
+            "placeholder": "rgba(255, 255, 255, 0.1)"
+          }
+        },
+        "value_font": {
+          "type": "Select",
+          "config": {
+            "label": "Stat Number Font",
+            "placeholder": "",
+            "default_value": "Bebas Neue",
+            "options": [
+              "Bebas Neue",
+              "Anton",
+              "Fraunces",
+              "Inter Tight",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One"
+            ]
+          }
+        },
+        "value_size": {
+          "type": "Select",
+          "config": {
+            "label": "Stat Number Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": ["Large", "Extra Large", "Medium", "Small"]
+          }
+        },
+        "value_color": {
+          "type": "Color",
+          "config": {
+            "label": "Stat Number Color",
+            "placeholder": "#e07b39"
+          }
+        },
+        "label_font": {
+          "type": "Select",
+          "config": {
+            "label": "Stat Label Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Inter",
+              "Fraunces",
+              "Bebas Neue",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "label_color": {
+          "type": "Color",
+          "config": {
+            "label": "Stat Label Color",
+            "placeholder": "#f5f5f4"
+          }
+        },
+        "animate_numbers": {
+          "type": "Boolean",
+          "config": {
+            "label": "Animate numbers (count up when scrolled into view)",
+            "default_value": true,
+            "placeholder_true": "Animate",
+            "placeholder_false": "Static"
+          }
+        },
+        "stats": {
+          "type": "Group",
+          "config": {
+            "label": "Statistics",
+            "repeat": true,
+            "fields": {
+              "value": {
+                "type": "Text",
+                "config": {
+                  "label": "Value (e.g. 2,500+ or $1.5M)",
+                  "placeholder": "2,500+"
+                }
+              },
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": "Active players"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

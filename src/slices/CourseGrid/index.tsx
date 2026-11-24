@@ -5,16 +5,22 @@ import { Content, isFilled } from '@prismicio/client';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { SliceComponentProps } from '@prismicio/react';
+import CourseCurriculum from '../CourseCurriculum';
 
 /**
  * Props for `CourseGrid`.
  */
-export type CourseGridProps = SliceComponentProps<Content.CourseGridSlice>;
+export type CourseGridProps = SliceComponentProps<any>;
 
 /**
  * Component for "CourseGrid" Slices.
  */
-const CourseGrid: FC<CourseGridProps> = ({ slice }) => {
+const CourseGrid: FC<CourseGridProps> = (props) => {
+  const { slice } = props;
+  if (slice.variation === 'curriculum') {
+    return <CourseCurriculum {...props} />;
+  }
+
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   const courses = slice.primary.courses || [];

@@ -52,6 +52,418 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "featuredGrid",
+      "name": "Featured Grid",
+      "docURL": "...",
+      "version": "initial",
+      "description": "One large featured article beside a stack of smaller article cards, from Blog Posts",
+      "imageUrl": "",
+      "primary": {
+        "badge_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Badge Icon (Upload Icon Image)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text",
+            "placeholder": "Guitar journal"
+          }
+        },
+        "badge_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Background Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "badge_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Text Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Icon Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2,heading1,strong,em",
+            "label": "Title"
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Bebas Neue",
+            "options": [
+              "Bebas Neue",
+              "Inter Tight",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Title Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "Extra Large",
+              "Medium",
+              "Small"
+            ]
+          }
+        },
+        "title_weight": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font Weight",
+            "placeholder": "",
+            "default_value": "Normal",
+            "options": [
+              "Normal",
+              "Medium",
+              "Semi Bold",
+              "Bold",
+              "Black",
+              "Light",
+              "Thin"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph,strong,em,hyperlink",
+            "label": "Description (optional)"
+          }
+        },
+        "description_font": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "description_size": {
+          "type": "Select",
+          "config": {
+            "label": "Description Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": "#57534e"
+          }
+        },
+        "show_button": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Button",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Button Label",
+            "placeholder": "View all articles"
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link (defaults to /blog)",
+            "placeholder": "/blog",
+            "select": null
+          }
+        },
+        "button_font": {
+          "type": "Select",
+          "config": {
+            "label": "Button Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "button_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Button Border Radius",
+            "placeholder": "",
+            "default_value": "Rounded (Medium)",
+            "options": [
+              "Rounded (Medium)",
+              "Slightly Rounded (Small)",
+              "Large Rounded",
+              "Pill",
+              "Sharp"
+            ]
+          }
+        },
+        "button_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "button_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Border Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "button_hover_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Background Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "button_show_arrow": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Arrow Icon on Button",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "articles": {
+          "type": "Group",
+          "config": {
+            "label": "Hand-picked Articles (optional - first one is featured; leave empty to show the latest)",
+            "repeat": true,
+            "fields": {
+              "article": {
+                "type": "Link",
+                "config": {
+                  "label": "Article",
+                  "select": "document",
+                  "customtypes": [
+                    "blog_post"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "category_filter": {
+          "type": "Link",
+          "config": {
+            "label": "Only Show Category (used when no articles are hand-picked)",
+            "select": "document",
+            "customtypes": [
+              "blog_category"
+            ]
+          }
+        },
+        "number_of_articles": {
+          "type": "Number",
+          "config": {
+            "label": "Number of Latest Articles (default 4, max 12)",
+            "placeholder": "4"
+          }
+        },
+        "featured_position": {
+          "type": "Select",
+          "config": {
+            "label": "Featured Article Position",
+            "placeholder": "",
+            "default_value": "Left",
+            "options": [
+              "Left",
+              "Right"
+            ]
+          }
+        },
+        "show_category": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Category",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "show_author": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Author",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "author_prefix": {
+          "type": "Text",
+          "config": {
+            "label": "Author Prefix",
+            "placeholder": "By"
+          }
+        },
+        "show_date": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Publishing Date",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "article_title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Article Title Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "article_title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Article Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "category_color": {
+          "type": "Color",
+          "config": {
+            "label": "Category Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "meta_color": {
+          "type": "Color",
+          "config": {
+            "label": "Author / Date Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background Color",
+            "placeholder": "#f3efe6"
+          }
+        },
+        "card_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Background Color",
+            "placeholder": "#fbf9f5"
+          }
+        },
+        "card_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "image_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Image Border Color",
+            "placeholder": "#1c1917"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

@@ -1,27 +1,21 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-export const useScrollTop = () => {
+export const useScrollTop = (threshold = 300) => {
   const [stick, setStick] = useState(false);
   const onClickHandler = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   };
 
   useEffect(() => {
-    const scrollHandler = () => {
-      const scrollPos = window.pageYOffset;
-      if (scrollPos > 300) {
-        setStick(true);
-      } else {
-        setStick(false);
-      }
-    };
-
-    window.addEventListener('scroll', scrollHandler);
+    const scrollHandler = () => setStick(window.scrollY > threshold);
+    scrollHandler(); // correct state when the page loads already scrolled
+    window.addEventListener('scroll', scrollHandler, { passive: true });
     return () => {
       window.removeEventListener('scroll', scrollHandler);
     };
-  }, [stick]);
+  }, [threshold]);
 
   return { stick, onClickHandler };
 };
