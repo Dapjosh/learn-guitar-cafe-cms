@@ -24,8 +24,7 @@ export type BannerWithVideoProps =
  * Component for "BannerWithVideo" Slices.
  */
 const BannerWithVideo: FC<BannerWithVideoProps> = ({ slice }) => {
-  // Cast so the check compiles whether or not prismicio-types.d.ts includes the variation yet
-  if ((slice.variation as string) === 'splitWithVideo') {
+  if (slice.variation === 'splitWithVideo') {
     return <SplitWithVideo slice={slice} />;
   }
 

@@ -12,7 +12,8 @@ import {
 } from '../../../../../prismicio-types';
 
 export interface FooterProps {
-  navigation: NavigationDocumentData;
+  // Only the menu links are used, so callers can pass a minimal { links } fallback
+  navigation: Pick<NavigationDocumentData, 'links'>;
   secondaryNavigation?: SettingsDocumentDataSecondaryNavigationItem[];
   social?: SocialLinkItemType[] | undefined;
   logo: StaticImageData;

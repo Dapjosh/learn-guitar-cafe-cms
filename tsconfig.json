@@ -29,7 +29,7 @@
         "./src/*"
       ],
       "@/prismic-types": [
-        "./src/prismicio-types.d.ts"
+        "./prismicio-types.d.ts"
       ],
       "@assets/*": [
         "./src/assets/*"
