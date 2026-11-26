@@ -185,6 +185,44 @@
           "thumbnails": []
         }
       }
+    },
+    "Cookie Banner": {
+      "cookie_message": {
+        "type": "Text",
+        "config": {
+          "label": "Banner Message",
+          "placeholder": "We use cookies for a better experience and to understand how the site is used. By continuing, you agree to our use of cookies."
+        }
+      },
+      "privacy_policy_label": {
+        "type": "Text",
+        "config": {
+          "label": "Privacy Link Text",
+          "placeholder": "Privacy Policy"
+        }
+      },
+      "privacy_policy_link": {
+        "type": "Link",
+        "config": {
+          "label": "Privacy Policy Page (defaults to /legal/privacy)",
+          "select": null,
+          "allowTargetBlank": true
+        }
+      },
+      "cookie_accept_label": {
+        "type": "Text",
+        "config": {
+          "label": "Accept Button Text",
+          "placeholder": "Allow cookies"
+        }
+      },
+      "cookie_decline_label": {
+        "type": "Text",
+        "config": {
+          "label": "Decline Button Text",
+          "placeholder": "Decline"
+        }
+      }
     }
   }
 }

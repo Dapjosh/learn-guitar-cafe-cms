@@ -300,3 +300,124 @@
     display: none !important;
   }
 }
+
+/* Cookie consent banner (CookieConsent) — site palette, plain CSS so it never depends on Tailwind JIT */
+.lgc-cookie {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60; /* above the scroll-to-top button */
+  margin: 0 auto;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1.125rem;
+  border-radius: 12px;
+  background-color: #1c1917;
+  color: #e7e0d6;
+  border: 1px solid rgba(243, 239, 230, 0.12);
+  box-shadow: 0 18px 40px -16px rgba(28, 25, 23, 0.55);
+  font-family: var(--font-inter-tight), 'Inter Tight', sans-serif;
+  animation: lgc-cookie-in 0.35s ease-out;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 1.25rem 1rem 1.5rem;
+    bottom: 1.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.lgc-cookie__text {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+
+  @media (min-width: 768px) {
+    font-size: 0.9375rem;
+  }
+}
+
+.lgc-cookie__link {
+  color: #f0a36f;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+.lgc-cookie__actions {
+  display: flex;
+  gap: 0.625rem;
+  flex-shrink: 0;
+
+  @media (max-width: 767px) {
+    & > * {
+      flex: 1;
+    }
+  }
+}
+
+.lgc-cookie__btn {
+  height: 2.75rem;
+  padding: 0 1.125rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:focus-visible {
+    outline: 2px solid #f0a36f;
+    outline-offset: 2px;
+  }
+}
+
+.lgc-cookie__btn--decline {
+  background: transparent;
+  color: #f3efe6;
+  border-color: rgba(243, 239, 230, 0.35);
+
+  &:hover {
+    border-color: #f3efe6;
+    background-color: rgba(243, 239, 230, 0.08);
+  }
+}
+
+.lgc-cookie__btn--accept {
+  background-color: #d85d18;
+  color: #ffffff;
+  border-color: #d85d18;
+
+  &:hover {
+    background-color: #b94c10;
+    border-color: #b94c10;
+  }
+}
+
+@keyframes lgc-cookie-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

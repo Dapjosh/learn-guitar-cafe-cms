@@ -9,14 +9,35 @@ declare global {
   }
 }
 
-export function CookieConsent() {
-  const [showConsent, setShowConsent] = useState(true);
+export type CookieConsentProps = {
+  /** Banner text (before the privacy link) */
+  message?: string | null;
+  /** Where "Privacy Policy" links to */
+  privacyHref?: string | null;
+  privacyLabel?: string | null;
+  acceptLabel?: string | null;
+  declineLabel?: string | null;
+};
+
+/**
+ * Cookie consent banner in the site palette (charcoal card, cream text, orange accents).
+ * Layout/colours live in global.scss (.lgc-cookie*) so it never depends on Tailwind JIT.
+ */
+export function CookieConsent({
+  message,
+  privacyHref,
+  privacyLabel,
+  acceptLabel,
+  declineLabel,
+}: CookieConsentProps) {
+  // true = a choice has already been made (or we haven't checked yet) → banner hidden
+  const [hasChoice, setHasChoice] = useState(true);
 
   useEffect(() => {
     const checkCookie = async () => {
       const cookieExists = await hasCookie('localConsent');
 
-      setShowConsent(cookieExists);
+      setHasChoice(cookieExists);
 
       if (cookieExists) {
         const newValue = getCookie('localConsent') === 'true' ? 'granted' : 'denied';
@@ -31,40 +52,34 @@ export function CookieConsent() {
     void checkCookie();
   }, []);
 
-  const acceptCookie = () => {
-    setShowConsent(true);
-    setCookie('localConsent', 'true', {});
+  const choose = (accepted: boolean) => {
+    setHasChoice(true);
+    setCookie('localConsent', accepted ? 'true' : 'false', { maxAge: 60 * 60 * 24 * 365 });
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'update', { analytics_storage: accepted ? 'granted' : 'denied' });
+    }
   };
 
-  const declineCookie = () => {
-    setShowConsent(true);
-    setCookie('localConsent', 'false', {});
-  };
-
-  if (showConsent) {
+  if (hasChoice) {
     return null;
   }
 
   return (
-    <div
-      className={`fixed bottom-0 left-0 right-0 z-50 mx-auto my-10 flex max-w-max px-3 py-3 md:max-w-screen-lg md:px-4 ${showConsent ? 'hidden' : 'flex'} bg-primary flex-col items-center justify-between gap-4 rounded-sm shadow sm:flex-row`}>
-      <div className="text-left text-white">
-        <Link href={'/legal/privacy-notice-for-kids-guitar-dojo'}>
-          <p>
-            We use cookies for better user experience and site analytics. By continuing, you agree to our use of
-            cookies. Learn more in our <span className="font-bold text-sky-400">Privacy Policy</span>.
-          </p>
+    <div className="lgc-cookie" role="region" aria-label="Cookie consent">
+      <p className="lgc-cookie__text">
+        {message ||
+          'We use cookies for a better experience and to understand how the site is used. By continuing, you agree to our use of cookies.'}{' '}
+        <Link href={privacyHref || '/legal/privacy'} className="lgc-cookie__link">
+          {privacyLabel || 'Privacy Policy'}
         </Link>
-      </div>
+      </p>
 
-      <div className="flex gap-2">
-        <button className="rounded-md border-gray-900 px-5 py-2 text-gray-300" onClick={() => declineCookie()}>
-          Decline
+      <div className="lgc-cookie__actions">
+        <button type="button" className="lgc-cookie__btn lgc-cookie__btn--decline" onClick={() => choose(false)}>
+          {declineLabel || 'Decline'}
         </button>
-        <button
-          className="whitespace-nowrap rounded-lg bg-gray-900 px-5 py-2 text-white"
-          onClick={() => acceptCookie()}>
-          Allow Cookies
+        <button type="button" className="lgc-cookie__btn lgc-cookie__btn--accept" onClick={() => choose(true)}>
+          {acceptLabel || 'Allow cookies'}
         </button>
       </div>
     </div>

@@ -11,6 +11,7 @@ import {
 } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { createClient, repositoryName } from '@/prismicio';
+import { asLink, isFilled } from '@prismicio/client';
 import { Metadata, ResolvingMetadata } from 'next';
 import { getSiteIcon, siteIconLinks } from '@/utils/site-icon';
 import { CookieConsent } from '@lgc_cms/features';
@@ -178,6 +179,14 @@ export default async function RootLayout(props: {
   children: React.ReactNode;
   modal?: React.ReactNode;
 }) {
+  // Cookie banner text and privacy link are editable in Settings → Cookie Banner
+  const settingsData = (await createClient()
+    .getSingle('settings')
+    .then((d) => d.data)
+    .catch(() => null)) as any;
+  const privacyLink = settingsData?.privacy_policy_link;
+  const privacyHref = isFilled.link(privacyLink) ? (asLink(privacyLink) as string | null) : null;
+
   return (
     <html
       lang="en"
@@ -199,7 +208,13 @@ export default async function RootLayout(props: {
       <body className={'bg-background min-h-screen font-sans antialiased'}>
         <ClientProviders>{props.children}</ClientProviders>
         {/* Cookie consent */}
-        <CookieConsent />
+        <CookieConsent
+          message={settingsData?.cookie_message}
+          privacyHref={privacyHref}
+          privacyLabel={settingsData?.privacy_policy_label}
+          acceptLabel={settingsData?.cookie_accept_label}
+          declineLabel={settingsData?.cookie_decline_label}
+        />
       </body>
       {/* Analytics */}
       <GoogleAnalytics
