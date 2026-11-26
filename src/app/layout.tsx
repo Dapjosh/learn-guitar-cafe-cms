@@ -89,7 +89,8 @@ export async function generateMetadata(
   return {
     metadataBase: new URL(
       (isURL(settings.data?.canonical_url) && settings.data?.canonical_url) ||
-        `https://${process.env.NEXT_PUBLIC_DOMAIN}` ||
+        // Only use the env domain when it's actually set (otherwise this became "https://undefined")
+        (process.env.NEXT_PUBLIC_DOMAIN ? `https://${process.env.NEXT_PUBLIC_DOMAIN}` : null) ||
         'https://www.learnguitarcafe.com'
     ),
     alternates: {

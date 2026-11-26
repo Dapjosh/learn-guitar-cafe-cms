@@ -9,6 +9,8 @@ export type PostTypography = {
   textColor?: string | null;
   headingColor?: string | null;
   linkColor?: string | null;
+  /** Body text size (default Medium) */
+  size?: string | null;
 };
 
 /** Rich-text styling for blog post bodies (serif headings, readable paragraphs, styled links/lists/images). */
@@ -18,12 +20,18 @@ export function postRichTextComponents(t: PostTypography = {}): JSXMapSerializer
   const text = t.textColor || '#1c1917';
   const headingColor = t.headingColor || '#1c1917';
   const link = t.linkColor || '#d85d18';
+  const textSizes: Record<string, string> = {
+    small: 'text-[0.9375rem] leading-[1.65]',
+    medium: 'text-[1rem] sm:text-[1.0625rem] leading-[1.7]',
+    large: 'text-[1.0625rem] sm:text-[1.1875rem] leading-[1.7]',
+  };
+  const textSize = textSizes[String(t.size || 'Medium').toLowerCase()] || textSizes.medium;
   const h = (cls: string) => ({
     className: cn(heading.className, cls, 'leading-tight tracking-[-0.01em] mt-12 mb-4 first:mt-0'),
     style: { fontFamily: heading.fontFamily, color: headingColor },
   });
   const p = {
-    className: cn(body.className, 'text-[1rem] sm:text-[1.0625rem] leading-[1.7] mb-5 last:mb-0'),
+    className: cn(body.className, textSize, 'mb-5 last:mb-0'),
     style: { fontFamily: body.fontFamily, color: text },
   };
 

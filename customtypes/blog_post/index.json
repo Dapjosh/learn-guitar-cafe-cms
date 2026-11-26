@@ -134,6 +134,9 @@
             },
             "testimonials": {
               "type": "SharedSlice"
+            },
+            "media_embed": {
+              "type": "SharedSlice"
             }
           }
         }

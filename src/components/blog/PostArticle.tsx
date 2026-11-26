@@ -18,6 +18,7 @@ import { postRichTextComponents } from './post-rich-text';
 const ARTICLE_SLICES = new Set([
   'rich_text_slice',
   'media_study_card',
+  'media_embed',
   'image_block',
   'video_playlist',
   'author_bio',
@@ -144,7 +145,8 @@ export const PostArticle = ({
   }
   (Array.isArray(d.slices) ? d.slices : []).forEach((slice: any, i: number) => {
     const key = slice.id || `${slice.slice_type}-${i}`;
-    if (slice.slice_type === 'rich_text_slice') {
+    // Plain rich text variations take the body typography; Heading / Styled Text keep their own styling
+    if (slice.slice_type === 'rich_text_slice' && !['heading', 'styledText'].includes(slice.variation)) {
       // Same typography as the body, so text and media read as one article
       const twoCols = String(slice.variation || '').startsWith('twoColumns');
       blocks.push({

@@ -59,9 +59,38 @@ const DefaultBadgeIcon = () => (
   </svg>
 );
 
+/** Built-in badge icons (used when no icon image is uploaded). */
+const presetBadgeIcon = (name?: string | null) => {
+  const n = String(name || 'Dot').toLowerCase();
+  const common = { className: 'w-3.5 h-3.5 shrink-0', viewBox: '0 0 16 16', fill: 'none', stroke: 'currentColor', strokeWidth: 1.4, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true };
+  if (n === 'none') return null;
+  if (n === 'trophy')
+    return (
+      <svg {...common}>
+        <path d="M5 2.5h6v3.5a3 3 0 0 1-6 0V2.5zM5 3.5H2.8v1a2.2 2.2 0 0 0 2.4 2.2M11 3.5h2.2v1a2.2 2.2 0 0 1-2.4 2.2M8 9v2.5M5.5 13.5h5M6.5 11.5h3v2h-3z" />
+      </svg>
+    );
+  if (n === 'star')
+    return (
+      <svg {...common}>
+        <path d="M8 1.8l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.6l-3.8 2 .7-4.3-3.1-3 4.3-.6z" />
+      </svg>
+    );
+  if (n === 'music')
+    return (
+      <svg {...common}>
+        <path d="M6 12.5V3.5l7-1.5v9" />
+        <circle cx="4.5" cy="12.5" r="1.6" />
+        <circle cx="11.5" cy="11" r="1.6" />
+      </svg>
+    );
+  return <DefaultBadgeIcon />;
+};
+
 export const BadgePill = ({
   text,
   icon,
+  preset,
   bg,
   textColor,
   iconColor,
@@ -70,6 +99,8 @@ export const BadgePill = ({
 }: {
   text?: string | null;
   icon?: any;
+  /** Built-in icon when no image is uploaded: Dot (default), Trophy, Star, Music, None */
+  preset?: string | null;
   bg: string;
   textColor: string;
   iconColor?: string;
@@ -104,7 +135,7 @@ export const BadgePill = ({
             />
           </span>
         ) : (
-          <DefaultBadgeIcon />
+          presetBadgeIcon(preset)
         )}
       </span>
       <span>{text}</span>

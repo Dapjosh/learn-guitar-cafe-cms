@@ -104,6 +104,25 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
   const siteTitle = (navigation as any)?.site_title || 'PAUL GREIG';
   const siteName = (navigation as any)?.site_name || 'LEARN GUITAR CAFE';
   const siteNameColor = (navigation as any)?.site_name_color || '#000000';
+  const siteTitleColor = (navigation as any)?.site_title_color || '#1c1917';
+
+  // Brand text sizes from CMS ("Small" = the original sizes; smaller on phones)
+  const siteTitleSizes: Record<string, string> = {
+    small: 'text-[10px] sm:text-[11px]',
+    medium: 'text-[11px] sm:text-[13px]',
+    large: 'text-[12px] sm:text-[15px]',
+    'extra large': 'text-[13px] sm:text-[17px]',
+  };
+  const siteNameSizes: Record<string, string> = {
+    small: 'text-sm sm:text-[1rem]',
+    medium: 'text-[1rem] sm:text-[1.25rem]',
+    large: 'text-[1.125rem] sm:text-[1.5rem]',
+    'extra large': 'text-[1.25rem] sm:text-[1.75rem]',
+  };
+  const siteTitleSize =
+    siteTitleSizes[String((navigation as any)?.site_title_size || 'Medium').toLowerCase()] || siteTitleSizes.medium;
+  const siteNameSize =
+    siteNameSizes[String((navigation as any)?.site_name_size || 'Medium').toLowerCase()] || siteNameSizes.medium;
 
   // Configurable navbar height and background from CMS
   const rawNavbarHeight = (navigation as any)?.navbar_height;
@@ -118,6 +137,7 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
     (navigation as any)?.site_name_font,
     'Fraunces'
   );
+  const siteTitleFont = resolveFontFamily((navigation as any)?.site_title_font, 'Inter Tight');
   const menuFont = resolveFontFamily((navigation as any)?.menu_font, 'Inter Tight');
   const menuActiveColor = (navigation as any)?.menu_active_color || '#d85d18';
   const buttonFont = resolveFontFamily(
@@ -233,12 +253,16 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
             )}
             {showText && (
               <div className="flex flex-col text-left justify-center">
-                <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] text-[#1c1917] uppercase leading-tight font-sans">
+                <span
+                  className={cn('font-bold tracking-[0.14em] uppercase leading-tight', siteTitleSize, siteTitleFont.className)}
+                  style={{ fontFamily: siteTitleFont.fontFamily, color: siteTitleColor }}
+                >
                   {siteTitle}
                 </span>
                 <span
                   className={cn(
-                    'text-sm sm:text-base font-black tracking-[-0.02em] uppercase leading-none',
+                    'font-black tracking-[-0.02em] uppercase leading-none',
+                    siteNameSize,
                     siteNameFont.className
                   )}
                   style={{
@@ -253,7 +277,7 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
           </Link>
 
           {/* Center Navigation Links (In between Left and Right) */}
-          <ul className="hidden md:flex items-center justify-center gap-6 lg:gap-8 grow px-4">
+          <ul className="lgc-nav-desktop items-center justify-center gap-6 xl:gap-8 grow px-4">
             {navLinks.map((item, idx) => {
               const isActive =
                 item.url === currentRoute ||
@@ -265,7 +289,7 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
                   <Link
                     href={item.url}
                     className={cn(
-                      'text-[15px] transition-colors py-2 block',
+                      'text-[15px] transition-colors py-2 block whitespace-nowrap',
                       menuFont.className,
                       isActive
                         ? 'text-[#d85d18] font-semibold'
@@ -283,7 +307,7 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
           </ul>
 
           {/* Right Action Buttons (Right side) */}
-          <div className="hidden md:flex items-center justify-end gap-2.5 sm:gap-3 shrink-0">
+          <div className="lgc-nav-desktop items-center justify-end gap-2.5 sm:gap-3 shrink-0">
             {children ? (
               children
             ) : (
@@ -328,7 +352,7 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
           </div>
 
           {/* Mobile Menu Hamburger Button */}
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center lgc-nav-mobile">
             <button
               type="button"
               className="p-2 text-[#1c1917] hover:text-[#d85d18] focus:outline-none rounded-md"
@@ -371,7 +395,7 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
         {/* Mobile Navigation Dropdown */}
         {isMobileMenuOpen && (
           <div
-            className="md:hidden py-5 px-4 mb-3 rounded-2xl border border-black/10 shadow-xl transition-all"
+            className="lgc-nav-mobile py-5 px-4 mb-3 rounded-2xl border border-black/10 shadow-xl transition-all"
             style={{ backgroundColor: navbarBg }}
           >
             <ul className="flex flex-col gap-3">
@@ -387,7 +411,7 @@ export function MainNavbar({ navigation, logo, children }: HeaderProps) {
                       href={item.url}
                       onClick={closeMenu}
                       className={cn(
-                        'block text-base py-2 transition-colors',
+                        'block text-[1rem] py-2 transition-colors',
                         menuFont.className,
                         isActive
                           ? 'text-[#d85d18] font-bold'

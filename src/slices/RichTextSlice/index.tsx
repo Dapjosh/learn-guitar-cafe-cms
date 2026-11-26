@@ -3,6 +3,8 @@ import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
 
 import { Bounded } from '../../components/Bounded';
 import cn from 'classnames';
+import { HeadingBlock } from './HeadingBlock';
+import { StyledText } from './StyledText';
 
 import type { JSX } from "react";
 
@@ -14,7 +16,10 @@ export type RichTextSliceProps = SliceComponentProps<Content.RichTextSliceSlice>
 /**
  * Component for "RichTextSlice" Slices.
  */
-const RichTextSlice = ({ slice }: RichTextSliceProps): JSX.Element => {
+const RichTextSlice = ({ slice, context }: RichTextSliceProps): JSX.Element | null => {
+  if (slice.variation === 'heading') return <HeadingBlock slice={slice} context={context} />;
+  if (slice.variation === 'styledText') return <StyledText slice={slice} context={context} />;
+
   return (
     <Bounded as="section" className="prose prose-sm md:prose-md lg:prose-xl prose-neutral mx-auto max-w-full">
       {slice.variation === 'twoColumnsWithHeader' && (

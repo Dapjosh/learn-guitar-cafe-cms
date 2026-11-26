@@ -88,6 +88,30 @@
             },
             "course_catalog": {
               "type": "SharedSlice"
+            },
+            "media_embed": {
+              "type": "SharedSlice"
+            },
+            "my_story": {
+              "type": "SharedSlice"
+            },
+            "discography": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "video_playlist": {
+              "type": "SharedSlice"
+            },
+            "author_bio": {
+              "type": "SharedSlice"
+            },
+            "contact_info": {
+              "type": "SharedSlice"
+            },
+            "contact_form": {
+              "type": "SharedSlice"
             }
           }
         }

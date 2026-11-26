@@ -1,0 +1,181 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "badge_text": {
+        "__TYPE__": "FieldContent",
+        "value": "Get in touch",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "HAVE A QUESTION ABOUT LESSONS OR TONE?",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Email Paul directly, or follow along on YouTube, Instagram and Facebook.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "cards": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Email",
+                  "type": "Select"
+                }
+              ],
+              [
+                "title",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Email",
+                  "type": "Text"
+                }
+              ],
+              [
+                "email",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "paul@learnguitarcafe.com",
+                  "type": "Text"
+                }
+              ],
+              [
+                "show_social",
+                {
+                  "__TYPE__": "BooleanContent",
+                  "value": false
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Community",
+                  "type": "Select"
+                }
+              ],
+              [
+                "title",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Community",
+                  "type": "Text"
+                }
+              ],
+              [
+                "show_social",
+                {
+                  "__TYPE__": "BooleanContent",
+                  "value": true
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "social_links": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "platform",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "YouTube",
+                  "type": "Select"
+                }
+              ],
+              [
+                "link",
+                {
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://www.youtube.com"
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "platform",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Instagram",
+                  "type": "Select"
+                }
+              ],
+              [
+                "link",
+                {
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://www.instagram.com"
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "platform",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Facebook",
+                  "type": "Select"
+                }
+              ],
+              [
+                "link",
+                {
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://www.facebook.com"
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": []
+  }
+]

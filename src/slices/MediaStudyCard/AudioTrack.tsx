@@ -40,7 +40,7 @@ export type AudioTrackProps = {
   minTempo: number;
   maxTempo: number;
   colors: { accent: string; muted: string; text: string; meta: string; tabBorder: string; buttonBg: string; buttonIcon: string; tempoBg: string };
-  ChapterTabs: React.ComponentType<{ chapters: Chapter[]; active: number; onSelect: (i: number) => void; label: string }>;
+  ChapterTabs?: React.ComponentType<{ chapters: Chapter[]; active: number; onSelect: (i: number) => void; label: string }>;
 };
 
 /**
@@ -110,7 +110,7 @@ export const AudioTrack = ({ src, label, note, chapters, showWaveform, showTempo
         )}
       </div>
 
-      {chapters.length > 0 && (
+      {chapters.length > 0 && ChapterTabs && (
         <ChapterTabs chapters={chapters} active={activeChapter} onSelect={(i) => seek(chapters[i].start, true)} label={`${label} chapters`} />
       )}
 

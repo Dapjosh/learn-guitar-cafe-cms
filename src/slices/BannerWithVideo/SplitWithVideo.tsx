@@ -22,7 +22,7 @@ import type { JSX } from 'react';
 const videoAspectClasses: Record<string, string> = {
   'near square': 'aspect-[4/3.5]',
   landscape: 'aspect-[16/9]',
-  square: 'aspect-square',
+  square: 'aspect-[1/1]',
   portrait: 'aspect-[4/5]',
 };
 

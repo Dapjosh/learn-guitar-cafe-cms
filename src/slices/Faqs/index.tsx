@@ -5,6 +5,7 @@ import { SectionFaqs } from '@lgc_cms/features';
 import { createClient } from '@/prismicio';
 import { AllDocumentTypes } from '../../../prismicio-types';
 import { logger } from '@lgc_cms/util';
+import { FaqWithImage } from './FaqWithImage';
 
 /**
  * Props for `Faqs`.
@@ -15,18 +16,19 @@ export type FaqsProps = SliceComponentProps<Content.FaqsSlice>;
  * Component for "Faqs" Slices.
  */
 const Faqs = async ({ slice }: FaqsProps) => {
+  // Cast so the check compiles before prismicio-types.d.ts is regenerated with the new variation
+  if ((slice.variation as string) === 'withImage') return <FaqWithImage slice={slice} />;
+
   const client = createClient();
   const faqItems: AllDocumentTypes[] = [];
 
-  if (!slice.primary.faqs.length) {
+  if (!(slice.primary as any).faqs?.length) {
     logger.debug('No faqs found');
     return null;
   }
 
-  for (const item of slice.primary.faqs) {
+  for (const item of (slice.primary as any).faqs) {
     if (item.faq) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       const faq = await client.getByID(item.faq?.id);
       faqItems.push(faq);
     }

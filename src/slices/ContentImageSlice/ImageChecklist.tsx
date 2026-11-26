@@ -33,7 +33,7 @@ const listSizeClasses: Record<string, string> = {
 const aspectClasses: Record<string, string> = {
   landscape: 'aspect-[4/3]',
   'near square': 'aspect-[15/13]',
-  square: 'aspect-square',
+  square: 'aspect-[1/1]',
   portrait: 'aspect-[4/5]',
 };
 

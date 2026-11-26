@@ -1,0 +1,164 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "Prize winner, John Lennon Songwriting Contest",
+				"type": "Text"
+			},
+			"badge_icon_preset": {
+				"__TYPE__": "FieldContent",
+				"value": "Trophy",
+				"type": "Select"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "SELECTED RECORDINGS & RELEASES",
+							"spans": []
+						}
+					}
+				]
+			},
+			"albums": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Lonesome Slide",
+									"type": "Text"
+								}
+							],
+							[
+								"meta",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Original release · Producer & guitar",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Echoes of the Coast",
+									"type": "Text"
+								}
+							],
+							[
+								"meta",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Tamworth Sessions · Slide guitar",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Open Road",
+									"type": "Text"
+								}
+							],
+							[
+								"meta",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "The Country Blues · Arranger & guitar",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Late Night Sessions",
+									"type": "Text"
+								}
+							],
+							[
+								"meta",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Paul Greig · Lead slide guitar",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Listen on Spotify, Apple Music and Bandcamp",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"key": "5ab6d462-dbcf-471a-8f71-19120053d243",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://open.spotify.com"
+									}
+								}
+							],
+							[
+								"style",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Outline",
+									"type": "Select"
+								}
+							],
+							[
+								"show_arrow",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

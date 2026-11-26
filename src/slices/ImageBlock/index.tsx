@@ -28,7 +28,7 @@ const aspects: Record<string, string | null> = {
   original: null,
   landscape: 'aspect-[16/9]',
   classic: 'aspect-[4/3]',
-  square: 'aspect-square',
+  square: 'aspect-[1/1]',
   portrait: 'aspect-[3/4]',
   panorama: 'aspect-[21/9]',
 };

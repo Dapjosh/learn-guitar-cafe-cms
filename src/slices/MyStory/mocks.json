@@ -1,0 +1,323 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "instructor",
+		"primary": {
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "Meet the instructor",
+				"type": "Text"
+			},
+			"name": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "PAUL GREIG",
+							"spans": []
+						}
+					}
+				]
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "Artist, performer and educator",
+				"type": "Text"
+			},
+			"bio": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "I'm Paul Greig, a guitarist with more than 20 years as a live performer and session musician in Australia. I grew up in Tamworth, Australia's country music capital, and fell for the guitar as a teenager.",
+							"spans": []
+						}
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "I went on to complete a degree in contemporary music, majoring in guitar and composition, and studied with musicians including Jeff “Skunk” Baxter of Steely Dan and The Doobie Brothers.",
+							"spans": []
+						}
+					}
+				]
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Contact Paul",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"key": "de02398f-1250-49fb-96ae-ef86f433356f",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "/contact"
+									}
+								}
+							],
+							[
+								"style",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Filled",
+									"type": "Select"
+								}
+							],
+							[
+								"show_arrow",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							]
+						]
+					}
+				]
+			},
+			"show_vinyl": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "story",
+		"primary": {
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "Our story",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "THE STORY BEHIND LEARN GUITAR CAFE",
+							"spans": []
+						}
+					}
+				]
+			},
+			"left_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Learning to play should feel as natural as listening to your favourite record. Learn Guitar Cafe started with a simple aim: make traditional slide and roots guitar easy to follow, with a structured, jargon-free path for players who want real tone, feel and the freedom to improvise, without getting stuck in endless scales.",
+							"spans": []
+						}
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "What began as a passion for teaching bottleneck slide grew into a complete course. Each masterclass keeps the feel of analog roots music and breaks it into clear, step-by-step lessons you can work through at home, at your own pace.",
+							"spans": []
+						}
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Today the Cafe is a community of players from around the world who share a love of blues, slide and authentic tone. The approach stays hands-on and practical, focused on getting you playing the music you love.",
+							"spans": []
+						}
+					}
+				]
+			},
+			"right_intro": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Every lesson is built around playing, so you hear your progress from the first week:",
+							"spans": []
+						}
+					}
+				]
+			},
+			"points": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "No theory jargon",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Touch, tone and the chord and scale shapes that actually make the music.",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Clear HD masterclasses",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Bottleneck, fingerpicking and turnarounds, filmed from several camera angles.",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Real band backing tracks",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Practise new patterns over a responsive rhythm section.",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"right_closing": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Whether you're picking up a slide for the first time or working your way out of a rut, every step is laid out clearly.",
+							"spans": []
+						}
+					}
+				]
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Get started",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"key": "2220ced7-e4e8-47ac-972a-81eac53da608",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "/all-courses"
+									}
+								}
+							],
+							[
+								"style",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Filled",
+									"type": "Select"
+								}
+							],
+							[
+								"show_arrow",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": true
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Explore the courses",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"key": "2e89c445-c9c0-4f6f-8757-f373e69ba750",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "/all-courses"
+									}
+								}
+							],
+							[
+								"style",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Outline",
+									"type": "Select"
+								}
+							],
+							[
+								"show_arrow",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

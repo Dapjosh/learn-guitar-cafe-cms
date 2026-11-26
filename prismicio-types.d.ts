@@ -70,6 +70,45 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 /**
+ * Item in *Author → Link Buttons*
+ */
+export interface AuthorDocumentDataLinksItem {
+  /**
+   * Label field in *Author → Link Buttons*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: YouTube channel
+   * - **API ID Path**: author.links[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Author → Link Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Icon field in *Author → Link Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Arrow
+   * - **API ID Path**: author.links[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<
+    "Arrow" | "YouTube" | "External" | "None",
+    "filled"
+  >;
+}
+
+/**
  * Content for Author documents
  */
 interface AuthorDocumentData {
@@ -85,7 +124,7 @@ interface AuthorDocumentData {
   profile_image: prismic.ImageField<never>;
 
   /**
-   * name field in *Author*
+   * Name field in *Author*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -94,6 +133,39 @@ interface AuthorDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   name: prismic.KeyTextField;
+
+  /**
+   * Role (optional) field in *Author*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Roots & slide guitarist
+   * - **API ID Path**: author.role
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * Bio field in *Author*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.bio
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  bio: prismic.RichTextField;
+
+  /**
+   * Link Buttons field in *Author*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  links: prismic.GroupField<Simplify<AuthorDocumentDataLinksItem>>;
 }
 
 /**
@@ -122,7 +194,13 @@ type BlogDocumentDataSlicesSlice =
   | StatsBandSlice
   | FeaturesSlice
   | CourseCatalogSlice
-  | ImageGallerySlice;
+  | ImageGallerySlice
+  | MediaEmbedSlice
+  | MyStorySlice
+  | DiscographySlice
+  | ImageBlockSlice
+  | VideoPlaylistSlice
+  | AuthorBioSlice;
 
 /**
  * Content for Blog documents
@@ -190,7 +268,356 @@ interface BlogDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  meta_image: prismic.ImageField<never>;
+  meta_image: prismic.ImageField<never>; /**
+   * Page Background Color (header area) field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: blog.post_page_bg_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_page_bg_color: prismic.ColorField;
+
+  /**
+   * Content Background Color (article body) field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: blog.post_content_bg_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_content_bg_color: prismic.ColorField;
+
+  /**
+   * Article Text Width field in *Blog*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: blog.post_content_width
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  post_content_width: prismic.SelectField<
+    "Medium" | "Narrow" | "Wide",
+    "filled"
+  >;
+
+  /**
+   * Featured Image field in *Blog*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Wide
+   * - **API ID Path**: blog.post_featured_image_display
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  post_featured_image_display: prismic.SelectField<
+    "Wide" | "Contained" | "Full width" | "Hidden",
+    "filled"
+  >;
+
+  /**
+   * Featured Image Shape field in *Blog*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Landscape
+   * - **API ID Path**: blog.post_featured_image_aspect
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  post_featured_image_aspect: prismic.SelectField<
+    "Landscape" | "Wide" | "Original",
+    "filled"
+  >;
+
+  /**
+   * Featured Image Corners field in *Blog*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Small
+   * - **API ID Path**: blog.post_featured_image_radius
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  post_featured_image_radius: prismic.SelectField<
+    "Small" | "None" | "Medium" | "Large",
+    "filled"
+  >;
+
+  /**
+   * Featured Image Border Color field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog.post_featured_image_border_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_featured_image_border_color: prismic.ColorField;
+
+  /**
+   * Title Font field in *Blog*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bebas Neue
+   * - **API ID Path**: blog.post_title_font
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  post_title_font: prismic.SelectField<
+    | "Bebas Neue"
+    | "Inter Tight"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Title Color field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog.post_title_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_title_color: prismic.ColorField;
+
+  /**
+   * Description Color field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: blog.post_description_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_description_color: prismic.ColorField;
+
+  /**
+   * Body Font field in *Blog*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: blog.post_body_font
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  post_body_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Body Headings Font field in *Blog*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Fraunces
+   * - **API ID Path**: blog.post_heading_font
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  post_heading_font: prismic.SelectField<
+    | "Fraunces"
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Body Text Color field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog.post_text_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_text_color: prismic.ColorField;
+
+  /**
+   * Body Headings Color field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog.post_heading_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_heading_color: prismic.ColorField;
+
+  /**
+   * Link Color field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: blog.post_link_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_link_color: prismic.ColorField;
+
+  /**
+   * Category Pill Background field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: blog.post_category_bg_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_category_bg_color: prismic.ColorField;
+
+  /**
+   * Category Pill Text field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: blog.post_category_text_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_category_text_color: prismic.ColorField;
+
+  /**
+   * Author / Date Color field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: blog.post_meta_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_meta_color: prismic.ColorField;
+
+  /**
+   * Show Share Buttons field in *Blog*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog.post_show_share
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  post_show_share: prismic.BooleanField;
+
+  /**
+   * Show Date field in *Blog*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog.post_show_date
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  post_show_date: prismic.BooleanField;
+
+  /**
+   * Show Read Time field in *Blog*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog.post_show_read_time
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  post_show_read_time: prismic.BooleanField;
+
+  /**
+   * Read Time Text field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: min read
+   * - **API ID Path**: blog.post_read_time_suffix
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  post_read_time_suffix: prismic.KeyTextField;
+
+  /**
+   * Show Author Card at the End field in *Blog*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog.post_show_author_card
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  post_show_author_card: prismic.BooleanField;
+
+  /**
+   * Author Card Label field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Written by
+   * - **API ID Path**: blog.post_author_label
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  post_author_label: prismic.KeyTextField;
+
+  /**
+   * Author Card Background field in *Blog*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fbf9f5
+   * - **API ID Path**: blog.post_author_card_bg_color
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_author_card_bg_color: prismic.ColorField;
+
+  /**
+   * Show Related Posts field in *Blog*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog.post_show_related
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  post_show_related: prismic.BooleanField;
+
+  /**
+   * Related Posts Title field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: More from the journal
+   * - **API ID Path**: blog.post_related_title
+   * - **Tab**: Post Page Design
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  post_related_title: prismic.KeyTextField;
 }
 
 /**
@@ -255,7 +682,16 @@ export interface BlogPostDocumentDataTagsItem {
 type BlogPostDocumentDataSlicesSlice =
   | RichTextSliceSlice
   | FaqsSlice
-  | CallToActionSlice;
+  | CallToActionSlice
+  | MediaStudyCardSlice
+  | ImageBlockSlice
+  | VideoPlaylistSlice
+  | AuthorBioSlice
+  | ContentImageSliceSlice
+  | SectionHeadersSlice
+  | StatsBandSlice
+  | TestimonialsSlice
+  | MediaEmbedSlice;
 
 /**
  * Item in *Blog Post → Keywords*
@@ -439,7 +875,68 @@ interface BlogPostDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices1: prismic.SliceZone<BlogPostDocumentDataSlices1Slice>;
+  slices1: prismic.SliceZone<BlogPostDocumentDataSlices1Slice>; /**
+   * Page Background Color (header area - empty = Blog default) field in *Blog Post*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.page_bg_color
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  page_bg_color: prismic.ColorField;
+
+  /**
+   * Page Background Image / Texture (optional) field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.page_bg_image
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  page_bg_image: prismic.ImageField<never>;
+
+  /**
+   * Content Background Color (article body - empty = Blog default) field in *Blog Post*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.content_bg_color
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  content_bg_color: prismic.ColorField;
+
+  /**
+   * Featured Image field in *Blog Post*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Default
+   * - **API ID Path**: blog_post.featured_image_display
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  featured_image_display: prismic.SelectField<
+    "Default" | "Wide" | "Contained" | "Full width" | "Hidden",
+    "filled"
+  >;
+
+  /**
+   * Featured Image Shape field in *Blog Post*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Default
+   * - **API ID Path**: blog_post.featured_image_aspect
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  featured_image_aspect: prismic.SelectField<
+    "Default" | "Landscape" | "Wide" | "Original",
+    "filled"
+  >;
 }
 
 /**
@@ -914,7 +1411,13 @@ type CoursesPageDocumentDataSlicesSlice =
   | CourseCurriculumSlice
   | BlogListSlice
   | ImageGallerySlice
-  | PricingTableSlice;
+  | PricingTableSlice
+  | MediaEmbedSlice
+  | MyStorySlice
+  | DiscographySlice
+  | ImageBlockSlice
+  | VideoPlaylistSlice
+  | AuthorBioSlice;
 
 /**
  * Content for Courses Page documents
@@ -1078,7 +1581,14 @@ type HomeDocumentDataSlicesSlice =
   | HeaderSlice
   | CourseCurriculumSlice
   | StatsBandSlice
-  | CourseCatalogSlice;
+  | CourseCatalogSlice
+  | MediaEmbedSlice
+  | RichTextSliceSlice
+  | MyStorySlice
+  | DiscographySlice
+  | ImageBlockSlice
+  | VideoPlaylistSlice
+  | AuthorBioSlice;
 
 /**
  * Content for Home documents
@@ -1284,6 +1794,101 @@ interface LessonDocumentData {
  */
 export type LessonDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<LessonDocumentData>, "lesson", Lang>;
+
+type MyStoryPageDocumentDataSlicesSlice =
+  | MyStorySlice
+  | DiscographySlice
+  | HeaderSlice
+  | HeroHeadingSlice
+  | SectionHeadersSlice
+  | RichTextSliceSlice
+  | ContentImageSliceSlice
+  | HeroWithVideoSlice
+  | MediaEmbedSlice
+  | ImageBlockSlice
+  | VideoPlaylistSlice
+  | AuthorBioSlice
+  | TestimonialsSlice
+  | StatsBandSlice
+  | StatsSlice
+  | CallToActionSlice
+  | FaqsSlice
+  | CourseCatalogSlice
+  | ImageGallerySlice;
+
+/**
+ * Content for My Story documents
+ */
+interface MyStoryPageDocumentData {
+  /**
+   * Page Title (browser tab & SEO fallback) field in *My Story*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: My Story
+   * - **API ID Path**: my_story_page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *My Story*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<MyStoryPageDocumentDataSlicesSlice>; /**
+   * Meta Title field in *My Story*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: my_story_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *My Story*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: my_story_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *My Story*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * My Story document from Prismic
+ *
+ * - **API ID**: `my_story_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MyStoryPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<MyStoryPageDocumentData>,
+    "my_story_page",
+    Lang
+  >;
 
 /**
  * Item in *Navigation → Links*
@@ -1867,7 +2472,13 @@ type PageDocumentDataSlicesSlice =
   | HeaderSlice
   | CourseCurriculumSlice
   | StatsBandSlice
-  | CourseCatalogSlice;
+  | CourseCatalogSlice
+  | MediaEmbedSlice
+  | MyStorySlice
+  | DiscographySlice
+  | ImageBlockSlice
+  | VideoPlaylistSlice
+  | AuthorBioSlice;
 
 /**
  * Content for Page documents
@@ -2397,11 +3008,415 @@ export type AllDocumentTypes =
   | HomeDocument
   | LegalDocument
   | LessonDocument
+  | MyStoryPageDocument
   | NavigationDocument
   | OnboardingDocument
   | PageDocument
   | PricingDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *AuthorBio → Card → Primary*
+ */
+export interface AuthorBioSliceCardPrimary {
+  /**
+   * Author field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author_bio.card.primary.author
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  author: prismic.ContentRelationshipField<"author">;
+
+  /**
+   * Show Label field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: author_bio.card.primary.show_label
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_label: prismic.BooleanField;
+
+  /**
+   * Label field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Written by
+   * - **API ID Path**: author_bio.card.primary.label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Show Profile Image field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: author_bio.card.primary.show_image
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_image: prismic.BooleanField;
+
+  /**
+   * Show Link Buttons field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: author_bio.card.primary.show_links
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_links: prismic.BooleanField;
+
+  /**
+   * Width field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Narrow
+   * - **API ID Path**: author_bio.card.primary.width
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  width: prismic.SelectField<"Narrow" | "Medium" | "Wide", "filled">;
+
+  /**
+   * Name Font field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Fraunces
+   * - **API ID Path**: author_bio.card.primary.name_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  name_font: prismic.SelectField<
+    | "Fraunces"
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Section Background Color field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: author_bio.card.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Card Background Color field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fbf9f5
+   * - **API ID Path**: author_bio.card.primary.card_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  card_bg_color: prismic.ColorField;
+
+  /**
+   * Card Border Color field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: author_bio.card.primary.card_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  card_border_color: prismic.ColorField;
+
+  /**
+   * Label / Role Color field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: author_bio.card.primary.label_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  label_color: prismic.ColorField;
+
+  /**
+   * Name Color field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: author_bio.card.primary.name_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  name_color: prismic.ColorField;
+
+  /**
+   * Bio Text Color field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #57534e
+   * - **API ID Path**: author_bio.card.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Link Button Text Color field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: author_bio.card.primary.link_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  link_color: prismic.ColorField;
+
+  /**
+   * Link Button Border / Underline Color field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d6cdbf
+   * - **API ID Path**: author_bio.card.primary.link_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  link_border_color: prismic.ColorField;
+
+  /**
+   * Link Button Hover Color field in *AuthorBio → Card → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: author_bio.card.primary.link_hover_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  link_hover_color: prismic.ColorField;
+}
+
+/**
+ * Card variation for AuthorBio Slice
+ *
+ * - **API ID**: `card`
+ * - **Description**: Avatar, 'Written by', name, bio and link buttons
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AuthorBioSliceCard = prismic.SharedSliceVariation<
+  "card",
+  Simplify<AuthorBioSliceCardPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *AuthorBio → Compact → Primary*
+ */
+export interface AuthorBioSliceCompactPrimary {
+  /**
+   * Author field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author_bio.compact.primary.author
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  author: prismic.ContentRelationshipField<"author">;
+
+  /**
+   * Show Label field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: author_bio.compact.primary.show_label
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_label: prismic.BooleanField;
+
+  /**
+   * Label field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Written by
+   * - **API ID Path**: author_bio.compact.primary.label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Show Profile Image field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: author_bio.compact.primary.show_image
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_image: prismic.BooleanField;
+
+  /**
+   * Show Link Buttons field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: author_bio.compact.primary.show_links
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_links: prismic.BooleanField;
+
+  /**
+   * Width field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Wide
+   * - **API ID Path**: author_bio.compact.primary.width
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  width: prismic.SelectField<"Wide" | "Medium" | "Narrow", "filled">;
+
+  /**
+   * Name Font field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: author_bio.compact.primary.name_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  name_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Section Background Color field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: author_bio.compact.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Card Background Color field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fbf9f5
+   * - **API ID Path**: author_bio.compact.primary.card_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  card_bg_color: prismic.ColorField;
+
+  /**
+   * Card Border Color field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: author_bio.compact.primary.card_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  card_border_color: prismic.ColorField;
+
+  /**
+   * Label / Role Color field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: author_bio.compact.primary.label_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  label_color: prismic.ColorField;
+
+  /**
+   * Name Color field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: author_bio.compact.primary.name_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  name_color: prismic.ColorField;
+
+  /**
+   * Bio Text Color field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #57534e
+   * - **API ID Path**: author_bio.compact.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Link Button Text Color field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: author_bio.compact.primary.link_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  link_color: prismic.ColorField;
+
+  /**
+   * Link Button Border / Underline Color field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: author_bio.compact.primary.link_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  link_border_color: prismic.ColorField;
+
+  /**
+   * Link Button Hover Color field in *AuthorBio → Compact → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: author_bio.compact.primary.link_hover_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  link_hover_color: prismic.ColorField;
+}
+
+/**
+ * Compact variation for AuthorBio Slice
+ *
+ * - **API ID**: `compact`
+ * - **Description**: Single row: name, bio and outline buttons
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AuthorBioSliceCompact = prismic.SharedSliceVariation<
+  "compact",
+  Simplify<AuthorBioSliceCompactPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AuthorBio*
+ */
+type AuthorBioSliceVariation = AuthorBioSliceCard | AuthorBioSliceCompact;
+
+/**
+ * AuthorBio Shared Slice
+ *
+ * - **API ID**: `author_bio`
+ * - **Description**: Author's card or compact bio bar, from an Author document
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AuthorBioSlice = prismic.SharedSlice<
+  "author_bio",
+  AuthorBioSliceVariation
+>;
 
 /**
  * Item in *BlogList → Featured Grid → Primary → Hand-picked Articles (optional - first one is featured; leave empty to show the latest)*
@@ -8339,6 +9354,577 @@ export type CourseGridSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Discography → Default → Primary → Albums*
+ */
+export interface DiscographySliceDefaultPrimaryAlbumsItem {
+  /**
+   * Cover (square) field in *Discography → Default → Primary → Albums*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.albums[].cover
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  cover: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Discography → Default → Primary → Albums*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Lonesome Slide
+   * - **API ID Path**: discography.default.primary.albums[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Credits / Meta field in *Discography → Default → Primary → Albums*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Original release · Producer & guitar
+   * - **API ID Path**: discography.default.primary.albums[].meta
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta: prismic.KeyTextField;
+
+  /**
+   * Link (optional - e.g. Spotify album) field in *Discography → Default → Primary → Albums*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.albums[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Item in *Discography → Default → Primary → Buttons*
+ */
+export interface DiscographySliceDefaultPrimaryButtonsItem {
+  /**
+   * Label field in *Discography → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Contact Paul
+   * - **API ID Path**: discography.default.primary.buttons[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Discography → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Style field in *Discography → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Filled
+   * - **API ID Path**: discography.default.primary.buttons[].style
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  style: prismic.SelectField<"Filled" | "Outline", "filled">;
+
+  /**
+   * Show Arrow field in *Discography → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: discography.default.primary.buttons[].show_arrow
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_arrow: prismic.BooleanField;
+}
+
+/**
+ * Primary content in *Discography → Default → Primary*
+ */
+export interface DiscographySliceDefaultPrimary {
+  /**
+   * Badge Text field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Prize winner, John Lennon Songwriting Contest
+   * - **API ID Path**: discography.default.primary.badge_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  badge_text: prismic.KeyTextField;
+
+  /**
+   * Badge Icon field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Trophy
+   * - **API ID Path**: discography.default.primary.badge_icon_preset
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  badge_icon_preset: prismic.SelectField<
+    "Trophy" | "Dot" | "Star" | "Music" | "None",
+    "filled"
+  >;
+
+  /**
+   * Badge Icon Image (optional - replaces the icon above) field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.badge_icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  badge_icon: prismic.ImageField<never>;
+
+  /**
+   * Badge Background field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: rgba(255, 255, 255, 0.07)
+   * - **API ID Path**: discography.default.primary.badge_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_bg_color: prismic.ColorField;
+
+  /**
+   * Badge Text Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #e07b39
+   * - **API ID Path**: discography.default.primary.badge_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_text_color: prismic.ColorField;
+
+  /**
+   * Badge Icon Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.badge_icon_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_icon_color: prismic.ColorField;
+
+  /**
+   * Badge Border Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: discography.default.primary.badge_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_border_color: prismic.ColorField;
+
+  /**
+   * Title field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Title Font field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bebas Neue
+   * - **API ID Path**: discography.default.primary.title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_font: prismic.SelectField<
+    | "Bebas Neue"
+    | "Inter Tight"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Title Size field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: discography.default.primary.title_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_size: prismic.SelectField<
+    "Large" | "Extra Large" | "Medium" | "Small",
+    "filled"
+  >;
+
+  /**
+   * Title Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: discography.default.primary.title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * Description (optional) field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Header Alignment field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Center
+   * - **API ID Path**: discography.default.primary.header_alignment
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  header_alignment: prismic.SelectField<"Center" | "Left", "filled">;
+
+  /**
+   * Albums field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.albums[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  albums: prismic.GroupField<
+    Simplify<DiscographySliceDefaultPrimaryAlbumsItem>
+  >;
+
+  /**
+   * Albums per Row (desktop) field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 4
+   * - **API ID Path**: discography.default.primary.columns
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  columns: prismic.SelectField<"4" | "3" | "5", "filled">;
+
+  /**
+   * Show Vinyl Behind Covers field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: discography.default.primary.show_vinyl
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_vinyl: prismic.BooleanField;
+
+  /**
+   * Album Title Font field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: discography.default.primary.album_title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  album_title_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Album Title Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: discography.default.primary.album_title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  album_title_color: prismic.ColorField;
+
+  /**
+   * Credits / Description Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #a8a29e
+   * - **API ID Path**: discography.default.primary.meta_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  meta_color: prismic.ColorField;
+
+  /**
+   * Cover Border Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: discography.default.primary.cover_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  cover_border_color: prismic.ColorField;
+
+  /**
+   * Vinyl Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #151210
+   * - **API ID Path**: discography.default.primary.vinyl_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  vinyl_color: prismic.ColorField;
+
+  /**
+   * Vinyl Groove Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: rgba(255, 255, 255, 0.07)
+   * - **API ID Path**: discography.default.primary.vinyl_groove_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  vinyl_groove_color: prismic.ColorField;
+
+  /**
+   * Vinyl Label Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: discography.default.primary.vinyl_label_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  vinyl_label_color: prismic.ColorField;
+
+  /**
+   * Buttons field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<
+    Simplify<DiscographySliceDefaultPrimaryButtonsItem>
+  >;
+
+  /**
+   * Button Font field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: discography.default.primary.button_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Button Corners field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Rounded (Medium)
+   * - **API ID Path**: discography.default.primary.button_radius
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_radius: prismic.SelectField<
+    | "Rounded (Medium)"
+    | "Slightly Rounded (Small)"
+    | "Large Rounded"
+    | "Pill"
+    | "Sharp",
+    "filled"
+  >;
+
+  /**
+   * Filled Button Background field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: discography.default.primary.button_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_bg_color: prismic.ColorField;
+
+  /**
+   * Filled Button Text field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: discography.default.primary.button_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_text_color: prismic.ColorField;
+
+  /**
+   * Filled Button Hover Background field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: discography.default.primary.button_hover_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_bg_color: prismic.ColorField;
+
+  /**
+   * Filled Button Hover Text field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: discography.default.primary.button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Outline Button Color field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: discography.default.primary.outline_button_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  outline_button_color: prismic.ColorField;
+
+  /**
+   * Outline Button Hover Background field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: discography.default.primary.outline_button_hover_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  outline_button_hover_bg_color: prismic.ColorField;
+
+  /**
+   * Outline Button Hover Text field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: discography.default.primary.outline_button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  outline_button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Section Background field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: discography.default.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Space Above field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: discography.default.primary.padding_top
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_top: prismic.SelectField<
+    "Large" | "None" | "Small" | "Medium" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Below field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: discography.default.primary.padding_bottom
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_bottom: prismic.SelectField<
+    "Large" | "None" | "Small" | "Medium" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Above in px (optional) field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.padding_top_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_top_custom: prismic.NumberField;
+
+  /**
+   * Space Below in px (optional) field in *Discography → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discography.default.primary.padding_bottom_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_bottom_custom: prismic.NumberField;
+}
+
+/**
+ * Default variation for Discography Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Album grid
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DiscographySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DiscographySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Discography*
+ */
+type DiscographySliceVariation = DiscographySliceDefault;
+
+/**
+ * Discography Shared Slice
+ *
+ * - **API ID**: `discography`
+ * - **Description**: Album covers with vinyl, titles and credits, centred header and streaming buttons
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DiscographySlice = prismic.SharedSlice<
+  "discography",
+  DiscographySliceVariation
+>;
+
+/**
  * Item in *Faqs → Default → Primary → FAQs*
  */
 export interface FaqsSliceDefaultPrimaryFaqsItem {
@@ -12219,6 +13805,249 @@ export type HeroWithVideoSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ImageBlock → Default → Primary*
+ */
+export interface ImageBlockSliceDefaultPrimary {
+  /**
+   * Image field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_block.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title (optional) field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_block.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Title Position field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Above
+   * - **API ID Path**: image_block.default.primary.title_position
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_position: prismic.SelectField<"Above" | "Below", "filled">;
+
+  /**
+   * Title Font field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Fraunces
+   * - **API ID Path**: image_block.default.primary.title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_font: prismic.SelectField<
+    | "Fraunces"
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Title Color field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: image_block.default.primary.title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * Caption (optional) field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_block.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title & Caption Alignment field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Left
+   * - **API ID Path**: image_block.default.primary.caption_alignment
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  caption_alignment: prismic.SelectField<"Left" | "Center", "filled">;
+
+  /**
+   * Caption Color field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: image_block.default.primary.caption_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  caption_color: prismic.ColorField;
+
+  /**
+   * Size field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: image_block.default.primary.size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  size: prismic.SelectField<
+    "Large" | "Small" | "Medium" | "Wide" | "Full width",
+    "filled"
+  >;
+
+  /**
+   * Alignment field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Center
+   * - **API ID Path**: image_block.default.primary.alignment
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  alignment: prismic.SelectField<"Center" | "Left" | "Right", "filled">;
+
+  /**
+   * Shape (crop) field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Original
+   * - **API ID Path**: image_block.default.primary.aspect_ratio
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  aspect_ratio: prismic.SelectField<
+    "Original" | "Landscape" | "Classic" | "Square" | "Portrait" | "Panorama",
+    "filled"
+  >;
+
+  /**
+   * Fit (when cropped) field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Cover
+   * - **API ID Path**: image_block.default.primary.image_fit
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  image_fit: prismic.SelectField<"Cover" | "Contain", "filled">;
+
+  /**
+   * Corner Radius field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Small
+   * - **API ID Path**: image_block.default.primary.corner_radius
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  corner_radius: prismic.SelectField<
+    "Small" | "None" | "Medium" | "Large",
+    "filled"
+  >;
+
+  /**
+   * Border Color field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: image_block.default.primary.border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  border_color: prismic.ColorField;
+
+  /**
+   * Drop Shadow field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: image_block.default.primary.shadow
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  shadow: prismic.BooleanField;
+
+  /**
+   * Image Background (shows with Fit = Contain) field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: image_block.default.primary.image_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  image_bg_color: prismic.ColorField;
+
+  /**
+   * Link (optional - makes the image clickable) field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_block.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Section Background Color field in *ImageBlock → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: image_block.default.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+}
+
+/**
+ * Default variation for ImageBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Image with title and caption
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImageBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageBlockSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageBlock*
+ */
+type ImageBlockSliceVariation = ImageBlockSliceDefault;
+
+/**
+ * ImageBlock Shared Slice
+ *
+ * - **API ID**: `image_block`
+ * - **Description**: One image with optional title and caption; size, alignment, shape and style are configurable
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImageBlockSlice = prismic.SharedSlice<
+  "image_block",
+  ImageBlockSliceVariation
+>;
+
+/**
  * Item in *ImageGallery → Default → Primary → Images*
  */
 export interface ImageGallerySliceDefaultPrimaryImagesItem {
@@ -12635,6 +14464,1975 @@ export type LessonRickTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *MediaEmbed → Default → Primary*
+ */
+export interface MediaEmbedSliceDefaultPrimary {
+  /**
+   * Media Link (YouTube / Bunny / Vimeo URL, or upload / link a video or MP3) field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_embed.default.primary.media
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  media: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Media Type field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Auto
+   * - **API ID Path**: media_embed.default.primary.media_type
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  media_type: prismic.SelectField<"Auto" | "Video" | "Audio", "filled">;
+
+  /**
+   * Title (optional) field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_embed.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Title Font field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Fraunces
+   * - **API ID Path**: media_embed.default.primary.title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_font: prismic.SelectField<
+    | "Fraunces"
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Title Color field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: media_embed.default.primary.title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * Caption (optional) field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_embed.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Caption Color field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: media_embed.default.primary.caption_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  caption_color: prismic.ColorField;
+
+  /**
+   * Size field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: media_embed.default.primary.size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  size: prismic.SelectField<
+    "Medium" | "Small" | "Large" | "Wide" | "Full",
+    "filled"
+  >;
+
+  /**
+   * Video Shape field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Landscape
+   * - **API ID Path**: media_embed.default.primary.aspect_ratio
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  aspect_ratio: prismic.SelectField<
+    "Landscape" | "Classic" | "Square" | "Vertical" | "Cinema",
+    "filled"
+  >;
+
+  /**
+   * Corner Radius field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Small
+   * - **API ID Path**: media_embed.default.primary.corner_radius
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  corner_radius: prismic.SelectField<
+    "Small" | "None" | "Medium" | "Large",
+    "filled"
+  >;
+
+  /**
+   * Border Color field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: media_embed.default.primary.border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  border_color: prismic.ColorField;
+
+  /**
+   * Autoplay (video starts muted) field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: media_embed.default.primary.autoplay
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  autoplay: prismic.BooleanField;
+
+  /**
+   * Loop field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: media_embed.default.primary.loop
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  loop: prismic.BooleanField;
+
+  /**
+   * Poster Image (uploaded video files only) field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_embed.default.primary.poster
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  poster: prismic.ImageField<never>;
+
+  /**
+   * Audio Label field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Listen
+   * - **API ID Path**: media_embed.default.primary.audio_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  audio_label: prismic.KeyTextField;
+
+  /**
+   * Audio Note (optional) field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_embed.default.primary.audio_note
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  audio_note: prismic.KeyTextField;
+
+  /**
+   * Show Waveform (audio host must allow CORS) field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: media_embed.default.primary.show_waveform
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_waveform: prismic.BooleanField;
+
+  /**
+   * Show Tempo Control (audio) field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: media_embed.default.primary.show_tempo
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_tempo: prismic.BooleanField;
+
+  /**
+   * Audio Player Background field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fbf9f5
+   * - **API ID Path**: media_embed.default.primary.audio_card_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  audio_card_bg_color: prismic.ColorField;
+
+  /**
+   * Audio Accent Color field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: media_embed.default.primary.accent_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  accent_color: prismic.ColorField;
+
+  /**
+   * Waveform (unplayed) Color field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #e9d2c2
+   * - **API ID Path**: media_embed.default.primary.waveform_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  waveform_color: prismic.ColorField;
+
+  /**
+   * Audio Play Button Background field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: media_embed.default.primary.play_button_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  play_button_bg_color: prismic.ColorField;
+
+  /**
+   * Audio Play Button Icon field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: media_embed.default.primary.play_button_icon_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  play_button_icon_color: prismic.ColorField;
+
+  /**
+   * Background Color field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: media_embed.default.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Space Above field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: media_embed.default.primary.padding_top
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_top: prismic.SelectField<
+    "Medium" | "None" | "Small" | "Large" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Below field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: media_embed.default.primary.padding_bottom
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_bottom: prismic.SelectField<
+    "Medium" | "None" | "Small" | "Large" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Above in px (optional - overrides the preset) field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_embed.default.primary.padding_top_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_top_custom: prismic.NumberField;
+
+  /**
+   * Space Below in px (optional - overrides the preset) field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_embed.default.primary.padding_bottom_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_bottom_custom: prismic.NumberField;
+
+  /**
+   * Alignment field in *MediaEmbed → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Center
+   * - **API ID Path**: media_embed.default.primary.alignment
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  alignment: prismic.SelectField<"Center" | "Left" | "Right", "filled">;
+}
+
+/**
+ * Default variation for MediaEmbed Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Video or audio embed
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MediaEmbedSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MediaEmbedSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MediaEmbed*
+ */
+type MediaEmbedSliceVariation = MediaEmbedSliceDefault;
+
+/**
+ * MediaEmbed Shared Slice
+ *
+ * - **API ID**: `media_embed`
+ * - **Description**: Embed one video (YouTube, Bunny, Vimeo, file) or audio file (MP3)
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MediaEmbedSlice = prismic.SharedSlice<
+  "media_embed",
+  MediaEmbedSliceVariation
+>;
+
+/**
+ * Item in *MediaStudyCard → Default → Primary → Video Chapters (optional - overrides Bunny chapters)*
+ */
+export interface MediaStudyCardSliceDefaultPrimaryVideoChaptersItem {
+  /**
+   * Chapter Title field in *MediaStudyCard → Default → Primary → Video Chapters (optional - overrides Bunny chapters)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Full groove
+   * - **API ID Path**: media_study_card.default.primary.video_chapters[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Start Time (e.g. 1:15) field in *MediaStudyCard → Default → Primary → Video Chapters (optional - overrides Bunny chapters)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 0:00
+   * - **API ID Path**: media_study_card.default.primary.video_chapters[].start
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  start: prismic.KeyTextField;
+}
+
+/**
+ * Item in *MediaStudyCard → Default → Primary → Audio Chapters (optional)*
+ */
+export interface MediaStudyCardSliceDefaultPrimaryAudioChaptersItem {
+  /**
+   * Chapter Title field in *MediaStudyCard → Default → Primary → Audio Chapters (optional)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Full groove
+   * - **API ID Path**: media_study_card.default.primary.audio_chapters[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Start Time (e.g. 1:15) field in *MediaStudyCard → Default → Primary → Audio Chapters (optional)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 0:00
+   * - **API ID Path**: media_study_card.default.primary.audio_chapters[].start
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  start: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *MediaStudyCard → Default → Primary*
+ */
+export interface MediaStudyCardSliceDefaultPrimary {
+  /**
+   * Show Badge field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: media_study_card.default.primary.show_badge
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_badge: prismic.BooleanField;
+
+  /**
+   * Badge Text field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Study card
+   * - **API ID Path**: media_study_card.default.primary.badge_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  badge_text: prismic.KeyTextField;
+
+  /**
+   * Title field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A blues turnaround in Open D
+   * - **API ID Path**: media_study_card.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Title Font field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Fraunces
+   * - **API ID Path**: media_study_card.default.primary.title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_font: prismic.SelectField<
+    | "Fraunces"
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Description field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_study_card.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Card Width field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: media_study_card.default.primary.width
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  width: prismic.SelectField<"Medium" | "Narrow" | "Wide", "filled">;
+
+  /**
+   * Show Video field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: media_study_card.default.primary.show_video
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_video: prismic.BooleanField;
+
+  /**
+   * Video (Bunny Stream embed link - also YouTube, Vimeo or an uploaded file) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_study_card.default.primary.video
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  video: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Poster Image (uploaded video files only) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_study_card.default.primary.video_poster
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  video_poster: prismic.ImageField<never>;
+
+  /**
+   * Use Chapters From Bunny (when no chapters are entered below) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: media_study_card.default.primary.use_bunny_chapters
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  use_bunny_chapters: prismic.BooleanField;
+
+  /**
+   * Chapters Label field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Chapters
+   * - **API ID Path**: media_study_card.default.primary.chapters_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  chapters_label: prismic.KeyTextField;
+
+  /**
+   * Video Chapters (optional - overrides Bunny chapters) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_study_card.default.primary.video_chapters[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  video_chapters: prismic.GroupField<
+    Simplify<MediaStudyCardSliceDefaultPrimaryVideoChaptersItem>
+  >;
+
+  /**
+   * Show Play-along Track field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: media_study_card.default.primary.show_audio
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_audio: prismic.BooleanField;
+
+  /**
+   * Audio File (upload an MP3, or link to it on Bunny) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_study_card.default.primary.audio_file
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  audio_file: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Audio Label field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Play-along track
+   * - **API ID Path**: media_study_card.default.primary.audio_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  audio_title: prismic.KeyTextField;
+
+  /**
+   * Audio Note field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: MP3 · slow down without changing pitch
+   * - **API ID Path**: media_study_card.default.primary.audio_note
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  audio_note: prismic.KeyTextField;
+
+  /**
+   * Audio Chapters (optional) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_study_card.default.primary.audio_chapters[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  audio_chapters: prismic.GroupField<
+    Simplify<MediaStudyCardSliceDefaultPrimaryAudioChaptersItem>
+  >;
+
+  /**
+   * Show Waveform field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: media_study_card.default.primary.show_waveform
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_waveform: prismic.BooleanField;
+
+  /**
+   * Show Tempo Control field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: media_study_card.default.primary.show_tempo
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_tempo: prismic.BooleanField;
+
+  /**
+   * Slowest Tempo % (default 50) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 50
+   * - **API ID Path**: media_study_card.default.primary.min_tempo
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  min_tempo: prismic.NumberField;
+
+  /**
+   * Fastest Tempo % (default 100) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 100
+   * - **API ID Path**: media_study_card.default.primary.max_tempo
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  max_tempo: prismic.NumberField;
+
+  /**
+   * Show Practice Tab field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: media_study_card.default.primary.show_practice_tab
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_practice_tab: prismic.BooleanField;
+
+  /**
+   * Practice Tab Label field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Practice tab
+   * - **API ID Path**: media_study_card.default.primary.practice_tab_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  practice_tab_label: prismic.KeyTextField;
+
+  /**
+   * Tab Title field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Open D turnaround
+   * - **API ID Path**: media_study_card.default.primary.practice_tab_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  practice_tab_title: prismic.KeyTextField;
+
+  /**
+   * Tab Details field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Tuning D A D F# A D · 4/4 · 72 bpm
+   * - **API ID Path**: media_study_card.default.primary.practice_tab_meta
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  practice_tab_meta: prismic.KeyTextField;
+
+  /**
+   * Tab Image (e.g. exported from Guitar Pro) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_study_card.default.primary.practice_tab_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  practice_tab_image: prismic.ImageField<never>;
+
+  /**
+   * Tab as Text (use 'Preformatted' for ASCII tab) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_study_card.default.primary.practice_tab_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  practice_tab_text: prismic.RichTextField;
+
+  /**
+   * Section Background Color field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: media_study_card.default.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Card Background Color field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fbf9f5
+   * - **API ID Path**: media_study_card.default.primary.card_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  card_bg_color: prismic.ColorField;
+
+  /**
+   * Card Border Color field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: media_study_card.default.primary.card_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  card_border_color: prismic.ColorField;
+
+  /**
+   * Badge Background field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fbe3d4
+   * - **API ID Path**: media_study_card.default.primary.badge_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_bg_color: prismic.ColorField;
+
+  /**
+   * Badge Text Color field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: media_study_card.default.primary.badge_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_text_color: prismic.ColorField;
+
+  /**
+   * Title Color field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: media_study_card.default.primary.title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * Text / Meta Color field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: media_study_card.default.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Accent (active chapter, played waveform) field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: media_study_card.default.primary.accent_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  accent_color: prismic.ColorField;
+
+  /**
+   * Waveform (unplayed) Color field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #e9d2c2
+   * - **API ID Path**: media_study_card.default.primary.waveform_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  waveform_color: prismic.ColorField;
+
+  /**
+   * Chapter Tab Border field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #e2d9cb
+   * - **API ID Path**: media_study_card.default.primary.tab_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_border_color: prismic.ColorField;
+
+  /**
+   * Chapter Tab Text field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: media_study_card.default.primary.tab_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_text_color: prismic.ColorField;
+
+  /**
+   * Audio Play Button Background field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: media_study_card.default.primary.play_button_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  play_button_bg_color: prismic.ColorField;
+
+  /**
+   * Audio Play Button Icon field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: media_study_card.default.primary.play_button_icon_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  play_button_icon_color: prismic.ColorField;
+
+  /**
+   * Tempo Control Background field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ebe4d8
+   * - **API ID Path**: media_study_card.default.primary.tempo_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tempo_bg_color: prismic.ColorField;
+
+  /**
+   * Divider Color field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #e7dfd2
+   * - **API ID Path**: media_study_card.default.primary.divider_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  divider_color: prismic.ColorField;
+
+  /**
+   * Practice Tab Sheet Background field in *MediaStudyCard → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: media_study_card.default.primary.practice_tab_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  practice_tab_bg_color: prismic.ColorField;
+}
+
+/**
+ * Default variation for MediaStudyCard Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Video, play-along track and practice tab
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MediaStudyCardSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MediaStudyCardSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MediaStudyCard*
+ */
+type MediaStudyCardSliceVariation = MediaStudyCardSliceDefault;
+
+/**
+ * MediaStudyCard Shared Slice
+ *
+ * - **API ID**: `media_study_card`
+ * - **Description**: Lesson card: video with chapters, play-along audio (chapters, waveform, tempo) and practice tab
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MediaStudyCardSlice = prismic.SharedSlice<
+  "media_study_card",
+  MediaStudyCardSliceVariation
+>;
+
+/**
+ * Item in *MyStory → Instructor → Primary → Buttons*
+ */
+export interface MyStorySliceInstructorPrimaryButtonsItem {
+  /**
+   * Label field in *MyStory → Instructor → Primary → Buttons*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Contact Paul
+   * - **API ID Path**: my_story.instructor.primary.buttons[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *MyStory → Instructor → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.instructor.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Style field in *MyStory → Instructor → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Filled
+   * - **API ID Path**: my_story.instructor.primary.buttons[].style
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  style: prismic.SelectField<"Filled" | "Outline", "filled">;
+
+  /**
+   * Show Arrow field in *MyStory → Instructor → Primary → Buttons*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: my_story.instructor.primary.buttons[].show_arrow
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_arrow: prismic.BooleanField;
+}
+
+/**
+ * Item in *MyStory → Story → Primary → Numbered Highlights*
+ */
+export interface MyStorySliceStoryPrimaryPointsItem {
+  /**
+   * Title field in *MyStory → Story → Primary → Numbered Highlights*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: No theory jargon
+   * - **API ID Path**: my_story.story.primary.points[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *MyStory → Story → Primary → Numbered Highlights*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Touch, tone and the shapes that actually make the music.
+   * - **API ID Path**: my_story.story.primary.points[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Item in *MyStory → Story → Primary → Buttons*
+ */
+export interface MyStorySliceStoryPrimaryButtonsItem {
+  /**
+   * Label field in *MyStory → Story → Primary → Buttons*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Contact Paul
+   * - **API ID Path**: my_story.story.primary.buttons[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *MyStory → Story → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Style field in *MyStory → Story → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Filled
+   * - **API ID Path**: my_story.story.primary.buttons[].style
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  style: prismic.SelectField<"Filled" | "Outline", "filled">;
+
+  /**
+   * Show Arrow field in *MyStory → Story → Primary → Buttons*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: my_story.story.primary.buttons[].show_arrow
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_arrow: prismic.BooleanField;
+}
+
+/**
+ * Primary content in *MyStory → Instructor → Primary*
+ */
+export interface MyStorySliceInstructorPrimary {
+  /**
+   * Badge Text field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Meet the instructor
+   * - **API ID Path**: my_story.instructor.primary.badge_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  badge_text: prismic.KeyTextField;
+
+  /**
+   * Badge Icon field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Dot
+   * - **API ID Path**: my_story.instructor.primary.badge_icon_preset
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  badge_icon_preset: prismic.SelectField<
+    "Dot" | "Trophy" | "Star" | "Music" | "None",
+    "filled"
+  >;
+
+  /**
+   * Badge Icon Image (optional - replaces the icon above) field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.instructor.primary.badge_icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  badge_icon: prismic.ImageField<never>;
+
+  /**
+   * Badge Background field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: rgba(255, 255, 255, 0.07)
+   * - **API ID Path**: my_story.instructor.primary.badge_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_bg_color: prismic.ColorField;
+
+  /**
+   * Badge Text Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #e07b39
+   * - **API ID Path**: my_story.instructor.primary.badge_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_text_color: prismic.ColorField;
+
+  /**
+   * Badge Icon Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.instructor.primary.badge_icon_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_icon_color: prismic.ColorField;
+
+  /**
+   * Badge Border Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: my_story.instructor.primary.badge_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_border_color: prismic.ColorField;
+
+  /**
+   * Name / Title field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.instructor.primary.name
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Name Font field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bebas Neue
+   * - **API ID Path**: my_story.instructor.primary.name_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  name_font: prismic.SelectField<
+    | "Bebas Neue"
+    | "Inter Tight"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Name Size field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Extra Large
+   * - **API ID Path**: my_story.instructor.primary.name_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  name_size: prismic.SelectField<
+    "Extra Large" | "Large" | "Medium" | "Small",
+    "filled"
+  >;
+
+  /**
+   * Name Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: my_story.instructor.primary.name_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  name_color: prismic.ColorField;
+
+  /**
+   * Role / Subtitle field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Artist, performer and educator
+   * - **API ID Path**: my_story.instructor.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Subtitle Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #a8a29e
+   * - **API ID Path**: my_story.instructor.primary.subtitle_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  subtitle_color: prismic.ColorField;
+
+  /**
+   * Bio field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.instructor.primary.bio
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  bio: prismic.RichTextField;
+
+  /**
+   * Bio Font field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: my_story.instructor.primary.bio_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bio_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Bio Size field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: my_story.instructor.primary.bio_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bio_size: prismic.SelectField<"Medium" | "Small" | "Large", "filled">;
+
+  /**
+   * Bio Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #a8a29e
+   * - **API ID Path**: my_story.instructor.primary.bio_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  bio_color: prismic.ColorField;
+
+  /**
+   * Portrait (square works best) field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.instructor.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Portrait Position (desktop) field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Left
+   * - **API ID Path**: my_story.instructor.primary.image_position
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  image_position: prismic.SelectField<"Left" | "Right", "filled">;
+
+  /**
+   * Show Vinyl Record Behind Portrait field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: my_story.instructor.primary.show_vinyl
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_vinyl: prismic.BooleanField;
+
+  /**
+   * Outer Ring Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #e8b04b
+   * - **API ID Path**: my_story.instructor.primary.ring_outer_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  ring_outer_color: prismic.ColorField;
+
+  /**
+   * Inner Ring Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: my_story.instructor.primary.ring_inner_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  ring_inner_color: prismic.ColorField;
+
+  /**
+   * Vinyl Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #231f1d
+   * - **API ID Path**: my_story.instructor.primary.vinyl_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  vinyl_color: prismic.ColorField;
+
+  /**
+   * Vinyl Groove Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: rgba(255, 255, 255, 0.05)
+   * - **API ID Path**: my_story.instructor.primary.vinyl_groove_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  vinyl_groove_color: prismic.ColorField;
+
+  /**
+   * Buttons field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.instructor.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<
+    Simplify<MyStorySliceInstructorPrimaryButtonsItem>
+  >;
+
+  /**
+   * Button Font field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: my_story.instructor.primary.button_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Button Corners field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Rounded (Medium)
+   * - **API ID Path**: my_story.instructor.primary.button_radius
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_radius: prismic.SelectField<
+    | "Rounded (Medium)"
+    | "Slightly Rounded (Small)"
+    | "Large Rounded"
+    | "Pill"
+    | "Sharp",
+    "filled"
+  >;
+
+  /**
+   * Filled Button Background field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: my_story.instructor.primary.button_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_bg_color: prismic.ColorField;
+
+  /**
+   * Filled Button Text field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: my_story.instructor.primary.button_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_text_color: prismic.ColorField;
+
+  /**
+   * Filled Button Hover Background field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: my_story.instructor.primary.button_hover_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_bg_color: prismic.ColorField;
+
+  /**
+   * Filled Button Hover Text field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: my_story.instructor.primary.button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Outline Button Color field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: my_story.instructor.primary.outline_button_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  outline_button_color: prismic.ColorField;
+
+  /**
+   * Outline Button Hover Background field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: my_story.instructor.primary.outline_button_hover_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  outline_button_hover_bg_color: prismic.ColorField;
+
+  /**
+   * Outline Button Hover Text field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: my_story.instructor.primary.outline_button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  outline_button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Section Background field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: my_story.instructor.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Space Above field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: my_story.instructor.primary.padding_top
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_top: prismic.SelectField<
+    "Large" | "None" | "Small" | "Medium" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Below field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: my_story.instructor.primary.padding_bottom
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_bottom: prismic.SelectField<
+    "Large" | "None" | "Small" | "Medium" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Above in px (optional) field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.instructor.primary.padding_top_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_top_custom: prismic.NumberField;
+
+  /**
+   * Space Below in px (optional) field in *MyStory → Instructor → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.instructor.primary.padding_bottom_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_bottom_custom: prismic.NumberField;
+}
+
+/**
+ * Instructor variation for MyStory Slice
+ *
+ * - **API ID**: `instructor`
+ * - **Description**: Circular portrait with rings and vinyl, name, role, bio and buttons
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MyStorySliceInstructor = prismic.SharedSliceVariation<
+  "instructor",
+  Simplify<MyStorySliceInstructorPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *MyStory → Story → Primary*
+ */
+export interface MyStorySliceStoryPrimary {
+  /**
+   * Badge Text field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Our story
+   * - **API ID Path**: my_story.story.primary.badge_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  badge_text: prismic.KeyTextField;
+
+  /**
+   * Badge Icon field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Dot
+   * - **API ID Path**: my_story.story.primary.badge_icon_preset
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  badge_icon_preset: prismic.SelectField<
+    "Dot" | "Trophy" | "Star" | "Music" | "None",
+    "filled"
+  >;
+
+  /**
+   * Badge Icon Image (optional - replaces the icon above) field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.badge_icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  badge_icon: prismic.ImageField<never>;
+
+  /**
+   * Badge Background field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: my_story.story.primary.badge_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_bg_color: prismic.ColorField;
+
+  /**
+   * Badge Text Color field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: my_story.story.primary.badge_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_text_color: prismic.ColorField;
+
+  /**
+   * Badge Icon Color field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.badge_icon_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_icon_color: prismic.ColorField;
+
+  /**
+   * Badge Border Color field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: my_story.story.primary.badge_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_border_color: prismic.ColorField;
+
+  /**
+   * Title field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Title Font field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bebas Neue
+   * - **API ID Path**: my_story.story.primary.title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_font: prismic.SelectField<
+    | "Bebas Neue"
+    | "Inter Tight"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Title Size field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: my_story.story.primary.title_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_size: prismic.SelectField<
+    "Large" | "Extra Large" | "Medium" | "Small",
+    "filled"
+  >;
+
+  /**
+   * Title Color field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: my_story.story.primary.title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * Left Column Text field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.left_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  left_text: prismic.RichTextField;
+
+  /**
+   * Right Column Intro field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.right_intro
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  right_intro: prismic.RichTextField;
+
+  /**
+   * Numbered Highlights field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.points[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  points: prismic.GroupField<Simplify<MyStorySliceStoryPrimaryPointsItem>>;
+
+  /**
+   * Right Column Closing Text field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.right_closing
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  right_closing: prismic.RichTextField;
+
+  /**
+   * Text Font field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: my_story.story.primary.text_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  text_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Text Size field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: my_story.story.primary.text_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  text_size: prismic.SelectField<"Medium" | "Small" | "Large", "filled">;
+
+  /**
+   * Text Color field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: my_story.story.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Highlight Title Font field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: my_story.story.primary.point_title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  point_title_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Highlight Title Color field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: my_story.story.primary.point_title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  point_title_color: prismic.ColorField;
+
+  /**
+   * Highlight Description Color field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: my_story.story.primary.point_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  point_text_color: prismic.ColorField;
+
+  /**
+   * Number Color field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: my_story.story.primary.number_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  number_color: prismic.ColorField;
+
+  /**
+   * Buttons field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<Simplify<MyStorySliceStoryPrimaryButtonsItem>>;
+
+  /**
+   * Button Font field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: my_story.story.primary.button_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Button Corners field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Rounded (Medium)
+   * - **API ID Path**: my_story.story.primary.button_radius
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_radius: prismic.SelectField<
+    | "Rounded (Medium)"
+    | "Slightly Rounded (Small)"
+    | "Large Rounded"
+    | "Pill"
+    | "Sharp",
+    "filled"
+  >;
+
+  /**
+   * Filled Button Background field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: my_story.story.primary.button_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_bg_color: prismic.ColorField;
+
+  /**
+   * Filled Button Text field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: my_story.story.primary.button_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_text_color: prismic.ColorField;
+
+  /**
+   * Filled Button Hover Background field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: my_story.story.primary.button_hover_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_bg_color: prismic.ColorField;
+
+  /**
+   * Filled Button Hover Text field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: my_story.story.primary.button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Outline Button Color field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: my_story.story.primary.outline_button_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  outline_button_color: prismic.ColorField;
+
+  /**
+   * Outline Button Hover Background field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: my_story.story.primary.outline_button_hover_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  outline_button_hover_bg_color: prismic.ColorField;
+
+  /**
+   * Outline Button Hover Text field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: my_story.story.primary.outline_button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  outline_button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Section Background field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: my_story.story.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Space Above field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: my_story.story.primary.padding_top
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_top: prismic.SelectField<
+    "Large" | "None" | "Small" | "Medium" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Below field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: my_story.story.primary.padding_bottom
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_bottom: prismic.SelectField<
+    "Large" | "None" | "Small" | "Medium" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Above in px (optional) field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.padding_top_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_top_custom: prismic.NumberField;
+
+  /**
+   * Space Below in px (optional) field in *MyStory → Story → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_story.story.primary.padding_bottom_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_bottom_custom: prismic.NumberField;
+}
+
+/**
+ * Story variation for MyStory Slice
+ *
+ * - **API ID**: `story`
+ * - **Description**: Title with buttons, story text left, numbered highlights right
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MyStorySliceStory = prismic.SharedSliceVariation<
+  "story",
+  Simplify<MyStorySliceStoryPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MyStory*
+ */
+type MyStorySliceVariation = MyStorySliceInstructor | MyStorySliceStory;
+
+/**
+ * MyStory Shared Slice
+ *
+ * - **API ID**: `my_story`
+ * - **Description**: About sections: instructor intro (portrait with rings & vinyl) or story columns with numbered highlights
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MyStorySlice = prismic.SharedSlice<
+  "my_story",
+  MyStorySliceVariation
+>;
+
+/**
  * Item in *PricingTable → Default → Primary → Tiers*
  */
 export interface PricingTableSliceDefaultPrimaryTiersItem {
@@ -12801,12 +16599,535 @@ export type RichTextSliceSliceTwoColumnsWithHeader =
   >;
 
 /**
+ * Primary content in *RichTextSlice → Heading → Primary*
+ */
+export interface RichTextSliceSliceHeadingPrimary {
+  /**
+   * Eyebrow (small text above, optional) field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_slice.heading.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Heading (choose H1-H6 in the text toolbar; Bold/Italic words are highlighted) field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_slice.heading.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Subtitle (optional) field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_slice.heading.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Font field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bebas Neue
+   * - **API ID Path**: rich_text_slice.heading.primary.font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  font: prismic.SelectField<
+    | "Bebas Neue"
+    | "Inter Tight"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Size field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Auto
+   * - **API ID Path**: rich_text_slice.heading.primary.size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  size: prismic.SelectField<
+    "Auto" | "Extra Large" | "Large" | "Medium" | "Small" | "Extra Small",
+    "filled"
+  >;
+
+  /**
+   * Weight field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Normal
+   * - **API ID Path**: rich_text_slice.heading.primary.weight
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  weight: prismic.SelectField<
+    "Normal" | "Light" | "Medium" | "Semi Bold" | "Bold" | "Black",
+    "filled"
+  >;
+
+  /**
+   * Letter Case field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: None
+   * - **API ID Path**: rich_text_slice.heading.primary.text_transform
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  text_transform: prismic.SelectField<
+    "None" | "Uppercase" | "Capitalize",
+    "filled"
+  >;
+
+  /**
+   * Line Height field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Snug
+   * - **API ID Path**: rich_text_slice.heading.primary.line_height
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  line_height: prismic.SelectField<
+    "Snug" | "Tight" | "Normal" | "Relaxed",
+    "filled"
+  >;
+
+  /**
+   * Letter Spacing field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Tight
+   * - **API ID Path**: rich_text_slice.heading.primary.letter_spacing
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  letter_spacing: prismic.SelectField<
+    "Tight" | "Tighter" | "Normal" | "Wide",
+    "filled"
+  >;
+
+  /**
+   * Heading Color field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: rich_text_slice.heading.primary.color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  color: prismic.ColorField;
+
+  /**
+   * Highlight Color (Bold / Italic words) field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: rich_text_slice.heading.primary.highlight_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  highlight_color: prismic.ColorField;
+
+  /**
+   * Eyebrow Color field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: rich_text_slice.heading.primary.eyebrow_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  eyebrow_color: prismic.ColorField;
+
+  /**
+   * Subtitle Color field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: rich_text_slice.heading.primary.subtitle_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  subtitle_color: prismic.ColorField;
+
+  /**
+   * Background Color field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: rich_text_slice.heading.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Space Above field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: rich_text_slice.heading.primary.padding_top
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_top: prismic.SelectField<
+    "Medium" | "None" | "Small" | "Large" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Below field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: rich_text_slice.heading.primary.padding_bottom
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_bottom: prismic.SelectField<
+    "Medium" | "None" | "Small" | "Large" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Above in px (optional - overrides the preset) field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_slice.heading.primary.padding_top_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_top_custom: prismic.NumberField;
+
+  /**
+   * Space Below in px (optional - overrides the preset) field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_slice.heading.primary.padding_bottom_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_bottom_custom: prismic.NumberField;
+
+  /**
+   * Content Width field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Wide
+   * - **API ID Path**: rich_text_slice.heading.primary.content_width
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  content_width: prismic.SelectField<
+    "Wide" | "Narrow" | "Medium" | "Extra Wide" | "Full",
+    "filled"
+  >;
+
+  /**
+   * Alignment field in *RichTextSlice → Heading → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Left
+   * - **API ID Path**: rich_text_slice.heading.primary.alignment
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  alignment: prismic.SelectField<"Left" | "Center" | "Right", "filled">;
+}
+
+/**
+ * Heading variation for RichTextSlice Slice
+ *
+ * - **API ID**: `heading`
+ * - **Description**: A single H1-H6 heading with eyebrow, subtitle, colours and spacing
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RichTextSliceSliceHeading = prismic.SharedSliceVariation<
+  "heading",
+  Simplify<RichTextSliceSliceHeadingPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *RichTextSlice → Styled Text → Primary*
+ */
+export interface RichTextSliceSliceStyledTextPrimary {
+  /**
+   * Text field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_slice.styledText.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Style field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Plain
+   * - **API ID Path**: rich_text_slice.styledText.primary.box_style
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  box_style: prismic.SelectField<
+    "Plain" | "Card" | "Callout" | "Quote",
+    "filled"
+  >;
+
+  /**
+   * Quote Author (Quote style only) field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_slice.styledText.primary.quote_author
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  quote_author: prismic.KeyTextField;
+
+  /**
+   * Columns (desktop) field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 1
+   * - **API ID Path**: rich_text_slice.styledText.primary.columns
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  columns: prismic.SelectField<"1" | "2" | "3", "filled">;
+
+  /**
+   * Text Font field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: rich_text_slice.styledText.primary.body_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  body_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Text Size field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: rich_text_slice.styledText.primary.text_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  text_size: prismic.SelectField<"Medium" | "Small" | "Large", "filled">;
+
+  /**
+   * Headings Font field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Fraunces
+   * - **API ID Path**: rich_text_slice.styledText.primary.heading_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  heading_font: prismic.SelectField<
+    | "Fraunces"
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Text Color field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: rich_text_slice.styledText.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Headings Color field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: rich_text_slice.styledText.primary.heading_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  heading_color: prismic.ColorField;
+
+  /**
+   * Link Color field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: rich_text_slice.styledText.primary.link_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  link_color: prismic.ColorField;
+
+  /**
+   * Accent Color (callout bar, quote mark) field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: rich_text_slice.styledText.primary.accent_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  accent_color: prismic.ColorField;
+
+  /**
+   * Box Background (Card / Callout) field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_slice.styledText.primary.box_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  box_bg_color: prismic.ColorField;
+
+  /**
+   * Box Border (Card) field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: rich_text_slice.styledText.primary.box_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  box_border_color: prismic.ColorField;
+
+  /**
+   * Background Color field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: rich_text_slice.styledText.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Space Above field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: rich_text_slice.styledText.primary.padding_top
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_top: prismic.SelectField<
+    "Medium" | "None" | "Small" | "Large" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Below field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: rich_text_slice.styledText.primary.padding_bottom
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  padding_bottom: prismic.SelectField<
+    "Medium" | "None" | "Small" | "Large" | "Extra Large",
+    "filled"
+  >;
+
+  /**
+   * Space Above in px (optional - overrides the preset) field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_slice.styledText.primary.padding_top_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_top_custom: prismic.NumberField;
+
+  /**
+   * Space Below in px (optional - overrides the preset) field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_slice.styledText.primary.padding_bottom_custom
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  padding_bottom_custom: prismic.NumberField;
+
+  /**
+   * Content Width field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: rich_text_slice.styledText.primary.content_width
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  content_width: prismic.SelectField<
+    "Medium" | "Narrow" | "Wide" | "Extra Wide" | "Full",
+    "filled"
+  >;
+
+  /**
+   * Alignment field in *RichTextSlice → Styled Text → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Left
+   * - **API ID Path**: rich_text_slice.styledText.primary.alignment
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  alignment: prismic.SelectField<"Left" | "Center" | "Right", "filled">;
+}
+
+/**
+ * Styled Text variation for RichTextSlice Slice
+ *
+ * - **API ID**: `styledText`
+ * - **Description**: Rich text with fonts, colours, columns, Card/Callout/Quote styles and spacing
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RichTextSliceSliceStyledText = prismic.SharedSliceVariation<
+  "styledText",
+  Simplify<RichTextSliceSliceStyledTextPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *RichTextSlice*
  */
 type RichTextSliceSliceVariation =
   | RichTextSliceSliceDefault
   | RichTextSliceSliceTwoColumns
-  | RichTextSliceSliceTwoColumnsWithHeader;
+  | RichTextSliceSliceTwoColumnsWithHeader
+  | RichTextSliceSliceHeading
+  | RichTextSliceSliceStyledText;
 
 /**
  * RichTextSlice Shared Slice
@@ -14346,6 +18667,282 @@ export type TimelineSlice = prismic.SharedSlice<
   TimelineSliceVariation
 >;
 
+/**
+ * Item in *VideoPlaylist → Default → Primary → Videos*
+ */
+export interface VideoPlaylistSliceDefaultPrimaryVideosItem {
+  /**
+   * Video (Bunny / YouTube / Vimeo link, or upload a video file) field in *VideoPlaylist → Default → Primary → Videos*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_playlist.default.primary.videos[].video
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  video: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Title field in *VideoPlaylist → Default → Primary → Videos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: How High the Moon, live 1951
+   * - **API ID Path**: video_playlist.default.primary.videos[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Duration field in *VideoPlaylist → Default → Primary → Videos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 3:45
+   * - **API ID Path**: video_playlist.default.primary.videos[].duration
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  duration: prismic.KeyTextField;
+
+  /**
+   * Thumbnail (optional - YouTube thumbnails are automatic) field in *VideoPlaylist → Default → Primary → Videos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_playlist.default.primary.videos[].thumbnail
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  thumbnail: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *VideoPlaylist → Default → Primary*
+ */
+export interface VideoPlaylistSliceDefaultPrimary {
+  /**
+   * Title field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Les Paul
+   * - **API ID Path**: video_playlist.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Meta Line field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 1915–2009 · Jazz, country and blues · Solid-body pioneer
+   * - **API ID Path**: video_playlist.default.primary.meta_line
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_line: prismic.KeyTextField;
+
+  /**
+   * Description field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_playlist.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Title Font field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Fraunces
+   * - **API ID Path**: video_playlist.default.primary.title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_font: prismic.SelectField<
+    | "Fraunces"
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * List Label field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Curated clips
+   * - **API ID Path**: video_playlist.default.primary.list_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  list_label: prismic.KeyTextField;
+
+  /**
+   * Show Video Count field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: video_playlist.default.primary.show_count
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_count: prismic.BooleanField;
+
+  /**
+   * 'Now playing' Label field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Now playing
+   * - **API ID Path**: video_playlist.default.primary.now_playing_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  now_playing_label: prismic.KeyTextField;
+
+  /**
+   * List Position (desktop) field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Left
+   * - **API ID Path**: video_playlist.default.primary.list_position
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  list_position: prismic.SelectField<"Left" | "Right", "filled">;
+
+  /**
+   * Width field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: video_playlist.default.primary.width
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  width: prismic.SelectField<"Medium" | "Wide", "filled">;
+
+  /**
+   * Videos field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_playlist.default.primary.videos[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  videos: prismic.GroupField<
+    Simplify<VideoPlaylistSliceDefaultPrimaryVideosItem>
+  >;
+
+  /**
+   * Section Background Color field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: video_playlist.default.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Title Color field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: video_playlist.default.primary.title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * Meta / Duration Color field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: video_playlist.default.primary.meta_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  meta_color: prismic.ColorField;
+
+  /**
+   * Description Color field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #57534e
+   * - **API ID Path**: video_playlist.default.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  text_color: prismic.ColorField;
+
+  /**
+   * Clip Title Color field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: video_playlist.default.primary.clip_title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  clip_title_color: prismic.ColorField;
+
+  /**
+   * Active Clip Background field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ebe4d8
+   * - **API ID Path**: video_playlist.default.primary.active_clip_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  active_clip_bg_color: prismic.ColorField;
+
+  /**
+   * Accent ('Now playing') Color field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: video_playlist.default.primary.accent_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  accent_color: prismic.ColorField;
+
+  /**
+   * Player Background field in *VideoPlaylist → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: video_playlist.default.primary.player_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  player_bg_color: prismic.ColorField;
+}
+
+/**
+ * Default variation for VideoPlaylist Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Clip list beside a player
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type VideoPlaylistSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoPlaylistSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *VideoPlaylist*
+ */
+type VideoPlaylistSliceVariation = VideoPlaylistSliceDefault;
+
+/**
+ * VideoPlaylist Shared Slice
+ *
+ * - **API ID**: `video_playlist`
+ * - **Description**: Curated clip list next to a player (Bunny, YouTube, Vimeo or uploaded video)
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type VideoPlaylistSlice = prismic.SharedSlice<
+  "video_playlist",
+  VideoPlaylistSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -14369,6 +18966,7 @@ declare module "@prismicio/client" {
     export type {
       AuthorDocument,
       AuthorDocumentData,
+      AuthorDocumentDataLinksItem,
       BlogDocument,
       BlogDocumentData,
       BlogDocumentDataSlicesSlice,
@@ -14408,6 +19006,9 @@ declare module "@prismicio/client" {
       LessonDocument,
       LessonDocumentData,
       LessonDocumentDataSlicesSlice,
+      MyStoryPageDocument,
+      MyStoryPageDocumentData,
+      MyStoryPageDocumentDataSlicesSlice,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
@@ -14425,6 +19026,12 @@ declare module "@prismicio/client" {
       SettingsDocumentDataSecondaryNavigationItem,
       SettingsDocumentDataSocialMediaItem,
       AllDocumentTypes,
+      AuthorBioSlice,
+      AuthorBioSliceCardPrimary,
+      AuthorBioSliceCompactPrimary,
+      AuthorBioSliceVariation,
+      AuthorBioSliceCard,
+      AuthorBioSliceCompact,
       BlogListSlice,
       BlogListSliceDefaultPrimary,
       BlogListSliceFeaturedGridPrimaryArticlesItem,
@@ -14492,6 +19099,12 @@ declare module "@prismicio/client" {
       CourseGridSliceVariation,
       CourseGridSliceDefault,
       CourseGridSliceCurriculum,
+      DiscographySlice,
+      DiscographySliceDefaultPrimaryAlbumsItem,
+      DiscographySliceDefaultPrimaryButtonsItem,
+      DiscographySliceDefaultPrimary,
+      DiscographySliceVariation,
+      DiscographySliceDefault,
       FaqsSlice,
       FaqsSliceDefaultPrimaryFaqsItem,
       FaqsSliceDefaultPrimary,
@@ -14555,6 +19168,10 @@ declare module "@prismicio/client" {
       HeroWithVideoSliceVariation,
       HeroWithVideoSliceDefault,
       HeroWithVideoSliceSplitWithVideo,
+      ImageBlockSlice,
+      ImageBlockSliceDefaultPrimary,
+      ImageBlockSliceVariation,
+      ImageBlockSliceDefault,
       ImageGallerySlice,
       ImageGallerySliceDefaultPrimaryImagesItem,
       ImageGallerySliceDefaultPrimary,
@@ -14575,6 +19192,25 @@ declare module "@prismicio/client" {
       LessonRickTextSliceTwoColumnsWithHeader,
       LessonRickTextSliceTwoColumns,
       LessonRickTextSliceImageGrid,
+      MediaEmbedSlice,
+      MediaEmbedSliceDefaultPrimary,
+      MediaEmbedSliceVariation,
+      MediaEmbedSliceDefault,
+      MediaStudyCardSlice,
+      MediaStudyCardSliceDefaultPrimaryVideoChaptersItem,
+      MediaStudyCardSliceDefaultPrimaryAudioChaptersItem,
+      MediaStudyCardSliceDefaultPrimary,
+      MediaStudyCardSliceVariation,
+      MediaStudyCardSliceDefault,
+      MyStorySlice,
+      MyStorySliceInstructorPrimaryButtonsItem,
+      MyStorySliceInstructorPrimary,
+      MyStorySliceStoryPrimaryPointsItem,
+      MyStorySliceStoryPrimaryButtonsItem,
+      MyStorySliceStoryPrimary,
+      MyStorySliceVariation,
+      MyStorySliceInstructor,
+      MyStorySliceStory,
       PricingTableSlice,
       PricingTableSliceDefaultPrimaryTiersItem,
       PricingTableSliceDefaultPrimary,
@@ -14584,10 +19220,14 @@ declare module "@prismicio/client" {
       RichTextSliceSliceDefaultPrimary,
       RichTextSliceSliceTwoColumnsPrimary,
       RichTextSliceSliceTwoColumnsWithHeaderPrimary,
+      RichTextSliceSliceHeadingPrimary,
+      RichTextSliceSliceStyledTextPrimary,
       RichTextSliceSliceVariation,
       RichTextSliceSliceDefault,
       RichTextSliceSliceTwoColumns,
       RichTextSliceSliceTwoColumnsWithHeader,
+      RichTextSliceSliceHeading,
+      RichTextSliceSliceStyledText,
       SectionHeadersSlice,
       SectionHeadersSliceDefaultPrimary,
       SectionHeadersSliceWithButtonsPrimaryButtonsItem,
@@ -14624,6 +19264,11 @@ declare module "@prismicio/client" {
       TimelineSliceDefaultPrimary,
       TimelineSliceVariation,
       TimelineSliceDefault,
+      VideoPlaylistSlice,
+      VideoPlaylistSliceDefaultPrimaryVideosItem,
+      VideoPlaylistSliceDefaultPrimary,
+      VideoPlaylistSliceVariation,
+      VideoPlaylistSliceDefault,
     };
   }
 }

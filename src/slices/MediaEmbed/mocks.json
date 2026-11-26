@@ -1,0 +1,31 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "media": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      },
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "Open D slide, slow and steady",
+        "type": "Text"
+      },
+      "size": {
+        "__TYPE__": "FieldContent",
+        "value": "Medium",
+        "type": "Select"
+      },
+      "aspect_ratio": {
+        "__TYPE__": "FieldContent",
+        "value": "Landscape",
+        "type": "Select"
+      }
+    },
+    "items": []
+  }
+]

@@ -187,11 +187,64 @@
           "placeholder": "PAUL GREIG"
         }
       },
+      "site_title_font": {
+        "type": "Select",
+        "config": {
+          "label": "Site Pre-Title Font",
+          "placeholder": "",
+          "default_value": "Inter Tight",
+          "options": [
+            "Inter Tight",
+            "Bebas Neue",
+            "Fraunces",
+            "Inter",
+            "Raleway",
+            "Nunito",
+            "Mochiy Pop One",
+            "Anton"
+          ]
+        }
+      },
+      "site_title_size": {
+        "type": "Select",
+        "config": {
+          "label": "Site Pre-Title Size",
+          "placeholder": "",
+          "default_value": "Medium",
+          "options": [
+            "Medium",
+            "Small",
+            "Large",
+            "Extra Large"
+          ]
+        }
+      },
+      "site_title_color": {
+        "type": "Color",
+        "config": {
+          "label": "Site Pre-Title Color",
+          "placeholder": "#1c1917"
+        }
+      },
       "site_name": {
         "type": "Text",
         "config": {
           "label": "Site Name",
           "placeholder": "LEARN GUITAR CAFE"
+        }
+      },
+      "site_name_size": {
+        "type": "Select",
+        "config": {
+          "label": "Site Name Size",
+          "placeholder": "",
+          "default_value": "Medium",
+          "options": [
+            "Medium",
+            "Small",
+            "Large",
+            "Extra Large"
+          ]
         }
       },
       "site_name_color": {

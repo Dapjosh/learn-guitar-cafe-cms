@@ -1,0 +1,294 @@
+{
+  "id": "media_embed",
+  "type": "SharedSlice",
+  "name": "MediaEmbed",
+  "description": "Embed one video (YouTube, Bunny, Vimeo, file) or audio file (MP3)",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Video or audio embed",
+      "imageUrl": "",
+      "primary": {
+        "media": {
+          "type": "Link",
+          "config": {
+            "label": "Media Link (YouTube / Bunny / Vimeo URL, or upload / link a video or MP3)",
+            "select": null,
+            "allowTargetBlank": false
+          }
+        },
+        "media_type": {
+          "type": "Select",
+          "config": {
+            "label": "Media Type",
+            "placeholder": "",
+            "default_value": "Auto",
+            "options": [
+              "Auto",
+              "Video",
+              "Audio"
+            ]
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title (optional)",
+            "placeholder": ""
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Fraunces",
+            "options": [
+              "Fraunces",
+              "Inter Tight",
+              "Bebas Neue",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "caption": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Caption (optional)"
+          }
+        },
+        "caption_color": {
+          "type": "Color",
+          "config": {
+            "label": "Caption Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large",
+              "Wide",
+              "Full"
+            ]
+          }
+        },
+        "aspect_ratio": {
+          "type": "Select",
+          "config": {
+            "label": "Video Shape",
+            "placeholder": "",
+            "default_value": "Landscape",
+            "options": [
+              "Landscape",
+              "Classic",
+              "Square",
+              "Vertical",
+              "Cinema"
+            ]
+          }
+        },
+        "corner_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Corner Radius",
+            "placeholder": "",
+            "default_value": "Small",
+            "options": [
+              "Small",
+              "None",
+              "Medium",
+              "Large"
+            ]
+          }
+        },
+        "border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "autoplay": {
+          "type": "Boolean",
+          "config": {
+            "label": "Autoplay (video starts muted)",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "loop": {
+          "type": "Boolean",
+          "config": {
+            "label": "Loop",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "poster": {
+          "type": "Image",
+          "config": {
+            "label": "Poster Image (uploaded video files only)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "audio_label": {
+          "type": "Text",
+          "config": {
+            "label": "Audio Label",
+            "placeholder": "Listen"
+          }
+        },
+        "audio_note": {
+          "type": "Text",
+          "config": {
+            "label": "Audio Note (optional)",
+            "placeholder": ""
+          }
+        },
+        "show_waveform": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Waveform (audio host must allow CORS)",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "show_tempo": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Tempo Control (audio)",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "audio_card_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Audio Player Background",
+            "placeholder": "#fbf9f5"
+          }
+        },
+        "accent_color": {
+          "type": "Color",
+          "config": {
+            "label": "Audio Accent Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "waveform_color": {
+          "type": "Color",
+          "config": {
+            "label": "Waveform (unplayed) Color",
+            "placeholder": "#e9d2c2"
+          }
+        },
+        "play_button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Audio Play Button Background",
+            "placeholder": "#1c1917"
+          }
+        },
+        "play_button_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Audio Play Button Icon",
+            "placeholder": "#ffffff"
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "padding_top": {
+          "type": "Select",
+          "config": {
+            "label": "Space Above",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "None",
+              "Small",
+              "Large",
+              "Extra Large"
+            ]
+          }
+        },
+        "padding_bottom": {
+          "type": "Select",
+          "config": {
+            "label": "Space Below",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "None",
+              "Small",
+              "Large",
+              "Extra Large"
+            ]
+          }
+        },
+        "padding_top_custom": {
+          "type": "Number",
+          "config": {
+            "label": "Space Above in px (optional - overrides the preset)",
+            "placeholder": ""
+          }
+        },
+        "padding_bottom_custom": {
+          "type": "Number",
+          "config": {
+            "label": "Space Below in px (optional - overrides the preset)",
+            "placeholder": ""
+          }
+        },
+        "alignment": {
+          "type": "Select",
+          "config": {
+            "label": "Alignment",
+            "placeholder": "",
+            "default_value": "Center",
+            "options": [
+              "Center",
+              "Left",
+              "Right"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

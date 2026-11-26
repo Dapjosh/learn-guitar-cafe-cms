@@ -284,3 +284,19 @@
     }
   }
 }
+
+/* Main navbar: full menu + buttons from 992px (Tailwind "lg"), menu button below.
+   Plain CSS so the header never depends on Tailwind picking up new classes. */
+.lgc-nav-desktop {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .lgc-nav-desktop {
+    display: flex;
+  }
+
+  .lgc-nav-mobile {
+    display: none !important;
+  }
+}

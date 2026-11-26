@@ -25,7 +25,7 @@
       "email_address": {
         "type": "Text",
         "config": {
-          "label": "Email Address",
+          "label": "Email Address (contact form messages are sent here)",
           "placeholder": ""
         }
       },
@@ -64,6 +64,42 @@
         "config": {
           "choices": {
             "call_to_action": {
+              "type": "SharedSlice"
+            },
+            "contact_info": {
+              "type": "SharedSlice"
+            },
+            "contact_form": {
+              "type": "SharedSlice"
+            },
+            "header": {
+              "type": "SharedSlice"
+            },
+            "hero_heading": {
+              "type": "SharedSlice"
+            },
+            "section_headers": {
+              "type": "SharedSlice"
+            },
+            "rich_text_slice": {
+              "type": "SharedSlice"
+            },
+            "content_image_slice": {
+              "type": "SharedSlice"
+            },
+            "media_embed": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "faqs": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "my_story": {
               "type": "SharedSlice"
             }
           }

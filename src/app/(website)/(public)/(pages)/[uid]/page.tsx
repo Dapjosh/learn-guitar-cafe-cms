@@ -15,16 +15,21 @@ export async function generateMetadata(props: { params: Promise<Params> }, paren
   const client = createClient();
   const page = await client.getByUID('page', params.uid).catch(() => notFound());
 
-  let image = null;
   const parentMeta = await parent;
   const parentOpenGraph: ResolvedOpenGraph | null = parentMeta.openGraph ?? null;
 
-  if (image) {
-    image = `${page.data.meta_image.url}?w=1200&h=630&fit=crop&fm=webp&q=80`;
+  // Page's own share image (1200×630), else the site default
+  let image: string | null = null;
+  if (page.data.meta_image?.url) {
+    const url = new URL(page.data.meta_image.url);
+    url.searchParams.set('w', '1200');
+    url.searchParams.set('h', '630');
+    url.searchParams.set('fit', 'crop');
+    image = url.toString();
   }
 
   return {
-    title: `Kids Guitar dojo - ${asText(page.data?.title) || parentMeta.title}`,
+    title: page.data.meta_title || asText(page.data?.title) || parentMeta.title,
     description: page.data.meta_description || parentMeta.description,
     alternates: {
       canonical: `/${params.uid}`,

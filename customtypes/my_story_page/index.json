@@ -1,0 +1,116 @@
+{
+  "format": "page",
+  "id": "my_story_page",
+  "label": "My Story",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Page Title (browser tab & SEO fallback)",
+          "placeholder": "My Story"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "my_story": {
+              "type": "SharedSlice"
+            },
+            "discography": {
+              "type": "SharedSlice"
+            },
+            "header": {
+              "type": "SharedSlice"
+            },
+            "hero_heading": {
+              "type": "SharedSlice"
+            },
+            "section_headers": {
+              "type": "SharedSlice"
+            },
+            "rich_text_slice": {
+              "type": "SharedSlice"
+            },
+            "content_image_slice": {
+              "type": "SharedSlice"
+            },
+            "hero_with_video": {
+              "type": "SharedSlice"
+            },
+            "media_embed": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "video_playlist": {
+              "type": "SharedSlice"
+            },
+            "author_bio": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "stats_band": {
+              "type": "SharedSlice"
+            },
+            "stats": {
+              "type": "SharedSlice"
+            },
+            "call_to_action": {
+              "type": "SharedSlice"
+            },
+            "faqs": {
+              "type": "SharedSlice"
+            },
+            "course_catalog": {
+              "type": "SharedSlice"
+            },
+            "image_gallery": {
+              "type": "SharedSlice"
+            },
+            "contact_info": {
+              "type": "SharedSlice"
+            },
+            "contact_form": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {
+            "width": 2400,
+            "height": 1260
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

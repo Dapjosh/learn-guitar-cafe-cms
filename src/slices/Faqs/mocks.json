@@ -59,5 +59,210 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "withImage",
+		"primary": {
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "Help",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "FREQUENTLY ASKED QUESTIONS",
+							"spans": []
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Answers about the courses, the gear you need and how the lessons work.",
+							"spans": []
+						}
+					}
+				]
+			},
+			"questions": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "What kind of guitar do I need to start?",
+									"type": "Text"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Any acoustic or electric guitar you already own will do. For bottleneck slide, standard or slightly higher action helps, but you don't need a special setup to begin.",
+												"spans": []
+											}
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "How long do I have access to the course?",
+									"type": "Text"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Lifetime access: watch, rewatch and download the TABs whenever you like.",
+												"spans": []
+											}
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Can I learn if I've never played with a slide?",
+									"type": "Text"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Yes. The first lessons cover holding the slide, muting and intonation from scratch.",
+												"spans": []
+											}
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Are backing tracks included?",
+									"type": "Text"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Every lesson comes with backing tracks at several tempos.",
+												"spans": []
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"open_behaviour": {
+				"__TYPE__": "FieldContent",
+				"value": "First open, one at a time",
+				"type": "Select"
+			},
+			"add_faq_schema": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Still have a question? Contact Paul",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "/contact"
+									}
+								}
+							],
+							[
+								"style",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Filled",
+									"type": "Select"
+								}
+							],
+							[
+								"show_arrow",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
 	}
 ]

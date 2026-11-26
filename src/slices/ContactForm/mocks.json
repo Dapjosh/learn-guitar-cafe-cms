@@ -1,0 +1,52 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "SEND US A MESSAGE",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Ask about the masterclasses, your gear or open tunings, and we'll reply by email.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "image_style": {
+        "__TYPE__": "FieldContent",
+        "value": "Circle with rings",
+        "type": "Select"
+      },
+      "show_third_ring": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "message_max_length": {
+        "__TYPE__": "FieldContent",
+        "value": 1000,
+        "type": "Number"
+      },
+      "button_label": {
+        "__TYPE__": "FieldContent",
+        "value": "Send message",
+        "type": "Text"
+      }
+    },
+    "items": []
+  }
+]

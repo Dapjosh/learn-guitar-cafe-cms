@@ -1,129 +1,113 @@
-import { HeroSimple, SocialList } from '@lgc_cms/features';
-import { createClient } from '@/prismicio';
-import { notFound } from 'next/navigation';
-import { PrismicImage, SliceZone } from '@prismicio/react';
-import { components } from '@/slices';
-import { Bounded } from '@components/Bounded';
-import { LucideMailOpen, PhoneCallIcon, Share2Icon } from 'lucide-react';
-
-import React from 'react';
 import type { Metadata, ResolvingMetadata } from 'next';
-import { ResolvedOpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
-import { OGImage } from '@lgc_cms/types';
+import { notFound } from 'next/navigation';
+import { asText, isFilled } from '@prismicio/client';
+import { SliceZone } from '@prismicio/react';
 
-type Props = {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+import { createClient } from '@/prismicio';
+import { components } from '@/slices';
+
+/**
+ * /contact — built from the "Contact" single document in Prismic.
+ * Uses the document's slices (Contact Info, Contact Form, …). If it has none yet,
+ * the two sections are built from the document's own fields (heading, subtitle,
+ * email, phone, form image/heading/body) plus the social links in Settings.
+ */
+async function getContactPage() {
+  return createClient()
+    .getSingle('contact')
+    .catch(() => null);
+}
+
+/** 1200×630 social image via Prismic's imgix params. */
+const shareImageUrl = (raw: string) => {
+  const url = new URL(raw);
+  url.searchParams.set('w', '1200');
+  url.searchParams.set('h', '630');
+  url.searchParams.set('fit', 'crop');
+  return url.toString();
 };
 
-export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const client = createClient();
-  const page = await client.getSingle('contact').catch(() => notFound());
+const heading = (type: 'heading1' | 'heading2', text: string) => [{ type, text, spans: [] }];
+const paragraph = (text: string) => (text ? [{ type: 'paragraph', text, spans: [] }] : []);
 
-  let image = null;
+const PLATFORMS: Record<string, string> = {
+  youtube: 'YouTube',
+  instagram: 'Instagram',
+  facebook: 'Facebook',
+  twitter: 'X',
+  tiktok: 'TikTok',
+};
+
+/** Slices built from the Contact document's fields (used until editors add slices). */
+function slicesFromFields(d: any, settings: any) {
+  const socials = (settings?.social_media || [])
+    .filter((s: any) => isFilled.link(s?.url))
+    .map((s: any) => ({ platform: PLATFORMS[String(s.type || '').toLowerCase()] || 'Website', link: s.url }));
+
+  const cards = [
+    d.email_address && { icon: 'Email', title: 'Email', email: d.email_address },
+    d.phone_number && { icon: 'Phone', title: 'Phone', phone: d.phone_number },
+    socials.length > 0 && { icon: 'Community', title: 'Community', show_social: true },
+  ].filter(Boolean);
+
+  const title = asText(d.heading) || 'Have a question about lessons or tone?';
+  return [
+    {
+      id: 'contact-info',
+      slice_type: 'contact_info',
+      variation: 'default',
+      version: 'initial',
+      slice_label: null,
+      items: [],
+      primary: { title: heading('heading1', title), description: paragraph(d.subtitle || ''), cards, social_links: socials },
+    },
+    {
+      id: 'contact-form',
+      slice_type: 'contact_form',
+      variation: 'default',
+      version: 'initial',
+      slice_label: null,
+      items: [],
+      primary: {
+        title: heading('heading2', d.form_heading || 'Send us a message'),
+        description: paragraph(d.form_body || ''),
+        image: d.form_image,
+        padding_top: 'None',
+      },
+    },
+  ];
+}
+
+export async function generateMetadata(_props: unknown, parent: ResolvingMetadata): Promise<Metadata> {
+  const page = await getContactPage();
+  const d = (page?.data ?? {}) as any;
   const parentMeta = await parent;
-  const parentOpenGraph: ResolvedOpenGraph | null = parentMeta.openGraph ?? null;
-
-  if (image) {
-    image = `${page.data.meta_image.url}?w=1200&h=630&fit=crop&fm=webp&q=80`;
-  }
+  const title = d.meta_title || asText(d.heading) || 'Contact';
 
   return {
-    title: 'Kids Guitar dojo - Contact',
-    description: page.data.meta_description || parentMeta.description || 'Contact us for more information',
-    alternates: {
-      canonical: `/contact`,
-    },
+    title,
+    description: d.meta_description || d.subtitle || parentMeta.description,
+    alternates: { canonical: '/contact' },
     openGraph: {
-      title: page.data.meta_title ?? parentMeta.title ?? undefined,
-      images: [
-        {
-          url: image ?? (parentOpenGraph?.images ? (parentOpenGraph.images[0] as OGImage).url : ''),
-        },
-      ],
+      title,
+      ...(isFilled.image(d.meta_image) ? { images: [{ url: shareImageUrl(d.meta_image.url) }] } : {}),
     },
   };
 }
 
-export default async function Page() {
+export default async function ContactPage() {
   const client = createClient();
-  const page = await client.getSingle('contact').catch(() => notFound());
-  const settings = await client.getSingle('settings');
+  const [page, settings] = await Promise.all([getContactPage(), client.getSingle('settings').catch(() => null)]);
 
-  if (!page) {
-    return <div>Loading...</div>;
-  }
+  // Development preview before the Contact document is published: build from empty fields (defaults)
+  if (!page && process.env.NODE_ENV === 'production') notFound();
+  const d = (page?.data ?? {}) as any;
+
+  const slices = Array.isArray(d.slices) && d.slices.length > 0 ? d.slices : slicesFromFields(d, settings?.data);
 
   return (
     <main>
-      {/* Header */}
-      <HeroSimple
-        data={{
-          pageName: 'Contact',
-          heading: page.data.heading,
-          text: page.data.subtitle,
-        }}
-      />
-      {/* Contact page */}
-      <Bounded as="section" yPadding={'sm'}>
-        <div className={'grid grid-cols-1 justify-items-center gap-5 md:grid-cols-3'}>
-          {page.data.email_address && (
-            <div className={'text-center'}>
-              {/* Email */}
-              <div className="bg-primary mx-auto flex h-12 w-12 items-center justify-center rounded-full text-white">
-                <i>
-                  <LucideMailOpen width={16} height={16} />
-                </i>
-              </div>
-              <div className="mb-3 mt-5 text-xl font-bold md:text-3xl">Email</div>
-              <div className="text-gray-500">
-                <a href={`mailto:${page.data.email_address}`}>{page.data.email_address}</a>
-              </div>
-            </div>
-          )}
-          {page.data.phone_number && (
-            <div className={'text-center'}>
-              <div className="bg-primary mx-auto flex h-12 w-12 items-center justify-center rounded-full text-white">
-                <i>
-                  <PhoneCallIcon width={16} height={16} />
-                </i>
-              </div>
-              <div className="mb-3 mt-5 text-xl font-bold md:text-3xl">Telephone</div>
-              <div className="text-gray-500">
-                <a href={`tel:${page.data.phone_number}`}>{page.data.phone_number}</a>
-              </div>
-            </div>
-          )}
-          {settings.data.social_media && (
-            <div className={'text-center'}>
-              <div className="bg-primary mx-auto flex h-12 w-12 items-center justify-center rounded-full text-white">
-                <i>
-                  <Share2Icon width={16} height={16} />
-                </i>
-              </div>
-              <div className="mb-3 mt-5 text-xl font-bold md:text-3xl">Social</div>
-              <div className="text-gray-500">
-                <SocialList items={settings.data.social_media} icons={true} variantList={0} variantButton={2} />
-              </div>
-            </div>
-          )}
-        </div>
-      </Bounded>
-
-      <Bounded as="section" yPadding={'md'}>
-        <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
-          <div className="image">
-            <PrismicImage field={page.data.form_image} />
-          </div>
-          <div>
-            <div className="mb-5 text-3xl font-bold md:text-4xl">{page.data.form_heading}</div>
-            <div className="mb-5 text-gray-500">{page.data.form_body}</div>
-            {/* <ContactForm items={settings.data.contact_form_enquiries} /> */}
-          </div>
-        </div>
-      </Bounded>
-
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone slices={slices} components={components} />
     </main>
   );
 }

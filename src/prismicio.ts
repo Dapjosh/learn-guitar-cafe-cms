@@ -20,6 +20,7 @@ const routes: prismic.ClientConfig['routes'] = [
   { type: 'contact', path: '/contact' },
   { type: 'blog_post', path: '/blog/lessons/:uid' },
   { type: 'courses_page', path: '/all-courses' },
+  { type: 'my_story_page', path: '/my-story' },
   { type: 'settings', path: '/' },
   { type: 'navigation', path: '/' },
   { type: 'legal', path: '/legal/:uid' },
