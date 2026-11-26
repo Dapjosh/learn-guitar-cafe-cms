@@ -9,32 +9,32 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Reprehenderit ullamco esse do."
+							"text": "Elit proident aliqua mollit ut labore fugiat duis minim laborum esse pariatur aliquip non irure ipsum. Proident proident quis mollit sunt officia labore cupidatat ex officia aliquip incididunt ullamco. Excepteur fugiat est voluptate anim amet esse ad ex commodo consequat irure velit mollit adipisicing elit."
 						}
 					}
 				]
 			},
 			"subtitle": {
 				"__TYPE__": "FieldContent",
-				"value": "he",
+				"value": "dollar",
 				"type": "Text"
 			},
 			"limit": {
 				"__TYPE__": "FieldContent",
-				"value": "47",
+				"value": "72",
 				"type": "Number"
 			},
 			"label": {
 				"__TYPE__": "FieldContent",
-				"value": "blind",
+				"value": "stepped",
 				"type": "Text"
 			},
 			"link": {
 				"__TYPE__": "LinkContent",
-				"key": "85496df4-a80e-4805-8c7c-004962a1c72a",
+				"key": "e210a6ad-6744-4b8f-839d-01d0797874bd",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "http://google.com"
+					"url": "https://slicemachine.dev"
 				}
 			}
 		},
@@ -53,13 +53,13 @@
 				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
-					"width": 4016,
-					"height": 6016
+					"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+					"width": 4172,
+					"height": 4000
 				},
-				"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
-				"width": 4016,
-				"height": 6016,
+				"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+				"width": 4172,
+				"height": 4000,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -68,32 +68,32 @@
 					},
 					"background": "transparent"
 				},
-				"alt": "outside",
+				"alt": "related",
 				"thumbnails": {}
 			},
 			"badge_text": {
 				"__TYPE__": "FieldContent",
-				"value": "shinning",
+				"value": "human",
 				"type": "Text"
 			},
 			"badge_bg_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#a3bb79",
+				"value": "#88bfe5",
 				"type": "Color"
 			},
 			"badge_text_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#2df68f",
+				"value": "#39986d",
 				"type": "Color"
 			},
 			"badge_icon_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#24efa0",
+				"value": "#f77028",
 				"type": "Color"
 			},
 			"badge_border_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#d1f42e",
+				"value": "#59415c",
 				"type": "Color"
 			},
 			"title": {
@@ -102,19 +102,19 @@
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Bridge"
+							"text": "Adult"
 						}
 					}
 				]
 			},
 			"title_font": {
 				"__TYPE__": "FieldContent",
-				"value": "Bebas Neue",
+				"value": "Fraunces",
 				"type": "Select"
 			},
 			"title_size": {
 				"__TYPE__": "FieldContent",
-				"value": "Large",
+				"value": "Extra Large",
 				"type": "Select"
 			},
 			"title_weight": {
@@ -124,7 +124,7 @@
 			},
 			"title_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#163409",
+				"value": "#80cf56",
 				"type": "Color"
 			},
 			"description": {
@@ -133,41 +133,41 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Ex aute ex occaecat proident anim velit aliqua."
+							"text": "Do tempor ullamco commodo laboris exercitation laboris aliquip deserunt. Laboris laborum irure cillum aliquip. Culpa mollit incididunt labore quis ex tempor veniam sunt reprehenderit in aliquip cillum consectetur."
 						}
 					}
 				]
 			},
 			"description_font": {
 				"__TYPE__": "FieldContent",
-				"value": "Inter Tight",
+				"value": "Bebas Neue",
 				"type": "Select"
 			},
 			"description_size": {
 				"__TYPE__": "FieldContent",
-				"value": "Small",
+				"value": "Medium",
 				"type": "Select"
 			},
 			"description_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#795793",
+				"value": "#82ccb2",
 				"type": "Color"
 			},
 			"show_button": {
 				"__TYPE__": "BooleanContent",
-				"value": false
+				"value": true
 			},
 			"button_label": {
 				"__TYPE__": "FieldContent",
-				"value": "tide",
+				"value": "lost",
 				"type": "Text"
 			},
 			"button_link": {
 				"__TYPE__": "LinkContent",
-				"key": "a0ca048b-6faf-42b6-ab97-bf526941633e",
+				"key": "3ce0eb06-33cb-464f-9225-803e6c781994",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io"
+					"url": "http://twitter.com"
 				}
 			},
 			"button_font": {
@@ -177,37 +177,37 @@
 			},
 			"button_radius": {
 				"__TYPE__": "FieldContent",
-				"value": "Rounded (Medium)",
+				"value": "Sharp",
 				"type": "Select"
 			},
 			"button_background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#a90bf0",
+				"value": "#ddbbf0",
 				"type": "Color"
 			},
 			"button_text_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#bf670b",
+				"value": "#5f91b6",
 				"type": "Color"
 			},
 			"button_border_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#d8e244",
+				"value": "#3d04ad",
 				"type": "Color"
 			},
 			"button_hover_background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#56b999",
+				"value": "#d514bb",
 				"type": "Color"
 			},
 			"button_hover_text_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#e82b20",
+				"value": "#b4b370",
 				"type": "Color"
 			},
 			"button_show_arrow": {
 				"__TYPE__": "BooleanContent",
-				"value": false
+				"value": true
 			},
 			"articles": {
 				"__TYPE__": "GroupContentType",
@@ -219,7 +219,7 @@
 								"article",
 								{
 									"__TYPE__": "LinkContent",
-									"key": "83aa00cf-daf9-409f-8a61-e9dc722b6fdd",
+									"key": "e7298af1-17c4-4fbc-8d91-a5ee1d2e1d6d",
 									"value": {
 										"__TYPE__": "DocumentLink",
 										"id": "mock_document_id"
@@ -232,7 +232,7 @@
 			},
 			"category_filter": {
 				"__TYPE__": "LinkContent",
-				"key": "94d3ebde-e4fc-4f93-bbe4-9efc8052eef8",
+				"key": "2afba6a1-505b-4b2d-aa65-6b68b3bf67d8",
 				"value": {
 					"__TYPE__": "DocumentLink",
 					"id": "mock_document_id"
@@ -240,7 +240,7 @@
 			},
 			"number_of_articles": {
 				"__TYPE__": "FieldContent",
-				"value": "27",
+				"value": "17",
 				"type": "Number"
 			},
 			"featured_position": {
@@ -258,51 +258,400 @@
 			},
 			"author_prefix": {
 				"__TYPE__": "FieldContent",
-				"value": "harbor",
+				"value": "shallow",
 				"type": "Text"
 			},
 			"show_date": {
 				"__TYPE__": "BooleanContent",
-				"value": true
+				"value": false
 			},
 			"article_title_font": {
 				"__TYPE__": "FieldContent",
-				"value": "Inter Tight",
+				"value": "Mochiy Pop One",
 				"type": "Select"
 			},
 			"article_title_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#a75cc1",
+				"value": "#9a5701",
 				"type": "Color"
 			},
 			"category_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#15e0cc",
+				"value": "#8bcb9a",
 				"type": "Color"
 			},
 			"meta_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#da262b",
+				"value": "#ae2e19",
 				"type": "Color"
 			},
 			"section_bg_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#7fb0f5",
+				"value": "#98a923",
 				"type": "Color"
 			},
 			"card_bg_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#fec310",
+				"value": "#cf1ce4",
 				"type": "Color"
 			},
 			"card_border_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#eaeb9d",
+				"value": "#2e9d0f",
 				"type": "Color"
 			},
 			"image_border_color": {
 				"__TYPE__": "FieldContent",
-				"value": "#c27796",
+				"value": "#140ef6",
+				"type": "Color"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "filterableGrid",
+		"primary": {
+			"badge_icon": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+					"width": 5616,
+					"height": 3744
+				},
+				"url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+				"width": 5616,
+				"height": 3744,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "beneath",
+				"thumbnails": {}
+			},
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "plates",
+				"type": "Text"
+			},
+			"badge_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#fa1550",
+				"type": "Color"
+			},
+			"badge_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#4899b6",
+				"type": "Color"
+			},
+			"badge_icon_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#067487",
+				"type": "Color"
+			},
+			"badge_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#badf7d",
+				"type": "Color"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Instead"
+						}
+					}
+				]
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Small",
+				"type": "Select"
+			},
+			"title_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Light",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#73b94d",
+				"type": "Color"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint anim amet est dolore. Eu proident ad incididunt esse dolor sunt eu. Veniam nulla officia sint id pariatur."
+						}
+					}
+				]
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Mochiy Pop One",
+				"type": "Select"
+			},
+			"description_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#ae3b51",
+				"type": "Color"
+			},
+			"header_alignment": {
+				"__TYPE__": "FieldContent",
+				"value": "Center",
+				"type": "Select"
+			},
+			"show_filters": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"show_all_categories": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"hide_empty_categories": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"filters": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"category",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "0ab65de3-a456-4b46-b20c-1bfcb65b7ddb",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							],
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "before",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"show_all_tab": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"all_tab_label": {
+				"__TYPE__": "FieldContent",
+				"value": "area",
+				"type": "Text"
+			},
+			"show_counts": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"posts_per_page": {
+				"__TYPE__": "FieldContent",
+				"value": "5",
+				"type": "Number"
+			},
+			"columns": {
+				"__TYPE__": "FieldContent",
+				"value": "3",
+				"type": "Select"
+			},
+			"bottom_button_mode": {
+				"__TYPE__": "FieldContent",
+				"value": "Load more",
+				"type": "Select"
+			},
+			"bottom_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "receive",
+				"type": "Text"
+			},
+			"bottom_button_link": {
+				"__TYPE__": "LinkContent",
+				"key": "11bb378a-0c71-45c4-8515-4b5f4222ae14",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Rounded (Medium)",
+				"type": "Select"
+			},
+			"button_show_arrow": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"button_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#7ec3bd",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#749eae",
+				"type": "Color"
+			},
+			"button_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#da91a2",
+				"type": "Color"
+			},
+			"button_hover_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a11106",
+				"type": "Color"
+			},
+			"button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#db323e",
+				"type": "Color"
+			},
+			"empty_message": {
+				"__TYPE__": "FieldContent",
+				"value": "shaking",
+				"type": "Text"
+			},
+			"show_category": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"show_author": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"show_read_time": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"read_time_suffix": {
+				"__TYPE__": "FieldContent",
+				"value": "satisfied",
+				"type": "Text"
+			},
+			"post_title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Anton",
+				"type": "Select"
+			},
+			"post_title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"post_title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#7c5f0d",
+				"type": "Color"
+			},
+			"post_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a53270",
+				"type": "Color"
+			},
+			"meta_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#181a03",
+				"type": "Color"
+			},
+			"category_pill_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#51491a",
+				"type": "Color"
+			},
+			"category_pill_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#467e80",
+				"type": "Color"
+			},
+			"section_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#052196",
+				"type": "Color"
+			},
+			"card_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#04db34",
+				"type": "Color"
+			},
+			"card_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#2d9506",
+				"type": "Color"
+			},
+			"image_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#6cb22b",
+				"type": "Color"
+			},
+			"tab_active_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#59b645",
+				"type": "Color"
+			},
+			"tab_active_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1bbfe3",
+				"type": "Color"
+			},
+			"tab_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#660626",
+				"type": "Color"
+			},
+			"tab_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#3d765b",
+				"type": "Color"
+			},
+			"tab_count_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#4a0472",
+				"type": "Color"
+			},
+			"tab_count_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a800c2",
 				"type": "Color"
 			}
 		},

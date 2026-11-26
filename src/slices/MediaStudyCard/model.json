@@ -1,0 +1,387 @@
+{
+  "id": "media_study_card",
+  "type": "SharedSlice",
+  "name": "MediaStudyCard",
+  "description": "Lesson card: video with chapters, play-along audio (chapters, waveform, tempo) and practice tab",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Video, play-along track and practice tab",
+      "imageUrl": "",
+      "primary": {
+        "show_badge": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Badge",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text",
+            "placeholder": "Study card"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": "A blues turnaround in Open D"
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Fraunces",
+            "options": [
+              "Fraunces",
+              "Inter Tight",
+              "Bebas Neue",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "width": {
+          "type": "Select",
+          "config": {
+            "label": "Card Width",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Narrow",
+              "Wide"
+            ]
+          }
+        },
+        "show_video": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Video",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "Video (Bunny Stream embed link - also YouTube, Vimeo or an uploaded file)",
+            "select": null,
+            "allowTargetBlank": false
+          }
+        },
+        "video_poster": {
+          "type": "Image",
+          "config": {
+            "label": "Poster Image (uploaded video files only)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "use_bunny_chapters": {
+          "type": "Boolean",
+          "config": {
+            "label": "Use Chapters From Bunny (when no chapters are entered below)",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "chapters_label": {
+          "type": "Text",
+          "config": {
+            "label": "Chapters Label",
+            "placeholder": "Chapters"
+          }
+        },
+        "video_chapters": {
+          "type": "Group",
+          "config": {
+            "label": "Video Chapters (optional - overrides Bunny chapters)",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Chapter Title",
+                  "placeholder": "Full groove"
+                }
+              },
+              "start": {
+                "type": "Text",
+                "config": {
+                  "label": "Start Time (e.g. 1:15)",
+                  "placeholder": "0:00"
+                }
+              }
+            }
+          }
+        },
+        "show_audio": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Play-along Track",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "audio_file": {
+          "type": "Link",
+          "config": {
+            "label": "Audio File (upload an MP3, or link to it on Bunny)",
+            "select": null,
+            "allowTargetBlank": false
+          }
+        },
+        "audio_title": {
+          "type": "Text",
+          "config": {
+            "label": "Audio Label",
+            "placeholder": "Play-along track"
+          }
+        },
+        "audio_note": {
+          "type": "Text",
+          "config": {
+            "label": "Audio Note",
+            "placeholder": "MP3 · slow down without changing pitch"
+          }
+        },
+        "audio_chapters": {
+          "type": "Group",
+          "config": {
+            "label": "Audio Chapters (optional)",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Chapter Title",
+                  "placeholder": "Full groove"
+                }
+              },
+              "start": {
+                "type": "Text",
+                "config": {
+                  "label": "Start Time (e.g. 1:15)",
+                  "placeholder": "0:00"
+                }
+              }
+            }
+          }
+        },
+        "show_waveform": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Waveform",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "show_tempo": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Tempo Control",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "min_tempo": {
+          "type": "Number",
+          "config": {
+            "label": "Slowest Tempo % (default 50)",
+            "placeholder": "50"
+          }
+        },
+        "max_tempo": {
+          "type": "Number",
+          "config": {
+            "label": "Fastest Tempo % (default 100)",
+            "placeholder": "100"
+          }
+        },
+        "show_practice_tab": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Practice Tab",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "practice_tab_label": {
+          "type": "Text",
+          "config": {
+            "label": "Practice Tab Label",
+            "placeholder": "Practice tab"
+          }
+        },
+        "practice_tab_title": {
+          "type": "Text",
+          "config": {
+            "label": "Tab Title",
+            "placeholder": "Open D turnaround"
+          }
+        },
+        "practice_tab_meta": {
+          "type": "Text",
+          "config": {
+            "label": "Tab Details",
+            "placeholder": "Tuning D A D F# A D · 4/4 · 72 bpm"
+          }
+        },
+        "practice_tab_image": {
+          "type": "Image",
+          "config": {
+            "label": "Tab Image (e.g. exported from Guitar Pro)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "practice_tab_text": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "preformatted,paragraph",
+            "label": "Tab as Text (use 'Preformatted' for ASCII tab)"
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "card_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Background Color",
+            "placeholder": "#fbf9f5"
+          }
+        },
+        "card_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "badge_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Background",
+            "placeholder": "#fbe3d4"
+          }
+        },
+        "badge_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Text Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Text / Meta Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "accent_color": {
+          "type": "Color",
+          "config": {
+            "label": "Accent (active chapter, played waveform)",
+            "placeholder": "#d85d18"
+          }
+        },
+        "waveform_color": {
+          "type": "Color",
+          "config": {
+            "label": "Waveform (unplayed) Color",
+            "placeholder": "#e9d2c2"
+          }
+        },
+        "tab_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Chapter Tab Border",
+            "placeholder": "#e2d9cb"
+          }
+        },
+        "tab_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Chapter Tab Text",
+            "placeholder": "#1c1917"
+          }
+        },
+        "play_button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Audio Play Button Background",
+            "placeholder": "#1c1917"
+          }
+        },
+        "play_button_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Audio Play Button Icon",
+            "placeholder": "#ffffff"
+          }
+        },
+        "tempo_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Tempo Control Background",
+            "placeholder": "#ebe4d8"
+          }
+        },
+        "divider_color": {
+          "type": "Color",
+          "config": {
+            "label": "Divider Color",
+            "placeholder": "#e7dfd2"
+          }
+        },
+        "practice_tab_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Practice Tab Sheet Background",
+            "placeholder": "#ffffff"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

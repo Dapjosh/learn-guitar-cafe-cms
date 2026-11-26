@@ -73,7 +73,15 @@
               "config": {
                 "label": "Type",
                 "placeholder": "",
-                "options": ["facebook", "instagram", "twitter", "gitHub", "youtube", "tiktok", "linkedin"]
+                "options": [
+                  "facebook",
+                  "instagram",
+                  "twitter",
+                  "gitHub",
+                  "youtube",
+                  "tiktok",
+                  "linkedin"
+                ]
               }
             },
             "name": {
@@ -162,6 +170,19 @@
         "config": {
           "label": "Twitter Card Type",
           "placeholder": ""
+        }
+      }
+    },
+    "Site Icon": {
+      "site_icon": {
+        "type": "Image",
+        "config": {
+          "label": "Site Icon (favicon & app icon) - square image, at least 512 × 512 px. PNG or SVG.",
+          "constraint": {
+            "width": 512,
+            "height": 512
+          },
+          "thumbnails": []
         }
       }
     }

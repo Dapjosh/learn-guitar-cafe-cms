@@ -45,7 +45,9 @@
           "customtypes": [
             {
               "id": "course_category",
-              "fields": ["name"]
+              "fields": [
+                "name"
+              ]
             }
           ]
         }
@@ -83,6 +85,85 @@
         "config": {
           "label": "current_price",
           "placeholder": ""
+        }
+      }
+    },
+    "Catalog": {
+      "tags": {
+        "type": "Group",
+        "config": {
+          "label": "Tags (shown as pills, e.g. Beginner, Open E)",
+          "repeat": true,
+          "fields": {
+            "tag": {
+              "type": "Text",
+              "config": {
+                "label": "Tag",
+                "placeholder": "Beginner"
+              }
+            }
+          }
+        }
+      },
+      "card_description": {
+        "type": "Text",
+        "config": {
+          "label": "Short Description (cards & lists - leave empty to use the Summary)",
+          "placeholder": "Open E slide from first notes to full songs."
+        }
+      },
+      "features": {
+        "type": "Group",
+        "config": {
+          "label": "Features (shown in the course list)",
+          "repeat": true,
+          "fields": {
+            "icon": {
+              "type": "Select",
+              "config": {
+                "label": "Icon",
+                "placeholder": "",
+                "default_value": "Video",
+                "options": [
+                  "Video",
+                  "TABs",
+                  "Backing tracks",
+                  "PDF",
+                  "Check",
+                  "Music"
+                ]
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": "Step-by-step video lessons"
+              }
+            }
+          }
+        }
+      },
+      "meta_line": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Line (shown on course cards)",
+          "placeholder": "Video · TABs · Tracks"
+        }
+      },
+      "display_order": {
+        "type": "Number",
+        "config": {
+          "label": "Display Order (lower numbers show first)",
+          "placeholder": "1"
+        }
+      },
+      "course_link": {
+        "type": "Link",
+        "config": {
+          "label": "View Course Link (optional - defaults to /courses/<uid>)",
+          "select": null,
+          "allowTargetBlank": true
         }
       }
     }

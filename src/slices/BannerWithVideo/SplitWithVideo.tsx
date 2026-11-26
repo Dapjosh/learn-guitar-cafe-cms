@@ -21,7 +21,7 @@ import type { JSX } from 'react';
 
 const videoAspectClasses: Record<string, string> = {
   'near square': 'aspect-[4/3.5]',
-  landscape: 'aspect-video',
+  landscape: 'aspect-[16/9]',
   square: 'aspect-square',
   portrait: 'aspect-[4/5]',
 };
@@ -195,7 +195,7 @@ export const SplitWithVideo = ({ slice }: { slice: any }): JSX.Element => {
 
               <CmsButton
                 label={ctaLabel}
-                link={isFilled.link(cta) ? cta : { link_type: 'Web', url: '/courses' }}
+                link={isFilled.link(cta) ? cta : { link_type: 'Web', url: '/all-courses' }}
                 font={primary.button_font}
                 radius={primary.button_radius}
                 bg={btnBg}
@@ -224,7 +224,6 @@ export const SplitWithVideo = ({ slice }: { slice: any }): JSX.Element => {
                       title={caption || 'Featured video'}
                       className="absolute inset-0 w-full h-full"
                       allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                      allowFullScreen
                     />
                   ) : (
                     <video src={video.src} className="absolute inset-0 w-full h-full object-cover" controls autoPlay playsInline />

@@ -1,0 +1,41 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "Glass vs brass slides",
+        "type": "Text"
+      },
+      "size": {
+        "__TYPE__": "FieldContent",
+        "value": "Large",
+        "type": "Select"
+      },
+      "alignment": {
+        "__TYPE__": "FieldContent",
+        "value": "Center",
+        "type": "Select"
+      },
+      "aspect_ratio": {
+        "__TYPE__": "FieldContent",
+        "value": "Landscape",
+        "type": "Select"
+      },
+      "caption": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Left: a Pyrex glass slide. Right: a heavy brass slide.",
+              "spans": []
+            }
+          }
+        ]
+      }
+    },
+    "items": []
+  }
+]

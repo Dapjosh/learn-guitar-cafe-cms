@@ -27,7 +27,7 @@ const samplePost = (id: string, title: string, category: string): Post =>
   ({
     id,
     uid: id,
-    url: "/blog",
+    url: "/blog/lessons",
     type: "blog_post",
     data: {
       title,
@@ -298,7 +298,7 @@ export const FeaturedArticles = async ({
                 link={
                   isFilled.link(primary.button_link)
                     ? primary.button_link
-                    : { link_type: "Web", url: "/blog" }
+                    : { link_type: "Web", url: "/blog/lessons" }
                 }
                 font={primary.button_font}
                 radius={primary.button_radius}

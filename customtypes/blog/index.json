@@ -26,7 +26,50 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "blog_list": {
+              "type": "SharedSlice"
+            },
+            "header": {
+              "type": "SharedSlice"
+            },
+            "hero_heading": {
+              "type": "SharedSlice"
+            },
+            "section_headers": {
+              "type": "SharedSlice"
+            },
+            "rich_text_slice": {
+              "type": "SharedSlice"
+            },
+            "content_image_slice": {
+              "type": "SharedSlice"
+            },
+            "hero_with_video": {
+              "type": "SharedSlice"
+            },
+            "call_to_action": {
+              "type": "SharedSlice"
+            },
+            "faqs": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "stats_band": {
+              "type": "SharedSlice"
+            },
+            "features": {
+              "type": "SharedSlice"
+            },
+            "course_catalog": {
+              "type": "SharedSlice"
+            },
+            "image_gallery": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },
@@ -55,6 +98,266 @@
           "thumbnails": []
         },
         "type": "Image"
+      }
+    },
+    "Post Page Design": {
+      "post_page_bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "Page Background Color (header area)",
+          "placeholder": "#f3efe6"
+        }
+      },
+      "post_content_bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "Content Background Color (article body)",
+          "placeholder": "#f3efe6"
+        }
+      },
+      "post_content_width": {
+        "type": "Select",
+        "config": {
+          "label": "Article Text Width",
+          "placeholder": "",
+          "default_value": "Medium",
+          "options": [
+            "Medium",
+            "Narrow",
+            "Wide"
+          ]
+        }
+      },
+      "post_featured_image_display": {
+        "type": "Select",
+        "config": {
+          "label": "Featured Image",
+          "placeholder": "",
+          "default_value": "Wide",
+          "options": [
+            "Wide",
+            "Contained",
+            "Full width",
+            "Hidden"
+          ]
+        }
+      },
+      "post_featured_image_aspect": {
+        "type": "Select",
+        "config": {
+          "label": "Featured Image Shape",
+          "placeholder": "",
+          "default_value": "Landscape",
+          "options": [
+            "Landscape",
+            "Wide",
+            "Original"
+          ]
+        }
+      },
+      "post_featured_image_radius": {
+        "type": "Select",
+        "config": {
+          "label": "Featured Image Corners",
+          "placeholder": "",
+          "default_value": "Small",
+          "options": [
+            "Small",
+            "None",
+            "Medium",
+            "Large"
+          ]
+        }
+      },
+      "post_featured_image_border_color": {
+        "type": "Color",
+        "config": {
+          "label": "Featured Image Border Color",
+          "placeholder": "#1c1917"
+        }
+      },
+      "post_title_font": {
+        "type": "Select",
+        "config": {
+          "label": "Title Font",
+          "placeholder": "",
+          "default_value": "Bebas Neue",
+          "options": [
+            "Bebas Neue",
+            "Inter Tight",
+            "Fraunces",
+            "Inter",
+            "Raleway",
+            "Nunito",
+            "Mochiy Pop One",
+            "Anton"
+          ]
+        }
+      },
+      "post_title_color": {
+        "type": "Color",
+        "config": {
+          "label": "Title Color",
+          "placeholder": "#1c1917"
+        }
+      },
+      "post_description_color": {
+        "type": "Color",
+        "config": {
+          "label": "Description Color",
+          "placeholder": "#78716c"
+        }
+      },
+      "post_body_font": {
+        "type": "Select",
+        "config": {
+          "label": "Body Font",
+          "placeholder": "",
+          "default_value": "Inter Tight",
+          "options": [
+            "Inter Tight",
+            "Bebas Neue",
+            "Fraunces",
+            "Inter",
+            "Raleway",
+            "Nunito",
+            "Mochiy Pop One",
+            "Anton"
+          ]
+        }
+      },
+      "post_heading_font": {
+        "type": "Select",
+        "config": {
+          "label": "Body Headings Font",
+          "placeholder": "",
+          "default_value": "Fraunces",
+          "options": [
+            "Fraunces",
+            "Inter Tight",
+            "Bebas Neue",
+            "Inter",
+            "Raleway",
+            "Nunito",
+            "Mochiy Pop One",
+            "Anton"
+          ]
+        }
+      },
+      "post_text_color": {
+        "type": "Color",
+        "config": {
+          "label": "Body Text Color",
+          "placeholder": "#1c1917"
+        }
+      },
+      "post_heading_color": {
+        "type": "Color",
+        "config": {
+          "label": "Body Headings Color",
+          "placeholder": "#1c1917"
+        }
+      },
+      "post_link_color": {
+        "type": "Color",
+        "config": {
+          "label": "Link Color",
+          "placeholder": "#d85d18"
+        }
+      },
+      "post_category_bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "Category Pill Background",
+          "placeholder": "#ffffff"
+        }
+      },
+      "post_category_text_color": {
+        "type": "Color",
+        "config": {
+          "label": "Category Pill Text",
+          "placeholder": "#d85d18"
+        }
+      },
+      "post_meta_color": {
+        "type": "Color",
+        "config": {
+          "label": "Author / Date Color",
+          "placeholder": "#78716c"
+        }
+      },
+      "post_show_share": {
+        "type": "Boolean",
+        "config": {
+          "label": "Show Share Buttons",
+          "default_value": true,
+          "placeholder_true": "Yes",
+          "placeholder_false": "No"
+        }
+      },
+      "post_show_date": {
+        "type": "Boolean",
+        "config": {
+          "label": "Show Date",
+          "default_value": true,
+          "placeholder_true": "Yes",
+          "placeholder_false": "No"
+        }
+      },
+      "post_show_read_time": {
+        "type": "Boolean",
+        "config": {
+          "label": "Show Read Time",
+          "default_value": true,
+          "placeholder_true": "Yes",
+          "placeholder_false": "No"
+        }
+      },
+      "post_read_time_suffix": {
+        "type": "Text",
+        "config": {
+          "label": "Read Time Text",
+          "placeholder": "min read"
+        }
+      },
+      "post_show_author_card": {
+        "type": "Boolean",
+        "config": {
+          "label": "Show Author Card at the End",
+          "default_value": true,
+          "placeholder_true": "Yes",
+          "placeholder_false": "No"
+        }
+      },
+      "post_author_label": {
+        "type": "Text",
+        "config": {
+          "label": "Author Card Label",
+          "placeholder": "Written by"
+        }
+      },
+      "post_author_card_bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "Author Card Background",
+          "placeholder": "#fbf9f5"
+        }
+      },
+      "post_show_related": {
+        "type": "Boolean",
+        "config": {
+          "label": "Show Related Posts",
+          "default_value": true,
+          "placeholder_true": "Yes",
+          "placeholder_false": "No"
+        }
+      },
+      "post_related_title": {
+        "type": "Text",
+        "config": {
+          "label": "Related Posts Title",
+          "placeholder": "More from the journal"
+        }
       }
     }
   }

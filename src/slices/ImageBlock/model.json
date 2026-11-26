@@ -1,0 +1,206 @@
+{
+  "id": "image_block",
+  "type": "SharedSlice",
+  "name": "ImageBlock",
+  "description": "One image with optional title and caption; size, alignment, shape and style are configurable",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Image with title and caption",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title (optional)",
+            "placeholder": ""
+          }
+        },
+        "title_position": {
+          "type": "Select",
+          "config": {
+            "label": "Title Position",
+            "placeholder": "",
+            "default_value": "Above",
+            "options": [
+              "Above",
+              "Below"
+            ]
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Fraunces",
+            "options": [
+              "Fraunces",
+              "Inter Tight",
+              "Bebas Neue",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "caption": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Caption (optional)"
+          }
+        },
+        "caption_alignment": {
+          "type": "Select",
+          "config": {
+            "label": "Title & Caption Alignment",
+            "placeholder": "",
+            "default_value": "Left",
+            "options": [
+              "Left",
+              "Center"
+            ]
+          }
+        },
+        "caption_color": {
+          "type": "Color",
+          "config": {
+            "label": "Caption Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "Small",
+              "Medium",
+              "Wide",
+              "Full width"
+            ]
+          }
+        },
+        "alignment": {
+          "type": "Select",
+          "config": {
+            "label": "Alignment",
+            "placeholder": "",
+            "default_value": "Center",
+            "options": [
+              "Center",
+              "Left",
+              "Right"
+            ]
+          }
+        },
+        "aspect_ratio": {
+          "type": "Select",
+          "config": {
+            "label": "Shape (crop)",
+            "placeholder": "",
+            "default_value": "Original",
+            "options": [
+              "Original",
+              "Landscape",
+              "Classic",
+              "Square",
+              "Portrait",
+              "Panorama"
+            ]
+          }
+        },
+        "image_fit": {
+          "type": "Select",
+          "config": {
+            "label": "Fit (when cropped)",
+            "placeholder": "",
+            "default_value": "Cover",
+            "options": [
+              "Cover",
+              "Contain"
+            ]
+          }
+        },
+        "corner_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Corner Radius",
+            "placeholder": "",
+            "default_value": "Small",
+            "options": [
+              "Small",
+              "None",
+              "Medium",
+              "Large"
+            ]
+          }
+        },
+        "border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "shadow": {
+          "type": "Boolean",
+          "config": {
+            "label": "Drop Shadow",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "image_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Image Background (shows with Fit = Contain)",
+            "placeholder": "transparent"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link (optional - makes the image clickable)",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background Color",
+            "placeholder": "transparent"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -25,7 +25,9 @@
         "config": {
           "label": "Category",
           "select": "document",
-          "customtypes": ["blog_category"]
+          "customtypes": [
+            "blog_category"
+          ]
         }
       },
       "publishing_date": {
@@ -48,7 +50,9 @@
         "config": {
           "label": "Author",
           "select": "document",
-          "customtypes": ["author"]
+          "customtypes": [
+            "author"
+          ]
         }
       },
       "description": {
@@ -56,6 +60,13 @@
         "config": {
           "label": "Description ",
           "placeholder": ""
+        }
+      },
+      "read_time": {
+        "type": "Number",
+        "config": {
+          "label": "Read Time in Minutes (optional - estimated from the body if empty)",
+          "placeholder": "6"
         }
       },
       "main": {
@@ -78,7 +89,9 @@
               "config": {
                 "label": "tag",
                 "select": "document",
-                "customtypes": ["blog_tags"]
+                "customtypes": [
+                  "blog_tags"
+                ]
               }
             }
           }
@@ -96,6 +109,30 @@
               "type": "SharedSlice"
             },
             "call_to_action": {
+              "type": "SharedSlice"
+            },
+            "media_study_card": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "video_playlist": {
+              "type": "SharedSlice"
+            },
+            "author_bio": {
+              "type": "SharedSlice"
+            },
+            "content_image_slice": {
+              "type": "SharedSlice"
+            },
+            "section_headers": {
+              "type": "SharedSlice"
+            },
+            "stats_band": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
               "type": "SharedSlice"
             }
           }
@@ -149,6 +186,59 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {}
+        }
+      }
+    },
+    "Design": {
+      "page_bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "Page Background Color (header area - empty = Blog default)",
+          "placeholder": ""
+        }
+      },
+      "page_bg_image": {
+        "type": "Image",
+        "config": {
+          "label": "Page Background Image / Texture (optional)",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "content_bg_color": {
+        "type": "Color",
+        "config": {
+          "label": "Content Background Color (article body - empty = Blog default)",
+          "placeholder": ""
+        }
+      },
+      "featured_image_display": {
+        "type": "Select",
+        "config": {
+          "label": "Featured Image",
+          "placeholder": "",
+          "default_value": "Default",
+          "options": [
+            "Default",
+            "Wide",
+            "Contained",
+            "Full width",
+            "Hidden"
+          ]
+        }
+      },
+      "featured_image_aspect": {
+        "type": "Select",
+        "config": {
+          "label": "Featured Image Shape",
+          "placeholder": "",
+          "default_value": "Default",
+          "options": [
+            "Default",
+            "Landscape",
+            "Wide",
+            "Original"
+          ]
         }
       }
     }

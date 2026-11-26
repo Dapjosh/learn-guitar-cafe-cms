@@ -23,8 +23,61 @@
       "name": {
         "type": "Text",
         "config": {
-          "label": "name",
+          "label": "Name",
           "placeholder": ""
+        }
+      },
+      "role": {
+        "type": "Text",
+        "config": {
+          "label": "Role (optional)",
+          "placeholder": "Roots & slide guitarist"
+        }
+      },
+      "bio": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,strong,em,hyperlink",
+          "label": "Bio"
+        }
+      },
+      "links": {
+        "type": "Group",
+        "config": {
+          "label": "Link Buttons",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": "YouTube channel"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true
+              }
+            },
+            "icon": {
+              "type": "Select",
+              "config": {
+                "label": "Icon",
+                "placeholder": "",
+                "default_value": "Arrow",
+                "options": [
+                  "Arrow",
+                  "YouTube",
+                  "External",
+                  "None"
+                ]
+              }
+            }
+          }
         }
       }
     }

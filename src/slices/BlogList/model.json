@@ -464,6 +464,560 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "filterableGrid",
+      "name": "Filterable Grid",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Blog index: header, category tabs, post cards and load more (10 at a time)",
+      "imageUrl": "",
+      "primary": {
+        "badge_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Badge Icon (Upload Icon Image)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text",
+            "placeholder": "Blog"
+          }
+        },
+        "badge_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Background Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "badge_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Text Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Icon Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1,heading2,strong,em",
+            "label": "Title"
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Bebas Neue",
+            "options": [
+              "Bebas Neue",
+              "Inter Tight",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Title Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "Extra Large",
+              "Medium",
+              "Small"
+            ]
+          }
+        },
+        "title_weight": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font Weight",
+            "placeholder": "",
+            "default_value": "Normal",
+            "options": [
+              "Normal",
+              "Medium",
+              "Semi Bold",
+              "Bold",
+              "Black",
+              "Light",
+              "Thin"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "description_font": {
+          "type": "Select",
+          "config": {
+            "label": "Description Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "description_size": {
+          "type": "Select",
+          "config": {
+            "label": "Description Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "header_alignment": {
+          "type": "Select",
+          "config": {
+            "label": "Header & Tabs Alignment",
+            "placeholder": "",
+            "default_value": "Center",
+            "options": [
+              "Center",
+              "Left"
+            ]
+          }
+        },
+        "show_filters": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Category Tabs",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "show_all_categories": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show All Blog Categories as Tabs (ignores the list below)",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "hide_empty_categories": {
+          "type": "Boolean",
+          "config": {
+            "label": "Hide Categories With No Posts (when showing all)",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "filters": {
+          "type": "Group",
+          "config": {
+            "label": "Category Tabs (in order - leave empty to show every category)",
+            "repeat": true,
+            "fields": {
+              "category": {
+                "type": "Link",
+                "config": {
+                  "label": "Blog Category",
+                  "select": "document",
+                  "customtypes": [
+                    "blog_category"
+                  ]
+                }
+              },
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Tab Label (optional - defaults to the category name)",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "show_all_tab": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show 'All' Tab",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "all_tab_label": {
+          "type": "Text",
+          "config": {
+            "label": "'All' Tab Label",
+            "placeholder": "All"
+          }
+        },
+        "show_counts": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Post Counts on Tabs",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "posts_per_page": {
+          "type": "Number",
+          "config": {
+            "label": "Posts Per Load (default 10)",
+            "placeholder": "10"
+          }
+        },
+        "columns": {
+          "type": "Select",
+          "config": {
+            "label": "Columns on Desktop",
+            "placeholder": "",
+            "default_value": "3",
+            "options": [
+              "3",
+              "2",
+              "4"
+            ]
+          }
+        },
+        "bottom_button_mode": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Button",
+            "placeholder": "",
+            "default_value": "Load more",
+            "options": [
+              "Load more",
+              "Link",
+              "Hidden"
+            ]
+          }
+        },
+        "bottom_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Bottom Button Label",
+            "placeholder": "Load more articles"
+          }
+        },
+        "bottom_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Bottom Button Link (when Bottom Button = Link)",
+            "placeholder": "/blog",
+            "select": null
+          }
+        },
+        "button_font": {
+          "type": "Select",
+          "config": {
+            "label": "Button Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "button_radius": {
+          "type": "Select",
+          "config": {
+            "label": "Button Border Radius",
+            "placeholder": "",
+            "default_value": "Rounded (Medium)",
+            "options": [
+              "Rounded (Medium)",
+              "Slightly Rounded (Small)",
+              "Large Rounded",
+              "Pill",
+              "Sharp"
+            ]
+          }
+        },
+        "button_show_arrow": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Arrow on Link Button",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "button_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Background",
+            "placeholder": "transparent"
+          }
+        },
+        "button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "button_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Border Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "button_hover_background_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Background",
+            "placeholder": "#1c1917"
+          }
+        },
+        "button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "empty_message": {
+          "type": "Text",
+          "config": {
+            "label": "Message When a Category Has No Posts",
+            "placeholder": "No articles in this category yet."
+          }
+        },
+        "show_category": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Category Pill on Cards",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "show_author": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Author",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "show_read_time": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Read Time",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "read_time_suffix": {
+          "type": "Text",
+          "config": {
+            "label": "Read Time Text",
+            "placeholder": "min read"
+          }
+        },
+        "post_title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Post Title Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "post_title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Post Title Size",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Small",
+              "Large"
+            ]
+          }
+        },
+        "post_title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Post Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "post_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Post Description Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "meta_color": {
+          "type": "Color",
+          "config": {
+            "label": "Author / Read Time Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "category_pill_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Category Pill Background",
+            "placeholder": "#fbe3d4"
+          }
+        },
+        "category_pill_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Category Pill Text Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background Color",
+            "placeholder": "#f3efe6"
+          }
+        },
+        "card_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Background Color",
+            "placeholder": "#fbf9f5"
+          }
+        },
+        "card_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "image_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Image Border Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "tab_active_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Active Tab Background",
+            "placeholder": "#d85d18"
+          }
+        },
+        "tab_active_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Active Tab Text Color",
+            "placeholder": "#ffffff"
+          }
+        },
+        "tab_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Tab Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "tab_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Tab Border Color",
+            "placeholder": "#e2d9cb"
+          }
+        },
+        "tab_count_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Tab Count Background",
+            "placeholder": "#ebe4d8"
+          }
+        },
+        "tab_count_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Tab Count Text Color",
+            "placeholder": "#78716c"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

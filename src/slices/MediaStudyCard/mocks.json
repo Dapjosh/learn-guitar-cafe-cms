@@ -1,0 +1,132 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "show_badge": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "badge_text": {
+        "__TYPE__": "FieldContent",
+        "value": "Study card",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "A blues turnaround in Open D",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Watch the full groove, loop each lick at your own tempo, then read it off the tab.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "video": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      },
+      "video_chapters": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "title",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Full groove",
+                  "type": "Text"
+                }
+              ],
+              [
+                "start",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "0:00",
+                  "type": "Text"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "title",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Lick 1 breakdown",
+                  "type": "Text"
+                }
+              ],
+              [
+                "start",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "1:15",
+                  "type": "Text"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "title",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Slow tempo",
+                  "type": "Text"
+                }
+              ],
+              [
+                "start",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "2:40",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "practice_tab_title": {
+        "__TYPE__": "FieldContent",
+        "value": "Open D turnaround",
+        "type": "Text"
+      },
+      "practice_tab_meta": {
+        "__TYPE__": "FieldContent",
+        "value": "Tuning D A D F# A D · 4/4 · 72 bpm",
+        "type": "Text"
+      },
+      "practice_tab_text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "preformatted",
+            "content": {
+              "text": "D                 G7\ne|-----------------|------------2----|\nB|-------3---------|-----0-----------|\nG|---2-------------|---------0-------|\nD|-0---------------|-0---------------|",
+              "spans": []
+            }
+          }
+        ]
+      }
+    },
+    "items": []
+  }
+]

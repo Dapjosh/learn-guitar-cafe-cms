@@ -1,0 +1,200 @@
+{
+  "id": "video_playlist",
+  "type": "SharedSlice",
+  "name": "VideoPlaylist",
+  "description": "Curated clip list next to a player (Bunny, YouTube, Vimeo or uploaded video)",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Clip list beside a player",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": "Les Paul"
+          }
+        },
+        "meta_line": {
+          "type": "Text",
+          "config": {
+            "label": "Meta Line",
+            "placeholder": "1915–2009 · Jazz, country and blues · Solid-body pioneer"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Fraunces",
+            "options": [
+              "Fraunces",
+              "Inter Tight",
+              "Bebas Neue",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "list_label": {
+          "type": "Text",
+          "config": {
+            "label": "List Label",
+            "placeholder": "Curated clips"
+          }
+        },
+        "show_count": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Video Count",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "now_playing_label": {
+          "type": "Text",
+          "config": {
+            "label": "'Now playing' Label",
+            "placeholder": "Now playing"
+          }
+        },
+        "list_position": {
+          "type": "Select",
+          "config": {
+            "label": "List Position (desktop)",
+            "placeholder": "",
+            "default_value": "Left",
+            "options": [
+              "Left",
+              "Right"
+            ]
+          }
+        },
+        "width": {
+          "type": "Select",
+          "config": {
+            "label": "Width",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Wide"
+            ]
+          }
+        },
+        "videos": {
+          "type": "Group",
+          "config": {
+            "label": "Videos",
+            "repeat": true,
+            "fields": {
+              "video": {
+                "type": "Link",
+                "config": {
+                  "label": "Video (Bunny / YouTube / Vimeo link, or upload a video file)",
+                  "select": null,
+                  "allowTargetBlank": false
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "How High the Moon, live 1951"
+                }
+              },
+              "duration": {
+                "type": "Text",
+                "config": {
+                  "label": "Duration",
+                  "placeholder": "3:45"
+                }
+              },
+              "thumbnail": {
+                "type": "Image",
+                "config": {
+                  "label": "Thumbnail (optional - YouTube thumbnails are automatic)",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "meta_color": {
+          "type": "Color",
+          "config": {
+            "label": "Meta / Duration Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": "#57534e"
+          }
+        },
+        "clip_title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Clip Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "active_clip_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Active Clip Background",
+            "placeholder": "#ebe4d8"
+          }
+        },
+        "accent_color": {
+          "type": "Color",
+          "config": {
+            "label": "Accent ('Now playing') Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "player_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Player Background",
+            "placeholder": "#1c1917"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

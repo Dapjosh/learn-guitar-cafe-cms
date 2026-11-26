@@ -1,0 +1,306 @@
+{
+  "id": "author_bio",
+  "type": "SharedSlice",
+  "name": "AuthorBio",
+  "description": "Author's card or compact bio bar, from an Author document",
+  "variations": [
+    {
+      "id": "card",
+      "name": "Card",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Avatar, 'Written by', name, bio and link buttons",
+      "imageUrl": "",
+      "primary": {
+        "author": {
+          "type": "Link",
+          "config": {
+            "label": "Author",
+            "select": "document",
+            "customtypes": [
+              "author"
+            ]
+          }
+        },
+        "show_label": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Label",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": "Written by"
+          }
+        },
+        "show_image": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Profile Image",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "show_links": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Link Buttons",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "width": {
+          "type": "Select",
+          "config": {
+            "label": "Width",
+            "placeholder": "",
+            "default_value": "Narrow",
+            "options": [
+              "Narrow",
+              "Medium",
+              "Wide"
+            ]
+          }
+        },
+        "name_font": {
+          "type": "Select",
+          "config": {
+            "label": "Name Font",
+            "placeholder": "",
+            "default_value": "Fraunces",
+            "options": [
+              "Fraunces",
+              "Inter Tight",
+              "Bebas Neue",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "card_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Background Color",
+            "placeholder": "#fbf9f5"
+          }
+        },
+        "card_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "label_color": {
+          "type": "Color",
+          "config": {
+            "label": "Label / Role Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "name_color": {
+          "type": "Color",
+          "config": {
+            "label": "Name Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Bio Text Color",
+            "placeholder": "#57534e"
+          }
+        },
+        "link_color": {
+          "type": "Color",
+          "config": {
+            "label": "Link Button Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "link_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Link Button Border / Underline Color",
+            "placeholder": "#d6cdbf"
+          }
+        },
+        "link_hover_color": {
+          "type": "Color",
+          "config": {
+            "label": "Link Button Hover Color",
+            "placeholder": "#d85d18"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "compact",
+      "name": "Compact",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Single row: name, bio and outline buttons",
+      "imageUrl": "",
+      "primary": {
+        "author": {
+          "type": "Link",
+          "config": {
+            "label": "Author",
+            "select": "document",
+            "customtypes": [
+              "author"
+            ]
+          }
+        },
+        "show_label": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Label",
+            "default_value": false,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": "Written by"
+          }
+        },
+        "show_image": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Profile Image",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "show_links": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Link Buttons",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "width": {
+          "type": "Select",
+          "config": {
+            "label": "Width",
+            "placeholder": "",
+            "default_value": "Wide",
+            "options": [
+              "Wide",
+              "Medium",
+              "Narrow"
+            ]
+          }
+        },
+        "name_font": {
+          "type": "Select",
+          "config": {
+            "label": "Name Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background Color",
+            "placeholder": "transparent"
+          }
+        },
+        "card_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Background Color",
+            "placeholder": "#fbf9f5"
+          }
+        },
+        "card_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Border Color",
+            "placeholder": "transparent"
+          }
+        },
+        "label_color": {
+          "type": "Color",
+          "config": {
+            "label": "Label / Role Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "name_color": {
+          "type": "Color",
+          "config": {
+            "label": "Name Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Bio Text Color",
+            "placeholder": "#57534e"
+          }
+        },
+        "link_color": {
+          "type": "Color",
+          "config": {
+            "label": "Link Button Text Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "link_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Link Button Border / Underline Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "link_hover_color": {
+          "type": "Color",
+          "config": {
+            "label": "Link Button Hover Color",
+            "placeholder": "#d85d18"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

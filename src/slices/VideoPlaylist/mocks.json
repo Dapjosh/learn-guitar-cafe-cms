@@ -1,0 +1,36 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "Les Paul",
+        "type": "Text"
+      },
+      "meta_line": {
+        "__TYPE__": "FieldContent",
+        "value": "1915–2009 · Jazz, country and blues · Solid-body pioneer",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Lester William Polsfuss was an American guitarist and inventor whose solid-body designs and multitrack recordings reshaped how the electric guitar sounds and how records are made.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "list_label": {
+        "__TYPE__": "FieldContent",
+        "value": "Curated clips",
+        "type": "Text"
+      }
+    },
+    "items": []
+  }
+]

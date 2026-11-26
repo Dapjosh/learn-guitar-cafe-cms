@@ -150,7 +150,7 @@ const Footer = ({ slice }: FooterProps): JSX.Element => {
                   field={primary.logo}
                   style={{ width: logoWidth, height: 'auto' }}
                   sizes={`${logoWidth}px`}
-                  alt={(primary.logo.alt as any) || ''}
+                  fallbackAlt=""
                 />
               ) : (
                 <Image src={defaultLogo} alt="Learn Guitar Cafe" style={{ width: logoWidth, height: 'auto' }} />

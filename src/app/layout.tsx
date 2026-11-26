@@ -12,6 +12,7 @@ import {
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { createClient, repositoryName } from '@/prismicio';
 import { Metadata, ResolvingMetadata } from 'next';
+import { getSiteIcon, siteIconLinks } from '@/utils/site-icon';
 import { CookieConsent } from '@lgc_cms/features';
 import ClientProviders from '@components/clientProvider';
 
@@ -104,36 +105,8 @@ export async function generateMetadata(
     openGraph: {
       images: [...defaultImages],
     },
-    icons: [
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        url: '/favicon-32x32.png',
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '48x48',
-        url: '/favicon-48x48.png',
-      },
-      {
-        rel: 'icon',
-        type: 'image/svg+xml',
-        url: '/favicon.svg',
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        url: '/favicon.ico',
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '180x180',
-        url: '/apple-touch-icon.png',
-      },
-    ],
+    // Site icon from the Settings document (falls back to the files in /public)
+    icons: siteIconLinks(getSiteIcon(settings?.data)),
     appleWebApp: {
       startupImage: [
         {

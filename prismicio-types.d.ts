@@ -108,7 +108,21 @@ interface AuthorDocumentData {
 export type AuthorDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AuthorDocumentData>, "author", Lang>;
 
-type BlogDocumentDataSlicesSlice = never;
+type BlogDocumentDataSlicesSlice =
+  | BlogListSlice
+  | HeaderSlice
+  | HeroHeadingSlice
+  | SectionHeadersSlice
+  | RichTextSliceSlice
+  | ContentImageSliceSlice
+  | HeroWithVideoSlice
+  | CallToActionSlice
+  | FaqsSlice
+  | TestimonialsSlice
+  | StatsBandSlice
+  | FeaturesSlice
+  | CourseCatalogSlice
+  | ImageGallerySlice;
 
 /**
  * Content for Blog documents
@@ -329,6 +343,17 @@ interface BlogPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Read Time in Minutes (optional - estimated from the body if empty) field in *Blog Post*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 6
+   * - **API ID Path**: blog_post.read_time
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  read_time: prismic.NumberField;
 
   /**
    * Body field in *Blog Post*
@@ -608,6 +633,50 @@ export type ContactDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Course → Tags (shown as pills, e.g. Beginner, Open E)*
+ */
+export interface CourseDocumentDataTagsItem {
+  /**
+   * Tag field in *Course → Tags (shown as pills, e.g. Beginner, Open E)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Beginner
+   * - **API ID Path**: course.tags[].tag
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tag: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Course → Features (shown in the course list)*
+ */
+export interface CourseDocumentDataFeaturesItem {
+  /**
+   * Icon field in *Course → Features (shown in the course list)*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Video
+   * - **API ID Path**: course.features[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<
+    "Video" | "TABs" | "Backing tracks" | "PDF" | "Check" | "Music",
+    "filled"
+  >;
+
+  /**
+   * Label field in *Course → Features (shown in the course list)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Step-by-step video lessons
+   * - **API ID Path**: course.features[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
  * Content for Course documents
  */
 interface CourseDocumentData {
@@ -710,7 +779,77 @@ interface CourseDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/number
    */
-  current_price: prismic.NumberField;
+  current_price: prismic.NumberField; /**
+   * Tags (shown as pills, e.g. Beginner, Open E) field in *Course*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.tags[]
+   * - **Tab**: Catalog
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  tags: prismic.GroupField<Simplify<CourseDocumentDataTagsItem>>;
+
+  /**
+   * Short Description (cards & lists - leave empty to use the Summary) field in *Course*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Open E slide from first notes to full songs.
+   * - **API ID Path**: course.card_description
+   * - **Tab**: Catalog
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  card_description: prismic.KeyTextField;
+
+  /**
+   * Features (shown in the course list) field in *Course*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.features[]
+   * - **Tab**: Catalog
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  features: prismic.GroupField<Simplify<CourseDocumentDataFeaturesItem>>;
+
+  /**
+   * Meta Line (shown on course cards) field in *Course*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Video · TABs · Tracks
+   * - **API ID Path**: course.meta_line
+   * - **Tab**: Catalog
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_line: prismic.KeyTextField;
+
+  /**
+   * Display Order (lower numbers show first) field in *Course*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 1
+   * - **API ID Path**: course.display_order
+   * - **Tab**: Catalog
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  display_order: prismic.NumberField;
+
+  /**
+   * View Course Link (optional - defaults to /courses/<uid>) field in *Course*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.course_link
+   * - **Tab**: Catalog
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  course_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -754,6 +893,100 @@ export type CourseCategoryDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
     Simplify<CourseCategoryDocumentData>,
     "course_category",
+    Lang
+  >;
+
+type CoursesPageDocumentDataSlicesSlice =
+  | CourseCatalogSlice
+  | HeaderSlice
+  | HeroHeadingSlice
+  | SectionHeadersSlice
+  | RichTextSliceSlice
+  | ContentImageSliceSlice
+  | HeroWithVideoSlice
+  | HeroSlice
+  | CallToActionSlice
+  | FaqsSlice
+  | TestimonialsSlice
+  | StatsBandSlice
+  | StatsSlice
+  | FeaturesSlice
+  | CourseCurriculumSlice
+  | BlogListSlice
+  | ImageGallerySlice
+  | PricingTableSlice;
+
+/**
+ * Content for Courses Page documents
+ */
+interface CoursesPageDocumentData {
+  /**
+   * Page Title (browser tab & SEO fallback) field in *Courses Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Courses
+   * - **API ID Path**: courses_page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Courses Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: courses_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<CoursesPageDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Courses Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: courses_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Courses Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: courses_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Courses Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: courses_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Courses Page document from Prismic
+ *
+ * - **API ID**: `courses_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CoursesPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CoursesPageDocumentData>,
+    "courses_page",
     Lang
   >;
 
@@ -844,7 +1077,8 @@ type HomeDocumentDataSlicesSlice =
   | ContentImageSliceSlice
   | HeaderSlice
   | CourseCurriculumSlice
-  | StatsBandSlice;
+  | StatsBandSlice
+  | CourseCatalogSlice;
 
 /**
  * Content for Home documents
@@ -1632,7 +1866,8 @@ type PageDocumentDataSlicesSlice =
   | ContentImageSliceSlice
   | HeaderSlice
   | CourseCurriculumSlice
-  | StatsBandSlice;
+  | StatsBandSlice
+  | CourseCatalogSlice;
 
 /**
  * Content for Page documents
@@ -2119,7 +2354,16 @@ interface SettingsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  twitter_card_type: prismic.KeyTextField;
+  twitter_card_type: prismic.KeyTextField; /**
+   * Site Icon (favicon & app icon) - square image, at least 512 × 512 px. PNG or SVG. field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.site_icon
+   * - **Tab**: Site Icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  site_icon: prismic.ImageField<never>;
 }
 
 /**
@@ -2147,6 +2391,7 @@ export type AllDocumentTypes =
   | ContactDocument
   | CourseDocument
   | CourseCategoryDocument
+  | CoursesPageDocument
   | FaqDocument
   | FooterDocument
   | HomeDocument
@@ -2171,6 +2416,31 @@ export interface BlogListSliceFeaturedGridPrimaryArticlesItem {
    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
   article: prismic.ContentRelationshipField<"blog_post">;
+}
+
+/**
+ * Item in *BlogList → Filterable Grid → Primary → Category Tabs (in order - leave empty to show every category)*
+ */
+export interface BlogListSliceFilterableGridPrimaryFiltersItem {
+  /**
+   * Blog Category field in *BlogList → Filterable Grid → Primary → Category Tabs (in order - leave empty to show every category)*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_list.filterableGrid.primary.filters[].category
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  category: prismic.ContentRelationshipField<"blog_category">;
+
+  /**
+   * Tab Label (optional - defaults to the category name) field in *BlogList → Filterable Grid → Primary → Category Tabs (in order - leave empty to show every category)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_list.filterableGrid.primary.filters[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
 }
 
 /**
@@ -2755,9 +3025,695 @@ export type BlogListSliceFeaturedGrid = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *BlogList → Filterable Grid → Primary*
+ */
+export interface BlogListSliceFilterableGridPrimary {
+  /**
+   * Badge Icon (Upload Icon Image) field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_list.filterableGrid.primary.badge_icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  badge_icon: prismic.ImageField<never>;
+
+  /**
+   * Badge Text field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Blog
+   * - **API ID Path**: blog_list.filterableGrid.primary.badge_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  badge_text: prismic.KeyTextField;
+
+  /**
+   * Badge Background Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: blog_list.filterableGrid.primary.badge_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_bg_color: prismic.ColorField;
+
+  /**
+   * Badge Text Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: blog_list.filterableGrid.primary.badge_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_text_color: prismic.ColorField;
+
+  /**
+   * Badge Icon Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: blog_list.filterableGrid.primary.badge_icon_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_icon_color: prismic.ColorField;
+
+  /**
+   * Badge Border Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: blog_list.filterableGrid.primary.badge_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_border_color: prismic.ColorField;
+
+  /**
+   * Title field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_list.filterableGrid.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Title Font field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bebas Neue
+   * - **API ID Path**: blog_list.filterableGrid.primary.title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_font: prismic.SelectField<
+    | "Bebas Neue"
+    | "Inter Tight"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Title Size field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: blog_list.filterableGrid.primary.title_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_size: prismic.SelectField<
+    "Large" | "Extra Large" | "Medium" | "Small",
+    "filled"
+  >;
+
+  /**
+   * Title Font Weight field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Normal
+   * - **API ID Path**: blog_list.filterableGrid.primary.title_weight
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_weight: prismic.SelectField<
+    "Normal" | "Medium" | "Semi Bold" | "Bold" | "Black" | "Light" | "Thin",
+    "filled"
+  >;
+
+  /**
+   * Title Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog_list.filterableGrid.primary.title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * Description field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_list.filterableGrid.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Description Font field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: blog_list.filterableGrid.primary.description_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  description_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Description Size field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: blog_list.filterableGrid.primary.description_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  description_size: prismic.SelectField<"Medium" | "Small" | "Large", "filled">;
+
+  /**
+   * Description Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: blog_list.filterableGrid.primary.description_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  description_color: prismic.ColorField;
+
+  /**
+   * Header & Tabs Alignment field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Center
+   * - **API ID Path**: blog_list.filterableGrid.primary.header_alignment
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  header_alignment: prismic.SelectField<"Center" | "Left", "filled">;
+
+  /**
+   * Show Category Tabs field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog_list.filterableGrid.primary.show_filters
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_filters: prismic.BooleanField;
+
+  /**
+   * Show All Blog Categories as Tabs (ignores the list below) field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: blog_list.filterableGrid.primary.show_all_categories
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_all_categories: prismic.BooleanField;
+
+  /**
+   * Hide Categories With No Posts (when showing all) field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog_list.filterableGrid.primary.hide_empty_categories
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  hide_empty_categories: prismic.BooleanField;
+
+  /**
+   * Category Tabs (in order - leave empty to show every category) field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_list.filterableGrid.primary.filters[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  filters: prismic.GroupField<
+    Simplify<BlogListSliceFilterableGridPrimaryFiltersItem>
+  >;
+
+  /**
+   * Show 'All' Tab field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog_list.filterableGrid.primary.show_all_tab
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_all_tab: prismic.BooleanField;
+
+  /**
+   * 'All' Tab Label field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: All
+   * - **API ID Path**: blog_list.filterableGrid.primary.all_tab_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  all_tab_label: prismic.KeyTextField;
+
+  /**
+   * Show Post Counts on Tabs field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog_list.filterableGrid.primary.show_counts
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_counts: prismic.BooleanField;
+
+  /**
+   * Posts Per Load (default 10) field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 10
+   * - **API ID Path**: blog_list.filterableGrid.primary.posts_per_page
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  posts_per_page: prismic.NumberField;
+
+  /**
+   * Columns on Desktop field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 3
+   * - **API ID Path**: blog_list.filterableGrid.primary.columns
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  columns: prismic.SelectField<"3" | "2" | "4", "filled">;
+
+  /**
+   * Bottom Button field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Load more
+   * - **API ID Path**: blog_list.filterableGrid.primary.bottom_button_mode
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_button_mode: prismic.SelectField<
+    "Load more" | "Link" | "Hidden",
+    "filled"
+  >;
+
+  /**
+   * Bottom Button Label field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Load more articles
+   * - **API ID Path**: blog_list.filterableGrid.primary.bottom_button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  bottom_button_label: prismic.KeyTextField;
+
+  /**
+   * Bottom Button Link (when Bottom Button = Link) field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /blog
+   * - **API ID Path**: blog_list.filterableGrid.primary.bottom_button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  bottom_button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Button Font field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: blog_list.filterableGrid.primary.button_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Button Border Radius field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Rounded (Medium)
+   * - **API ID Path**: blog_list.filterableGrid.primary.button_radius
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_radius: prismic.SelectField<
+    | "Rounded (Medium)"
+    | "Slightly Rounded (Small)"
+    | "Large Rounded"
+    | "Pill"
+    | "Sharp",
+    "filled"
+  >;
+
+  /**
+   * Show Arrow on Link Button field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: blog_list.filterableGrid.primary.button_show_arrow
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  button_show_arrow: prismic.BooleanField;
+
+  /**
+   * Button Background field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: blog_list.filterableGrid.primary.button_background_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_background_color: prismic.ColorField;
+
+  /**
+   * Button Text Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog_list.filterableGrid.primary.button_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_text_color: prismic.ColorField;
+
+  /**
+   * Button Border Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog_list.filterableGrid.primary.button_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_border_color: prismic.ColorField;
+
+  /**
+   * Button Hover Background field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog_list.filterableGrid.primary.button_hover_background_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_background_color: prismic.ColorField;
+
+  /**
+   * Button Hover Text Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: blog_list.filterableGrid.primary.button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Message When a Category Has No Posts field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: No articles in this category yet.
+   * - **API ID Path**: blog_list.filterableGrid.primary.empty_message
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  empty_message: prismic.KeyTextField;
+
+  /**
+   * Show Category Pill on Cards field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog_list.filterableGrid.primary.show_category
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_category: prismic.BooleanField;
+
+  /**
+   * Show Author field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog_list.filterableGrid.primary.show_author
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_author: prismic.BooleanField;
+
+  /**
+   * Show Read Time field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: blog_list.filterableGrid.primary.show_read_time
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_read_time: prismic.BooleanField;
+
+  /**
+   * Read Time Text field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: min read
+   * - **API ID Path**: blog_list.filterableGrid.primary.read_time_suffix
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  read_time_suffix: prismic.KeyTextField;
+
+  /**
+   * Post Title Font field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: blog_list.filterableGrid.primary.post_title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  post_title_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Post Title Size field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: blog_list.filterableGrid.primary.post_title_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  post_title_size: prismic.SelectField<"Medium" | "Small" | "Large", "filled">;
+
+  /**
+   * Post Title Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog_list.filterableGrid.primary.post_title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_title_color: prismic.ColorField;
+
+  /**
+   * Post Description Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: blog_list.filterableGrid.primary.post_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  post_text_color: prismic.ColorField;
+
+  /**
+   * Author / Read Time Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: blog_list.filterableGrid.primary.meta_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  meta_color: prismic.ColorField;
+
+  /**
+   * Category Pill Background field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fbe3d4
+   * - **API ID Path**: blog_list.filterableGrid.primary.category_pill_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  category_pill_bg_color: prismic.ColorField;
+
+  /**
+   * Category Pill Text Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: blog_list.filterableGrid.primary.category_pill_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  category_pill_text_color: prismic.ColorField;
+
+  /**
+   * Section Background Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: blog_list.filterableGrid.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Card Background Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fbf9f5
+   * - **API ID Path**: blog_list.filterableGrid.primary.card_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  card_bg_color: prismic.ColorField;
+
+  /**
+   * Card Border Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: blog_list.filterableGrid.primary.card_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  card_border_color: prismic.ColorField;
+
+  /**
+   * Image Border Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog_list.filterableGrid.primary.image_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  image_border_color: prismic.ColorField;
+
+  /**
+   * Active Tab Background field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: blog_list.filterableGrid.primary.tab_active_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_active_bg_color: prismic.ColorField;
+
+  /**
+   * Active Tab Text Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: blog_list.filterableGrid.primary.tab_active_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_active_text_color: prismic.ColorField;
+
+  /**
+   * Tab Text Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: blog_list.filterableGrid.primary.tab_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_text_color: prismic.ColorField;
+
+  /**
+   * Tab Border Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #e2d9cb
+   * - **API ID Path**: blog_list.filterableGrid.primary.tab_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_border_color: prismic.ColorField;
+
+  /**
+   * Tab Count Background field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ebe4d8
+   * - **API ID Path**: blog_list.filterableGrid.primary.tab_count_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_count_bg_color: prismic.ColorField;
+
+  /**
+   * Tab Count Text Color field in *BlogList → Filterable Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: blog_list.filterableGrid.primary.tab_count_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_count_text_color: prismic.ColorField;
+}
+
+/**
+ * Filterable Grid variation for BlogList Slice
+ *
+ * - **API ID**: `filterableGrid`
+ * - **Description**: Blog index: header, category tabs, post cards and load more (10 at a time)
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BlogListSliceFilterableGrid = prismic.SharedSliceVariation<
+  "filterableGrid",
+  Simplify<BlogListSliceFilterableGridPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *BlogList*
  */
-type BlogListSliceVariation = BlogListSliceDefault | BlogListSliceFeaturedGrid;
+type BlogListSliceVariation =
+  | BlogListSliceDefault
+  | BlogListSliceFeaturedGrid
+  | BlogListSliceFilterableGrid;
 
 /**
  * BlogList Shared Slice
@@ -4972,6 +5928,1519 @@ type ContentImageSliceSliceVariation =
 export type ContentImageSliceSlice = prismic.SharedSlice<
   "content_image_slice",
   ContentImageSliceSliceVariation
+>;
+
+/**
+ * Item in *CourseCatalog → Numbered List → Primary → Hand-picked Courses (optional - leave empty to show all courses)*
+ */
+export interface CourseCatalogSliceListPrimaryFeaturedCoursesItem {
+  /**
+   * Course field in *CourseCatalog → Numbered List → Primary → Hand-picked Courses (optional - leave empty to show all courses)*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.list.primary.featured_courses[].course
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  course: prismic.ContentRelationshipField<"course">;
+}
+
+/**
+ * Item in *CourseCatalog → Numbered List → Primary → Filter Tabs (Course Categories, in order - leave empty to show every category)*
+ */
+export interface CourseCatalogSliceListPrimaryFiltersItem {
+  /**
+   * Course Category field in *CourseCatalog → Numbered List → Primary → Filter Tabs (Course Categories, in order - leave empty to show every category)*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.list.primary.filters[].category
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  category: prismic.ContentRelationshipField<"course_category">;
+
+  /**
+   * Tab Label (optional - defaults to the category name) field in *CourseCatalog → Numbered List → Primary → Filter Tabs (Course Categories, in order - leave empty to show every category)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.list.primary.filters[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Item in *CourseCatalog → Card Grid → Primary → Hand-picked Courses (optional - leave empty to show all courses)*
+ */
+export interface CourseCatalogSliceGridPrimaryFeaturedCoursesItem {
+  /**
+   * Course field in *CourseCatalog → Card Grid → Primary → Hand-picked Courses (optional - leave empty to show all courses)*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.grid.primary.featured_courses[].course
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  course: prismic.ContentRelationshipField<"course">;
+}
+
+/**
+ * Item in *CourseCatalog → Card Grid → Primary → Filter Tabs (Course Categories, in order - leave empty to show every category)*
+ */
+export interface CourseCatalogSliceGridPrimaryFiltersItem {
+  /**
+   * Course Category field in *CourseCatalog → Card Grid → Primary → Filter Tabs (Course Categories, in order - leave empty to show every category)*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.grid.primary.filters[].category
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  category: prismic.ContentRelationshipField<"course_category">;
+
+  /**
+   * Tab Label (optional - defaults to the category name) field in *CourseCatalog → Card Grid → Primary → Filter Tabs (Course Categories, in order - leave empty to show every category)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.grid.primary.filters[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *CourseCatalog → Numbered List → Primary*
+ */
+export interface CourseCatalogSliceListPrimary {
+  /**
+   * Badge Icon (Upload Icon Image) field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.list.primary.badge_icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  badge_icon: prismic.ImageField<never>;
+
+  /**
+   * Badge Text field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Online guitar lessons
+   * - **API ID Path**: course_catalog.list.primary.badge_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  badge_text: prismic.KeyTextField;
+
+  /**
+   * Badge Background Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.list.primary.badge_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_bg_color: prismic.ColorField;
+
+  /**
+   * Badge Text Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.list.primary.badge_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_text_color: prismic.ColorField;
+
+  /**
+   * Badge Icon Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.list.primary.badge_icon_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_icon_color: prismic.ColorField;
+
+  /**
+   * Badge Border Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: course_catalog.list.primary.badge_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_border_color: prismic.ColorField;
+
+  /**
+   * Title field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.list.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Title Font field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bebas Neue
+   * - **API ID Path**: course_catalog.list.primary.title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_font: prismic.SelectField<
+    | "Bebas Neue"
+    | "Inter Tight"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Title Size field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: course_catalog.list.primary.title_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_size: prismic.SelectField<
+    "Large" | "Extra Large" | "Medium" | "Small",
+    "filled"
+  >;
+
+  /**
+   * Title Font Weight field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Normal
+   * - **API ID Path**: course_catalog.list.primary.title_weight
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_weight: prismic.SelectField<
+    "Normal" | "Medium" | "Semi Bold" | "Bold" | "Black" | "Light" | "Thin",
+    "filled"
+  >;
+
+  /**
+   * Title Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.list.primary.title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * Description (shown on the right) field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.list.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Description Font field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: course_catalog.list.primary.description_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  description_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Description Size field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Small
+   * - **API ID Path**: course_catalog.list.primary.description_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  description_size: prismic.SelectField<"Small" | "Medium" | "Large", "filled">;
+
+  /**
+   * Description Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.list.primary.description_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  description_color: prismic.ColorField;
+
+  /**
+   * Show Header Button field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: course_catalog.list.primary.show_header_button
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_header_button: prismic.BooleanField;
+
+  /**
+   * Header Button Label field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: View all courses
+   * - **API ID Path**: course_catalog.list.primary.header_button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  header_button_label: prismic.KeyTextField;
+
+  /**
+   * Header Button Link (defaults to /all-courses) field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /all-courses
+   * - **API ID Path**: course_catalog.list.primary.header_button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  header_button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Button Font field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: course_catalog.list.primary.button_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Button Border Radius field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Rounded (Medium)
+   * - **API ID Path**: course_catalog.list.primary.button_radius
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_radius: prismic.SelectField<
+    | "Rounded (Medium)"
+    | "Slightly Rounded (Small)"
+    | "Large Rounded"
+    | "Pill"
+    | "Sharp",
+    "filled"
+  >;
+
+  /**
+   * Outline Button Background field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: course_catalog.list.primary.button_background_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_background_color: prismic.ColorField;
+
+  /**
+   * Outline Button Text Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.list.primary.button_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_text_color: prismic.ColorField;
+
+  /**
+   * Outline Button Border Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.list.primary.button_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_border_color: prismic.ColorField;
+
+  /**
+   * Outline Button Hover Background field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.list.primary.button_hover_background_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_background_color: prismic.ColorField;
+
+  /**
+   * Outline Button Hover Text Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.list.primary.button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Hand-picked Courses (optional - leave empty to show all courses) field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.list.primary.featured_courses[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  featured_courses: prismic.GroupField<
+    Simplify<CourseCatalogSliceListPrimaryFeaturedCoursesItem>
+  >;
+
+  /**
+   * Only Show This Category (optional) field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.list.primary.only_category
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  only_category: prismic.ContentRelationshipField<"course_category">;
+
+  /**
+   * Show Filter Tabs field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: course_catalog.list.primary.show_filters
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_filters: prismic.BooleanField;
+
+  /**
+   * Show 'All' Tab field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: course_catalog.list.primary.show_all_tab
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_all_tab: prismic.BooleanField;
+
+  /**
+   * 'All' Tab Label field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: All courses
+   * - **API ID Path**: course_catalog.list.primary.all_tab_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  all_tab_label: prismic.KeyTextField;
+
+  /**
+   * Show Course Counts on Tabs field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: course_catalog.list.primary.show_counts
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_counts: prismic.BooleanField;
+
+  /**
+   * Filter Tabs (Course Categories, in order - leave empty to show every category) field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.list.primary.filters[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  filters: prismic.GroupField<
+    Simplify<CourseCatalogSliceListPrimaryFiltersItem>
+  >;
+
+  /**
+   * Courses Shown Before 'Load More' (default 10) field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 10
+   * - **API ID Path**: course_catalog.list.primary.courses_per_page
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  courses_per_page: prismic.NumberField;
+
+  /**
+   * Bottom Button field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Load more
+   * - **API ID Path**: course_catalog.list.primary.bottom_button_mode
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_button_mode: prismic.SelectField<
+    "Load more" | "Link" | "Hidden",
+    "filled"
+  >;
+
+  /**
+   * Bottom Button Label field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: View all courses
+   * - **API ID Path**: course_catalog.list.primary.bottom_button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  bottom_button_label: prismic.KeyTextField;
+
+  /**
+   * Bottom Button Link (when Bottom Button = Link) field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /all-courses
+   * - **API ID Path**: course_catalog.list.primary.bottom_button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  bottom_button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Message When a Filter Has No Courses field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: No courses here yet — check back soon.
+   * - **API ID Path**: course_catalog.list.primary.empty_message
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  empty_message: prismic.KeyTextField;
+
+  /**
+   * Course Title Font field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Fraunces
+   * - **API ID Path**: course_catalog.list.primary.course_title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  course_title_font: prismic.SelectField<
+    | "Fraunces"
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Course Title Size field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: course_catalog.list.primary.course_title_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  course_title_size: prismic.SelectField<
+    "Medium" | "Small" | "Large",
+    "filled"
+  >;
+
+  /**
+   * Course Title Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.list.primary.course_title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_title_color: prismic.ColorField;
+
+  /**
+   * Course Description Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.list.primary.course_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_text_color: prismic.ColorField;
+
+  /**
+   * Features / Meta Text Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: course_catalog.list.primary.meta_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  meta_color: prismic.ColorField;
+
+  /**
+   * Icon Accent Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.list.primary.accent_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  accent_color: prismic.ColorField;
+
+  /**
+   * Tag Pill Background field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.list.primary.tag_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tag_bg_color: prismic.ColorField;
+
+  /**
+   * Tag Pill Text Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.list.primary.tag_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tag_text_color: prismic.ColorField;
+
+  /**
+   * Course Button Label field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: View course
+   * - **API ID Path**: course_catalog.list.primary.course_button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  course_button_label: prismic.KeyTextField;
+
+  /**
+   * Course Button Background field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.list.primary.course_button_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_button_bg_color: prismic.ColorField;
+
+  /**
+   * Course Button Text Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.list.primary.course_button_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_button_text_color: prismic.ColorField;
+
+  /**
+   * Course Button Hover Background field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.list.primary.course_button_hover_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_button_hover_bg_color: prismic.ColorField;
+
+  /**
+   * Course Button Hover Text Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.list.primary.course_button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Section Background Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: course_catalog.list.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Course Image Border Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.list.primary.image_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  image_border_color: prismic.ColorField;
+
+  /**
+   * Active Tab Background field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.list.primary.tab_active_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_active_bg_color: prismic.ColorField;
+
+  /**
+   * Active Tab Text Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.list.primary.tab_active_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_active_text_color: prismic.ColorField;
+
+  /**
+   * Tab Text Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.list.primary.tab_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_text_color: prismic.ColorField;
+
+  /**
+   * Tab Border / Underline Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #e2d9cb
+   * - **API ID Path**: course_catalog.list.primary.tab_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_border_color: prismic.ColorField;
+
+  /**
+   * Tab Count Background field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ebe4d8
+   * - **API ID Path**: course_catalog.list.primary.tab_count_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_count_bg_color: prismic.ColorField;
+
+  /**
+   * Tab Count Text Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: course_catalog.list.primary.tab_count_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_count_text_color: prismic.ColorField;
+
+  /**
+   * Staff Line Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: rgba(28, 25, 23, 0.14)
+   * - **API ID Path**: course_catalog.list.primary.divider_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  divider_color: prismic.ColorField;
+
+  /**
+   * Course Number Color field in *CourseCatalog → Numbered List → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.list.primary.number_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  number_color: prismic.ColorField;
+}
+
+/**
+ * Numbered List variation for CourseCatalog Slice
+ *
+ * - **API ID**: `list`
+ * - **Description**: Numbered rows with title, image, description, features and button (main courses page)
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CourseCatalogSliceList = prismic.SharedSliceVariation<
+  "list",
+  Simplify<CourseCatalogSliceListPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *CourseCatalog → Card Grid → Primary*
+ */
+export interface CourseCatalogSliceGridPrimary {
+  /**
+   * Badge Icon (Upload Icon Image) field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.grid.primary.badge_icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  badge_icon: prismic.ImageField<never>;
+
+  /**
+   * Badge Text field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Online guitar lessons
+   * - **API ID Path**: course_catalog.grid.primary.badge_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  badge_text: prismic.KeyTextField;
+
+  /**
+   * Badge Background Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.grid.primary.badge_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_bg_color: prismic.ColorField;
+
+  /**
+   * Badge Text Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.grid.primary.badge_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_text_color: prismic.ColorField;
+
+  /**
+   * Badge Icon Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.grid.primary.badge_icon_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_icon_color: prismic.ColorField;
+
+  /**
+   * Badge Border Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: course_catalog.grid.primary.badge_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  badge_border_color: prismic.ColorField;
+
+  /**
+   * Title field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.grid.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Title Font field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bebas Neue
+   * - **API ID Path**: course_catalog.grid.primary.title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_font: prismic.SelectField<
+    | "Bebas Neue"
+    | "Inter Tight"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Title Size field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: course_catalog.grid.primary.title_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_size: prismic.SelectField<
+    "Large" | "Extra Large" | "Medium" | "Small",
+    "filled"
+  >;
+
+  /**
+   * Title Font Weight field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Normal
+   * - **API ID Path**: course_catalog.grid.primary.title_weight
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  title_weight: prismic.SelectField<
+    "Normal" | "Medium" | "Semi Bold" | "Bold" | "Black" | "Light" | "Thin",
+    "filled"
+  >;
+
+  /**
+   * Title Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.grid.primary.title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  title_color: prismic.ColorField;
+
+  /**
+   * Description (shown on the right) field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.grid.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Description Font field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: course_catalog.grid.primary.description_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  description_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Description Size field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Small
+   * - **API ID Path**: course_catalog.grid.primary.description_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  description_size: prismic.SelectField<"Small" | "Medium" | "Large", "filled">;
+
+  /**
+   * Description Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.grid.primary.description_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  description_color: prismic.ColorField;
+
+  /**
+   * Show Header Button field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: course_catalog.grid.primary.show_header_button
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_header_button: prismic.BooleanField;
+
+  /**
+   * Header Button Label field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: View all courses
+   * - **API ID Path**: course_catalog.grid.primary.header_button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  header_button_label: prismic.KeyTextField;
+
+  /**
+   * Header Button Link (defaults to /all-courses) field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /all-courses
+   * - **API ID Path**: course_catalog.grid.primary.header_button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  header_button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Button Font field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: course_catalog.grid.primary.button_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Button Border Radius field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Rounded (Medium)
+   * - **API ID Path**: course_catalog.grid.primary.button_radius
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_radius: prismic.SelectField<
+    | "Rounded (Medium)"
+    | "Slightly Rounded (Small)"
+    | "Large Rounded"
+    | "Pill"
+    | "Sharp",
+    "filled"
+  >;
+
+  /**
+   * Outline Button Background field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: course_catalog.grid.primary.button_background_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_background_color: prismic.ColorField;
+
+  /**
+   * Outline Button Text Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.grid.primary.button_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_text_color: prismic.ColorField;
+
+  /**
+   * Outline Button Border Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.grid.primary.button_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_border_color: prismic.ColorField;
+
+  /**
+   * Outline Button Hover Background field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.grid.primary.button_hover_background_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_background_color: prismic.ColorField;
+
+  /**
+   * Outline Button Hover Text Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.grid.primary.button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Hand-picked Courses (optional - leave empty to show all courses) field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.grid.primary.featured_courses[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  featured_courses: prismic.GroupField<
+    Simplify<CourseCatalogSliceGridPrimaryFeaturedCoursesItem>
+  >;
+
+  /**
+   * Only Show This Category (optional) field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.grid.primary.only_category
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  only_category: prismic.ContentRelationshipField<"course_category">;
+
+  /**
+   * Show Filter Tabs field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: course_catalog.grid.primary.show_filters
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_filters: prismic.BooleanField;
+
+  /**
+   * Show 'All' Tab field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: course_catalog.grid.primary.show_all_tab
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_all_tab: prismic.BooleanField;
+
+  /**
+   * 'All' Tab Label field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: All courses
+   * - **API ID Path**: course_catalog.grid.primary.all_tab_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  all_tab_label: prismic.KeyTextField;
+
+  /**
+   * Show Course Counts on Tabs field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: course_catalog.grid.primary.show_counts
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_counts: prismic.BooleanField;
+
+  /**
+   * Filter Tabs (Course Categories, in order - leave empty to show every category) field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course_catalog.grid.primary.filters[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  filters: prismic.GroupField<
+    Simplify<CourseCatalogSliceGridPrimaryFiltersItem>
+  >;
+
+  /**
+   * Courses Shown Before 'Load More' (default 10) field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 10
+   * - **API ID Path**: course_catalog.grid.primary.courses_per_page
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  courses_per_page: prismic.NumberField;
+
+  /**
+   * Bottom Button field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Load more
+   * - **API ID Path**: course_catalog.grid.primary.bottom_button_mode
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_button_mode: prismic.SelectField<
+    "Load more" | "Link" | "Hidden",
+    "filled"
+  >;
+
+  /**
+   * Bottom Button Label field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: View all courses
+   * - **API ID Path**: course_catalog.grid.primary.bottom_button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  bottom_button_label: prismic.KeyTextField;
+
+  /**
+   * Bottom Button Link (when Bottom Button = Link) field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /all-courses
+   * - **API ID Path**: course_catalog.grid.primary.bottom_button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  bottom_button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Message When a Filter Has No Courses field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: No courses here yet — check back soon.
+   * - **API ID Path**: course_catalog.grid.primary.empty_message
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  empty_message: prismic.KeyTextField;
+
+  /**
+   * Course Title Font field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter Tight
+   * - **API ID Path**: course_catalog.grid.primary.course_title_font
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  course_title_font: prismic.SelectField<
+    | "Inter Tight"
+    | "Bebas Neue"
+    | "Fraunces"
+    | "Inter"
+    | "Raleway"
+    | "Nunito"
+    | "Mochiy Pop One"
+    | "Anton",
+    "filled"
+  >;
+
+  /**
+   * Course Title Size field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Medium
+   * - **API ID Path**: course_catalog.grid.primary.course_title_size
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  course_title_size: prismic.SelectField<
+    "Medium" | "Small" | "Large",
+    "filled"
+  >;
+
+  /**
+   * Course Title Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.grid.primary.course_title_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_title_color: prismic.ColorField;
+
+  /**
+   * Course Description Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: course_catalog.grid.primary.course_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_text_color: prismic.ColorField;
+
+  /**
+   * Features / Meta Text Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: course_catalog.grid.primary.meta_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  meta_color: prismic.ColorField;
+
+  /**
+   * Icon Accent Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.grid.primary.accent_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  accent_color: prismic.ColorField;
+
+  /**
+   * Tag Pill Background field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fbe3d4
+   * - **API ID Path**: course_catalog.grid.primary.tag_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tag_bg_color: prismic.ColorField;
+
+  /**
+   * Tag Pill Text Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.grid.primary.tag_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tag_text_color: prismic.ColorField;
+
+  /**
+   * Course Button Label field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: View course
+   * - **API ID Path**: course_catalog.grid.primary.course_button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  course_button_label: prismic.KeyTextField;
+
+  /**
+   * Course Button Background field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.grid.primary.course_button_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_button_bg_color: prismic.ColorField;
+
+  /**
+   * Course Button Text Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.grid.primary.course_button_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_button_text_color: prismic.ColorField;
+
+  /**
+   * Course Button Hover Background field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #b94c10
+   * - **API ID Path**: course_catalog.grid.primary.course_button_hover_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_button_hover_bg_color: prismic.ColorField;
+
+  /**
+   * Course Button Hover Text Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.grid.primary.course_button_hover_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  course_button_hover_text_color: prismic.ColorField;
+
+  /**
+   * Section Background Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #f3efe6
+   * - **API ID Path**: course_catalog.grid.primary.section_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  section_bg_color: prismic.ColorField;
+
+  /**
+   * Course Image Border Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.grid.primary.image_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  image_border_color: prismic.ColorField;
+
+  /**
+   * Active Tab Background field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #d85d18
+   * - **API ID Path**: course_catalog.grid.primary.tab_active_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_active_bg_color: prismic.ColorField;
+
+  /**
+   * Active Tab Text Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ffffff
+   * - **API ID Path**: course_catalog.grid.primary.tab_active_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_active_text_color: prismic.ColorField;
+
+  /**
+   * Tab Text Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #1c1917
+   * - **API ID Path**: course_catalog.grid.primary.tab_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_text_color: prismic.ColorField;
+
+  /**
+   * Tab Border / Underline Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #e2d9cb
+   * - **API ID Path**: course_catalog.grid.primary.tab_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_border_color: prismic.ColorField;
+
+  /**
+   * Tab Count Background field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #ebe4d8
+   * - **API ID Path**: course_catalog.grid.primary.tab_count_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_count_bg_color: prismic.ColorField;
+
+  /**
+   * Tab Count Text Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #78716c
+   * - **API ID Path**: course_catalog.grid.primary.tab_count_text_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  tab_count_text_color: prismic.ColorField;
+
+  /**
+   * Card Background Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fbf9f5
+   * - **API ID Path**: course_catalog.grid.primary.card_bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  card_bg_color: prismic.ColorField;
+
+  /**
+   * Card Border Color field in *CourseCatalog → Card Grid → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: transparent
+   * - **API ID Path**: course_catalog.grid.primary.card_border_color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  card_border_color: prismic.ColorField;
+}
+
+/**
+ * Card Grid variation for CourseCatalog Slice
+ *
+ * - **API ID**: `grid`
+ * - **Description**: Course cards in a 3-column grid (home page or any page)
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CourseCatalogSliceGrid = prismic.SharedSliceVariation<
+  "grid",
+  Simplify<CourseCatalogSliceGridPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CourseCatalog*
+ */
+type CourseCatalogSliceVariation =
+  | CourseCatalogSliceList
+  | CourseCatalogSliceGrid;
+
+/**
+ * CourseCatalog Shared Slice
+ *
+ * - **API ID**: `course_catalog`
+ * - **Description**: Filterable courses from Course documents, as a numbered list or a card grid
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CourseCatalogSlice = prismic.SharedSlice<
+  "course_catalog",
+  CourseCatalogSliceVariation
 >;
 
 /**
@@ -11918,8 +14387,13 @@ declare module "@prismicio/client" {
       ContactDocumentDataSlicesSlice,
       CourseDocument,
       CourseDocumentData,
+      CourseDocumentDataTagsItem,
+      CourseDocumentDataFeaturesItem,
       CourseCategoryDocument,
       CourseCategoryDocumentData,
+      CoursesPageDocument,
+      CoursesPageDocumentData,
+      CoursesPageDocumentDataSlicesSlice,
       FaqDocument,
       FaqDocumentData,
       FooterDocument,
@@ -11955,9 +14429,12 @@ declare module "@prismicio/client" {
       BlogListSliceDefaultPrimary,
       BlogListSliceFeaturedGridPrimaryArticlesItem,
       BlogListSliceFeaturedGridPrimary,
+      BlogListSliceFilterableGridPrimaryFiltersItem,
+      BlogListSliceFilterableGridPrimary,
       BlogListSliceVariation,
       BlogListSliceDefault,
       BlogListSliceFeaturedGrid,
+      BlogListSliceFilterableGrid,
       BunnyVideoSlice,
       BunnyVideoSliceDefaultPrimary,
       BunnyVideoSliceVariation,
@@ -11992,6 +14469,16 @@ declare module "@prismicio/client" {
       ContentImageSliceSliceSplitWithImage,
       ContentImageSliceSlicePromoBanner,
       ContentImageSliceSliceImageChecklist,
+      CourseCatalogSlice,
+      CourseCatalogSliceListPrimaryFeaturedCoursesItem,
+      CourseCatalogSliceListPrimaryFiltersItem,
+      CourseCatalogSliceListPrimary,
+      CourseCatalogSliceGridPrimaryFeaturedCoursesItem,
+      CourseCatalogSliceGridPrimaryFiltersItem,
+      CourseCatalogSliceGridPrimary,
+      CourseCatalogSliceVariation,
+      CourseCatalogSliceList,
+      CourseCatalogSliceGrid,
       CourseCurriculumSlice,
       CourseCurriculumSliceDefaultPrimary,
       CourseCurriculumSliceDefaultItem,

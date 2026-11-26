@@ -1,0 +1,776 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "list",
+		"primary": {
+			"badge_icon": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+					"width": 2747,
+					"height": 4120
+				},
+				"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+				"width": 2747,
+				"height": 4120,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "finish",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "open",
+				"type": "Text"
+			},
+			"badge_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e36235",
+				"type": "Color"
+			},
+			"badge_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#ff0948",
+				"type": "Color"
+			},
+			"badge_icon_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#4a1e46",
+				"type": "Color"
+			},
+			"badge_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#34b826",
+				"type": "Color"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Smoke"
+						}
+					}
+				]
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Bebas Neue",
+				"type": "Select"
+			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Extra Large",
+				"type": "Select"
+			},
+			"title_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Normal",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a5a5db",
+				"type": "Color"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Velit ea aliqua id mollit est eu pariatur mollit in dolor est eiusmod enim Lorem quis. Ut laboris eiusmod nulla adipisicing ipsum aliqua eiusmod duis do sunt culpa. Elit ea nostrud elit incididunt adipisicing proident ut."
+						}
+					}
+				]
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"description_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Large",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#3049f5",
+				"type": "Color"
+			},
+			"show_header_button": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"header_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "proud",
+				"type": "Text"
+			},
+			"header_button_link": {
+				"key": "36e240a4-4a82-45dd-919f-1745522d03a9",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Inter Tight",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Rounded (Medium)",
+				"type": "Select"
+			},
+			"button_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#bb361f",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#02c52b",
+				"type": "Color"
+			},
+			"button_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#5ccd80",
+				"type": "Color"
+			},
+			"button_hover_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#98a192",
+				"type": "Color"
+			},
+			"button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#6bf186",
+				"type": "Color"
+			},
+			"featured_courses": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"course",
+								{
+									"key": "3ada955d-92f2-412b-bf00-6c57c4f32cae",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"only_category": {
+				"key": "9c6d3189-739f-4705-afc1-89ac73d2e53b",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"show_filters": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"show_all_tab": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"all_tab_label": {
+				"__TYPE__": "FieldContent",
+				"value": "instrument",
+				"type": "Text"
+			},
+			"show_counts": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"filters": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"category",
+								{
+									"key": "fa4bd1dd-7835-4a18-973e-5b54081d2a24",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							],
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "band",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"courses_per_page": {
+				"__TYPE__": "FieldContent",
+				"value": "27",
+				"type": "Number"
+			},
+			"bottom_button_mode": {
+				"__TYPE__": "FieldContent",
+				"value": "Hidden",
+				"type": "Select"
+			},
+			"bottom_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "heat",
+				"type": "Text"
+			},
+			"bottom_button_link": {
+				"key": "46faa5ef-4f4a-495a-9ebc-916e67f67e11",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"empty_message": {
+				"__TYPE__": "FieldContent",
+				"value": "shape",
+				"type": "Text"
+			},
+			"course_title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Fraunces",
+				"type": "Select"
+			},
+			"course_title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"course_title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#7dfa93",
+				"type": "Color"
+			},
+			"course_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#afe9bb",
+				"type": "Color"
+			},
+			"meta_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#4f7a0b",
+				"type": "Color"
+			},
+			"accent_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#925e9f",
+				"type": "Color"
+			},
+			"tag_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#594cef",
+				"type": "Color"
+			},
+			"tag_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#b56af4",
+				"type": "Color"
+			},
+			"course_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "wonderful",
+				"type": "Text"
+			},
+			"course_button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#35c9db",
+				"type": "Color"
+			},
+			"course_button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#717079",
+				"type": "Color"
+			},
+			"course_button_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#801805",
+				"type": "Color"
+			},
+			"course_button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#c23918",
+				"type": "Color"
+			},
+			"section_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#e3fdfb",
+				"type": "Color"
+			},
+			"image_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#49d102",
+				"type": "Color"
+			},
+			"tab_active_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#9eabf5",
+				"type": "Color"
+			},
+			"tab_active_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#602256",
+				"type": "Color"
+			},
+			"tab_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#5a6a62",
+				"type": "Color"
+			},
+			"tab_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#63134f",
+				"type": "Color"
+			},
+			"tab_count_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a8fe74",
+				"type": "Color"
+			},
+			"tab_count_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#97d2ad",
+				"type": "Color"
+			},
+			"divider_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1ebb99",
+				"type": "Color"
+			},
+			"number_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#85ea0e",
+				"type": "Color"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "grid",
+		"primary": {
+			"badge_icon": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+					"width": 3024,
+					"height": 3778
+				},
+				"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+				"width": 3024,
+				"height": 3778,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "press",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"badge_text": {
+				"__TYPE__": "FieldContent",
+				"value": "teach",
+				"type": "Text"
+			},
+			"badge_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#c58552",
+				"type": "Color"
+			},
+			"badge_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#13ed73",
+				"type": "Color"
+			},
+			"badge_icon_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#120ecc",
+				"type": "Color"
+			},
+			"badge_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#6fbd29",
+				"type": "Color"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Contrast"
+						}
+					}
+				]
+			},
+			"title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Bebas Neue",
+				"type": "Select"
+			},
+			"title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Large",
+				"type": "Select"
+			},
+			"title_weight": {
+				"__TYPE__": "FieldContent",
+				"value": "Normal",
+				"type": "Select"
+			},
+			"title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#90d02e",
+				"type": "Color"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint aliqua et consequat id nulla laboris voluptate. Occaecat in sunt mollit quis eiusmod."
+						}
+					}
+				]
+			},
+			"description_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Nunito",
+				"type": "Select"
+			},
+			"description_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Small",
+				"type": "Select"
+			},
+			"description_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#57bf84",
+				"type": "Color"
+			},
+			"show_header_button": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"header_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "riding",
+				"type": "Text"
+			},
+			"header_button_link": {
+				"key": "1163b635-4830-459d-8525-192ff324f25d",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"button_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Mochiy Pop One",
+				"type": "Select"
+			},
+			"button_radius": {
+				"__TYPE__": "FieldContent",
+				"value": "Pill",
+				"type": "Select"
+			},
+			"button_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#ed378a",
+				"type": "Color"
+			},
+			"button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#746f85",
+				"type": "Color"
+			},
+			"button_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#26d5f1",
+				"type": "Color"
+			},
+			"button_hover_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#233391",
+				"type": "Color"
+			},
+			"button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#07362b",
+				"type": "Color"
+			},
+			"featured_courses": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"course",
+								{
+									"key": "73689cdc-0f17-49a0-9d8f-23cf6bdf9b9c",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"only_category": {
+				"key": "1712435b-f4a9-4a71-8e9e-2f02b1130261",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"show_filters": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"show_all_tab": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"all_tab_label": {
+				"__TYPE__": "FieldContent",
+				"value": "shadow",
+				"type": "Text"
+			},
+			"show_counts": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"filters": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"category",
+								{
+									"key": "91812731-5813-4bfe-b601-dab17f0642f8",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							],
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "gone",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"courses_per_page": {
+				"__TYPE__": "FieldContent",
+				"value": "48",
+				"type": "Number"
+			},
+			"bottom_button_mode": {
+				"__TYPE__": "FieldContent",
+				"value": "Link",
+				"type": "Select"
+			},
+			"bottom_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "understanding",
+				"type": "Text"
+			},
+			"bottom_button_link": {
+				"key": "a3fc5a84-dfe5-48d7-99e2-9e0a5718b9c1",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"empty_message": {
+				"__TYPE__": "FieldContent",
+				"value": "wing",
+				"type": "Text"
+			},
+			"course_title_font": {
+				"__TYPE__": "FieldContent",
+				"value": "Nunito",
+				"type": "Select"
+			},
+			"course_title_size": {
+				"__TYPE__": "FieldContent",
+				"value": "Medium",
+				"type": "Select"
+			},
+			"course_title_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#2879fc",
+				"type": "Color"
+			},
+			"course_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#b73c94",
+				"type": "Color"
+			},
+			"meta_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#c6d5ba",
+				"type": "Color"
+			},
+			"accent_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#4cb54b",
+				"type": "Color"
+			},
+			"tag_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#edc4ca",
+				"type": "Color"
+			},
+			"tag_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#ad52f5",
+				"type": "Color"
+			},
+			"course_button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "especially",
+				"type": "Text"
+			},
+			"course_button_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#463d4c",
+				"type": "Color"
+			},
+			"course_button_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#d8c5db",
+				"type": "Color"
+			},
+			"course_button_hover_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#f56f34",
+				"type": "Color"
+			},
+			"course_button_hover_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#8dacfa",
+				"type": "Color"
+			},
+			"section_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1ab383",
+				"type": "Color"
+			},
+			"image_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#fd460d",
+				"type": "Color"
+			},
+			"tab_active_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#1da74c",
+				"type": "Color"
+			},
+			"tab_active_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#b81a4b",
+				"type": "Color"
+			},
+			"tab_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#f0f013",
+				"type": "Color"
+			},
+			"tab_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#3f3eb9",
+				"type": "Color"
+			},
+			"tab_count_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#dc5506",
+				"type": "Color"
+			},
+			"tab_count_text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a444b4",
+				"type": "Color"
+			},
+			"card_bg_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#033d58",
+				"type": "Color"
+			},
+			"card_border_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#57c685",
+				"type": "Color"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

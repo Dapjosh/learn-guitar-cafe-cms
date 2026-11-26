@@ -3,10 +3,12 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  author_bio: dynamic(() => import("./AuthorBio")),
   blog_list: dynamic(() => import("./BlogList")),
   bunny_video: dynamic(() => import("./BunnyVideo")),
   call_to_action: dynamic(() => import("./CallToAction")),
   content_image_slice: dynamic(() => import("./ContentImageSlice")),
+  course_catalog: dynamic(() => import("./CourseCatalog")),
   course_curriculum: dynamic(() => import("./CourseCurriculum")),
   course_grid: dynamic(() => import("./CourseGrid")),
   faqs: dynamic(() => import("./Faqs")),
@@ -16,9 +18,11 @@ export const components = {
   hero: dynamic(() => import("./Hero")),
   hero_heading: dynamic(() => import("./HeroHeading")),
   hero_with_video: dynamic(() => import("./BannerWithVideo")),
+  image_block: dynamic(() => import("./ImageBlock")),
   image_gallery: dynamic(() => import("./ImageGallery")),
   image_grid: dynamic(() => import("./ImageGrid")),
   lesson_rick_text: dynamic(() => import("./LessonRickText")),
+  media_study_card: dynamic(() => import("./MediaStudyCard")),
   pricing_table: dynamic(() => import("./PricingTable")),
   rich_text_slice: dynamic(() => import("./RichTextSlice")),
   section_headers: dynamic(() => import("./SectionHeaders")),
@@ -27,4 +31,5 @@ export const components = {
   testimonials: dynamic(() => import("./Testimonials")),
   text_section: dynamic(() => import("./TextSection")),
   timeline: dynamic(() => import("./Timeline")),
+  video_playlist: dynamic(() => import("./VideoPlaylist")),
 };
