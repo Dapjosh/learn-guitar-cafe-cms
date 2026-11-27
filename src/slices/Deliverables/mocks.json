@@ -1,0 +1,94 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "badge_text": {
+        "__TYPE__": "FieldContent",
+        "value": "Deliverables",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "WHAT YOU GET INSIDE",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "items": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "title",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Video lesson",
+                  "type": "Text"
+                }
+              ],
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "A step-by-step masterclass on the classic slide tune, filmed close up.",
+                  "type": "Text"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "title",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "PDF TABs",
+                  "type": "Text"
+                }
+              ],
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Note-for-note transcription plus Guitar Pro files you can slow down.",
+                  "type": "Text"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "title",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Backing track",
+                  "type": "Text"
+                }
+              ],
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "The official play-along jam track, recorded with vintage gear.",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": []
+  }
+]

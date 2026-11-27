@@ -1,0 +1,32 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "Send me the free lesson",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "FieldContent",
+        "value": "Enter your details and I'll email the video, TABs and backing track straight away.",
+        "type": "Text"
+      },
+      "show_name_field": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "fine_print": {
+        "__TYPE__": "FieldContent",
+        "value": "Free, no card needed. You'll also get my acoustic roots newsletter, and you can unsubscribe anytime.",
+        "type": "Text"
+      },
+      "show_card": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      }
+    },
+    "items": []
+  }
+]

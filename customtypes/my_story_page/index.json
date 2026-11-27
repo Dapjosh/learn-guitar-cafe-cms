@@ -80,6 +80,9 @@
             },
             "contact_form": {
               "type": "SharedSlice"
+            },
+            "lead_form": {
+              "type": "SharedSlice"
             }
           }
         }

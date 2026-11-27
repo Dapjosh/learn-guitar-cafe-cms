@@ -1,0 +1,336 @@
+{
+  "id": "deliverables",
+  "type": "SharedSlice",
+  "name": "Deliverables",
+  "description": "Numbered 'What you get inside' cards with framed illustrations",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Deliverable cards",
+      "imageUrl": "",
+      "primary": {
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text",
+            "placeholder": "Deliverables"
+          }
+        },
+        "badge_icon_preset": {
+          "type": "Select",
+          "config": {
+            "label": "Badge Icon",
+            "placeholder": "",
+            "default_value": "Dot",
+            "options": [
+              "Dot",
+              "Trophy",
+              "Star",
+              "Music",
+              "None"
+            ]
+          }
+        },
+        "badge_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Badge Icon Image (optional)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "badge_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Background",
+            "placeholder": "#ffffff"
+          }
+        },
+        "badge_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Text Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Icon Color",
+            "placeholder": ""
+          }
+        },
+        "badge_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Border",
+            "placeholder": "transparent"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1,heading2",
+            "label": "Title"
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Bebas Neue",
+            "options": [
+              "Bebas Neue",
+              "Inter Tight",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Title Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "Extra Large",
+              "Medium",
+              "Small"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description (optional)"
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "header_alignment": {
+          "type": "Select",
+          "config": {
+            "label": "Header Alignment",
+            "placeholder": "",
+            "default_value": "Center",
+            "options": [
+              "Center",
+              "Left"
+            ]
+          }
+        },
+        "items": {
+          "type": "Group",
+          "config": {
+            "label": "Deliverables",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Illustration (shown in a round frame)",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "Video lesson"
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "A step-by-step masterclass on the classic slide tune, filmed close up."
+                }
+              }
+            }
+          }
+        },
+        "columns": {
+          "type": "Select",
+          "config": {
+            "label": "Cards per Row (desktop)",
+            "placeholder": "",
+            "default_value": "3",
+            "options": [
+              "3",
+              "2",
+              "4"
+            ]
+          }
+        },
+        "show_numbers": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Numbers (01, 02…)",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "show_icon_ring": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Gold & Orange Ring Around Illustrations",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "item_title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Card Title Font",
+            "placeholder": "",
+            "default_value": "Inter Tight",
+            "options": [
+              "Inter Tight",
+              "Bebas Neue",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "item_title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "item_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Text Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "number_color": {
+          "type": "Color",
+          "config": {
+            "label": "Number Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "ring_color_1": {
+          "type": "Color",
+          "config": {
+            "label": "Ring Color 1",
+            "placeholder": "#d85d18"
+          }
+        },
+        "ring_color_2": {
+          "type": "Color",
+          "config": {
+            "label": "Ring Color 2",
+            "placeholder": "#f5a623"
+          }
+        },
+        "icon_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Illustration Background",
+            "placeholder": "#1c1917"
+          }
+        },
+        "card_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Background",
+            "placeholder": "#fbf9f5"
+          }
+        },
+        "card_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Border",
+            "placeholder": "#ebe4d8"
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background",
+            "placeholder": "#f3efe6"
+          }
+        },
+        "padding_top": {
+          "type": "Select",
+          "config": {
+            "label": "Space Above",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "None",
+              "Small",
+              "Medium",
+              "Extra Large"
+            ]
+          }
+        },
+        "padding_bottom": {
+          "type": "Select",
+          "config": {
+            "label": "Space Below",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "None",
+              "Small",
+              "Medium",
+              "Extra Large"
+            ]
+          }
+        },
+        "padding_top_custom": {
+          "type": "Number",
+          "config": {
+            "label": "Space Above in px (optional)",
+            "placeholder": ""
+          }
+        },
+        "padding_bottom_custom": {
+          "type": "Number",
+          "config": {
+            "label": "Space Below in px (optional)",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

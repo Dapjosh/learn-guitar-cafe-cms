@@ -421,3 +421,29 @@
     transform: translateY(0);
   }
 }
+
+/* Editor page: /admin/links */
+.lgc-links { min-height: 100vh; background: #f3efe6; color: #1c1917; font-family: 'Inter Tight', system-ui, sans-serif; padding: 48px 16px 80px; }
+.lgc-links__wrap { max-width: 920px; margin: 0 auto; }
+.lgc-links__eyebrow { color: #d85d18; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 8px; }
+.lgc-links__title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 3.5rem); line-height: 1; margin: 0 0 12px; }
+.lgc-links__muted { color: #78716c; font-size: 0.95rem; line-height: 1.6; margin: 0 0 32px; max-width: 640px; }
+.lgc-links__group { background: #fbf9f5; border: 1px solid #e7dfd2; border-radius: 14px; margin-bottom: 16px; overflow: hidden; }
+.lgc-links__summary { cursor: pointer; padding: 18px 20px; font-family: 'Fraunces', serif; font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
+.lgc-links__count { font-family: 'Inter Tight', sans-serif; font-size: 0.8rem; font-weight: 600; background: rgba(216, 93, 24, 0.12); color: #d85d18; border-radius: 999px; padding: 2px 10px; }
+.lgc-links__empty { padding: 0 20px 20px; margin: 0; }
+.lgc-links__list { list-style: none; margin: 0; padding: 0; }
+.lgc-links__item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; border-top: 1px solid #ece4d8; }
+.lgc-links__info { min-width: 0; }
+.lgc-links__name { font-weight: 600; margin: 0 0 4px; }
+.lgc-links__url { font-size: 0.875rem; color: #44403c; margin: 0 0 4px; overflow-wrap: anywhere; }
+.lgc-links__date { font-size: 0.78rem; color: #a8a29e; margin: 0; }
+.lgc-links__actions { display: flex; gap: 8px; flex-shrink: 0; }
+.lgc-links-btn { display: inline-flex; align-items: center; justify-content: center; height: 38px; padding: 0 14px; border-radius: 8px; border: 1px solid #d6cdbf; background: transparent; color: #1c1917; font-size: 0.875rem; font-weight: 500; text-decoration: none; cursor: pointer; white-space: nowrap; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+.lgc-links-btn:hover { background: #1c1917; border-color: #1c1917; color: #f3efe6; }
+.lgc-links-btn--filled { background: #d85d18; border-color: #d85d18; color: #fff; min-width: 104px; }
+.lgc-links-btn--filled:hover { background: #b94c10; border-color: #b94c10; color: #fff; }
+@media (max-width: 575px) {
+  .lgc-links__item { flex-direction: column; align-items: stretch; }
+  .lgc-links__actions .lgc-links-btn { flex: 1; }
+}

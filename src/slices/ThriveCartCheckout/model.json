@@ -1,0 +1,310 @@
+{
+  "id": "thrivecart_checkout",
+  "type": "SharedSlice",
+  "name": "ThriveCartCheckout",
+  "description": "ThriveCart checkout (embedded form or popup button) from a pasted embed code",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Checkout",
+      "imageUrl": "",
+      "primary": {
+        "badge_text": {
+          "type": "Text",
+          "config": {
+            "label": "Badge Text",
+            "placeholder": ""
+          }
+        },
+        "badge_icon_preset": {
+          "type": "Select",
+          "config": {
+            "label": "Badge Icon",
+            "placeholder": "",
+            "default_value": "Dot",
+            "options": [
+              "Dot",
+              "Trophy",
+              "Star",
+              "Music",
+              "None"
+            ]
+          }
+        },
+        "badge_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Badge Icon Image (optional)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "badge_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Background",
+            "placeholder": "#ffffff"
+          }
+        },
+        "badge_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Text Color",
+            "placeholder": "#d85d18"
+          }
+        },
+        "badge_icon_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Icon Color",
+            "placeholder": ""
+          }
+        },
+        "badge_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Badge Border",
+            "placeholder": "transparent"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1,heading2",
+            "label": "Title"
+          }
+        },
+        "title_font": {
+          "type": "Select",
+          "config": {
+            "label": "Title Font",
+            "placeholder": "",
+            "default_value": "Bebas Neue",
+            "options": [
+              "Bebas Neue",
+              "Inter Tight",
+              "Fraunces",
+              "Inter",
+              "Raleway",
+              "Nunito",
+              "Mochiy Pop One",
+              "Anton"
+            ]
+          }
+        },
+        "title_size": {
+          "type": "Select",
+          "config": {
+            "label": "Title Size",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "Extra Large",
+              "Medium",
+              "Small"
+            ]
+          }
+        },
+        "title_color": {
+          "type": "Color",
+          "config": {
+            "label": "Title Color",
+            "placeholder": "#1c1917"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description (optional)"
+          }
+        },
+        "description_color": {
+          "type": "Color",
+          "config": {
+            "label": "Description / Fine Print Color",
+            "placeholder": "#78716c"
+          }
+        },
+        "header_alignment": {
+          "type": "Select",
+          "config": {
+            "label": "Header Alignment",
+            "placeholder": "",
+            "default_value": "Center",
+            "options": [
+              "Center",
+              "Left"
+            ]
+          }
+        },
+        "embed_code": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "preformatted,paragraph",
+            "label": "ThriveCart Embed Code (paste it as 'Preformatted' text, from ThriveCart → Checkout → Embed)"
+          }
+        },
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Button Label (popup checkout only)",
+            "placeholder": "Buy now"
+          }
+        },
+        "checkout_url": {
+          "type": "Link",
+          "config": {
+            "label": "Checkout Page URL (optional fallback if scripts are blocked)",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true
+          }
+        },
+        "button_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Background",
+            "placeholder": "#d85d18"
+          }
+        },
+        "button_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Text",
+            "placeholder": "#ffffff"
+          }
+        },
+        "button_hover_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Background",
+            "placeholder": "#b94c10"
+          }
+        },
+        "button_hover_text_color": {
+          "type": "Color",
+          "config": {
+            "label": "Button Hover Text",
+            "placeholder": "#ffffff"
+          }
+        },
+        "width": {
+          "type": "Select",
+          "config": {
+            "label": "Width",
+            "placeholder": "",
+            "default_value": "Medium",
+            "options": [
+              "Medium",
+              "Narrow",
+              "Wide"
+            ]
+          }
+        },
+        "show_card": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show White Card Around Checkout",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "card_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Background",
+            "placeholder": "#ffffff"
+          }
+        },
+        "card_border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Card Border",
+            "placeholder": "#e7dfd2"
+          }
+        },
+        "fine_print": {
+          "type": "Text",
+          "config": {
+            "label": "Fine Print (e.g. 'Secure checkout · 30-day money-back guarantee')",
+            "placeholder": ""
+          }
+        },
+        "show_lock_icon": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Lock Icon",
+            "default_value": true,
+            "placeholder_true": "Yes",
+            "placeholder_false": "No"
+          }
+        },
+        "anchor_id": {
+          "type": "Text",
+          "config": {
+            "label": "Section ID (default 'checkout' → link to #checkout)",
+            "placeholder": ""
+          }
+        },
+        "section_bg_color": {
+          "type": "Color",
+          "config": {
+            "label": "Section Background",
+            "placeholder": "#f3efe6"
+          }
+        },
+        "padding_top": {
+          "type": "Select",
+          "config": {
+            "label": "Space Above",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "None",
+              "Small",
+              "Medium",
+              "Extra Large"
+            ]
+          }
+        },
+        "padding_bottom": {
+          "type": "Select",
+          "config": {
+            "label": "Space Below",
+            "placeholder": "",
+            "default_value": "Large",
+            "options": [
+              "Large",
+              "None",
+              "Small",
+              "Medium",
+              "Extra Large"
+            ]
+          }
+        },
+        "padding_top_custom": {
+          "type": "Number",
+          "config": {
+            "label": "Space Above in px (optional)",
+            "placeholder": ""
+          }
+        },
+        "padding_bottom_custom": {
+          "type": "Number",
+          "config": {
+            "label": "Space Below in px (optional)",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

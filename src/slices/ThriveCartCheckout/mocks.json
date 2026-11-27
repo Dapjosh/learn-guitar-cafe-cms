@@ -1,0 +1,26 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "GET INSTANT ACCESS",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "fine_print": {
+        "__TYPE__": "FieldContent",
+        "value": "Secure checkout · 30-day money-back guarantee",
+        "type": "Text"
+      }
+    },
+    "items": []
+  }
+]

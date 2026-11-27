@@ -85,6 +85,9 @@
             },
             "faqs": {
               "type": "SharedSlice"
+            },
+            "lead_form": {
+              "type": "SharedSlice"
             }
           }
         }

@@ -1,0 +1,153 @@
+{
+  "format": "page",
+  "id": "landing_page",
+  "label": "Landing Page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID (page address: /products/<uid>)",
+          "placeholder": "little-red-rooster"
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Page Title (browser tab & SEO fallback)",
+          "placeholder": "Little Red Rooster: free lesson"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "product_hero": {
+              "type": "SharedSlice"
+            },
+            "lead_form": {
+              "type": "SharedSlice"
+            },
+            "deliverables": {
+              "type": "SharedSlice"
+            },
+            "thrivecart_checkout": {
+              "type": "SharedSlice"
+            },
+            "faqs": {
+              "type": "SharedSlice"
+            },
+            "rich_text_slice": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "media_embed": {
+              "type": "SharedSlice"
+            },
+            "video_playlist": {
+              "type": "SharedSlice"
+            },
+            "media_study_card": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "stats_band": {
+              "type": "SharedSlice"
+            },
+            "stats": {
+              "type": "SharedSlice"
+            },
+            "call_to_action": {
+              "type": "SharedSlice"
+            },
+            "content_image_slice": {
+              "type": "SharedSlice"
+            },
+            "author_bio": {
+              "type": "SharedSlice"
+            },
+            "my_story": {
+              "type": "SharedSlice"
+            },
+            "discography": {
+              "type": "SharedSlice"
+            },
+            "hero_with_video": {
+              "type": "SharedSlice"
+            },
+            "course_catalog": {
+              "type": "SharedSlice"
+            },
+            "contact_form": {
+              "type": "SharedSlice"
+            },
+            "contact_info": {
+              "type": "SharedSlice"
+            },
+            "section_headers": {
+              "type": "SharedSlice"
+            },
+            "header": {
+              "type": "SharedSlice"
+            },
+            "image_gallery": {
+              "type": "SharedSlice"
+            },
+            "pricing_table": {
+              "type": "SharedSlice"
+            },
+            "features": {
+              "type": "SharedSlice"
+            },
+            "blog_list": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {
+            "width": 2400,
+            "height": 1260
+          },
+          "thumbnails": []
+        }
+      },
+      "no_index": {
+        "type": "Boolean",
+        "config": {
+          "label": "Hide From Search Engines (noindex)",
+          "default_value": false,
+          "placeholder_true": "Hidden",
+          "placeholder_false": "Indexed"
+        }
+      }
+    }
+  }
+}
